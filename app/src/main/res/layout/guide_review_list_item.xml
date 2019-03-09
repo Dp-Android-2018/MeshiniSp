@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp229w"
+    android:layout_height="@dimen/dp95h"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="@color/off_white_color"
+    android:layout_gravity="center">
+
+<TextView
+    android:id="@+id/tv_review_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textSize="@dimen/sp11"
+    android:textColor="@color/text_color_black"
+    android:padding="8dp">
+
+</TextView>
+
+</androidx.cardview.widget.CardView>

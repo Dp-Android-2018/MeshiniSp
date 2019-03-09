@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp288h"
+    android:layout_gravity="bottom"
+    android:background="@drawable/dialog_top_corner"
+    android:backgroundTint="@android:color/white">
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="Search for requests"
+        android:gravity="center"
+        android:textColor="@color/text_color_black"
+        android:textSize="@dimen/sp19"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/choose_country_city"
+        android:textColor="@color/text_color_black"
+        android:textSize="@dimen/sp15_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <LinearLayout
+        android:id="@+id/et_dialog_country"
+        android:layout_width="0dp"
+        android:layout_height="34.78dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26">
+
+        <Spinner
+            android:id="@+id/request_type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="34.78dp"
+            android:entries="@array/education_request_types"
+            android:popupBackground="@android:color/white"
+            android:prompt="@string/country"
+            android:spinnerMode="dropdown"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <!--<EditText
+        android:id="@+id/et_country"
+        style="@style/EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
+        android:drawableEnd="@drawable/drop_down_arrow"
+        android:focusable="false"
+        android:hint="@string/country"
+        android:paddingEnd="20dp"
+       />-->
+
+    <EditText
+        android:id="@+id/et_dialog_from"
+        style="@style/EditText"
+        android:layout_width="0dp"
+        android:layout_height="34.78dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="@dimen/dp17h"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
+        android:drawableEnd="@drawable/ic_calendar_pic"
+        android:focusable="false"
+        android:hint="From"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dialog_country" />
+
+    <EditText
+        android:id="@+id/et_dialog_to"
+        style="@style/EditText"
+        android:layout_width="0dp"
+        android:layout_height="34.78dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="@dimen/dp17h"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_border"
+        android:drawableEnd="@drawable/ic_calendar_pic"
+        android:focusable="false"
+        android:hint="To"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dialog_from" />
+
+    <Button
+        android:id="@+id/bt_search_for_requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Search for requests"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dialog_to" />
+</androidx.constraintlayout.widget.ConstraintLayout>

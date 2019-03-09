@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        android:id="@+id/trekking"
+        android:icon="@drawable/trekking_selector"
+        android:title="On Foot"/>
+    <tab
+        android:id="@+id/car"
+        android:icon="@drawable/car_selector"
+        android:title="@string/car"/>
+    <tab
+        android:id="@+id/motorbike"
+        android:icon="@drawable/motorbike_selector"
+        android:title="@string/motorbike"/>
+
+    <tab
+        android:id="@+id/bus"
+        android:icon="@drawable/bus_selector"
+        android:title="@string/bus" />
+
+    <tab
+        android:id="@+id/van"
+        android:icon="@drawable/van_selector"
+        android:title="@string/van" />
+
+</tabs>

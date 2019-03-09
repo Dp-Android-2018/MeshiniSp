@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:layout_centerInParent="true">
+    <ImageView
+        android:id="@+id/iv_no_internet"
+        android:layout_width="@dimen/dp293w"
+        android:layout_height="@dimen/dp208h"
+        android:layout_marginTop="@dimen/dp78h"
+        android:src="@drawable/no_wifi"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_below="@+id/iv_no_internet"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="لا يوجد إتصال بالإنترنت"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/sp12_5"
+        android:textColor="@color/text_color_no_data"
+        android:textStyle="bold"/>
+</RelativeLayout>

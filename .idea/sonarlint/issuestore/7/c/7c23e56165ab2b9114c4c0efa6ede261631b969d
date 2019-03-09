@@ -1,0 +1,13 @@
+
+isquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(”î¿Ô8ˆ—”š•-
+osquid:CommentedOutCodeLine„"<This block of commented-out lines of code should be removed.(¹Ô‘¸ûÿÿÿÿ8­µÂ”–-
+Nsquid:S1172P"+Remove this unused method parameter "view".(àï’†üÿÿÿÿ8ˆ—”š•-
+Wsquid:S1481c"4Remove this unused "countryEditText" local variable.(ùÔŸ»ÿÿÿÿÿ8ØØ…–-
+nsquid:CommentedOutCodeLine@"<This block of commented-out lines of code should be removed.(ÆÆÆ¶üÿÿÿÿ8ˆ—”š•-
+Osquid:S1068"",Remove this unused "mWebView" private field.(žÐ¬–ùÿÿÿÿ8Å¶¢ë”-
+Tsquid:S26967"6Make the enclosing method "static" or remove this set.(Ú£Œû8ˆ—”š•-
+‡"squid:ClassVariableVisibilityCheck#"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8¦Œš•-
+fsquid:S1854c"CRemove this useless assignment to local variable "countryEditText".(ùÔŸ»ÿÿÿÿÿ8ØØ…–-
+lsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‘Ù±8Å¶¢ë”-
+‡squid:S1450$"dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8¦Œš•-
+Jsquid:S1444#",Make this "public static drawer" field final(Œ÷›á8¦Œš•-
