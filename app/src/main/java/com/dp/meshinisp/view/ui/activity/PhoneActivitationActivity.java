@@ -5,7 +5,6 @@ import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.dp.meshinisp.ChangePasswordActivity;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityPhoneActivitationBinding;
 

@@ -1,10 +1,12 @@
 package com.dp.meshinisp.view.ui.activity;
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import androidx.databinding.DataBindingUtil;
 
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
@@ -19,8 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.dp.meshinisp.R;
-import com.dp.meshinisp.RequestDetailsActivity;
 import com.dp.meshinisp.databinding.ActivityMainBinding;
+import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.DateTimePicker;
 import com.dp.meshinisp.view.ui.callback.OnDateTimeSelected;
 
@@ -41,9 +43,43 @@ public class MainActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initializeDrawerandNavigationView();
         setupToolbar();
-       /* mWebView = (AdvancedWebView) findViewById(R.id.webview);
-        mWebView.setListener(this, this);
-        mWebView.loadUrl("https://xd.adobe.com/view/2607fb8f-de60-46a9-7c40-fee07a90fd9d-5036/?fullscreen");*/
+
+       binding.navigationView.tvNavItem1.setOnClickListener(v -> {
+           Intent intent=new Intent(MainActivity.this,TripsActivity.class);
+           startActivity(intent);
+       });
+
+       binding.navigationView.tvNavItem2.setOnClickListener(v -> {
+           Intent intent=new Intent(MainActivity.this, OffersActivity.class);
+           startActivity(intent);
+       });
+
+//       binding.navigationView.tvNavItem5.setOnClickListener(v -> openPlayStoreToRateApp());
+
+        binding.navigationView.navigationViewHeaderLayout.findViewById(R.id.v_account).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,AccountActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void openPlayStoreToRateApp() {
+        Uri uri = Uri.parse(ConfigurationFile.Constants.MARKET_URL + this.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        // To count with Play market backstack, After pressing back button,
+        // to taken back to our application, we need to add following flags to intent.
+        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        try {
+            startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(ConfigurationFile.Constants.PLAYSTORE_URL + this.getPackageName())));
+        }
     }
 
     private void setupToolbar() {
@@ -104,52 +140,19 @@ public class MainActivity extends BaseActivity {
     }
 
     private void makeSearch(Button btnSearch) {
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, RequestDetailsActivity.class);
-                startActivity(intent);
-            }
+        btnSearch.setOnClickListener(v -> {
+            Intent intent=new Intent(MainActivity.this, RequestDetailsActivity.class);
+            startActivity(intent);
         });
     }
 
     private void pickDateAndTime(EditText editText) {
-        editText.setOnClickListener(new View.OnClickListener() {
+        editText.setOnClickListener(v -> DateTimePicker.getInstance().showDatePickerDialog(binding.getRoot().getContext(), new OnDateTimeSelected() {
             @Override
-            public void onClick(View v) {
-                DateTimePicker.getInstance().showDatePickerDialog(binding.getRoot().getContext(), new OnDateTimeSelected() {
-                    @Override
-                    public void onDateTimeReady(String date, String time) {
-                        String dateTimeVal = date + " " + time;
-                        editText.setText(dateTimeVal);
-                    }
-                });
+            public void onDateTimeReady(String date, String time) {
+                String dateTimeVal = date + " " + time;
+                editText.setText(dateTimeVal);
             }
-        });
+        }));
     }
-
-    /*@Override
-    public void onPageStarted(String url, Bitmap favicon) {
-
-    }
-
-    @Override
-    public void onPageFinished(String url) {
-
-    }
-
-    @Override
-    public void onPageError(int errorCode, String description, String failingUrl) {
-
-    }
-
-    @Override
-    public void onDownloadRequested(String url, String suggestedFilename, String mimeType, long contentLength, String contentDisposition, String userAgent) {
-
-    }
-
-    @Override
-    public void onExternalPageRequest(String url) {
-
-    }*/
 }

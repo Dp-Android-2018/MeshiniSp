@@ -74,6 +74,8 @@
     <string name="Open">open</string>
     <string name="Close">close</string>
     <string name="choose_country_city"><![CDATA[Choose country & city]]></string>
+    <string name="date_time"><![CDATA[Date & Time:]]></string>
+    <string name="search_for_requests">Search for requests</string>
 
     <string-array name="education_request_types">
         <item>Basic education</item>

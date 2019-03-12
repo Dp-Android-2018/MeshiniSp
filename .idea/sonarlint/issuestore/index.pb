@@ -89,8 +89,6 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
-n
->app/src/main/java/com/dp/meshinisp/ChangePasswordActivity.java,b\e\be3437a8fc074f47b712b565c91115bdc61aa90f
 ‚
 Rapp/src/main/java/com/dp/meshinisp/view/ui/activity/PhoneActivitationActivity.java,7\6\76298a6a6ae55b89f7bb8c0dfaa6ce398412d095
 z
@@ -109,7 +107,13 @@ k
 ;app/src/main/java/com/dp/meshinisp/di/koin/NetworkModule.kt,4\0\409ee32f4cd82e352cbdb60b15902c10edae402a
 o
 ?app/src/main/java/com/dp/meshinisp/application/MyApplication.kt,c\1\c1ce5971d2798970e695a5def32cc9e245f1b009
-h
-8app/src/main/java/com/dp/meshinisp/RequestsActivity.java,0\9\0948f848b00a07e34967d0b60e3b450b43d4c4dc
-n
->app/src/main/java/com/dp/meshinisp/RequestDetailsActivity.java,5\7\578b828800f144ffb0a44ab1cbf0847909e6baed
+
+Oapp/src/main/java/com/dp/meshinisp/view/ui/activity/ChangePasswordActivity.java,a\3\a3e4edd2cfd890e9bf7e8f4cbcf7ee8f8f1dd707
+u
+Eapp/src/main/java/com/dp/meshinisp/view/ui/activity/ChatActivity.java,b\f\bf4321cc355921b29d160f36f7b146887b068e88
+w
+Gapp/src/main/java/com/dp/meshinisp/view/ui/activity/OffersActivity.java,7\0\70e595a23ff297c41f3dc3ffc651d0e8de1f5317
+y
+Iapp/src/main/java/com/dp/meshinisp/view/ui/activity/RequestsActivity.java,f\3\f3ce2a949ea530b881b10cdd5618e99ba50d4ec7
+
+Oapp/src/main/java/com/dp/meshinisp/view/ui/activity/RequestDetailsActivity.java,6\1\61560609ddfb4bc29c8361e454f8807f852c6ca6

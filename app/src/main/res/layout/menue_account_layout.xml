@@ -21,7 +21,7 @@
         android:layout_height="@dimen/dp47h"
         android:layout_marginTop="@dimen/dp12h"
         android:layout_marginEnd="@dimen/dp20w"
-        android:src="@drawable/pattern"
+        android:src="@drawable/im_man"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

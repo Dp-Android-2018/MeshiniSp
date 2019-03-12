@@ -85,6 +85,8 @@ dependencies {
 
     //Pinview
     implementation 'com.github.GoodieBag:Pinview:v1.3'
+
+    //koin-android Dependency
     implementation 'org.koin:koin-android:1.0.2'
     implementation 'org.koin:koin-android-viewmodel:1.0.2'
     implementation 'org.koin:koin-android:1.0.2'
@@ -93,5 +95,8 @@ dependencies {
 
     //folding cell
     implementation 'com.ramotion.foldingcell:folding-cell:1.2.3'
+
+    //swipe button
+    implementation 'com.ebanx:swipe-button:0.4.0'
 
 }

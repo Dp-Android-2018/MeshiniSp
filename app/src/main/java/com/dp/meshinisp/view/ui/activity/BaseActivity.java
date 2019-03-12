@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import dagger.Lazy;
 
 import com.dp.meshinisp.application.MyApp;
+import com.dp.meshinisp.application.MyApplication;
 import com.dp.meshinisp.utility.utils.ConnectionReceiver;
 
 public class BaseActivity extends AppCompatActivity implements ConnectionReceiver.ConnectionReceiverListener {
+
+//    private Lazy<MyApplication> presenterLazy = inject(MyApplication.class);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

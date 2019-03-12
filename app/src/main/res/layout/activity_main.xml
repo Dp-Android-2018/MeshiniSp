@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp55h"
             android:background="@drawable/dialog_top_corner"
-            android:text="@string/request_a_guide"
+            android:text="@string/search_for_requests"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/sp18"
             android:textAllCaps="false"
