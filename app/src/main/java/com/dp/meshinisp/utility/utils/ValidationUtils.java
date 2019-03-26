@@ -95,7 +95,7 @@ public class ValidationUtils {
         return false;
     }
 
-    private static Boolean isMail(CharSequence str) {
+    public static Boolean isMail(CharSequence str) {
 
         return str != null && android.util.Patterns.EMAIL_ADDRESS.matcher(str).matches();
     }

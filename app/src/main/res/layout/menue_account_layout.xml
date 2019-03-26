@@ -16,7 +16,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_rate"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView3"
+        android:id="@+id/im_user_image"
         android:layout_width="@dimen/dp47w"
         android:layout_height="@dimen/dp47h"
         android:layout_marginTop="@dimen/dp12h"
@@ -26,18 +26,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Ahmed Khairallah"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp15_5"
-        app:layout_constraintEnd_toEndOf="@+id/circleImageView3"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView3" />
+        app:layout_constraintEnd_toEndOf="@+id/im_user_image"
+        app:layout_constraintTop_toBottomOf="@+id/im_user_image" />
 
     <TextView
-        android:id="@+id/tv_rate"
+        android:id="@+id/tv_user_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(4.5)"
@@ -45,8 +45,8 @@
         android:textSize="@dimen/sp15_5"
         android:drawableEnd="@drawable/star"
         android:drawablePadding="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

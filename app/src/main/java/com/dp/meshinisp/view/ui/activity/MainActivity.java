@@ -19,51 +19,87 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityMainBinding;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.DateTimePicker;
 import com.dp.meshinisp.view.ui.callback.OnDateTimeSelected;
+import com.squareup.picasso.Picasso;
+
+import javax.inject.Inject;
 
 import im.delight.android.webview.AdvancedWebView;
+import kotlin.Lazy;
+
+import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 //implements AdvancedWebView.Listener
 
 public class MainActivity extends BaseActivity {
 
     ActivityMainBinding binding;
-    private AdvancedWebView mWebView;
     public static DrawerLayout drawer;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    private Lazy<CustomUtils> customUtilsLazy= inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initializeDrawerandNavigationView();
+        initializeUiData();
         setupToolbar();
+        makeActionOnClickOnMenuItems();
 
-       binding.navigationView.tvNavItem1.setOnClickListener(v -> {
-           Intent intent=new Intent(MainActivity.this,TripsActivity.class);
-           startActivity(intent);
-       });
+    }
 
-       binding.navigationView.tvNavItem2.setOnClickListener(v -> {
-           Intent intent=new Intent(MainActivity.this, OffersActivity.class);
-           startActivity(intent);
-       });
+    private void initializeUiData() {
+        TextView tvName=binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.tv_user_name);
+        TextView tvrate=binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.tv_user_rate);
+        ImageView userImageView=binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.im_user_image);
 
-//       binding.navigationView.tvNavItem5.setOnClickListener(v -> openPlayStoreToRateApp());
+        tvName.setText(customUtilsLazy.getValue().getSavedMemberData().getFirstName());
+        tvrate.setText(customUtilsLazy.getValue().getSavedMemberData().getEmail());
 
-        binding.navigationView.navigationViewHeaderLayout.findViewById(R.id.v_account).setOnClickListener(new View.OnClickListener() {
+        Picasso.get().load(customUtilsLazy.getValue().getSavedMemberData().getProfilePictureUrl()).into(userImageView);
+    }
+
+    private void makeActionOnClickOnMenuItems() {
+        binding.navigationView.tvNavItem1.setOnClickListener(v -> {
+            Intent intent=new Intent(MainActivity.this,TripsActivity.class);
+            startActivity(intent);
+        });
+
+        binding.navigationView.tvNavItem2.setOnClickListener(v -> {
+            Intent intent=new Intent(MainActivity.this, OffersActivity.class);
+            startActivity(intent);
+        });
+
+        binding.navigationView.tvNavItem6.setOnClickListener(v -> {
+            logout();
+
+        });
+
+       binding.navigationView.tvNavItem5.setOnClickListener(v -> openPlayStoreToRateApp());
+
+        binding.navigationView.navigationViewHeaderLayout.vAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,AccountActivity.class);
                 startActivity(intent);
             }
         });
+    }
 
+    private void logout() {
+        customUtilsLazy.getValue().clearSharedPref();
+        Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void openPlayStoreToRateApp() {

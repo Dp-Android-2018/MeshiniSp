@@ -1,3 +1,2 @@
 
-bsquid:UselessImportCheck"7Remove this unused import 'android.view.WindowManager'.(Ü³‹Å8Ž©š—•-
-lsquid:MaximumInheritanceDepth"<This class has 8 parents which is greater than 5 authorized.(×ŽÌ8’£ªî”-
+lsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(×ŽÌ8’£ªî”-

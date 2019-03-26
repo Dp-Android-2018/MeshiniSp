@@ -1,3 +1,4 @@
 
-lsquid:MaximumInheritanceDepth"<This class has 8 parents which is greater than 5 authorized.(Ê¨¹8†ý¥ë”-
-bsquid:UselessImportCheck"7Remove this unused import 'android.view.WindowManager'.(Ü³‹Å8­±Ù˜•-
+lsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(Ê¨¹8†ý¥ë”-
+Isquid:S1172`"+Remove this unused method parameter "view".(…Ž€¤8´Åè¶—-
+\squid:UselessImportCheck"1Remove this unused import 'com.google.gson.Gson'.(–§8º§ãˆ™-

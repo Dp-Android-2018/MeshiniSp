@@ -2,33 +2,33 @@ package com.dp.meshinisp.view.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import dagger.Lazy;
 
-import com.dp.meshinisp.application.MyApp;
+import com.crashlytics.android.Crashlytics;
 import com.dp.meshinisp.application.MyApplication;
 import com.dp.meshinisp.utility.utils.ConnectionReceiver;
 
-public class BaseActivity extends AppCompatActivity implements ConnectionReceiver.ConnectionReceiverListener {
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import io.fabric.sdk.android.Fabric;
 
-//    private Lazy<MyApplication> presenterLazy = inject(MyApplication.class);
+public class BaseActivity extends AppCompatActivity implements ConnectionReceiver.ConnectionReceiverListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
+        MyApplication.Companion.getInstance().setConnectionListener(this);
         checkConnection();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        MyApp.getInstance().setConnectionListener(this);
+        MyApplication.Companion.getInstance().setConnectionListener(this);
     }
 
     public void checkConnection() {
         boolean isConnected = ConnectionReceiver.isConnected();
-        System.out.println("Internet Connection Status :" + isConnected);
         if (!isConnected) {
             //show a No Internet Alert or Dialog
             Intent I = new Intent(BaseActivity.this, NoInternetConnectionActivity.class);

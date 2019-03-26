@@ -1,19 +1,35 @@
 package com.dp.meshinisp.view.ui.activity;
 
 import android.content.Intent;
-import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.WindowManager;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityLoginBinding;
+import com.dp.meshinisp.service.model.global.LoginResponseModel;
+import com.dp.meshinisp.service.model.request.LoginRequest;
+import com.dp.meshinisp.service.model.response.LoginResponse;
+import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
+import com.dp.meshinisp.utility.utils.SharedUtils;
+import com.dp.meshinisp.utility.utils.ValidationUtils;
+import com.dp.meshinisp.viewmodel.LoginViewModel;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import kotlin.Lazy;
+import retrofit2.Response;
+
+import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
+    Lazy<LoginViewModel> loginViewModelLazy = inject(LoginViewModel.class);
+    Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +42,103 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void makeActionOnClickOnbtLogin() {
-        binding.btLogin.setOnClickListener(v -> openIntent(MainActivity.class));
+        binding.btLogin.setOnClickListener(v -> {
+            if (ValidationUtils.isConnectingToInternet(this)) {
+                if (!binding.etMail.getText().toString().isEmpty()
+                        && !binding.etPassword.getText().toString().isEmpty()
+                        && (binding.etPassword.getText().toString().length() >= 8)
+                ) {
+                    makeLoginRequest();
+                } else {
+                    showErrors();
+                }
+            } else {
+                showSnackbar(getString(R.string.there_is_no_internet_connection));
+            }
+        });
+    }
+
+    private void makeLoginRequest() {
+        SharedUtils.getInstance().showProgressDialog(this);
+        loginViewModelLazy.getValue().login(getLoginRequest()).observe(this, new Observer<Response<LoginResponse>>() {
+            @Override
+            public void onChanged(Response<LoginResponse> loginResponseResponse) {
+                SharedUtils.getInstance().cancelDialog();
+                if (loginResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE ||
+                        loginResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                    if (loginResponseResponse.body() != null) {
+                        Snackbar.make(binding.getRoot(), "Login Success :)", Snackbar.LENGTH_SHORT).show();
+                        saveDataToSharedPreferences(loginResponseResponse.body().getData());
+                        openMainActivity();
+                    } else {
+                        Snackbar.make(binding.getRoot(), "no data", Snackbar.LENGTH_SHORT).show();
+                    }
+                } else {
+                    makeActionOnCode(loginResponseResponse);
+                }
+            }
+        });
+    }
+
+    private void makeActionOnCode(Response<LoginResponse> loginResponseResponse) {
+        if (loginResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE) {
+            if (loginResponseResponse.body() != null) {
+                saveDataToSharedPreferences(loginResponseResponse.body().getData());
+                openMainActivity();
+            }
+        } else {
+            showSnackbar("error code : " + loginResponseResponse.code());
+            Snackbar.make(binding.getRoot(), R.string.error_mail_or_phone_or_password, Snackbar.LENGTH_SHORT).show();
+        }
+          /*  if (loginResponseResponse.code() == ConfigurationFile.Constants.NOT_ACTIVATED_CODE){
+            showSnackbar(loginResponseResponse.body().getMessage());
+        }else if (loginResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE){
+            showSnackbar(loginResponseResponse.body().getError());
+        }else if (loginResponseResponse.code() == ConfigurationFile.Constants.WAIT_CODE){
+            showSnackbar(loginResponseResponse.body().getError());
+        }else if (loginResponseResponse.code() == ConfigurationFile.Constants.INVALED_DATA_CODE){
+            StringBuilder errors= new StringBuilder();
+            for (int i=0;i<loginResponseResponse.body().getErrors().size();i++){
+                errors.append(loginResponseResponse.body().getErrors().get(i));
+                errors.append("\n");
+            }
+            showSnackbar(errors.toString());
+        }*/
+    }
+
+    private void saveDataToSharedPreferences(LoginResponseModel data) {
+        customUtilsLazy.getValue().saveMemberDataToPrefs(data);
+    }
+
+    private void openMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private LoginRequest getLoginRequest() {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail(binding.etMail.getText().toString());
+        loginRequest.setPassword(binding.etPassword.getText().toString());
+        return loginRequest;
+    }
+
+    private void showErrors() {
+        if (binding.etMail.getText().toString().isEmpty()) {
+            showSnackbar(getString(R.string.enter_mail_or_phone_error_message));
+            return;
+        }
+        if (binding.etPassword.getText().toString().isEmpty()) {
+            showSnackbar(getString(R.string.enter_password_error_message));
+            return;
+        }
+        if (binding.etPassword.getText().toString().length() < 8) {
+            showSnackbar(getString(R.string.password_length_message_error));
+        }
+    }
+
+    public void showSnackbar(String message) {
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG).show();
     }
 
     private void makeActionOnClickOntvNewUserSignUp() {

@@ -1,0 +1,7 @@
+
+8squid:S1170"!Make this final field static too.(ñš”ñ
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(îØô“ùÿÿÿÿ8¹è“Ð›-
+lsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(©ˆà8œÙÐ’—-
+nsquid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(ÀÝ²èýÿÿÿÿ8œØÎ’—-
+xsquid:S00116"`Rename this field "SPLASH_DISPLAY_LENGTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñš”ñ
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ô×«áûÿÿÿÿ8î¯Î’—-

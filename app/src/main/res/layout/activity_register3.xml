@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Please choose your vehicle Type"
+        android:text="@string/please_choose_your_vehicle_type"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="17sp"
@@ -49,10 +49,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
-    <com.roughike.bottombar.BottomBar
+  <!--  <com.roughike.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_marginTop="18dp"
         app:bb_activeTabAlpha="1"
         app:bb_behavior="iconsOnly"
@@ -64,7 +64,20 @@
         app:bb_titleTextAppearance="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
+
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp72h"
+        android:shadowColor="@color/white_90"
+        app:bnbBackgroundColor="@android:color/white"
+        android:backgroundTint="@color/transparent"
+        android:background="@color/transparent"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -82,8 +95,8 @@
 
     <ImageView
         android:id="@+id/iv_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="174dp"
+        android:layout_height="174dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="8dp"

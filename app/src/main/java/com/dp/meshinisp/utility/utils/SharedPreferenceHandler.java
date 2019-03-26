@@ -3,25 +3,21 @@ package com.dp.meshinisp.utility.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.dp.meshinisp.application.MyApp;
-import com.dp.meshinisp.di.component.SharedPreferencesSubComponent;
-import com.dp.meshinisp.di.modules.PreferenceEditorModule;
+import com.dp.meshinisp.R;
 import com.google.gson.Gson;
-
-import javax.inject.Inject;
 
 public class SharedPreferenceHandler {
 
-    @Inject
+    private Context context;
     SharedPreferences.Editor editor;
-
-    @Inject
     SharedPreferences prefs;
 
     public SharedPreferenceHandler(Context context) {
-        SharedPreferencesSubComponent sharedPreferencesSubComponent = (((MyApp) context).getDaggerNetworkComponent()).
-                getSubComponentSharedPreference(new PreferenceEditorModule());
-        sharedPreferencesSubComponent.inject(this);
+        this.context=context;
+        prefs=context.getSharedPreferences(context.getResources().getString(R.string.action_close)
+                , Context.MODE_PRIVATE);
+
+        editor=context.getSharedPreferences(context.getResources().getString(R.string.action_close), Context.MODE_PRIVATE).edit();
     }
 
     public void addStringToSharedPreferences(String title, String value) {
@@ -76,7 +72,7 @@ public class SharedPreferenceHandler {
         editor.commit();
     }
 
-/*    public boolean getSavedActivationType() {
+    public boolean getSavedActivationType() {
         return prefs.getBoolean(ConfigurationFile.Constants.ACTIVATION_TYPE,false);
     }
 
@@ -87,7 +83,7 @@ public class SharedPreferenceHandler {
 
     public String getSavedLanguageType() {
         return prefs.getString(ConfigurationFile.Constants.LANGUAGE_TYPE,"0");
-    }*/
+    }
 
     public void clearToken() {
         editor.clear();

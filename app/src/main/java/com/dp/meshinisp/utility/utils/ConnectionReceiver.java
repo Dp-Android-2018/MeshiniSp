@@ -5,8 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
-import com.dp.meshinisp.application.MyApp;
+import com.dp.meshinisp.application.MyApplication;
 
 
 public class ConnectionReceiver extends BroadcastReceiver {
@@ -32,7 +31,7 @@ public class ConnectionReceiver extends BroadcastReceiver {
 
     public static boolean isConnected() {
         ConnectivityManager
-                cm = (ConnectivityManager) MyApp.getInstance().getApplicationContext()
+                cm = (ConnectivityManager) MyApplication.Companion.getInstance().getApplicationContext()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null

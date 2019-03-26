@@ -1,2 +1,13 @@
 
-esquid:MaximumInheritanceDepth"<This class has 8 parents which is greater than 5 authorized.(ð“©°
+isquid:CommentedOutCodeLinew"<This block of commented-out lines of code should be removed.(³Ò»·8¬Ã÷þš-
+Tsquid:S10680"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8þî¿ª›-
+osquid:CommentedOutCodeLine›"<This block of commented-out lines of code should be removed.(Ôä±âûÿÿÿÿ8ªÌ·þš-
+esquid:MaximumInheritanceDepth%"<This class has 9 parents which is greater than 5 authorized.(ð“©°
+¤squid:S1186n"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âÈºùÿÿÿÿ8êôþš-
+jsquid:CallToDeprecatedMethod+"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8‘¢Ïöš-
+|squid:S4144q"^Update this method so that its implementation is not identical to "onTabSelected" on line 104.(êÇÄµ8Æ¨Å›-
+]"squid:SwitchLastCaseIsDefaultCheck…""Add a default case to this switch.(Ò“ÿšùÿÿÿÿ8€€ãüš-
+squid:S14500"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8þî¿ª›-
+ksquid:CallToDeprecatedMethodò"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ðúÿÿÿÿ8ªÌ·þš-
+Gsquid:S1148»"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ªÌ·þš-
+Gsquid:S1148Û"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ªÌ·þš-

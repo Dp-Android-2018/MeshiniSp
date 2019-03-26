@@ -1,50 +1,50 @@
 package com.dp.meshinisp.utility.utils;
 
-import android.app.Application;
+import com.dp.meshinisp.service.model.global.LoginResponseModel;
+
+import kotlin.Lazy;
+
+import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 
 public class CustomUtils {
-   /* private SharedPreferenceHandler prefrenceUtils;
-
-    public CustomUtils(Application application) {
-        this.prefrenceUtils = GetSharedPreference.getInstance().getSharedPreference(application);
-    }
+    private Lazy<SharedPreferenceHandler> prefrenceUtils = inject(SharedPreferenceHandler.class);
 
     public LoginResponseModel getSavedMemberData() {
-        return (LoginResponseModel) prefrenceUtils.getSavedObject(ConfigurationFile.SharedPrefConstants.SHARED_PREF_NAME, LoginResponseModel.class);
+        return (LoginResponseModel) prefrenceUtils.getValue().getSavedObject(ConfigurationFile.SharedPrefConstants.SHARED_PREF_NAME, LoginResponseModel.class);
     }
 
     public void saveMemberDataToPrefs(LoginResponseModel data) {
-        prefrenceUtils.saveObjectToSharedPreferences(ConfigurationFile.SharedPrefConstants.SHARED_PREF_NAME, data);
+        prefrenceUtils.getValue().saveObjectToSharedPreferences(ConfigurationFile.SharedPrefConstants.SHARED_PREF_NAME, data);
     }
 
-    public void saveMobileUserDataToPrefs(SignUpRequest data) {
+    /*public void saveMobileUserDataToPrefs(SignUpRequest data) {
         prefrenceUtils.saveObjectToSharedPreferences(ConfigurationFile.SharedPrefConstants.NewDataToSave, data);
     }
 
     public SignUpRequest getSaveMobileUserDataToPrefs() {
         return (SignUpRequest) prefrenceUtils.getSavedObject(ConfigurationFile.SharedPrefConstants.NewDataToSave, SignUpRequest.class);
-    }
+    }*/
 
     public void saveActivationTypeToPrefs(String objName, boolean objValue){
-        prefrenceUtils.saveMemberTypeSharedPreferences(objName,objValue);
+        prefrenceUtils.getValue().saveMemberTypeSharedPreferences(objName,objValue);
     }
 
     public boolean getSavedActivationType(){
-        return prefrenceUtils.getSavedActivationType();
+        return prefrenceUtils.getValue().getSavedActivationType();
     }
 
 
     public void saveLanguageTypeToPrefs(String langValue){
-        prefrenceUtils.saveLanguageTypeSharedPreferences(ConfigurationFile.Constants.LANGUAGE_TYPE,langValue);
+        prefrenceUtils.getValue().saveLanguageTypeSharedPreferences(ConfigurationFile.Constants.LANGUAGE_TYPE,langValue);
     }
 
     public String getSavedLanguageType(){
-        return prefrenceUtils.getSavedLanguageType();
+        return prefrenceUtils.getValue().getSavedLanguageType();
     }
 
 
     public void clearSharedPref() {
-        prefrenceUtils.clearToken();
-    }*/
+        prefrenceUtils.getValue().clearToken();
+    }
 }

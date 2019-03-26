@@ -33,26 +33,30 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/et_new_password"
+        android:id="@+id/et_mail"
         style="@style/EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp24h"
+        android:inputType="text"
+        android:singleLine="true"
         android:hint="@string/email_phone_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"/>
 
     <EditText
-        android:id="@+id/et_confirm_password"
+        android:id="@+id/et_password"
         style="@style/EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/password"
+        android:inputType="textPassword"
+        android:singleLine="true"
         android:layout_marginTop="@dimen/dp32h"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_new_password"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_mail"/>
 
     <TextView
         android:id="@+id/tv_forget_password"
@@ -66,7 +70,7 @@
         android:textSize="@dimen/sp11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_confirm_password" />
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <TextView
         android:id="@+id/tv_new_user_sign_up"

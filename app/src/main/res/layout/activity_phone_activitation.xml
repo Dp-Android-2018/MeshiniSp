@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp17h"
@@ -70,7 +70,7 @@
         android:autofillHints="*"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone"
         android:layout_marginTop="@dimen/dp56h"
         app:pinBackground="@drawable/pin_item_background"
         app:pinHeight="@dimen/dp51h"

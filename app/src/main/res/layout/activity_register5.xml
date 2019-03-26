@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/group_background"
@@ -78,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_upload" />
 
     <Button
-        android:id="@+id/bt_sign_up"
+        android:id="@+id/bt_done"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp55h"
         android:background="@color/sky_color"
@@ -90,3 +93,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

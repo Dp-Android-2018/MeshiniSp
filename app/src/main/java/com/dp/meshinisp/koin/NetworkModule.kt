@@ -1,0 +1,62 @@
+package com.dp.meshinisp.koin
+
+import android.content.Context
+import com.dp.meshinisp.service.repository.remotes.ApiInterfaces
+import com.dp.meshinisp.utility.utils.ConfigurationFile
+import okhttp3.OkHttpClient
+import org.greenrobot.eventbus.EventBus
+import org.koin.android.ext.koin.androidApplication
+import org.koin.dsl.module.module
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
+
+
+@JvmField
+val NetworkModule = module {
+    single { provideOkHttpClient(androidApplication()) }
+    single { provideRetrofit(androidApplication(), get()) }
+    single { getRerofitEndPoint(get()) }
+}
+
+
+internal fun provideOkHttpClient(context: Context): OkHttpClient {
+    val okHttpClient = OkHttpClient.Builder()
+    okHttpClient.connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+    okHttpClient.addInterceptor { chain ->
+        val original = chain.request()
+
+        // Request customization: add request headers
+        val requestBuilder = original.newBuilder()
+        requestBuilder.header("x-api-key", ConfigurationFile.Constants.API_KEY)
+        requestBuilder.header("Content-Type", ConfigurationFile.Constants.CONTENT_TYPE)
+        requestBuilder.header("Accept", ConfigurationFile.Constants.ACCEPT)
+        //requestBuilder.head("Authorization", );
+        // <-- this is the important line
+
+        val request = requestBuilder.build()
+        val response = chain.proceed(request)
+        if (response.code() == 404 || response.code() == 401) {
+            EventBus.getDefault().post(response.message())
+            println("Message Event : "+(response.message()))
+        }
+        response
+    }
+
+    return okHttpClient.build()
+}
+
+fun provideRetrofit(context: Context, okHttpClient: OkHttpClient): Retrofit {
+    return Retrofit.Builder()
+            .baseUrl(ConfigurationFile.UrlConstants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .client(okHttpClient)
+            .build()
+}
+
+internal fun getRerofitEndPoint(retrofit: Retrofit): ApiInterfaces {
+    return retrofit.create(ApiInterfaces::class.java)
+}

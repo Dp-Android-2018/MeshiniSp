@@ -1,10 +1,14 @@
 package com.dp.meshinisp.utility.utils;
 
+import android.text.format.DateFormat;
+
+import java.util.Date;
+
 public class ConfigurationFile {
 
     public static class UrlConstants {
 
-        public static final String BASE_URL = "http://www.mpalsaloom.com";
+        public static final String BASE_URL = "http://151.106.52.109:2018";
     }
 
     public static class Constants {
@@ -14,6 +18,9 @@ public class ConfigurationFile {
         public static final String ACCEPT = "application/json";
         public static final String BEARER_STRING = "Bearer ";
         public static String ACCEPT_LANGUAGE = "en";
+
+
+        public static String REGISTER1DATA = "REGISTER1Data";
 
         public static final String ACCEPT_LANGUAGE_ARABIC = "ar";
         public static final String ACCEPT_LANGUAGE_ENGLISH = "en";
@@ -29,6 +36,10 @@ public class ConfigurationFile {
 
         public static final String MARKET_URL = "market://details?id=";
         public static final String PLAYSTORE_URL = "http://play.google.com/store/apps/details?id=";
+
+        static final String name = DateFormat.format("yyyy-MM-dd_hhmmss", new Date()).toString();
+        public static final String SERVICEPROVIDER_DIRECTORY_NAME = name;
+
         public static final String TYPE = "TYPE";
         public static final String DATA = "DATA";
         public static final String BUTTON_TYPE = "Button Type";
@@ -76,6 +87,7 @@ public class ConfigurationFile {
         public static final String TWITTER_NAME = "Twitter";
         public static final String INSTAGRAM_NAME = "Instagram";
         public static final String MAIL_NAME = "Mail";
+        public static final String TOKN_VALUE = "Token";
         public static final String BROWSER_NAME = "Browser";
         public static final String FACEBOOK_PACKAGE_NAME = "com.facebook.katana";
         public static final String FACEBOOK_PACKAGE_NAME_URL = "fb://facewebmodal/f?href=";
@@ -96,9 +108,10 @@ public class ConfigurationFile {
 
         public static final int PAGE_ID = 0;
         public static final int SUCCESS_CODE = 200;
-        public static final int WAIT_CODE = 429;
-        public static final int UNAUTHANTICATED_CODE = 401;
         public static final int SUCCESS_CODE_SECOND = 201;
+        public static final int NOT_ACTIVATED_CODE = 417 ;
+        public static final int LOGGED_IN_BEFORE_CODE = 401 ;
+        public static final int WAIT_CODE = 429;
         public static final int INVALED_DATA_CODE = 422;
         public static final String DEFAULT_STRING_VALUE = "";
 

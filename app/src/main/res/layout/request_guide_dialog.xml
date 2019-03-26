@@ -52,10 +52,10 @@
             android:layout_width="match_parent"
             android:layout_height="34.78dp"
             android:entries="@array/education_request_types"
-            android:popupBackground="@android:color/white"
+            android:popupBackground="@android:color/black"
             android:prompt="@string/country"
             android:spinnerMode="dropdown"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="15sp" />
     </LinearLayout>
 

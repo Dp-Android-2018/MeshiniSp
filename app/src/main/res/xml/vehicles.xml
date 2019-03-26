@@ -2,9 +2,9 @@
 <tabs
     xmlns:android="http://schemas.android.com/apk/res/android">
     <tab
-        android:id="@+id/trekking"
+        android:id="@+id/on_foot"
         android:icon="@drawable/trekking_selector"
-        android:title="On Foot"/>
+        android:title="@string/on_foot"/>
     <tab
         android:id="@+id/car"
         android:icon="@drawable/car_selector"
