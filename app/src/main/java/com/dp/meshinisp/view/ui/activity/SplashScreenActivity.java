@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 
 import com.dp.meshinisp.R;
+import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 
 import java.util.Locale;
@@ -46,6 +47,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Intent mainIntent = new Intent(SplashScreenActivity.this,MainActivity.class);
                 SplashScreenActivity.this.startActivity(mainIntent);
                 SplashScreenActivity.this.finish();
+                ConfigurationFile.Constants.AUTHORIZATION=customUtilsLazy.getValue().getSavedMemberData().getApiToken();
             }else {
                 Intent mainIntent = new Intent(SplashScreenActivity.this,HomeActivity.class);
                 SplashScreenActivity.this.startActivity(mainIntent);

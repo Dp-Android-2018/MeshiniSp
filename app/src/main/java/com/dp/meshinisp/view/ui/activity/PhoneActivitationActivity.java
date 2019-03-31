@@ -85,7 +85,7 @@ public class PhoneActivitationActivity extends AppCompatActivity {
                         SharedUtils.getInstance().cancelDialog();
                         if (activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
                                 || activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
-                            showSnackBar(activationResponseResponse.body().getMessage());
+                            showSnackBar("Code Sent Successfully.");
                         } else {
                             showSnackBar("error code :" + activationResponseResponse.code());
                         }

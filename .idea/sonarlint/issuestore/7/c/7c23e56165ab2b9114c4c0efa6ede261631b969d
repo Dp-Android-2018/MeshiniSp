@@ -1,12 +1,21 @@
 
-Jsquid:S1444-",Make this "public static drawer" field final(Œ÷›á8¦Œš•-
-Osquid:S1602R",Remove useless curly braces around statement(ˆÜ ˜üÿÿÿÿ8¢ËˆĞ›-
-Osquid:S1172˜"+Remove this unused method parameter "view".(àï’†üÿÿÿÿ8´â›Ñ›-
-Tsquid:S2696"6Make the enclosing method "static" or remove this set.(Ú£Œû8Ğ€ŠĞ›-
-gsquid:S1854«"CRemove this useless assignment to local variable "countryEditText".(ùÔŸ»ÿÿÿÿÿ8Ğ€ŠĞ›-
-msquid:MaximumInheritanceDepth*"=This class has 10 parents which is greater than 5 authorized.(‘Ù±8´â›Ñ›-
-‡"squid:ClassVariableVisibilityCheck-"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8¦Œš•-
-[squid:UselessImportCheck!"0Remove this unused import 'javax.inject.Inject'.(ì–íÔ8¨ƒí¦›-
-Xsquid:S1481«"4Remove this unused "countryEditText" local variable.(ùÔŸ»ÿÿÿÿÿ8Ğ€ŠĞ›-
-osquid:CommentedOutCodeLineˆ"<This block of commented-out lines of code should be removed.(ÆÆÆ¶üÿÿÿÿ8Ğ€ŠĞ›-
-‡squid:S1450."dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8¦Œš•-
+Osquid:S1602k",Remove useless curly braces around statement(ˆÜ ˜üÿÿÿÿ8¢ËˆĞ›-
+qsquid:S3776ò"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÚÍÍ8ŠŸ±ùœ-
+hsquid:UselessImportCheck3"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8·‘öğœ-
+‡"squid:ClassVariableVisibilityCheck>"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8¦Œš•-
+‡squid:S1450?"dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8¦Œš•-
+@squid:S1643‰"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8·‘öğœ-
+Usquid:S2696˜"6Make the enclosing method "static" or remove this set.(Ú£Œû8Ğ€ŠĞ›-
+Ssquid:S1066ú"/Merge this if statement with the enclosing one.(ì‡òÿùÿÿÿÿ8ŠŸ±ùœ-
+Zsquid:S2696ó"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ôÕ†õœ-
+csquid:UselessImportCheck"3Remove this unused import 'android.widget.Spinner'.(¸£ÃØüÿÿÿÿ8Øõœ-
+‰squid:UselessImportCheck"YRemove this unused import 'com.dp.meshinisp.service.model.request.SearchRequestsRequest'.(Ñ·ì•ùÿÿÿÿ8ŠÛ‰õœ-
+msquid:MaximumInheritanceDepth;"=This class has 10 parents which is greater than 5 authorized.(‘Ù±8´â›Ñ›-
+ƒsquid:UselessImportCheck"XRemove this unused import 'com.dp.meshinisp.service.model.global.RequestsResponseModel'.(Í›×Å8¾×í÷œ-
+osquid:CommentedOutCodeLine¡"<This block of commented-out lines of code should be removed.(ÆÆÆ¶üÿÿÿÿ8Ğ€ŠĞ›-
+[squid:UselessImportCheck)"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¾×í÷œ-
+Jsquid:S1444>",Make this "public static drawer" field final(Œ÷›á8¦Œš•-
+Osquid:S1172±"+Remove this unused method parameter "view".(àï’†üÿÿÿÿ8´â›Ñ›-
+Gsquid:S1148…"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ª†÷ğœ-
+@squid:S1643Š"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8ª†÷ğœ-
+Zsquid:UselessImportCheck5"/Remove this unused import 'retrofit2.Response'.(¾éçï8·‘öğœ-

@@ -8,6 +8,7 @@ import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityLoginBinding;
 import com.dp.meshinisp.service.model.global.LoginResponseModel;
 import com.dp.meshinisp.service.model.request.LoginRequest;
+import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.LoginResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
@@ -15,6 +16,10 @@ import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.viewmodel.LoginViewModel;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -43,17 +48,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private void makeActionOnClickOnbtLogin() {
         binding.btLogin.setOnClickListener(v -> {
-            if (ValidationUtils.isConnectingToInternet(this)) {
-                if (!binding.etMail.getText().toString().isEmpty()
-                        && !binding.etPassword.getText().toString().isEmpty()
-                        && (binding.etPassword.getText().toString().length() >= 8)
-                ) {
+            if (!binding.etMail.getText().toString().isEmpty()
+                    && !binding.etPassword.getText().toString().isEmpty()
+                    && (binding.etPassword.getText().toString().length() >= 8)
+            ) {
+                if (ValidationUtils.isConnectingToInternet(this)) {
                     makeLoginRequest();
                 } else {
-                    showErrors();
+                    showSnackbar(getString(R.string.there_is_no_internet_connection));
                 }
             } else {
-                showSnackbar(getString(R.string.there_is_no_internet_connection));
+                showErrors();
             }
         });
     }
@@ -87,27 +92,27 @@ public class LoginActivity extends AppCompatActivity {
                 openMainActivity();
             }
         } else {
-            showSnackbar("error code : " + loginResponseResponse.code());
-            Snackbar.make(binding.getRoot(), R.string.error_mail_or_phone_or_password, Snackbar.LENGTH_SHORT).show();
-        }
-          /*  if (loginResponseResponse.code() == ConfigurationFile.Constants.NOT_ACTIVATED_CODE){
-            showSnackbar(loginResponseResponse.body().getMessage());
-        }else if (loginResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE){
-            showSnackbar(loginResponseResponse.body().getError());
-        }else if (loginResponseResponse.code() == ConfigurationFile.Constants.WAIT_CODE){
-            showSnackbar(loginResponseResponse.body().getError());
-        }else if (loginResponseResponse.code() == ConfigurationFile.Constants.INVALED_DATA_CODE){
-            StringBuilder errors= new StringBuilder();
-            for (int i=0;i<loginResponseResponse.body().getErrors().size();i++){
-                errors.append(loginResponseResponse.body().getErrors().get(i));
-                errors.append("\n");
+            Gson gson = new GsonBuilder().create();
+            ErrorResponse errorResponse = new ErrorResponse();
+
+            try {
+                errorResponse = gson.fromJson(loginResponseResponse.errorBody().string(), ErrorResponse.class);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            showSnackbar(errors.toString());
-        }*/
+            String error = "";
+            for (String string : errorResponse.getErrors()) {
+                error += string;
+                error += "\n";
+            }
+            showSnackbar(error);
+
+        }
     }
 
     private void saveDataToSharedPreferences(LoginResponseModel data) {
         customUtilsLazy.getValue().saveMemberDataToPrefs(data);
+        ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
     }
 
     private void openMainActivity() {

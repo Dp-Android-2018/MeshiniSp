@@ -22,8 +22,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-
-        <activity android:name=".view.ui.activity.OffersActivity"></activity>
+        <activity android:name=".view.ui.activity.ChangePasswordProfileActivity"></activity>
+        <activity android:name=".view.ui.activity.OffersActivity" />
         <activity android:name=".view.ui.activity.ChatActivity" />
         <activity android:name=".view.ui.activity.RequestDetailsActivity" />
         <activity android:name=".view.ui.activity.RequestsActivity" />
@@ -36,16 +36,14 @@
         <activity android:name=".view.ui.activity.MainActivity" />
         <activity android:name=".view.ui.activity.NoInternetConnectionActivity" />
         <activity android:name=".view.ui.activity.BaseActivity" />
-        <activity android:name=".view.ui.activity.HomeActivity">
-
-        </activity>
+        <activity android:name=".view.ui.activity.HomeActivity" />
         <activity android:name=".view.ui.activity.LoginActivity" />
         <activity android:name=".view.ui.activity.RegisterActivity" />
         <activity android:name=".view.ui.activity.ResetPasswordActivity" />
         <activity android:name=".view.ui.activity.AccountActivity" />
         <activity android:name=".view.ui.activity.PaymentActivity" />
         <activity android:name=".view.ui.activity.TripsActivity" />
-        <activity android:name=".view.ui.activity.SplashScreenActivity" >
+        <activity android:name=".view.ui.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

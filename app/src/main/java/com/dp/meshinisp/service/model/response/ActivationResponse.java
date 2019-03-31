@@ -2,7 +2,7 @@ package com.dp.meshinisp.service.model.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ActivationResponse extends DefaultResponse{
+public class ActivationResponse extends ErrorResponse {
 
     @SerializedName("token")
     private String activationToken;

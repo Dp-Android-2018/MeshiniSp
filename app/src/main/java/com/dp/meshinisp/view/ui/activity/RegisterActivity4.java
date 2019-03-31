@@ -20,6 +20,7 @@ import retrofit2.Response;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegister4Binding;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
+import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.SharedUtils;
@@ -31,6 +32,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -76,52 +78,29 @@ public class RegisterActivity4 extends AppCompatActivity {
                 @Override
                 public void onChanged(Response<LoginRegisterResponse> loginRegisterResponseResponse) {
                     SharedUtils.getInstance().cancelDialog();
-                    if(loginRegisterResponseResponse.code()== ConfigurationFile.Constants.SUCCESS_CODE
-                    || loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND){
+                    if (loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
+                            || loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
                         openHomeActivity();
-                    }else {
-                        showSnackbar("error code :"+loginRegisterResponseResponse.code());
+                    } else {
+                        Gson gson = new GsonBuilder().create();
+                        ErrorResponse errorResponse = new ErrorResponse();
+
+                        try {
+                            errorResponse = gson.fromJson(loginRegisterResponseResponse.errorBody().string(), ErrorResponse.class);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        String error = "";
+                        for (String string : errorResponse.getErrors()) {
+                            error += string;
+                            error += "\n";
+                        }
+                        showSnackbar(error);
                     }
                 }
             });
         } else {
             showSnackbar(getString(R.string.there_is_no_internet_connection));
-        }
-    }
-
-    private void checkResponseCode(Response<LoginRegisterResponse> loginRegisterResponseResponse) {
-        switch (loginRegisterResponseResponse.code()) {
-            case ConfigurationFile.Constants.SUCCESS_CODE:
-                openHomeActivity();
-                break;
-            case ConfigurationFile.Constants.NOT_ACTIVATED_CODE:
-                showSnackbar(loginRegisterResponseResponse.body().getMessage());
-                break;
-            case ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE:
-                showSnackbar(loginRegisterResponseResponse.body().getError());
-                break;
-            case ConfigurationFile.Constants.WAIT_CODE:
-                showSnackbar(loginRegisterResponseResponse.body().getError());
-                break;
-            case ConfigurationFile.Constants.INVALED_DATA_CODE:
-                showSnackbar("code :"+loginRegisterResponseResponse.code());
-                if (!loginRegisterResponseResponse.body().getErrors().isEmpty()){
-                    showSnackbar(loginRegisterResponseResponse.body().getErrors().get(0));
-                    StringBuilder errors = new StringBuilder();
-                    for (int i = 0; i < loginRegisterResponseResponse.body().getErrors().size(); i++) {
-                        errors.append(loginRegisterResponseResponse.body().getErrors().get(i));
-                        errors.append("\n");
-                    }
-                    showSnackbar(errors.toString());
-                }else {
-                    showSnackbar("code :"+loginRegisterResponseResponse.code());
-                    System.out.println("code :" + loginRegisterResponseResponse.code());
-                    System.out.println("Errors :" + loginRegisterResponseResponse.code());
-                }
-                break;
-
-            default:
-                showSnackbar("Errors :( :(");
         }
     }
 

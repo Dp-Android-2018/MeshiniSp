@@ -13,6 +13,7 @@ import io.fabric.sdk.android.Fabric;
 
 public class BaseActivity extends AppCompatActivity implements ConnectionReceiver.ConnectionReceiverListener {
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

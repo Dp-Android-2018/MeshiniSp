@@ -56,7 +56,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="72dp"
                 android:layout_marginEnd="8dp"
-                android:rating="5"
+                android:rating="10"
                 android:progressBackgroundTint="@color/yellow_color"
                 android:progressTint="@color/yellow_color"
                 android:secondaryProgressTint="@color/yellow_color"
@@ -65,15 +65,26 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
                 app:layout_constraintTop_toTopOf="@+id/im" />
 
             <TextView
-                android:id="@+id/tv_rate"
+                android:id="@+id/tv_rate_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="(4.87) rate"
+                android:text="Rate : "
                 android:textColor="@color/yellow_color"
                 app:layout_constraintEnd_toEndOf="@+id/ratingBar"
                 app:layout_constraintStart_toStartOf="@+id/ratingBar"
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+            <TextView
+                android:id="@+id/tv_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="4.87"
+                android:textColor="@color/yellow_color"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_rate_tv"
+                app:layout_constraintStart_toEndOf="@+id/tv_rate_tv"
+                app:layout_constraintTop_toTopOf="@+id/tv_rate_tv" />
 
             <TextView
                 android:id="@+id/tv_trips_no"
@@ -92,7 +103,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="5dp"
-                android:text="complete Trip"
+                android:text="Completed Trips"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -201,7 +212,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:orientation="horizontal"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btns_constrainLayout">
@@ -282,6 +293,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             android:id="@+id/tv_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:text="Egypt"
             android:textColor="@color/text_color_black"
             app:layout_constraintBottom_toBottomOf="@+id/tv_2"
@@ -289,41 +301,21 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             app:layout_constraintTop_toTopOf="@+id/tv_2" />
 
         <TextView
-            android:id="@+id/tv_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="16dp"
-            android:text="City: "
-            android:textColor="@color/text_color_black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_2" />
-
-        <TextView
-            android:id="@+id/tv_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cairo"
-            android:textColor="@color/text_color_black"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_3"
-            app:layout_constraintStart_toEndOf="@+id/tv_3"
-            app:layout_constraintTop_toTopOf="@+id/tv_3" />
-
-        <TextView
             android:id="@+id/tv_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
             android:layout_marginTop="16dp"
-            android:text="Pickup location: "
+            android:text="@string/pickup_location_tv"
             android:textColor="@color/text_color_black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_3" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_country" />
 
         <TextView
             android:id="@+id/tv_pickup_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:text="Cairo international airport"
             android:textColor="@color/text_color_black"
             app:layout_constraintBottom_toBottomOf="@+id/tv_4"
@@ -345,6 +337,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             android:id="@+id/tv_date_and_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:text=" 20/2/2019 - 12:00"
             android:textColor="@color/text_color_black"
             app:layout_constraintBottom_toBottomOf="@+id/tv_5"
@@ -357,7 +350,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
             android:layout_marginTop="16dp"
-            android:text="Vehicle: "
+            android:text="@string/vehicle"
             android:textColor="@color/text_color_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_5" />
@@ -366,6 +359,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             android:id="@+id/tv_vehicle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:text="car"
             android:textColor="@color/text_color_black"
             app:layout_constraintBottom_toBottomOf="@+id/tv_6"
@@ -390,7 +384,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             android:layout_marginTop="16dp"
             android:gravity="center_vertical"
             android:paddingStart="@dimen/dp19w"
-            android:text="Trip Schedule"
+            android:text="@string/trip_schedule"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/sp15_5"
             android:textStyle="bold"
@@ -409,7 +403,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             app:layout_constraintTop_toBottomOf="@id/tv_7" />
 
         <TextView
-            android:id="@+id/tv_schedule"
+            android:id="@+id/tv_trip_schedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
@@ -420,7 +414,7 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             app:layout_constraintTop_toBottomOf="@+id/view4" />
 
         <com.ebanx.swipebtn.SwipeButton
-            android:id="@+id/bt_slide_toStart_chat"
+            android:id="@+id/bt_slide_toStart_trip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -434,11 +428,11 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
             app:inner_text_color="@android:color/white"
             app:inner_text_size="16sp"
             app:inner_text_top_padding="16dp"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_schedule" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_trip_schedule" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

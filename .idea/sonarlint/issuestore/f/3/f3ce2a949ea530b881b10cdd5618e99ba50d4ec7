@@ -1,2 +1,15 @@
 
-jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‚¼¬Ìýÿÿÿÿ
+Ksquid:S1185R"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8õÞ±÷œ-
+Msquid:S1066g"/Merge this if statement with the enclosing one.(à—åª8õÞ±÷œ-
+[
+squid:S106G"9Replace this use of System.out or System.err by a logger.(ŠÌÎ™ýÿÿÿÿ8§ŽÞùœ-
+nsquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(ÇÖ½—þÿÿÿÿ8—óŽùœ-
+Msquid:S1066^"/Merge this if statement with the enclosing one.(à—åª8Äðâøœ-
+Osquid:S1659'",Declare "totalItemCount" on a separate line.(üÆö›ýÿÿÿÿ8¬Éµ÷œ-
+psquid:S3776O"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(‰ÿ¾×8Äðâøœ-
+ssquid:S00116$"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8¬Éµ÷œ-
+Jsquid:S1068)",Remove this unused "position" private field.(íñ8¬Éµ÷œ-
+jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‚¼¬Ìýÿÿÿÿ
+isquid:CommentedOutCodeLineB"<This block of commented-out lines of code should be removed.(§À8Æ¬¢ùœ-
+Hsquid:S1659 "%Declare "endDate" on a separate line.(íÃáþÿÿÿÿ8÷öþøœ-
+Qsquid:S1659'".Declare "visibleItemCount" on a separate line.(üÆö›ýÿÿÿÿ8¬Éµ÷œ-

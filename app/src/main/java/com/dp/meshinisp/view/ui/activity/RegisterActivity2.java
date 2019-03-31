@@ -81,7 +81,10 @@ public class RegisterActivity2 extends AppCompatActivity {
 
         setLanguageSpinner();
         makeActionToUploadImage();
+        makeActionOnClickOnBtnSignUP();
+    }
 
+    private void makeActionOnClickOnBtnSignUP() {
         binding.btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,12 +248,6 @@ public class RegisterActivity2 extends AppCompatActivity {
                 });
     }
 
-    private void openNextActivity() {
-        Intent intent = new Intent(RegisterActivity2.this, RegisterActivity3.class);
-        intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA, new Gson().toJson(register1Request));
-        startActivity(intent);
-    }
-
     private void initializeProgressDialog() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading");
@@ -266,6 +263,12 @@ public class RegisterActivity2 extends AppCompatActivity {
             }
         });
         progressDialog.show();
+    }
+
+    private void openNextActivity() {
+        Intent intent = new Intent(RegisterActivity2.this, RegisterActivity3.class);
+        intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA, new Gson().toJson(register1Request));
+        startActivity(intent);
     }
 
 }

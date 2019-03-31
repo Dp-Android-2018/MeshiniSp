@@ -60,7 +60,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                     if (activationResponseResponse != null) {
                         SharedUtils.getInstance().cancelDialog();
                         if (activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE) {
-                            showSnackBar(activationResponseResponse.body().getMessage());
+                            showSnackBar("Success");
                             openNextActivity();
                         } else {
                             showSnackBar("error code :" + activationResponseResponse.code());

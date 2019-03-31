@@ -4,10 +4,8 @@ import android.os.Parcel
 import com.dp.meshinisp.service.model.request.ActivationRequest
 import com.dp.meshinisp.service.model.request.LoginRequest
 import com.dp.meshinisp.service.model.request.RegisterRequest
-import com.dp.meshinisp.service.repository.remotes.ActivationRepository
-import com.dp.meshinisp.service.repository.remotes.LoginRepository
-import com.dp.meshinisp.service.repository.remotes.Register1Repository
-import com.dp.meshinisp.service.repository.remotes.Register2Repository
+import com.dp.meshinisp.service.model.request.SearchRequestsRequest
+import com.dp.meshinisp.service.repository.remotes.*
 import org.koin.dsl.module.module
 
 @JvmField
@@ -22,5 +20,11 @@ val DependencyModule = module {
 
     single { ActivationRepository() }
     factory { ActivationRequest() }
+
+    single { MainRepository() }
+    factory { SearchRequestsRequest() }
+
+    single { RequestDetailsRepository() }
+    single { AccountRepository() }
 
 }

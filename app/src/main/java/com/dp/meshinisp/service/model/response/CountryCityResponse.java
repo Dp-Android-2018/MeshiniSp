@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class CountryCityResponse extends DefaultResponse{
+public class CountryCityResponse extends ErrorResponse {
 
     @SerializedName("data")
     private List<CountryCityResponseModel> countryCityList;

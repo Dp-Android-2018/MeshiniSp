@@ -3,7 +3,7 @@ package com.dp.meshinisp.service.model.response;
 import com.dp.meshinisp.service.model.global.LoginResponseModel;
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse extends DefaultResponse{
+public class LoginResponse {
     @SerializedName("data")
     private LoginResponseModel data;
 

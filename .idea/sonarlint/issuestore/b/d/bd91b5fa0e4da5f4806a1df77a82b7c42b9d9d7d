@@ -1,0 +1,9 @@
+
+Xsquid:S1068":Remove this unused "requestsResponseModels" private field.(Ôà­8ÕÃ‹÷œ-
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ûÈÁÄ8Ü¸Èùœ-
+Tsquid:S1172"1Remove this unused method parameter "memberType".(åºğçøÿÿÿÿ8šš÷öœ-
+›squid:S1319"The type of the "eventsResponseModels" object should be an interface such as "List" rather than the implementation "ArrayList".(åºğçøÿÿÿÿ
+isquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(Œ¿ß«8£Ú÷œ-
+ƒsquid:S1450"eRemove the "requestsResponseModels" field and declare it as a local variable in the relevant methods.(Ôà­8öâ‹÷œ-
+nsquid:CommentedOutCodeLine$"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8Ü¸Èùœ-
+squid:S1450"dRemove the "requestsResponseModel" field and declare it as a local variable in the relevant methods.(óä8³€‹÷œ-

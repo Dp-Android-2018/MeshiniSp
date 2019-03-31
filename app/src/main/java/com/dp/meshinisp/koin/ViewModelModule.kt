@@ -13,5 +13,10 @@ val ViewModelModule = module {
     viewModel { ResetPasswordViewModel(androidApplication()) }
     viewModel { PhoneActivationViewModel(androidApplication()) }
     viewModel { ChangePasswordViewModel(androidApplication()) }
+    viewModel { MainActivityViewModel(androidApplication()) }
+    viewModel { RequestsActivityViewModel(androidApplication()) }
+    viewModel { RequestDetailsViewModel(androidApplication()) }
+    viewModel { AccountActivityViewModel(androidApplication()) }
+    viewModel { ChangePasswordProfileViewModel(androidApplication()) }
 
 }

@@ -18,9 +18,12 @@ public class ConfigurationFile {
         public static final String ACCEPT = "application/json";
         public static final String BEARER_STRING = "Bearer ";
         public static String ACCEPT_LANGUAGE = "en";
+        public static String AUTHORIZATION = "token";
 
 
         public static String REGISTER1DATA = "REGISTER1Data";
+        public static int DEFAULT_INTEGER_VALUE = 0;
+        public static int WAIT_VALUE = 2000;
 
         public static final String ACCEPT_LANGUAGE_ARABIC = "ar";
         public static final String ACCEPT_LANGUAGE_ENGLISH = "en";
@@ -42,7 +45,11 @@ public class ConfigurationFile {
 
         public static final String TYPE = "TYPE";
         public static final String DATA = "DATA";
-        public static final String BUTTON_TYPE = "Button Type";
+        public static final String COUNTRY_ID = "country id";
+        public static final String DATE_FROM = "from";
+        public static final String DATE_TO = "DATA";
+        public static final String REQUESTS_TYPE = "Requests";
+        public static final String REQUEST_ID = "request id";
         public static final String NEW_USER_TYPE = "new User";
         public static final String PREREQUESTS_TYPE = "order type";
         public static final String ORDER_TYPE = "order type";

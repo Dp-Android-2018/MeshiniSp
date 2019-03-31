@@ -3,37 +3,54 @@ package com.dp.meshinisp.view.ui.activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import androidx.databinding.DataBindingUtil;
-
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityMainBinding;
+import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
+import com.dp.meshinisp.service.model.global.RequestsResponseModel;
+import com.dp.meshinisp.service.model.request.SearchRequestsRequest;
+import com.dp.meshinisp.service.model.response.ErrorResponse;
+import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.DateTimePicker;
+import com.dp.meshinisp.utility.utils.SharedUtils;
+import com.dp.meshinisp.utility.utils.ValidationUtils;
+import com.dp.meshinisp.view.ui.adapter.SpinnerAdapter;
 import com.dp.meshinisp.view.ui.callback.OnDateTimeSelected;
+import com.dp.meshinisp.viewmodel.MainActivityViewModel;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
-import javax.inject.Inject;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import im.delight.android.webview.AdvancedWebView;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.GravityCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Observer;
 import kotlin.Lazy;
+import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -44,7 +61,16 @@ public class MainActivity extends BaseActivity {
     ActivityMainBinding binding;
     public static DrawerLayout drawer;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private Lazy<CustomUtils> customUtilsLazy= inject(CustomUtils.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
+    private Lazy<MainActivityViewModel> mainActivityViewModelLazy = inject(MainActivityViewModel.class);
+    private EditText fromEditText;
+    private EditText toEditText;
+    private AppCompatSpinner countrySpinner;
+    private Dialog dialog;
+    private SpinnerAdapter countrySpinnerAdapter;
+    private CountryCityResponseModel selectedCountry;
+    private int countryId;
+    private View v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +84,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initializeUiData() {
-        TextView tvName=binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.tv_user_name);
-        TextView tvrate=binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.tv_user_rate);
-        ImageView userImageView=binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.im_user_image);
+        TextView tvName = binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.tv_user_name);
+        TextView tvrate = binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.tv_user_rate);
+        ImageView userImageView = binding.navigationView.navigationViewHeaderLayout.vAccount.findViewById(R.id.im_user_image);
 
         tvName.setText(customUtilsLazy.getValue().getSavedMemberData().getFirstName());
         tvrate.setText(customUtilsLazy.getValue().getSavedMemberData().getEmail());
@@ -70,12 +96,12 @@ public class MainActivity extends BaseActivity {
 
     private void makeActionOnClickOnMenuItems() {
         binding.navigationView.tvNavItem1.setOnClickListener(v -> {
-            Intent intent=new Intent(MainActivity.this,TripsActivity.class);
+            Intent intent = new Intent(MainActivity.this, TripsActivity.class);
             startActivity(intent);
         });
 
         binding.navigationView.tvNavItem2.setOnClickListener(v -> {
-            Intent intent=new Intent(MainActivity.this, OffersActivity.class);
+            Intent intent = new Intent(MainActivity.this, OffersActivity.class);
             startActivity(intent);
         });
 
@@ -84,12 +110,12 @@ public class MainActivity extends BaseActivity {
 
         });
 
-       binding.navigationView.tvNavItem5.setOnClickListener(v -> openPlayStoreToRateApp());
+        binding.navigationView.tvNavItem5.setOnClickListener(v -> openPlayStoreToRateApp());
 
         binding.navigationView.navigationViewHeaderLayout.vAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,AccountActivity.class);
+                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });
@@ -97,7 +123,7 @@ public class MainActivity extends BaseActivity {
 
     private void logout() {
         customUtilsLazy.getValue().clearSharedPref();
-        Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
@@ -155,7 +181,7 @@ public class MainActivity extends BaseActivity {
         View v = View.inflate(this, R.layout.request_guide_dialog, null);
         builder.setView(v);
         builder.setCancelable(true);
-        Dialog dialog = builder.create();
+        dialog = builder.create();
         Window window = dialog.getWindow();
         window.setBackgroundDrawableResource(R.color.transparent);
         WindowManager.LayoutParams layoutParams = window.getAttributes();
@@ -166,28 +192,123 @@ public class MainActivity extends BaseActivity {
     }
 
     private void makeActionOnLayoutComponents(View v) {
-        EditText fromEditText = v.findViewById(R.id.et_dialog_from);
-        EditText toEditText = v.findViewById(R.id.et_dialog_to);
-        EditText countryEditText = v.findViewById(R.id.et_dialog_country);
+        this.v=v;
+        fromEditText = v.findViewById(R.id.et_dialog_from);
+        toEditText = v.findViewById(R.id.et_dialog_to);
+        countrySpinner = v.findViewById(R.id.sp_country);
         Button btnSearch = v.findViewById(R.id.bt_search_for_requests);
         pickDateAndTime(fromEditText);
         pickDateAndTime(toEditText);
+        setCountrySpinner();
         makeSearch(btnSearch);
+    }
+
+    public void setCountrySpinner(){
+        if (ValidationUtils.isConnectingToInternet(this)) {
+            mainActivityViewModelLazy.getValue().getCountries().observe(this, (List<CountryCityResponseModel> countryCityPojos) -> {
+                countrySpinnerAdapter = new SpinnerAdapter(MainActivity.this, countryCityPojos);
+                countrySpinner.setAdapter(countrySpinnerAdapter);
+                countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        selectedCountry = (CountryCityResponseModel) parent.getItemAtPosition(position);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        showSnackbar("please select country");
+                    }
+                });
+            });
+        }else {
+            showSnackbar(getString(R.string.there_is_no_internet_connection));
+        }
     }
 
     private void makeSearch(Button btnSearch) {
         btnSearch.setOnClickListener(v -> {
-            Intent intent=new Intent(MainActivity.this, RequestDetailsActivity.class);
-            startActivity(intent);
+            if (!fromEditText.getText().toString().isEmpty()
+                    && !toEditText.getText().toString().isEmpty()) {
+                if (ValidationUtils.isConnectingToInternet(this)) {
+                    SharedUtils.getInstance().showProgressDialog(this);
+                    makeSearchRequest();
+                } else {
+                    showSnackbar(getString(R.string.there_is_no_internet_connection));
+                }
+            } else {
+                showErrors();
+            }
         });
+    }
+
+    private void makeSearchRequest() {
+        ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
+        countryId =selectedCountry.getId();
+        mainActivityViewModelLazy.getValue().searchForRequests(1,countryId, fromEditText.getText().toString(), toEditText.getText().toString()).observe(this, searchRequestsResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (searchRequestsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
+                    || searchRequestsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                if (searchRequestsResponseResponse.body() != null) {
+                    if (!searchRequestsResponseResponse.body().getData().isEmpty()){
+                        openActivityRequests();
+                    }else {
+                        Snackbar.make(v.getRootView(),"There is no Requests available !!",Snackbar.LENGTH_SHORT).show();
+                    }
+                }
+            } else {
+                Gson gson = new GsonBuilder().create();
+                ErrorResponse errorResponse = new ErrorResponse();
+
+                try {
+                    errorResponse = gson.fromJson(searchRequestsResponseResponse.errorBody().string(), ErrorResponse.class);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String error = "";
+                for (String string : errorResponse.getErrors()) {
+                    error += string;
+                    error += "\n";
+                }
+                Snackbar.make(v.getRootView(),error,Snackbar.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void openActivityRequests() {
+        dialog.dismiss();
+        Intent intent=new Intent(this,RequestsActivity.class);
+        intent.putExtra(ConfigurationFile.Constants.COUNTRY_ID,countryId);
+        intent.putExtra(ConfigurationFile.Constants.DATE_FROM,fromEditText.getText().toString());
+        intent.putExtra(ConfigurationFile.Constants.DATE_TO,toEditText.getText().toString());
+        startActivity(intent);
+        clearAllFields();
+    }
+
+    private void clearAllFields() {
+        fromEditText.setText("");
+        toEditText.setText("");
+    }
+
+    private void showErrors() {
+        if (fromEditText.getText().toString().isEmpty()) {
+            showSnackbar(getString(R.string.please_select_start_date));
+            return;
+        }
+
+        if (toEditText.getText().toString().isEmpty()) {
+            showSnackbar(getString(R.string.please_select_end_date));
+        }
+    }
+
+    private void showSnackbar(String message) {
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_SHORT).show();
     }
 
     private void pickDateAndTime(EditText editText) {
         editText.setOnClickListener(v -> DateTimePicker.getInstance().showDatePickerDialog(binding.getRoot().getContext(), new OnDateTimeSelected() {
             @Override
-            public void onDateTimeReady(String date, String time) {
-                String dateTimeVal = date + " " + time;
-                editText.setText(dateTimeVal);
+            public void onDateReady(String date) {
+                editText.setText(date);
             }
         }));
     }

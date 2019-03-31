@@ -84,9 +84,14 @@
     <string name="enter_phone_error_message">please enter phone</string>
     <string name="invalid_mail_error_message">Invalid e_mail address</string>
     <string name="password_length_message_error">Password length must be more than 8 character</string>
+    <string name="new_password_length_message_error">new password length must be more than 8 character</string>
+    <string name="new_password_confirmation_length_message_error">new password confirmation length must be more than 8 character</string>
+    <string name="passwords_not_match_error">New password doesn\'t match new password confirmation</string>
     <string name="my_requests">My requests</string>
     <string name="select_city_error_message">please select city</string>
     <string name="enter_password_error_message">Please enter password</string>
+    <string name="enter_new_password_error_message">Please enter new password</string>
+    <string name="enter_new_password_confirmation_error_message">Please enter new password confirmation</string>
     <string name="password_not_match_message_error">Passwords aren not the same</string>
     <string name="enter_confirm_password_error_message">Please enter confirm new password</string>
     <string name="enter_mail_or_phone_error_message">please enter email or phone number</string>
@@ -97,6 +102,18 @@
     <string name="please_choose_languages">Please choose languages you speak !</string>
     <string name="there_is_no_internet_connection">There is no internet connection !!</string>
     <string name="error_mail_or_phone_or_password">Error e-mail or phone number or password!!</string>
+    <string name="please_select_start_date">please select start date !!</string>
+    <string name="please_select_end_date">please select end date !!</string>
+    <string name="please_enter_offer_amount">please enter offer amount !!</string>
+    <string name="offer_sent_successfully">Your offer has been sent successfully.</string>
+    <string name="rating">Rating:</string>
+    <string name="no_of_trips">No. of trips:</string>
+    <string name="name">Name:</string>
+    <string name="trip_schedule">Trip Schedule</string>
+    <string name="vehicle">Vehicle:</string>
+    <string name="pickup_location_tv">Pickup location:</string>
+    <string name="old_password">Old Password</string>
+    <string name="nothing_changed">"Nothing changed !!"</string>
 
     <string-array name="education_request_types">
         <item>Basic education</item>

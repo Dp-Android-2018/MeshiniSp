@@ -25,22 +25,24 @@ internal fun provideOkHttpClient(context: Context): OkHttpClient {
     val okHttpClient = OkHttpClient.Builder()
     okHttpClient.connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
-    okHttpClient.addInterceptor { chain ->
-        val original = chain.request()
+    okHttpClient.addInterceptor {
+        val original = it.request()
 
         // Request customization: add request headers
         val requestBuilder = original.newBuilder()
-        requestBuilder.header("x-api-key", ConfigurationFile.Constants.API_KEY)
         requestBuilder.header("Content-Type", ConfigurationFile.Constants.CONTENT_TYPE)
         requestBuilder.header("Accept", ConfigurationFile.Constants.ACCEPT)
-        //requestBuilder.head("Authorization", );
+        requestBuilder.header("x-api-key", ConfigurationFile.Constants.API_KEY)
+        requestBuilder.header("Accept-Language", ConfigurationFile.Constants.ACCEPT_LANGUAGE)
+        requestBuilder.header("Authorization", ConfigurationFile.Constants.BEARER_STRING + ConfigurationFile.Constants.AUTHORIZATION)
+        //requestBuilder.head("", );
         // <-- this is the important line
 
         val request = requestBuilder.build()
-        val response = chain.proceed(request)
+        val response = it.proceed(request)
         if (response.code() == 404 || response.code() == 401) {
             EventBus.getDefault().post(response.message())
-            println("Message Event : "+(response.message()))
+//            println("Message Event : "+(response.message()))
         }
         response
     }
