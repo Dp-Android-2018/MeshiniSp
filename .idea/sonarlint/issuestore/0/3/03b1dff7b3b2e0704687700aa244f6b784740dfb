@@ -1,0 +1,3 @@
+
+“squid:S1319V"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÒ¥ƒúÿÿÿÿ8ÙäÆ™-
+squid:S1319Z"qThe type of the "places" object should be an interface such as "List" rather than the implementation "ArrayList".(æä­8ÙäÆ™-

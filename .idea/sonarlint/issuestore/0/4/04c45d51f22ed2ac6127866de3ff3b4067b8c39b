@@ -1,10 +1,8 @@
 
-Usquid:S18541"7Remove this useless assignment to local variable "day".(¤Úã‚8žîžöœ-
-isquid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(ìÛšð8žîžöœ-
-isquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(öœüì8žîžöœ-
-V
-squid:S1065"9Replace this use of System.out or System.err by a logger.(é¶ŒÉ8žîžöœ-
-Fsquid:S14811"(Remove this unused "day" local variable.(¤Úã‚8žîžöœ-
-isquid:CommentedOutCodeLine:"<This block of commented-out lines of code should be removed.(‰ó™¶8žîžöœ-
 nsquid:CommentedOutCodeLine%"<This block of commented-out lines of code should be removed.(ËÃÒáþÿÿÿÿ8Ž¬öœ-
+isquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(öœüì8žîžöœ-
 Osquid:S1602"",Remove useless curly braces around statement(„àÆ³ûÿÿÿÿ8Ž¬öœ-
+Usquid:S18541"7Remove this useless assignment to local variable "day".(¤Úã‚8žîžöœ-
+isquid:CommentedOutCodeLine6"<This block of commented-out lines of code should be removed.(ìÛšð8žîžöœ-
+isquid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(‰ó™¶8žîžöœ-
+Fsquid:S14811"(Remove this unused "day" local variable.(¤Úã‚8žîžöœ-

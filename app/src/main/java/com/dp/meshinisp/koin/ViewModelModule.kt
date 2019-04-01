@@ -18,5 +18,7 @@ val ViewModelModule = module {
     viewModel { RequestDetailsViewModel(androidApplication()) }
     viewModel { AccountActivityViewModel(androidApplication()) }
     viewModel { ChangePasswordProfileViewModel(androidApplication()) }
+    viewModel { OffersActivityViewModel(androidApplication()) }
+    viewModel { TripsActivityViewModel(androidApplication()) }
 
 }

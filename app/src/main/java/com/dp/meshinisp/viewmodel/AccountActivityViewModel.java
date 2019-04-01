@@ -2,9 +2,8 @@ package com.dp.meshinisp.viewmodel;
 
 import android.app.Application;
 
-import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
-import com.dp.meshinisp.service.model.response.OfferResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.repository.remotes.AccountRepository;
 
 import androidx.annotation.NonNull;
@@ -23,7 +22,7 @@ public class AccountActivityViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public LiveData<Response<OfferResponse>> updateProfileInfo(ProfileInfoRequest profileInfoRequest) {
+    public LiveData<Response<MessageResponse>> updateProfileInfo(ProfileInfoRequest profileInfoRequest) {
         return accountRepositoryLazy.getValue().updateProfileInfo(profileInfoRequest);
     }
 

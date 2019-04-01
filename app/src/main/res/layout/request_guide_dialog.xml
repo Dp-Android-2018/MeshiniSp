@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp288h"
     android:layout_gravity="bottom"
-    android:background="@drawable/dialog_top_corner"
+    android:background="@drawable/dialog_request_background"
     android:backgroundTint="@android:color/white">
 
     <TextView

@@ -35,13 +35,14 @@
     </androidx.appcompat.widget.Toolbar>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/bt_past"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="1dp"
         android:background="@color/bt_bg_color"
         android:text="@string/past"
+        android:onClick="listPastRequests"
         android:textColor="@color/text_color_black"
         android:textSize="@dimen/sp15"
         app:layout_constraintEnd_toStartOf="@+id/view3"
@@ -50,12 +51,13 @@
         app:layout_constraintTop_toBottomOf="@+id/trips_toolbar" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bt_upcoming"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:background="@color/bt_bg_color"
         android:text="@string/upcoming"
+        android:onClick="listUpcomingRequests"
         android:textColor="@color/text_color_black"
         android:textSize="@dimen/sp15"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/trips_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_trips"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="11dp"
@@ -73,7 +76,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/bt_past"
         tools:listitem="@layout/trip_list_item" />
 
     <View
@@ -84,17 +87,18 @@
         app:layout_constraintEnd_toStartOf="@+id/v_upcoming"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_past" />
 
     <View
         android:id="@+id/v_upcoming"
         android:layout_width="0dp"
         android:layout_height="2dp"
+        android:visibility="invisible"
         android:background="@color/sky_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/v_past"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_upcoming" />
 
     <View
         android:id="@+id/view3"
@@ -102,9 +106,9 @@
         android:layout_height="0dp"
         android:background="@color/sky_color"
         app:layout_constraintBottom_toTopOf="@+id/v_past"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/bt_upcoming"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintStart_toEndOf="@+id/bt_past"
+        app:layout_constraintTop_toTopOf="@+id/bt_past" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

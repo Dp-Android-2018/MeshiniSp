@@ -1,5 +1,5 @@
 
-isquid:S00117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø™åÕ
-gsquid:S001175"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁáG
-isquid:S00117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø™åÕ
+isquid:S00117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø™åÕ
 jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(Ä©½ôûÿÿÿÿ
+isquid:S00117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø™åÕ
+gsquid:S001176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁáG

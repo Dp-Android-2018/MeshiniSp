@@ -15,7 +15,7 @@ import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityAccountBinding;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.OfferResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
@@ -99,9 +99,9 @@ public class AccountActivity extends AppCompatActivity {
         ) {
             if (ValidationUtils.isConnectingToInternet(this)) {
                 SharedUtils.getInstance().showProgressDialog(this);
-                accountActivityViewModelLazy.getValue().updateProfileInfo(getProfileInfoRequest()).observe(this, new Observer<Response<OfferResponse>>() {
+                accountActivityViewModelLazy.getValue().updateProfileInfo(getProfileInfoRequest()).observe(this, new Observer<Response<MessageResponse>>() {
                     @Override
-                    public void onChanged(Response<OfferResponse> offerResponseResponse) {
+                    public void onChanged(Response<MessageResponse> offerResponseResponse) {
                         SharedUtils.getInstance().cancelDialog();
                         if (offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
                                 || offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
@@ -123,7 +123,7 @@ public class AccountActivity extends AppCompatActivity {
         }
     }
 
-    private void showErrorMessage(Response<OfferResponse> offerResponseResponse) {
+    private void showErrorMessage(Response<MessageResponse> offerResponseResponse) {
         Gson gson = new GsonBuilder().create();
         ErrorResponse errorResponse = new ErrorResponse();
 

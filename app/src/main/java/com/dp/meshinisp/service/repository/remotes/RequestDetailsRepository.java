@@ -1,8 +1,7 @@
 package com.dp.meshinisp.service.repository.remotes;
 
 import com.dp.meshinisp.service.model.request.OfferRequest;
-import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.OfferResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.RequestDetailsResponse;
 
 import androidx.lifecycle.LiveData;
@@ -48,19 +47,19 @@ public class RequestDetailsRepository {
         return data;
     }
 
-    public LiveData<Response<OfferResponse>> sendOffer(int requestId, OfferRequest offerRequest) {
-        MutableLiveData<Response<OfferResponse>> data = new MutableLiveData<>();
+    public LiveData<Response<MessageResponse>> sendOffer(int requestId, OfferRequest offerRequest) {
+        MutableLiveData<Response<MessageResponse>> data = new MutableLiveData<>();
         endPointsLazy.getValue().sendOffer(requestId, offerRequest)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<OfferResponse>>() {
+                .subscribe(new Observer<Response<MessageResponse>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(Response<OfferResponse> offerResponseResponse) {
+                    public void onNext(Response<MessageResponse> offerResponseResponse) {
                         data.setValue(offerResponseResponse);
                     }
 

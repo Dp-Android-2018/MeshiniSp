@@ -13,4 +13,5 @@
     <color name="green_color">#24AB24</color>
     <color name="off_white_color">#ECECEC</color>
     <color name="white_off_color">#F6F6F6</color>
+    <color name="trip_item_shadow_color">#29000000</color>
 </resources>

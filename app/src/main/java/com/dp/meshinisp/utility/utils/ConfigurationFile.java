@@ -48,9 +48,12 @@ public class ConfigurationFile {
         public static final String COUNTRY_ID = "country id";
         public static final String DATE_FROM = "from";
         public static final String DATE_TO = "DATA";
-        public static final String REQUESTS_TYPE = "Requests";
         public static final String REQUEST_ID = "request id";
-        public static final String NEW_USER_TYPE = "new User";
+        public static final String REQUEST_Type = "request type";
+        public static final String FROM_REQUESTS_TYPE = "request";
+        public static final String TRIPS_TYPE_PAST = "past";
+        public static final String TRIPS_TYPE_UPCOMING = "upcoming";
+        public static final String OFFER_PRICE = "offer price";
         public static final String PREREQUESTS_TYPE = "order type";
         public static final String ORDER_TYPE = "order type";
         public static final String OTHERS_TYPE = "others type";

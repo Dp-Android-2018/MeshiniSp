@@ -1,17 +1,22 @@
 package com.dp.meshinisp.view.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRequestDetailsBinding;
 import com.dp.meshinisp.service.model.global.RequestDetailsModel;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.OfferResponse;
-import com.dp.meshinisp.service.model.response.RequestDetailsResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
@@ -19,12 +24,13 @@ import com.dp.meshinisp.viewmodel.RequestDetailsViewModel;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import kotlin.Lazy;
 import retrofit2.Response;
 
@@ -33,13 +39,19 @@ import static org.koin.java.standalone.KoinJavaComponent.inject;
 public class RequestDetailsActivity extends AppCompatActivity {
     ActivityRequestDetailsBinding binding;
     private int requestId;
+    private String requestType;
+    private String offerPrice;
+    private RequestDetailsModel data;
     Lazy<RequestDetailsViewModel> requestDetailsViewModelLazy = inject(RequestDetailsViewModel.class);
+    private final int CALL_REQUEST = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_request_details);
+        requestType=getIntent().getStringExtra(ConfigurationFile.Constants.REQUEST_Type);
         requestId = getIntent().getIntExtra(ConfigurationFile.Constants.REQUEST_ID, 0);
+        checkRequestType(requestType);
         setupToolbar();
         initializeViewModel();
         makeActionOnBtnSendOffer();
@@ -47,6 +59,39 @@ public class RequestDetailsActivity extends AppCompatActivity {
         makeActionOnBtnStartChat();
         makeActionOnBtnCall();
         makeActionOnBtnStartTrip();
+    }
+
+    private void checkRequestType(String requestType) {
+        switch (requestType){
+            case ConfigurationFile.Constants.FROM_REQUESTS_TYPE:
+                binding.btSendOffer.setVisibility(View.VISIBLE);
+                binding.connectLinearLayout.setVisibility(View.INVISIBLE);
+                binding.btSlideToStartTrip.setVisibility(View.INVISIBLE);
+                break;
+
+            case ConfigurationFile.Constants.TRIPS_TYPE_PAST:
+                binding.btSendOffer.setVisibility(View.INVISIBLE);
+                binding.connectLinearLayout.setVisibility(View.INVISIBLE);
+                binding.btSlideToStartTrip.setVisibility(View.INVISIBLE);
+                break;
+
+            case ConfigurationFile.Constants.TRIPS_TYPE_UPCOMING:
+                initializeUpcomingScreen();
+                break;
+        }
+    }
+
+    private void initializeUpcomingScreen() {
+        offerPrice=getIntent().getStringExtra(ConfigurationFile.Constants.OFFER_PRICE);
+//        binding.btSendOffer.setVisibility(View.VISIBLE);
+        binding.connectLinearLayout.setVisibility(View.VISIBLE);
+        binding.btSlideToStartTrip.setVisibility(View.VISIBLE);
+        binding.btSendOffer.setVisibility(View.GONE);
+        binding.etOfferAmount.setVisibility(View.VISIBLE);
+        binding.etOfferAmount.setText(offerPrice);
+        binding.btOk.setVisibility(View.VISIBLE);
+
+        doneSendingOffer();
     }
 
     private void initializeViewModel() {
@@ -60,31 +105,28 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void observeViewModel() {
-        requestDetailsViewModelLazy.getValue().getData().observe(this, new Observer<Response<RequestDetailsResponse>>() {
-            @Override
-            public void onChanged(Response<RequestDetailsResponse> requestDetailsResponseResponse) {
-                SharedUtils.getInstance().cancelDialog();
-                if (requestDetailsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                        || requestDetailsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
-                    if (requestDetailsResponseResponse.body() != null)
-                        initializeUiWithData(requestDetailsResponseResponse.body().getData());
-                } else {
-                    Gson gson = new GsonBuilder().create();
-                    ErrorResponse errorResponse = new ErrorResponse();
+        requestDetailsViewModelLazy.getValue().getData().observe(this, requestDetailsResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (requestDetailsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
+                    || requestDetailsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                if (requestDetailsResponseResponse.body() != null)
+                    initializeUiWithData(requestDetailsResponseResponse.body().getData());
+            } else {
+                Gson gson = new GsonBuilder().create();
+                ErrorResponse errorResponse = new ErrorResponse();
 
-                    try {
-                        errorResponse = gson.fromJson(requestDetailsResponseResponse.errorBody().string(), ErrorResponse.class);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    String error = "";
-                    for (String string : errorResponse.getErrors()) {
-                        error += string;
-                        error += "\n";
-                    }
-                    showSnackbar(error);
-
+                try {
+                    errorResponse = gson.fromJson(requestDetailsResponseResponse.errorBody().string(), ErrorResponse.class);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                String error = "";
+                for (String string : errorResponse.getErrors()) {
+                    error += string;
+                    error += "\n";
+                }
+                showSnackbar(error);
+
             }
         });
     }
@@ -94,6 +136,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void initializeUiWithData(RequestDetailsModel data) {
+        this.data=data;
         binding.tvRate.setText(String.valueOf(data.getClient().getRating()));
         binding.ratingBar.setRating(data.getClient().getRating());
         binding.tvCountry.setText(data.getCountry());
@@ -109,15 +152,16 @@ public class RequestDetailsActivity extends AppCompatActivity {
         }
         binding.tvTripSchedule.setText(tripSchedule);
 
+        ImageView ivFeedPhoto = binding.circleImageView2;
+        Picasso.get().load(data.getClient().getProfilePictureUrl()).into(ivFeedPhoto);
+
     }
 
     private void setupToolbar() {
         binding.collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.transparent));
         binding.collapsingToolbar.setCollapsedTitleGravity(Gravity.CENTER);
-//        binding.collapsingToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
-//        binding.collapsingToolbar.setNavigationOnClickListener(v -> onBackPressed());
-
-//        binding.collapsingToolbar.setNavigationOnClickListener(v -> onBackPressed());
+        binding.requestsToolbar.setNavigationIcon(R.drawable.ic_chevron_left_white_24dp);
+        binding.requestsToolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     private void makeActionOnBtnSendOffer() {
@@ -134,16 +178,14 @@ public class RequestDetailsActivity extends AppCompatActivity {
                 if (ValidationUtils.isConnectingToInternet(this)) {
                     SharedUtils.getInstance().showProgressDialog(this);
                     requestDetailsViewModelLazy.getValue().sendOffer(requestId, getOfferRequest())
-                            .observe(this, new Observer<Response<OfferResponse>>() {
-                                @Override
-                                public void onChanged(Response<OfferResponse> offerResponseResponse) {
-                                    SharedUtils.getInstance().cancelDialog();
-                                    if (offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                                            || offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
-                                        doneSendingOffer();
-                                    } else {
-                                        showErrorMessage(offerResponseResponse);
-                                    }
+                            .observe(this, offerResponseResponse -> {
+                                SharedUtils.getInstance().cancelDialog();
+                                if (offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
+                                        || offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                                    showSnackbar(getString(R.string.offer_sent_successfully));
+                                    doneSendingOffer();
+                                } else {
+                                    showErrorMessage(offerResponseResponse);
                                 }
                             });
                 } else {
@@ -162,7 +204,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
         return offerRequest;
     }
 
-    private void showErrorMessage(Response<OfferResponse> offerResponseResponse) {
+    private void showErrorMessage(Response<MessageResponse> offerResponseResponse) {
         Gson gson = new GsonBuilder().create();
         ErrorResponse errorResponse = new ErrorResponse();
 
@@ -180,12 +222,13 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void doneSendingOffer() {
-        showSnackbar(getString(R.string.offer_sent_successfully));
         binding.btOk.setBackground(getResources().getDrawable(R.drawable.btn_background_black));
         binding.btOk.setTextColor(getResources().getColor(R.color.white_90));
         binding.etOfferAmount.setBackground(getResources().getDrawable(R.drawable.edittext_background_black));
         binding.etOfferAmount.setFocusable(false);
         binding.etOfferAmount.setEnabled(false);
+        binding.btOk.setFocusable(false);
+        binding.btOk.setEnabled(false);
     }
 
     private void makeActionOnBtnStartChat() {
@@ -197,9 +240,53 @@ public class RequestDetailsActivity extends AppCompatActivity {
 
     private void makeActionOnBtnCall() {
         binding.btCall.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestDetailsActivity.this, ChatActivity.class);
-            startActivity(intent);
+            callPhoneNumber();
+            /*Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:"+Integer.parseInt(data.getClient().getPhone())));
+            startActivity(callIntent);*/
         });
+    }
+
+    public void callPhoneNumber()
+    {
+        try
+        {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+
+                    ActivityCompat.requestPermissions(RequestDetailsActivity.this, new String[]{Manifest.permission.CALL_PHONE}, CALL_REQUEST);
+
+                    return;
+                }
+            }
+
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:" + data.getClient().getPhone().trim()));
+            startActivity(callIntent);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults)
+    {
+        if(requestCode == CALL_REQUEST)
+        {
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                callPhoneNumber();
+            }
+            else
+            {
+                Toast.makeText(RequestDetailsActivity.this, getResources().getString(R.string.call_permission_denied_message), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void makeActionOnBtnStartTrip() {

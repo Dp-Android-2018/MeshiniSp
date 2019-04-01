@@ -8,8 +8,9 @@ import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityChangePasswordProfileBinding;
 import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.OfferResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.viewmodel.ChangePasswordProfileViewModel;
@@ -31,12 +32,13 @@ public class ChangePasswordProfileActivity extends AppCompatActivity {
 
     ActivityChangePasswordProfileBinding binding;
     Lazy<ChangePasswordProfileViewModel> changePasswordProfileViewModelLazy = inject(ChangePasswordProfileViewModel.class);
+    Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_change_password_profile);
-
+        ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
     }
 
     public void saveChanges(View view) {
@@ -60,9 +62,9 @@ public class ChangePasswordProfileActivity extends AppCompatActivity {
     }
 
     private void makeChangePasswordRequest() {
-        changePasswordProfileViewModelLazy.getValue().changePassword(getChangedPasswordRequest()).observe(this, new Observer<Response<OfferResponse>>() {
+        changePasswordProfileViewModelLazy.getValue().changePassword(getChangedPasswordRequest()).observe(this, new Observer<Response<MessageResponse>>() {
             @Override
-            public void onChanged(Response<OfferResponse> offerResponseResponse) {
+            public void onChanged(Response<MessageResponse> offerResponseResponse) {
                 SharedUtils.getInstance().cancelDialog();
                 if (offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
                         || offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
@@ -78,7 +80,7 @@ public class ChangePasswordProfileActivity extends AppCompatActivity {
         });
     }
 
-    private void showErrorMessage(Response<OfferResponse> offerResponseResponse) {
+    private void showErrorMessage(Response<MessageResponse> offerResponseResponse) {
         Gson gson = new GsonBuilder().create();
         ErrorResponse errorResponse = new ErrorResponse();
 

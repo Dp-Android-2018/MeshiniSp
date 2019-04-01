@@ -24,7 +24,6 @@ tools:context=".view.ui.activity.RequestDetailsActivity">
         android:background="@android:color/white"
         android:fitsSystemWindows="true"
         app:collapsedTitleGravity="center"
-        app:title="@string/app_name"
         app:contentScrim="?attr/colorPrimary"
         app:expandedTitleMarginEnd="64dp"
         app:expandedTitleMarginStart="48dp"

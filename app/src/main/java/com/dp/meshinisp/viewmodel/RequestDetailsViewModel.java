@@ -3,7 +3,7 @@ package com.dp.meshinisp.viewmodel;
 import android.app.Application;
 
 import com.dp.meshinisp.service.model.request.OfferRequest;
-import com.dp.meshinisp.service.model.response.OfferResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.RequestDetailsResponse;
 import com.dp.meshinisp.service.repository.remotes.RequestDetailsRepository;
 
@@ -28,7 +28,7 @@ public class RequestDetailsViewModel extends AndroidViewModel {
         data = requestDetailsRepositoryLazy.getValue().getRequestDetails(requestId);
     }
 
-    public LiveData<Response<OfferResponse>> sendOffer(int requestId, OfferRequest offerRequest) {
+    public LiveData<Response<MessageResponse>> sendOffer(int requestId, OfferRequest offerRequest) {
         return requestDetailsRepositoryLazy.getValue().sendOffer(requestId, offerRequest);
     }
 

@@ -1,7 +1,16 @@
 
-gsquid:CallToDeprecatedMethod#"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8…ù’½–-
-esquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(şÊŸ®
-bsquid:CallToDeprecatedMethod!"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8…ù’½–-
-nsquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(´ŞÒüıÿÿÿÿ8ÆùÆ½–-
-dsquid:CallToDeprecatedMethod""0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8…ù’½–-
-_squid:CallToDeprecatedMethod/"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8Ä›½½–-
+@squid:S1643±"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8„ä››-
+?squid:S1643R"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8µ‰ş™-
+Fsquid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µ‰ş™-
+nsquid:CommentedOutCodeLinex"<This block of commented-out lines of code should be removed.(´ŞÒüıÿÿÿÿ8½ö‹™-
+hsquid:CallToDeprecatedMethodº"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8Û•›-
+?squid:S1643S"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8µ‰ş™-
+@squid:S1643°"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8„ä››-
+:squid:S1643l"Use a StringBuilder instead.(º”Ì‡8»Á†š-
+_squid:CallToDeprecatedMethods"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8½ö‹™-
+esquid:MaximumInheritanceDepth!"<This class has 9 parents which is greater than 5 authorized.(şÊŸ®
+Gsquid:S1148¬"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8„ä››-
+csquid:CallToDeprecatedMethod¸"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8Û•›-
+esquid:CallToDeprecatedMethod¹"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8Û•›-
+:squid:S1643k"Use a StringBuilder instead.(°–ôÔ8»Á†š-
+nsquid:CommentedOutCodeLineu"<This block of commented-out lines of code should be removed.(õ¬¿ÿÿÿÿÿ8‰Ÿºš-

@@ -114,6 +114,9 @@
     <string name="pickup_location_tv">Pickup location:</string>
     <string name="old_password">Old Password</string>
     <string name="nothing_changed">"Nothing changed !!"</string>
+    <string name="trip_date">Trip Date:</string>
+    <string name="guide_name">Guide Name:</string>
+    <string name="call_permission_denied_message">call permission denied :(</string>
 
     <string-array name="education_request_types">
         <item>Basic education</item>

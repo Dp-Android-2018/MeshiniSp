@@ -35,6 +35,7 @@ public class RequestsViewHolder extends RecyclerView.ViewHolder {
     private void readMoreClickListener() {
         binding.getRoot().setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), RequestDetailsActivity.class);
+            intent.putExtra(ConfigurationFile.Constants.REQUEST_Type, ConfigurationFile.Constants.FROM_REQUESTS_TYPE);
             intent.putExtra(ConfigurationFile.Constants.REQUEST_ID, requestsResponseModel.getId());
             v.getContext().startActivity(intent);
         });

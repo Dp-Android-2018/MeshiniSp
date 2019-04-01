@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -95,30 +96,15 @@ public class MainActivity extends BaseActivity {
     }
 
     private void makeActionOnClickOnMenuItems() {
-        binding.navigationView.tvNavItem1.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, TripsActivity.class);
-            startActivity(intent);
-        });
+        binding.navigationView.tvNavItem1.setOnClickListener(v -> openActivity(TripsActivity.class));
 
-        binding.navigationView.tvNavItem2.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, OffersActivity.class);
-            startActivity(intent);
-        });
+        binding.navigationView.tvNavItem2.setOnClickListener(v -> openActivity(OffersActivity.class));
 
-        binding.navigationView.tvNavItem6.setOnClickListener(v -> {
-            logout();
-
-        });
+        binding.navigationView.tvNavItem6.setOnClickListener(v -> logout());
 
         binding.navigationView.tvNavItem5.setOnClickListener(v -> openPlayStoreToRateApp());
 
-        binding.navigationView.navigationViewHeaderLayout.vAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AccountActivity.class);
-                startActivity(intent);
-            }
-        });
+        binding.navigationView.navigationViewHeaderLayout.vAccount.setOnClickListener(v -> openActivity(AccountActivity.class));
     }
 
     private void logout() {
@@ -126,6 +112,11 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void openActivity(Class activityClass) {
+        Intent intent = new Intent(MainActivity.this, activityClass);
+        startActivity(intent);
     }
 
     private void openPlayStoreToRateApp() {
@@ -183,6 +174,7 @@ public class MainActivity extends BaseActivity {
         builder.setCancelable(true);
         dialog = builder.create();
         Window window = dialog.getWindow();
+//        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         window.setBackgroundDrawableResource(R.color.transparent);
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         layoutParams.gravity = Gravity.BOTTOM;
@@ -192,7 +184,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void makeActionOnLayoutComponents(View v) {
-        this.v=v;
+        this.v = v;
         fromEditText = v.findViewById(R.id.et_dialog_from);
         toEditText = v.findViewById(R.id.et_dialog_to);
         countrySpinner = v.findViewById(R.id.sp_country);
@@ -203,7 +195,7 @@ public class MainActivity extends BaseActivity {
         makeSearch(btnSearch);
     }
 
-    public void setCountrySpinner(){
+    public void setCountrySpinner() {
         if (ValidationUtils.isConnectingToInternet(this)) {
             mainActivityViewModelLazy.getValue().getCountries().observe(this, (List<CountryCityResponseModel> countryCityPojos) -> {
                 countrySpinnerAdapter = new SpinnerAdapter(MainActivity.this, countryCityPojos);
@@ -220,7 +212,7 @@ public class MainActivity extends BaseActivity {
                     }
                 });
             });
-        }else {
+        } else {
             showSnackbar(getString(R.string.there_is_no_internet_connection));
         }
     }
@@ -243,16 +235,16 @@ public class MainActivity extends BaseActivity {
 
     private void makeSearchRequest() {
         ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
-        countryId =selectedCountry.getId();
-        mainActivityViewModelLazy.getValue().searchForRequests(1,countryId, fromEditText.getText().toString(), toEditText.getText().toString()).observe(this, searchRequestsResponseResponse -> {
+        countryId = selectedCountry.getId();
+        mainActivityViewModelLazy.getValue().searchForRequests(1, countryId, fromEditText.getText().toString(), toEditText.getText().toString()).observe(this, searchRequestsResponseResponse -> {
             SharedUtils.getInstance().cancelDialog();
             if (searchRequestsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
                     || searchRequestsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
                 if (searchRequestsResponseResponse.body() != null) {
-                    if (!searchRequestsResponseResponse.body().getData().isEmpty()){
+                    if (!searchRequestsResponseResponse.body().getData().isEmpty()) {
                         openActivityRequests();
-                    }else {
-                        Snackbar.make(v.getRootView(),"There is no Requests available !!",Snackbar.LENGTH_SHORT).show();
+                    } else {
+                        Snackbar.make(v.getRootView(), "There is no Requests available !!", Snackbar.LENGTH_SHORT).show();
                     }
                 }
             } else {
@@ -269,17 +261,17 @@ public class MainActivity extends BaseActivity {
                     error += string;
                     error += "\n";
                 }
-                Snackbar.make(v.getRootView(),error,Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(v.getRootView(), error, Snackbar.LENGTH_SHORT).show();
             }
         });
     }
 
     private void openActivityRequests() {
         dialog.dismiss();
-        Intent intent=new Intent(this,RequestsActivity.class);
-        intent.putExtra(ConfigurationFile.Constants.COUNTRY_ID,countryId);
-        intent.putExtra(ConfigurationFile.Constants.DATE_FROM,fromEditText.getText().toString());
-        intent.putExtra(ConfigurationFile.Constants.DATE_TO,toEditText.getText().toString());
+        Intent intent = new Intent(this, RequestsActivity.class);
+        intent.putExtra(ConfigurationFile.Constants.COUNTRY_ID, countryId);
+        intent.putExtra(ConfigurationFile.Constants.DATE_FROM, fromEditText.getText().toString());
+        intent.putExtra(ConfigurationFile.Constants.DATE_TO, toEditText.getText().toString());
         startActivity(intent);
         clearAllFields();
     }

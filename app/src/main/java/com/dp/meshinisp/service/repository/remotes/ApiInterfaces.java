@@ -8,12 +8,13 @@ import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.response.ActivationResponse;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
-import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.service.model.response.LoginResponse;
-import com.dp.meshinisp.service.model.response.OfferResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
+import com.dp.meshinisp.service.model.response.OffersResponse;
 import com.dp.meshinisp.service.model.response.RequestDetailsResponse;
 import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
+import com.dp.meshinisp.service.model.response.TripsResponse;
 
 import io.reactivex.Observable;
 import retrofit2.Response;
@@ -73,15 +74,27 @@ public interface ApiInterfaces {
 
     //Get request data by id (service provider)
     @POST("/api/service-provider/request/{request}/send-offer")
-    Observable<Response<OfferResponse>> sendOffer(@Path("request") int requestId, @Body OfferRequest offerRequest);
+    Observable<Response<MessageResponse>> sendOffer(@Path("request") int requestId, @Body OfferRequest offerRequest);
 
     //Update profile info
     @PUT("/api/service-provider/profile")
-    Observable<Response<OfferResponse>> updateProfileInfo(@Body ProfileInfoRequest profileInfoRequest);
+    Observable<Response<MessageResponse>> updateProfileInfo(@Body ProfileInfoRequest profileInfoRequest);
 
     //Change password (service provider)
-    @PUT("/api/service-provider/change-password")
-    Observable<Response<OfferResponse>> changePassword(@Body ChangePasswordRequest changePasswordRequest);
+    @POST("/api/service-provider/change-password")
+    Observable<Response<MessageResponse>> changePassword(@Body ChangePasswordRequest changePasswordRequest);
+
+    //Get all offers for a specific service provider
+    @GET("/api/service-provider/offers")
+    Observable<Response<OffersResponse>> getAllOffers(@Query("page") int pageNumber);
+
+    //List past requests (service provider)
+    @GET("/api/service-provider/request/past")
+    Observable<Response<TripsResponse>> listPastRequests(@Query("page") int pageNumber);
+
+    //List upcoming requests (service provider)
+    @GET("/api/service-provider/request/upcoming")
+    Observable<Response<TripsResponse>> listUpcomingRequests(@Query("page") int pageNumber);
 
 
 }

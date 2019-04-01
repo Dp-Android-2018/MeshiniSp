@@ -1,5 +1,6 @@
 
-qsquid:MaximumInheritanceDepth!"<This class has 9 parents which is greater than 5 authorized.(·¡ïõøÿÿÿÿ8§Íåï”-
-Fsquid:S1148e"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÑŽ€îœ-
 ?squid:S1643i"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8— šîœ-
+Fsquid:S1148e"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÑŽ€îœ-
 ?squid:S1643j"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8— šîœ-
+Ysquid:S2696s"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8Ðç†¡-
+qsquid:MaximumInheritanceDepth!"<This class has 9 parents which is greater than 5 authorized.(·¡ïõøÿÿÿÿ8§Íåï”-

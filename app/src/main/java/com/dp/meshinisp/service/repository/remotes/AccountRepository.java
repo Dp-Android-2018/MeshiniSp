@@ -2,7 +2,7 @@ package com.dp.meshinisp.service.repository.remotes;
 
 import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
-import com.dp.meshinisp.service.model.response.OfferResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -20,19 +20,19 @@ public class AccountRepository {
     private Lazy<ApiInterfaces> endPointsLazy = inject(ApiInterfaces.class);
 
 
-    public LiveData<Response<OfferResponse>> updateProfileInfo(ProfileInfoRequest profileInfoRequest) {
-        MutableLiveData<Response<OfferResponse>> data = new MutableLiveData<>();
+    public LiveData<Response<MessageResponse>> updateProfileInfo(ProfileInfoRequest profileInfoRequest) {
+        MutableLiveData<Response<MessageResponse>> data = new MutableLiveData<>();
         endPointsLazy.getValue().updateProfileInfo(profileInfoRequest)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<OfferResponse>>() {
+                .subscribe(new Observer<Response<MessageResponse>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(Response<OfferResponse> offerResponseResponse) {
+                    public void onNext(Response<MessageResponse> offerResponseResponse) {
                         data.setValue(offerResponseResponse);
                     }
 
@@ -49,19 +49,19 @@ public class AccountRepository {
         return data;
     }
 
-     public LiveData<Response<OfferResponse>> changePassword(ChangePasswordRequest changePasswordRequest) {
-        MutableLiveData<Response<OfferResponse>> data = new MutableLiveData<>();
+     public LiveData<Response<MessageResponse>> changePassword(ChangePasswordRequest changePasswordRequest) {
+        MutableLiveData<Response<MessageResponse>> data = new MutableLiveData<>();
         endPointsLazy.getValue().changePassword(changePasswordRequest)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<OfferResponse>>() {
+                .subscribe(new Observer<Response<MessageResponse>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(Response<OfferResponse> offerResponseResponse) {
+                    public void onNext(Response<MessageResponse> offerResponseResponse) {
                         data.setValue(offerResponseResponse);
                     }
 
