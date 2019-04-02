@@ -78,8 +78,8 @@ public class RegisterActivity4 extends AppCompatActivity {
                 @Override
                 public void onChanged(Response<LoginRegisterResponse> loginRegisterResponseResponse) {
                     SharedUtils.getInstance().cancelDialog();
-                    if (loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                            || loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                    if (loginRegisterResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                            && ConfigurationFile.Constants.SUCCESS_CODE_TO > loginRegisterResponseResponse.code()) {
                         openHomeActivity();
                     } else {
                         Gson gson = new GsonBuilder().create();

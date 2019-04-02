@@ -1,114 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/white_bg"
-    tools:context=".view.ui.activity.TripsActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/trips_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/white_bg"
+        tools:context=".view.ui.activity.TripsActivity">
 
-        <TextView
-            android:id="@+id/main_title"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/trips_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/main_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@android:color/black"
+                android:textSize="17.7sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <Button
+            android:id="@+id/bt_past"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@android:color/black"
-            android:textSize="17.7sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp1h"
+            android:background="@color/bt_bg_color"
+            android:onClick="listPastRequests"
+            android:text="@string/past"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/sp15"
+            app:layout_constraintEnd_toStartOf="@+id/view3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trips_toolbar" />
 
-    </androidx.appcompat.widget.Toolbar>
+        <Button
+            android:id="@+id/bt_upcoming"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@color/bt_bg_color"
+            android:onClick="listUpcomingRequests"
+            android:text="@string/upcoming"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/sp15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/view3"
+            app:layout_constraintTop_toBottomOf="@+id/trips_toolbar" />
 
-    <Button
-        android:id="@+id/bt_past"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="1dp"
-        android:background="@color/bt_bg_color"
-        android:text="@string/past"
-        android:onClick="listPastRequests"
-        android:textColor="@color/text_color_black"
-        android:textSize="@dimen/sp15"
-        app:layout_constraintEnd_toStartOf="@+id/view3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trips_toolbar" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_trips"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp10h"
+            android:layout_marginTop="@dimen/dp7w"
+            android:layout_marginEnd="@dimen/dp10h"
+            android:layout_marginBottom="@dimen/dp7w"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_past"
+            tools:listitem="@layout/trip_list_item" />
 
-    <Button
-        android:id="@+id/bt_upcoming"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:background="@color/bt_bg_color"
-        android:text="@string/upcoming"
-        android:onClick="listUpcomingRequests"
-        android:textColor="@color/text_color_black"
-        android:textSize="@dimen/sp15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/trips_toolbar" />
+        <View
+            android:id="@+id/v_past"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp2h"
+            android:background="@color/sky_color"
+            app:layout_constraintEnd_toStartOf="@+id/bt_upcoming"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_past" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_trips"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_past"
-        tools:listitem="@layout/trip_list_item" />
+        <View
+            android:id="@+id/v_upcoming"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp2h"
+            android:background="@color/sky_color"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bt_past"
+            app:layout_constraintTop_toBottomOf="@+id/bt_upcoming" />
 
-    <View
-        android:id="@+id/v_past"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/sky_color"
-        app:layout_constraintEnd_toStartOf="@+id/v_upcoming"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_past" />
-
-    <View
-        android:id="@+id/v_upcoming"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:visibility="invisible"
-        android:background="@color/sky_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/v_past"
-        app:layout_constraintTop_toBottomOf="@+id/bt_upcoming" />
-
-    <View
-        android:id="@+id/view3"
-        android:layout_width="2dp"
-        android:layout_height="0dp"
-        android:background="@color/sky_color"
-        app:layout_constraintBottom_toTopOf="@+id/v_past"
-        app:layout_constraintEnd_toStartOf="@+id/bt_upcoming"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bt_past"
-        app:layout_constraintTop_toTopOf="@+id/bt_past" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/view3"
+            android:layout_width="@dimen/dp2h"
+            android:layout_height="0dp"
+            android:background="@color/sky_color"
+            app:layout_constraintBottom_toTopOf="@+id/v_past"
+            app:layout_constraintEnd_toStartOf="@+id/bt_upcoming"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bt_past"
+            app:layout_constraintTop_toTopOf="@+id/bt_past" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

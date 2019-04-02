@@ -60,8 +60,8 @@ public class PhoneActivitationActivity extends AppCompatActivity {
                 public void onChanged(Response<ActivationResponse> activationResponseResponse) {
                     if (activationResponseResponse != null) {
                         SharedUtils.getInstance().cancelDialog();
-                        if (activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                                || activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                        if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                                && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
                             openNextActivityWithToken(activationResponseResponse.body().getActivationToken());
                         } else {
                             showSnackBar("error code :" + activationResponseResponse.code());
@@ -83,8 +83,8 @@ public class PhoneActivitationActivity extends AppCompatActivity {
                 public void onChanged(Response<ActivationResponse> activationResponseResponse) {
                     if (activationResponseResponse != null) {
                         SharedUtils.getInstance().cancelDialog();
-                        if (activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                                || activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                        if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                                && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
                             showSnackBar("Code Sent Successfully.");
                         } else {
                             showSnackBar("error code :" + activationResponseResponse.code());

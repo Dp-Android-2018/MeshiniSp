@@ -54,7 +54,7 @@ public class TripsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_trips);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_trips);
         loadedData = new ArrayList<>();
         setupToolbar();
         getAndSetPastRequests();
@@ -64,7 +64,7 @@ public class TripsActivity extends AppCompatActivity {
     public void listPastRequests(View view) {
         binding.vPast.setVisibility(View.VISIBLE);
         binding.vUpcoming.setVisibility(View.INVISIBLE);
-        requestType =false;
+        requestType = false;
         getAndSetPastRequests();
         initializeRecyclerViewAdapter();
     }
@@ -84,7 +84,7 @@ public class TripsActivity extends AppCompatActivity {
     public void listUpcomingRequests(View view) {
         binding.vPast.setVisibility(View.INVISIBLE);
         binding.vUpcoming.setVisibility(View.VISIBLE);
-        requestType =true;
+        requestType = true;
         getAndSetUpcomingRequests();
         initializeRecyclerViewAdapter();
     }
@@ -102,9 +102,9 @@ public class TripsActivity extends AppCompatActivity {
     }
 
     private void initializeRecyclerViewAdapter() {
-        if (requestType){
+        if (requestType) {
             offersRecyclerViewAdapter = new TripsRecyclerViewAdapter(loadedData, ConfigurationFile.Constants.TRIPS_TYPE_UPCOMING);
-        }else {
+        } else {
             offersRecyclerViewAdapter = new TripsRecyclerViewAdapter(loadedData, ConfigurationFile.Constants.TRIPS_TYPE_PAST);
         }
 
@@ -143,28 +143,25 @@ public class TripsActivity extends AppCompatActivity {
         position = totalItemCount;
         pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
         SharedUtils.getInstance().showProgressDialog(this);
-        if (requestType){
+        if (requestType) {
             tripsActivityViewModelLazy.getValue().listUpcomingRequests(pageId);
             observeViewmodel();
-        }else {
+        } else {
             tripsActivityViewModelLazy.getValue().listPastRequests(pageId);
             observeViewmodel();
         }
     }
 
     private void observeViewmodel() {
-        tripsActivityViewModelLazy.getValue().getData().observe(this, new Observer<Response<TripsResponse>>() {
-            @Override
-            public void onChanged(Response<TripsResponse> tripsResponseResponse) {
-                SharedUtils.getInstance().cancelDialog();
-                if (tripsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                ||tripsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND){
-                    if (!tripsResponseResponse.body().getData().isEmpty()) {
-                        addDataToLoadedData(tripsResponseResponse.body());
-                    }
-                }else {
-                    showErrorMessage(tripsResponseResponse);
+        tripsActivityViewModelLazy.getValue().getData().observe(this, tripsResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (tripsResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > tripsResponseResponse.code()) {
+                if (!tripsResponseResponse.body().getData().isEmpty()) {
+                    addDataToLoadedData(tripsResponseResponse.body());
                 }
+            } else {
+                showErrorMessage(tripsResponseResponse);
             }
         });
     }
@@ -187,7 +184,7 @@ public class TripsActivity extends AppCompatActivity {
     }
 
     private void showSnackbar(String message) {
-        Snackbar.make(binding.getRoot(),message,Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_SHORT).show();
     }
 
     private void addDataToLoadedData(TripsResponse body) {
@@ -202,8 +199,13 @@ public class TripsActivity extends AppCompatActivity {
             next_page = null;
         }
         if (loadedData.isEmpty() && (next_page != null)) {
-            /*offersActivityViewModelLazy.getValue().getAllOffers(pageId);
-            observeViewmodel();*/
+            if (requestType) {
+                tripsActivityViewModelLazy.getValue().listUpcomingRequests(pageId);
+                observeViewmodel();
+            } else {
+                tripsActivityViewModelLazy.getValue().listPastRequests(pageId);
+                observeViewmodel();
+            }
         }
         offersRecyclerViewAdapter.notifyDataSetChanged();
     }

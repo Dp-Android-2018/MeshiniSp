@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp288h"
     android:layout_gravity="bottom"
+    android:backgroundTint="@android:color/white"
     android:background="@drawable/dialog_request_background"
-    android:backgroundTint="@android:color/white">
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="60dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="Search for requests"
+        android:layout_marginTop="@dimen/dp12h"
         android:gravity="center"
+        android:text="@string/search_for_requests"
         android:textColor="@color/text_color_black"
         android:textSize="@dimen/sp19"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +29,7 @@
         android:id="@+id/textView26"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/choose_country_city"
         android:textColor="@color/text_color_black"
@@ -38,10 +41,10 @@
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/sp_country"
         android:layout_width="0dp"
-        android:layout_height="34.78dp"
-        android:layout_marginStart="32dp"
+        android:layout_height="@dimen/dp31w"
+        android:layout_marginStart="@dimen/dp29h"
         android:layout_marginTop="@dimen/dp16h"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="@dimen/dp29h"
         android:background="@drawable/spinner_bg_colored"
         android:dropDownSelector="@drawable/drop_down_arrow"
         android:prompt="@string/country"
@@ -50,75 +53,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-   <!-- <LinearLayout
-        android:id="@+id/et_dialog_country"
-        android:layout_width="0dp"
-        android:layout_height="34.78dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/edit_text_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26">
-
-        <Spinner
-            android:id="@+id/request_type_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="34.78dp"
-            android:entries="@array/education_request_types"
-            android:spinnerMode="dropdown"
-            android:backgroundTint="@android:color/black"
-            android:popupBackground="@android:color/black"
-            android:dropDownSelector="@color/white_90"
-            android:textSize="15sp" />
-
-    </LinearLayout>-->
-
-   <!--
-   style="@style/mySpinnerItemStyle"
-   android:popupBackground="@android:color/black"
-   <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/et_dialog_country"
-        android:layout_width="@dimen/dp271w"
-        android:layout_height="@dimen/dp40h"
-        android:layout_marginTop="@dimen/dp16h"
-        android:background="@drawable/spinner_bg"
-        android:dropDownSelector="@drawable/drop_down_arrow"
-        android:prompt="@string/country"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />-->
-
-    <!--<EditText
-        android:id="@+id/et_country"
-        style="@style/EditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/edit_text_border"
-        android:drawableEnd="@drawable/drop_down_arrow"
-        android:focusable="false"
-        android:hint="@string/country"
-        android:paddingEnd="20dp"
-       />-->
-
     <EditText
         android:id="@+id/et_dialog_from"
         style="@style/EditText"
         android:layout_width="0dp"
-        android:layout_height="34.78dp"
-        android:layout_marginStart="32dp"
+        android:layout_height="@dimen/dp31w"
+        android:layout_marginStart="@dimen/dp29h"
         android:layout_marginTop="@dimen/dp17h"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="@dimen/dp29h"
         android:background="@drawable/edit_text_border"
         android:drawableEnd="@drawable/ic_calendar_pic"
         android:focusable="false"
         android:hint="From"
-        android:paddingEnd="20dp"
+        android:paddingEnd="@dimen/dp18h"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sp_country" />
@@ -127,15 +74,15 @@
         android:id="@+id/et_dialog_to"
         style="@style/EditText"
         android:layout_width="0dp"
-        android:layout_height="34.78dp"
-        android:layout_marginStart="32dp"
+        android:layout_height="@dimen/dp31w"
+        android:layout_marginStart="@dimen/dp29h"
         android:layout_marginTop="@dimen/dp17h"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="@dimen/dp29h"
         android:background="@drawable/edit_text_border"
         android:drawableEnd="@drawable/ic_calendar_pic"
         android:focusable="false"
         android:hint="To"
-        android:paddingEnd="20dp"
+        android:paddingEnd="@dimen/dp18h"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_dialog_from" />
@@ -144,7 +91,7 @@
         android:id="@+id/bt_search_for_requests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/dp14w"
         android:text="@string/search_for_requests"
         android:textAllCaps="false"
         android:textColor="@android:color/white"

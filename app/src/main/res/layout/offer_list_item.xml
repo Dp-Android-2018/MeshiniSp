@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white_off_color"
+        app:cardCornerRadius="10dp">
+
+        <com.ramotion.foldingcell.FoldingCell
+            android:id="@+id/folding_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/base_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_cancel_offer"
+                    android:layout_width="@dimen/dp16w"
+                    android:layout_height="@dimen/dp16w"
+                    android:layout_marginTop="@dimen/dp13h"
+                    android:layout_marginEnd="@dimen/dp13h"
+                    android:src="@drawable/ic_close"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp14w"
+                    android:layout_marginTop="@dimen/dp7w"
+                    android:text="@string/name"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp4h"
+                    android:text="Ahmed sobhy"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_name_tv"
+                    app:layout_constraintStart_toEndOf="@+id/tv_name_tv"
+                    app:layout_constraintTop_toTopOf="@+id/tv_name_tv" />
+
+                <TextView
+                    android:id="@+id/tv_country_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp7w"
+                    android:text="@string/country_tv"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_name_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name_tv" />
+
+                <TextView
+                    android:id="@+id/tv_country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp4h"
+                    android:text="4.87"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_country_tv"
+                    app:layout_constraintStart_toEndOf="@+id/tv_country_tv"
+                    app:layout_constraintTop_toTopOf="@+id/tv_country_tv" />
+
+                <TextView
+                    android:id="@+id/tv_date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp7w"
+                    android:text="@string/date"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_country_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_country_tv" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp4h"
+                    android:text="225"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_date_tv"
+                    app:layout_constraintStart_toEndOf="@+id/tv_date_tv"
+                    app:layout_constraintTop_toTopOf="@+id/tv_date_tv" />
+
+                <TextView
+                    android:id="@+id/tv_offer_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp7w"
+                    android:layout_marginBottom="@dimen/dp7w"
+                    android:text="@string/offer_tv"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_date_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_date_tv" />
+
+                <TextView
+                    android:id="@+id/tv_offer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp4h"
+                    android:text="225"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="@dimen/sp11_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_offer_tv"
+                    app:layout_constraintStart_toEndOf="@+id/tv_offer_tv"
+                    app:layout_constraintTop_toTopOf="@+id/tv_offer_tv" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/extract_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/bt_accept"
+                    android:layout_width="@dimen/dp107w"
+                    android:layout_height="@dimen/dp23h"
+                    android:layout_marginTop="@dimen/dp4h"
+                    android:layout_marginEnd="@dimen/dp12h"
+                    android:background="@drawable/edit_text_shape"
+                    android:backgroundTint="@color/green_color"
+                    android:text="Accept"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp11"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp12h"
+                    android:layout_marginBottom="@dimen/dp8h"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/bt_accept"
+                    tools:listitem="@layout/guide_review_list_item" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.ramotion.foldingcell.FoldingCell>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

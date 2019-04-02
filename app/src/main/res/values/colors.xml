@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#4E4E4E</color>
     <color name="colorAccent">#D81B60</color>
     <color name="sky_color">#3FB9B9</color>
+    <color name="sky_color_dark">#349D9D</color>
     <color name="white_90">#E6ffffff</color>
     <color name="text_color_black">#4D4D4D</color>
     <color name="text_color_no_data">#969a9e</color>

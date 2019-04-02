@@ -1,42 +1,59 @@
 package com.dp.meshinisp.view.ui.viewholder;
 
 import android.content.Intent;
-import android.widget.ImageView;
+import android.view.View;
 
-import com.dp.meshinisp.databinding.ItemListOfferBinding;
+import com.dp.meshinisp.databinding.OfferListItemBinding;
 import com.dp.meshinisp.service.model.global.OffersResponseModel;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.view.ui.activity.RequestDetailsActivity;
-import com.squareup.picasso.Picasso;
+import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
+
+import java.util.ArrayList;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 
 public class OffersViewHolder extends RecyclerView.ViewHolder {
-    private final ItemListOfferBinding binding;
+    private final OfferListItemBinding binding;
     private OffersResponseModel requestsResponseModel;
+    private OnItemClickListener listener;
 
-
-    public OffersViewHolder(ItemListOfferBinding binding) {
+    public OffersViewHolder(OfferListItemBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
     }
 
-    public void bindClass(OffersResponseModel videosResponseModel) {
+    public void bindClass(OffersResponseModel videosResponseModel, final OnItemClickListener listener) {
         this.requestsResponseModel = videosResponseModel;
+        this.listener = listener;
         binding.tvName.setText(requestsResponseModel.getName());
-        binding.tvRating.setText(String.valueOf(requestsResponseModel.getRating()));
-        binding.tvNumTrips.setText(String.valueOf(requestsResponseModel.getTripsCount()));
-        ImageView ivFeedPhoto = binding.roundedImageView;
-        Picasso.get().load(requestsResponseModel.getProfilePictureUrl()).into(ivFeedPhoto);
-//        readMoreClickListener();
+        binding.tvCountry.setText(requestsResponseModel.getCountry());
+        binding.tvDate.setText(requestsResponseModel.getDate());
+        binding.tvOffer.setText(String.valueOf(requestsResponseModel.getOffer()));
+        makeActionToCancelOffer();
+        readMoreClickListener();
+    }
+
+    private void makeActionToCancelOffer() {
+        binding.ivCancelOffer.setOnClickListener(v -> {
+            if (listener != null) {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onDeleteClick(position);
+                }
+            }
+        });
     }
 
     private void readMoreClickListener() {
         binding.getRoot().setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), RequestDetailsActivity.class);
-            intent.putExtra(ConfigurationFile.Constants.REQUEST_ID, requestsResponseModel.getId());
-            v.getContext().startActivity(intent);
+            if (listener != null) {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(position);
+                }
+            }
         });
     }
 

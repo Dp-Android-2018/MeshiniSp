@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MeshiniSP</string>
+    <string name="app_name">Meshini</string>
     <string name="action_close">close</string>
     <string name="get_started">Get started</string>
     <string name="email_phone_number">Email - phone number</string>
@@ -75,6 +75,7 @@
     <string name="Open">open</string>
     <string name="Close">close</string>
     <string name="choose_country_city"><![CDATA[Choose country & city]]></string>
+    <string name="please_select_country">please select country</string>
     <string name="date_time"><![CDATA[Date & Time:]]></string>
     <string name="search_for_requests">Search for requests</string>
 
@@ -101,6 +102,7 @@
     <string name="please_upload_your_photo">Please Upload Your Photo !</string>
     <string name="please_choose_languages">Please choose languages you speak !</string>
     <string name="there_is_no_internet_connection">There is no internet connection !!</string>
+    <string name="there_is_no_requests_available">"There is no Requests available !!"</string>
     <string name="error_mail_or_phone_or_password">Error e-mail or phone number or password!!</string>
     <string name="please_select_start_date">please select start date !!</string>
     <string name="please_select_end_date">please select end date !!</string>
@@ -117,6 +119,22 @@
     <string name="trip_date">Trip Date:</string>
     <string name="guide_name">Guide Name:</string>
     <string name="call_permission_denied_message">call permission denied :(</string>
+    <string name="date">Date:</string>
+    <string name="country_tv">Country:</string>
+    <string name="offer_tv">Offer:</string>
+    <string name="chat">Chat</string>
+    <string name="share_your_culture">Share Your Culture</string>
+    <string name="tap_card_for_more_details">Tap card for more details</string>
+    <string name="your_phone">Your phone</string>
+    <string name="please_upload_your_profile_picture">Please Upload your profile picture</string>
+    <string name="add_another_language">Add another Language</string>
+    <string name="rate">Rate :</string>
+    <string name="completed_trips">Completed Trips</string>
+    <string name="ok">Ok</string>
+    <string name="call">Call</string>
+    <string name="send_offer">Send offer</string>
+    <string name="requests">Requests</string>
+    <string name="cash">Cash</string>
 
     <string-array name="education_request_types">
         <item>Basic education</item>

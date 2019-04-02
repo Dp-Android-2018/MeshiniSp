@@ -1,15 +1,19 @@
 package com.dp.meshinisp.koin
 
 import android.content.Context
+import com.dp.meshinisp.service.model.response.ErrorResponse
 import com.dp.meshinisp.service.repository.remotes.ApiInterfaces
 import com.dp.meshinisp.utility.utils.ConfigurationFile
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 
@@ -42,7 +46,6 @@ internal fun provideOkHttpClient(context: Context): OkHttpClient {
         val response = it.proceed(request)
         if (response.code() == 404 || response.code() == 401) {
             EventBus.getDefault().post(response.message())
-//            println("Message Event : "+(response.message()))
         }
         response
     }

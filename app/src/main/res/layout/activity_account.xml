@@ -3,222 +3,171 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/white_bg"
-    tools:context=".view.ui.activity.AccountActivity">
-
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bt_change_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/white_bg"
+        tools:context=".view.ui.activity.AccountActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_change_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/account_toolbar"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/transparent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/main_title"
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/account_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/main_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/app_name"
+                        android:textColor="@android:color/black"
+                        android:textSize="17.7sp"
+                        android:textStyle="bold" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleImageView"
+                    android:layout_width="@dimen/dp93w"
+                    android:layout_height="@dimen/dp94h"
+                    android:layout_marginTop="@dimen/dp19h"
+                    android:src="@drawable/user"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/account_toolbar" />
+
+                <View
+                    android:id="@+id/view_update_photo"
+                    android:layout_width="@dimen/dp31w"
+                    android:layout_height="@dimen/dp31w"
+                    android:layout_marginStart="@dimen/dp63w"
+                    android:layout_marginTop="@dimen/dp63h"
+                    android:background="@drawable/bg_image_circular"
+                    android:onClick="showFileToChoose"
+                    app:layout_constraintStart_toStartOf="@+id/circleImageView"
+                    app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+                <ImageView
+                    android:layout_width="@dimen/dp23w"
+                    android:layout_height="@dimen/dp23w"
+                    android:onClick="showFileToChoose"
+                    android:src="@drawable/ic_photo"
+                    app:layout_constraintBottom_toBottomOf="@+id/view_update_photo"
+                    app:layout_constraintEnd_toEndOf="@+id/view_update_photo"
+                    app:layout_constraintStart_toStartOf="@+id/view_update_photo"
+                    app:layout_constraintTop_toTopOf="@id/view_update_photo" />
+
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1h"
+                    android:layout_marginTop="@dimen/dp13h"
+                    android:background="@color/text_color_black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+
+                <EditText
+                    android:id="@+id/et_first_name"
+                    style="@style/EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/app_name"
-                    android:textColor="@android:color/black"
-                    android:textSize="17.7sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="@dimen/dp23h"
+                    android:background="@drawable/edit_text_border"
+                    android:text="@string/first_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
 
-            </androidx.appcompat.widget.Toolbar>
+                <EditText
+                    android:id="@+id/et_last_name"
+                    style="@style/EditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16h"
+                    android:background="@drawable/edit_text_border"
+                    android:text="@string/last_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_first_name" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
-                android:layout_width="@dimen/dp93w"
-                android:layout_height="@dimen/dp94h"
-                android:layout_marginTop="@dimen/dp19h"
-                android:src="@drawable/user"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/account_toolbar" />
+                <EditText
+                    android:id="@+id/et_email"
+                    style="@style/EditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16h"
+                    android:background="@drawable/edit_text_border"
+                    android:text="@string/email_address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_last_name" />
 
-            <View
-                android:id="@+id/view_update_photo"
-                android:layout_width="@dimen/dp31w"
-                android:layout_height="@dimen/dp31w"
-                android:layout_marginStart="@dimen/dp63w"
-                android:layout_marginTop="@dimen/dp63h"
-                android:onClick="showFileToChoose"
-                android:background="@drawable/bg_image_circular"
-                app:layout_constraintStart_toStartOf="@+id/circleImageView"
-                app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+                <EditText
+                    android:id="@+id/et_phone"
+                    style="@style/EditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp23h"
+                    android:layout_marginBottom="@dimen/dp23h"
+                    android:background="@drawable/edit_text_border"
+                    android:inputType="phone"
+                    android:text="@string/phone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
-            <ImageView
-                android:layout_width="@dimen/dp23w"
-                android:layout_height="@dimen/dp23w"
-                android:src="@drawable/ic_photo"
-                android:onClick="showFileToChoose"
-                app:layout_constraintBottom_toBottomOf="@+id/view_update_photo"
-                app:layout_constraintEnd_toEndOf="@+id/view_update_photo"
-                app:layout_constraintStart_toStartOf="@+id/view_update_photo"
-                app:layout_constraintTop_toTopOf="@id/view_update_photo" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
+        <Button
+            android:id="@+id/bt_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp55h"
+            android:layout_marginBottom="2dp"
+            android:background="@color/text_color_black"
+            android:onClick="changePassword"
+            android:text="@string/change_password"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="@dimen/dp13h"
-                android:background="@color/text_color_black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+        <Button
+            android:id="@+id/bt_save"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp55h"
+            android:background="@color/text_color_black"
+            android:onClick="saveChanges"
+            android:text="@string/save_changes"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <EditText
-                android:id="@+id/et_first_name"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp23h"
-                android:background="@drawable/edit_text_border"
-                android:text="@string/first_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view" />
-
-            <EditText
-                android:id="@+id/et_last_name"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp16h"
-                android:background="@drawable/edit_text_border"
-                android:text="@string/last_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_first_name" />
-
-            <EditText
-                android:id="@+id/et_email"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp16h"
-                android:background="@drawable/edit_text_border"
-                android:text="@string/email_address"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_last_name" />
-
-            <!--<EditText
-                android:id="@+id/et_country"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp16h"
-                android:background="@drawable/edit_text_border"
-                android:drawableEnd="@drawable/drop_down_arrow"
-                android:paddingEnd="20dp"
-                android:text="@string/country"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_email" />
-
-            <EditText
-                android:id="@+id/et_city"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp16h"
-                android:background="@drawable/edit_text_border"
-                android:drawableEnd="@drawable/drop_down_arrow"
-                android:paddingEnd="20dp"
-                android:text="city"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_country" />-->
-
-            <EditText
-                android:id="@+id/et_phone"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp23h"
-                android:background="@drawable/edit_text_border"
-                android:inputType="phone"
-                android:text="@string/phone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_email" />
-
-            <!--<EditText
-                android:id="@+id/et_password"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp23h"
-                android:background="@drawable/edit_text_border"
-                android:inputType="textPassword"
-                android:text="@string/password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_phone" />
-
-            <EditText
-                android:id="@+id/et_password_confirmation"
-                style="@style/EditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp23h"
-                android:background="@drawable/edit_text_border"
-                android:hint="@string/confirm_new_password"
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_password" />-->
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <Button
-        android:id="@+id/bt_change_password"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp55h"
-        android:layout_marginBottom="2dp"
-        android:background="@color/text_color_black"
-        android:text="@string/change_password"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp15_5"
-        android:onClick="changePassword"
-        app:layout_constraintBottom_toTopOf="@+id/bt_save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/bt_save"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp55h"
-        android:background="@color/text_color_black"
-        android:text="@string/save_changes"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp15_5"
-        android:textAllCaps="false"
-        android:onClick="saveChanges"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

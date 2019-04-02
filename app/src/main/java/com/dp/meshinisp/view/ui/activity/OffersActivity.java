@@ -1,18 +1,25 @@
 package com.dp.meshinisp.view.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityOffersBinding;
 import com.dp.meshinisp.service.model.global.OffersResponseModel;
+import com.dp.meshinisp.service.model.response.ErrorResponse;
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.OffersResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.OffersRecyclerViewAdapter;
+import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
 import com.dp.meshinisp.viewmodel.OffersActivityViewModel;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -35,7 +42,7 @@ public class OffersActivity extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     private OffersRecyclerViewAdapter offersRecyclerViewAdapter;
     private int pageId = ConfigurationFile.Constants.PAGE_ID;
-    private String next_page = null;
+    private String next_page = ConfigurationFile.Constants.DEFAULT_STRING_VALUE;
     private ArrayList<OffersResponseModel> loadedData;
     int pastVisiblesItems, visibleItemCount, totalItemCount;
     private boolean loading = true;
@@ -45,7 +52,7 @@ public class OffersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_offers);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_offers);
         loadedData = new ArrayList<>();
         setupToolbar();
         initializeViewModel();
@@ -61,12 +68,79 @@ public class OffersActivity extends AppCompatActivity {
             Snackbar.make(binding.getRoot(), R.string.there_is_no_internet_connection, Snackbar.LENGTH_SHORT).show();
         }
     }
+
     private void initializeRecyclerViewAdapter() {
         offersRecyclerViewAdapter = new OffersRecyclerViewAdapter(loadedData);
         linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         binding.rvOffers.setLayoutManager(linearLayoutManager);
         binding.rvOffers.setAdapter(offersRecyclerViewAdapter);
+        makeActionOnClickOnRecyclerViewItem();
         makeOnScrollOnRecyclerView();
+    }
+
+    private void makeActionOnClickOnRecyclerViewItem() {
+        offersRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                opnDetailsActivity(position, "Clicked");
+            }
+
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+            }
+        });
+    }
+
+    public void removeItem(int position) {
+        if (ValidationUtils.isConnectingToInternet(this)) {
+            SharedUtils.getInstance().showProgressDialog(this);
+            offersActivityViewModelLazy.getValue().deleteSpecificOffer(loadedData.get(position).getId());
+            observeDeleteSpecificOfferData();
+        } else {
+            showSnackbr(getString(R.string.there_is_no_internet_connection));
+        }
+    }
+
+    private void observeDeleteSpecificOfferData() {
+        offersActivityViewModelLazy.getValue().getDeletedOfferResponse().observe(this, messageResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (messageResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > messageResponseResponse.code()) {
+                loadedData.remove(position);
+                offersRecyclerViewAdapter.notifyItemRemoved(position);
+                if (messageResponseResponse.body() != null) {
+                    showSnackbr(messageResponseResponse.body().getMessage());
+                }
+            } else {
+                showErrors(messageResponseResponse);
+            }
+        });
+    }
+
+    private void showErrors(Response<MessageResponse> messageResponseResponse) {
+        Gson gson = new GsonBuilder().create();
+        ErrorResponse errorResponse = new ErrorResponse();
+
+        try {
+            errorResponse = gson.fromJson(messageResponseResponse.errorBody().string(), ErrorResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String error = "";
+        for (String string : errorResponse.getErrors()) {
+            error += string;
+            error += "\n";
+        }
+        showSnackbr(error);
+    }
+
+    public void opnDetailsActivity(int position, String text) {
+        Intent intent = new Intent(OffersActivity.this, RequestDetailsActivity.class);
+        intent.putExtra(ConfigurationFile.Constants.REQUEST_ID, loadedData.get(position).getRequestId());
+        intent.putExtra(ConfigurationFile.Constants.REQUEST_Type, ConfigurationFile.Constants.OFFERS_TYPE_ACTIVITY);
+        intent.putExtra(ConfigurationFile.Constants.OFFER_PRICE, String.valueOf(loadedData.get(position).getOffer()));
+        startActivity(intent);
     }
 
     private void makeOnScrollOnRecyclerView() {
@@ -103,13 +177,10 @@ public class OffersActivity extends AppCompatActivity {
     }
 
     private void observeViewmodel() {
-        offersActivityViewModelLazy.getValue().getData().observe(this, new Observer<Response<OffersResponse>>() {
-            @Override
-            public void onChanged(Response<OffersResponse> offersResponseResponse) {
-                SharedUtils.getInstance().cancelDialog();
-                if (!offersResponseResponse.body().getData().isEmpty()) {
-                    addDataToLoadedData(offersResponseResponse.body());
-                }
+        offersActivityViewModelLazy.getValue().getData().observe(this, offersResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (!offersResponseResponse.body().getData().isEmpty()) {
+                addDataToLoadedData(offersResponseResponse.body());
             }
         });
     }
@@ -118,7 +189,7 @@ public class OffersActivity extends AppCompatActivity {
         for (int i = 0; i < body.getData().size(); i++) {
             loadedData.add(body.getData().get(i));
         }
-       /* loading = true;
+        loading = true;
         if (body.getPageLinks().getNextPageLink() != null) {
             next_page = body.getPageLinks().getNextPageLink();
             pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
@@ -128,13 +199,17 @@ public class OffersActivity extends AppCompatActivity {
         if (loadedData.isEmpty() && (next_page != null)) {
             offersActivityViewModelLazy.getValue().getAllOffers(pageId);
             observeViewmodel();
-        }*/
+        }
         offersRecyclerViewAdapter.notifyDataSetChanged();
     }
 
     private void setupToolbar() {
         binding.offersToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
         binding.offersToolbar.setNavigationOnClickListener(v -> onBackPressed());
+    }
+
+    private void showSnackbr(String message) {
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_SHORT).show();
     }
 
 }

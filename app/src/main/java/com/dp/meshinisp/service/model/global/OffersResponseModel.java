@@ -9,14 +9,17 @@ public class OffersResponseModel {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("profile_picture")
-    private String profilePictureUrl;
+    @SerializedName("country")
+    private String country;
 
-    @SerializedName("rating")
-    private float rating;
+    @SerializedName("date")
+    private String date;
 
-    @SerializedName("no_of_trips")
-    private int tripsCount;
+    @SerializedName("offer")
+    private float offer;
+
+    @SerializedName("request_id")
+    private int requestId;
 
     public int getId() {
         return id;
@@ -34,27 +37,35 @@ public class OffersResponseModel {
         this.name = name;
     }
 
-    public String getProfilePictureUrl() {
-        return profilePictureUrl;
+    public String getCountry() {
+        return country;
     }
 
-    public void setProfilePictureUrl(String profilePictureUrl) {
-        this.profilePictureUrl = profilePictureUrl;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public float getRating() {
-        return rating;
+    public String getDate() {
+        return date;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getTripsCount() {
-        return tripsCount;
+    public float getOffer() {
+        return offer;
     }
 
-    public void setTripsCount(int tripsCount) {
-        this.tripsCount = tripsCount;
+    public void setOffer(float offer) {
+        this.offer = offer;
+    }
+
+    public int getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(int requestId) {
+        this.requestId = requestId;
     }
 }

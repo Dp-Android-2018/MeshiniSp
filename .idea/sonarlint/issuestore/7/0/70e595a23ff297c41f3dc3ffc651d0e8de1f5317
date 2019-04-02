@@ -1,2 +1,14 @@
 
-esquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(›õ€Œ
+ssquid:S00116&"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ú‡‚8šŠÁ-
+Msquid:S1066W"/Merge this if statement with the enclosing one.(à—åª8šŠÁ-
+Osquid:S1659(",Declare "totalItemCount" on a separate line.(üÆö›ýÿÿÿÿ8šŠÁ-
+Ksquid:S1068!"-Remove this unused "countryId" private field.(Ä¦ºƒ8‚åùÀ-
+Psquid:S1068""-Remove this unused "startDate" private field.(íÃáþÿÿÿÿ8šŠÁ-
+lsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(›õ€Œ8šŠÁ-
+nsquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(«º³ûøÿÿÿÿ8«Å®Á-
+Qsquid:S1659(".Declare "visibleItemCount" on a separate line.(üÆö›ýÿÿÿÿ8šŠÁ-
+usquid:S1450*"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8šŠÁ-
+Nsquid:S1068""+Remove this unused "endDate" private field.(íÃáþÿÿÿÿ8šŠÁ-
+Hsquid:S1659""%Declare "endDate" on a separate line.(íÃáþÿÿÿÿ8šŠÁ-
+Ksquid:S1185K"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8šŠÁ-
+Jsquid:S1068*",Remove this unused "position" private field.(íñ8šŠÁ-

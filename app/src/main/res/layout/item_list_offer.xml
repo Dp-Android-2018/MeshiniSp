@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/dp9h"
         android:backgroundTint="@color/white_off_color"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="@dimen/dp9h">
 
         <com.ramotion.foldingcell.FoldingCell
             android:id="@+id/folding_cell"
@@ -20,36 +19,29 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/base_view"
                 android:layout_width="match_parent"
-                android:layout_height="87dp">
-
-               <!-- <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/ic_close"
-                    tools:layout_editor_absoluteX="377dp"
-                    tools:layout_editor_absoluteY="10dp" />-->
+                android:layout_height="@dimen/dp78h">
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/roundedImageView"
                     android:layout_width="@dimen/dp77w"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="@dimen/dp9h"
+                    android:layout_marginTop="@dimen/dp7w"
+                    android:layout_marginBottom="@dimen/dp7w"
                     android:background="@color/text_color_black"
                     android:scaleType="centerCrop"
                     android:src="@drawable/im_man"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:riv_corner_radius="10dp" />
+                    app:riv_corner_radius="@dimen/dp9h" />
 
                 <TextView
                     android:id="@+id/tv_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/dp14w"
+                    android:layout_marginTop="@dimen/dp7w"
                     android:text="@string/name"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
@@ -60,7 +52,7 @@
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="@dimen/dp4w"
                     android:text="Ahmed sobhy"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
@@ -72,7 +64,7 @@
                     android:id="@+id/tv_rating_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/dp7w"
                     android:text="@string/rating"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
@@ -83,7 +75,7 @@
                     android:id="@+id/tv_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="@dimen/dp4w"
                     android:text="4.87"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
@@ -95,7 +87,7 @@
                     android:id="@+id/tv_num_trips_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/dp7w"
                     android:text="@string/no_of_trips"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
@@ -106,7 +98,7 @@
                     android:id="@+id/tv_num_trips"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="@dimen/dp4w"
                     android:text="225"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
@@ -127,8 +119,8 @@
                     android:id="@+id/bt_accept"
                     android:layout_width="@dimen/dp107w"
                     android:layout_height="@dimen/dp23h"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="13dp"
+                    android:layout_marginTop="@dimen/dp5h"
+                    android:layout_marginEnd="@dimen/dp12h"
                     android:background="@drawable/edit_text_shape"
                     android:backgroundTint="@color/green_color"
                     android:text="Accept"
@@ -142,8 +134,8 @@
                     android:id="@+id/rv_reviews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginBottom="9dp"
+                    android:layout_marginTop="@dimen/dp12h"
+                    android:layout_marginBottom="@dimen/dp8h"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

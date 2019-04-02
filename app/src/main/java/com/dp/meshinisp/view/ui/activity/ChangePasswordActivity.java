@@ -59,7 +59,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 public void onChanged(Response<ActivationResponse> activationResponseResponse) {
                     if (activationResponseResponse != null) {
                         SharedUtils.getInstance().cancelDialog();
-                        if (activationResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE) {
+                        if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                                && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
                             openNextActivity();
                         } else {
                             showSnackBar("error code :" + activationResponseResponse.code());

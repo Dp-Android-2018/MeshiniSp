@@ -53,6 +53,7 @@ public class ConfigurationFile {
         public static final String FROM_REQUESTS_TYPE = "request";
         public static final String TRIPS_TYPE_PAST = "past";
         public static final String TRIPS_TYPE_UPCOMING = "upcoming";
+        public static final String OFFERS_TYPE_ACTIVITY = "offer activity";
         public static final String OFFER_PRICE = "offer price";
         public static final String PREREQUESTS_TYPE = "order type";
         public static final String ORDER_TYPE = "order type";
@@ -117,8 +118,11 @@ public class ConfigurationFile {
 
 
         public static final int PAGE_ID = 0;
+        public static final int SUCCESS_CODE_FROM = 200;
+        public static final int SUCCESS_CODE_TO = 300;
         public static final int SUCCESS_CODE = 200;
         public static final int SUCCESS_CODE_SECOND = 201;
+        public static final int SUCCESS_CODE_Third = 202;
         public static final int NOT_ACTIVATED_CODE = 417 ;
         public static final int LOGGED_IN_BEFORE_CODE = 401 ;
         public static final int WAIT_CODE = 429;

@@ -1,16 +1,25 @@
 
-@squid:S1643±"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8„ä››-
-?squid:S1643R"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8µ‰ş™-
-Fsquid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µ‰ş™-
-nsquid:CommentedOutCodeLinex"<This block of commented-out lines of code should be removed.(´ŞÒüıÿÿÿÿ8½ö‹™-
-hsquid:CallToDeprecatedMethodº"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8Û•›-
-?squid:S1643S"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8µ‰ş™-
-@squid:S1643°"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8„ä››-
-:squid:S1643l"Use a StringBuilder instead.(º”Ì‡8»Á†š-
-_squid:CallToDeprecatedMethods"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8½ö‹™-
-esquid:MaximumInheritanceDepth!"<This class has 9 parents which is greater than 5 authorized.(şÊŸ®
-Gsquid:S1148¬"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8„ä››-
-csquid:CallToDeprecatedMethod¸"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8Û•›-
-esquid:CallToDeprecatedMethod¹"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8Û•›-
-:squid:S1643k"Use a StringBuilder instead.(°–ôÔ8»Á†š-
-nsquid:CommentedOutCodeLineu"<This block of commented-out lines of code should be removed.(õ¬¿ÿÿÿÿÿ8‰Ÿºš-
+?squid:S1643}"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ŞÏËÇ-
+lsquid:MaximumInheritanceDepth'"<This class has 9 parents which is greater than 5 authorized.(şÊŸ®8¯‰íÇ-
+Vsquid:S1135"2Complete the task associated to this TODO comment.(áÃæùÿÿÿÿ8å€Ë-
+Nsquid:S1066€"/Merge this if statement with the enclosing one.(¡ì¯ı8å€Ë-
+Gsquid:S1148Ö"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Õ®É-
+esquid:CallToDeprecatedMethodâ"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8œÈèÉ-
+hsquid:CallToDeprecatedMethodã"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8œÈèÉ-
+`squid:CallToDeprecatedMethod¡"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8œÈèÉ-
+@squid:S1643Ú"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8„ä››-
+xsquid:S1450*"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ8¯‰íÇ-
+?squid:S1170."!Make this final field static too.(íİàİ8çš„Ë-
+@squid:S1643Û"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Õ®É-
+?squid:S1643~"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Õ®É-
+;squid:S1643–"Use a StringBuilder instead.(°–ôÔ8»Á†š-
+\"squid:SwitchLastCaseIsDefaultCheckA""Add a default case to this switch.(”ûÜÿÿÿÿÿ8¯‰íÇ-
+;squid:S1643—"Use a StringBuilder instead.(º”Ì‡8Õ®É-
+osquid:CommentedOutCodeLineô"<This block of commented-out lines of code should be removed.(êöƒşÿÿÿÿ8íÙˆË-
+vsquid:S00116."WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íİàİ8çš„Ë-
+Bsquid:S1148"#Use a logger to log this exception.(Ç’Çê8å€Ë-
+Psquid:S1602ò",Remove useless curly braces around statement(ø€È¡ùÿÿÿÿ8íÙˆË-
+wsquid:S1450+"YRemove the "offerPrice" field and declare it as a local variable in the relevant methods.(Üùÿ8îÜ±É-
+nsquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(¬ıÑŞÿÿÿÿÿ8¼©ÖÉ-
+csquid:CallToDeprecatedMethodá"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8œÈèÉ-
+Fsquid:S1148y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Õ®É-

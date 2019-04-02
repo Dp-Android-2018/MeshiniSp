@@ -1,5 +1,6 @@
 package com.dp.meshinisp.service.repository.remotes;
 
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.OffersResponse;
 
 import androidx.lifecycle.LiveData;
@@ -44,5 +45,35 @@ public class OffersRepository {
                 });
         return data;
     }
+
+    public LiveData<Response<MessageResponse>> deleteSpecificOffer(int offerId) {
+        MutableLiveData<Response<MessageResponse>> data = new MutableLiveData<>();
+        endPointsLazy.getValue().deleteSpecificOffer(offerId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Response<MessageResponse>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<MessageResponse> messageResponseResponse) {
+                        data.setValue(messageResponseResponse);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        return data;
+    }
+
 
 }

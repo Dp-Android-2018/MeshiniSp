@@ -65,22 +65,19 @@ public class LoginActivity extends AppCompatActivity {
 
     private void makeLoginRequest() {
         SharedUtils.getInstance().showProgressDialog(this);
-        loginViewModelLazy.getValue().login(getLoginRequest()).observe(this, new Observer<Response<LoginResponse>>() {
-            @Override
-            public void onChanged(Response<LoginResponse> loginResponseResponse) {
-                SharedUtils.getInstance().cancelDialog();
-                if (loginResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE ||
-                        loginResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
-                    if (loginResponseResponse.body() != null) {
-                        Snackbar.make(binding.getRoot(), "Login Success :)", Snackbar.LENGTH_SHORT).show();
-                        saveDataToSharedPreferences(loginResponseResponse.body().getData());
-                        openMainActivity();
-                    } else {
-                        Snackbar.make(binding.getRoot(), "no data", Snackbar.LENGTH_SHORT).show();
-                    }
+        loginViewModelLazy.getValue().login(getLoginRequest()).observe(this, loginResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (loginResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > loginResponseResponse.code()) {
+                if (loginResponseResponse.body() != null) {
+                    Snackbar.make(binding.getRoot(), "Login Success :)", Snackbar.LENGTH_SHORT).show();
+                    saveDataToSharedPreferences(loginResponseResponse.body().getData());
+                    openMainActivity();
                 } else {
-                    makeActionOnCode(loginResponseResponse);
+                    Snackbar.make(binding.getRoot(), "no data", Snackbar.LENGTH_SHORT).show();
                 }
+            } else {
+                makeActionOnCode(loginResponseResponse);
             }
         });
     }

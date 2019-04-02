@@ -28,7 +28,7 @@ public class TripsResponseModel {
     private String serviceProvider;
 
     @SerializedName("offer_price")
-    private String offerPrice;
+    private float offerPrice;
 
     public int getId() {
         return id;
@@ -94,11 +94,11 @@ public class TripsResponseModel {
         this.serviceProvider = serviceProvider;
     }
 
-    public String getOfferPrice() {
+    public float getOfferPrice() {
         return offerPrice;
     }
 
-    public void setOfferPrice(String offerPrice) {
+    public void setOfferPrice(float offerPrice) {
         this.offerPrice = offerPrice;
     }
 }

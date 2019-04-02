@@ -49,7 +49,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_request_details);
-        requestType=getIntent().getStringExtra(ConfigurationFile.Constants.REQUEST_Type);
+        requestType = getIntent().getStringExtra(ConfigurationFile.Constants.REQUEST_Type);
         requestId = getIntent().getIntExtra(ConfigurationFile.Constants.REQUEST_ID, 0);
         checkRequestType(requestType);
         setupToolbar();
@@ -62,7 +62,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void checkRequestType(String requestType) {
-        switch (requestType){
+        switch (requestType) {
             case ConfigurationFile.Constants.FROM_REQUESTS_TYPE:
                 binding.btSendOffer.setVisibility(View.VISIBLE);
                 binding.connectLinearLayout.setVisibility(View.INVISIBLE);
@@ -78,19 +78,32 @@ public class RequestDetailsActivity extends AppCompatActivity {
             case ConfigurationFile.Constants.TRIPS_TYPE_UPCOMING:
                 initializeUpcomingScreen();
                 break;
+
+            case ConfigurationFile.Constants.OFFERS_TYPE_ACTIVITY:
+                initializeOffersScreen();
+                break;
         }
     }
 
+    private void initializeOffersScreen() {
+        offerPrice = getIntent().getStringExtra(ConfigurationFile.Constants.OFFER_PRICE);
+        binding.etOfferAmount.setText(offerPrice);
+        binding.connectLinearLayout.setVisibility(View.INVISIBLE);
+        binding.btSlideToStartTrip.setVisibility(View.INVISIBLE);
+        binding.btSendOffer.setVisibility(View.GONE);
+        binding.etOfferAmount.setVisibility(View.VISIBLE);
+        binding.btOk.setVisibility(View.VISIBLE);
+        doneSendingOffer();
+    }
+
     private void initializeUpcomingScreen() {
-        offerPrice=getIntent().getStringExtra(ConfigurationFile.Constants.OFFER_PRICE);
-//        binding.btSendOffer.setVisibility(View.VISIBLE);
+        offerPrice = getIntent().getStringExtra(ConfigurationFile.Constants.OFFER_PRICE);
+        binding.etOfferAmount.setText(offerPrice);
         binding.connectLinearLayout.setVisibility(View.VISIBLE);
         binding.btSlideToStartTrip.setVisibility(View.VISIBLE);
         binding.btSendOffer.setVisibility(View.GONE);
         binding.etOfferAmount.setVisibility(View.VISIBLE);
-        binding.etOfferAmount.setText(offerPrice);
         binding.btOk.setVisibility(View.VISIBLE);
-
         doneSendingOffer();
     }
 
@@ -107,8 +120,8 @@ public class RequestDetailsActivity extends AppCompatActivity {
     private void observeViewModel() {
         requestDetailsViewModelLazy.getValue().getData().observe(this, requestDetailsResponseResponse -> {
             SharedUtils.getInstance().cancelDialog();
-            if (requestDetailsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                    || requestDetailsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+            if (requestDetailsResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > requestDetailsResponseResponse.code()) {
                 if (requestDetailsResponseResponse.body() != null)
                     initializeUiWithData(requestDetailsResponseResponse.body().getData());
             } else {
@@ -136,12 +149,12 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void initializeUiWithData(RequestDetailsModel data) {
-        this.data=data;
+        this.data = data;
         binding.tvRate.setText(String.valueOf(data.getClient().getRating()));
         binding.ratingBar.setRating(data.getClient().getRating());
         binding.tvCountry.setText(data.getCountry());
         binding.tvPickupLocation.setText(data.getPickupAddress());
-        String dateAndTime=data.getPickupDate()+" "+data.getPickupTime();
+        String dateAndTime = data.getPickupDate() + " " + data.getPickupTime();
         binding.tvDateAndTime.setText(dateAndTime);
         binding.tvVehicle.setText(data.getVehicleType());
         binding.tvTripsNo.setText(String.valueOf(data.getClient().getTripsCount()));
@@ -160,6 +173,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
     private void setupToolbar() {
         binding.collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.transparent));
         binding.collapsingToolbar.setCollapsedTitleGravity(Gravity.CENTER);
+//        binding.collapsingToolbar.setBackgroundColor(getResources().getColor(R.color.transparent)); ?attr/colorPrimary
         binding.requestsToolbar.setNavigationIcon(R.drawable.ic_chevron_left_white_24dp);
         binding.requestsToolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
@@ -180,8 +194,8 @@ public class RequestDetailsActivity extends AppCompatActivity {
                     requestDetailsViewModelLazy.getValue().sendOffer(requestId, getOfferRequest())
                             .observe(this, offerResponseResponse -> {
                                 SharedUtils.getInstance().cancelDialog();
-                                if (offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                                        || offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                                if (offerResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > offerResponseResponse.code()) {
                                     showSnackbar(getString(R.string.offer_sent_successfully));
                                     doneSendingOffer();
                                 } else {
@@ -199,7 +213,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private OfferRequest getOfferRequest() {
-        OfferRequest offerRequest=new OfferRequest();
+        OfferRequest offerRequest = new OfferRequest();
         offerRequest.setPrice(Integer.parseInt(binding.etOfferAmount.getText().toString()));
         return offerRequest;
     }
@@ -247,12 +261,9 @@ public class RequestDetailsActivity extends AppCompatActivity {
         });
     }
 
-    public void callPhoneNumber()
-    {
-        try
-        {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            {
+    public void callPhoneNumber() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
 
@@ -265,25 +276,18 @@ public class RequestDetailsActivity extends AppCompatActivity {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + data.getClient().getPhone().trim()));
             startActivity(callIntent);
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                           int[] grantResults)
-    {
-        if(requestCode == CALL_REQUEST)
-        {
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            {
+                                           int[] grantResults) {
+        if (requestCode == CALL_REQUEST) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 callPhoneNumber();
-            }
-            else
-            {
+            } else {
                 Toast.makeText(RequestDetailsActivity.this, getResources().getString(R.string.call_permission_denied_message), Toast.LENGTH_SHORT).show();
             }
         }

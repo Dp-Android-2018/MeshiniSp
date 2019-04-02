@@ -1,97 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/group_background"
-    tools:context=".view.ui.activity.PhoneActivitationActivity">
-
-    <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="@dimen/dp89w"
-        android:layout_height="@dimen/dp71h"
-        android:layout_marginTop="@dimen/dp90h"
-        android:scaleType="centerCrop"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/app_name"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp22_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp23h"
-        android:text="@string/enter_4_digit_code_sent_to"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp17"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/tv_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp17h"
-        android:text="+201033007841"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp15_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <com.goodiebag.pinview.Pinview
-        android:id="@+id/pin_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        app:cursorVisible="true"
-        app:forceKeyboard="false"
-        app:inputType="number"
-        app:hint="*"
-        android:autofillHints="*"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_phone"
-        android:layout_marginTop="@dimen/dp56h"
-        app:pinBackground="@drawable/pin_item_background"
-        app:pinHeight="@dimen/dp51h"
-        app:pinLength="4"
-        app:pinWidth="@dimen/dp38w" />
-
-
-
-    <Button
-        android:id="@+id/bt_resend"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp55h"
-        android:background="@color/sky_color"
-        android:text="@string/resend"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp17_5"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="match_parent"
+        android:background="@drawable/group_background"
+        tools:context=".view.ui.activity.PhoneActivitationActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/dp89w"
+            android:layout_height="@dimen/dp71h"
+            android:layout_marginTop="@dimen/dp90h"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp4h"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp22_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp23h"
+            android:text="@string/enter_4_digit_code_sent_to"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp17"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp17h"
+            android:text="@string/your_phone"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp15_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <com.goodiebag.pinview.Pinview
+            android:id="@+id/pin_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp56h"
+            android:autofillHints="*"
+            android:textSize="16sp"
+            app:cursorVisible="true"
+            app:forceKeyboard="false"
+            app:hint="*"
+            app:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone"
+            app:pinBackground="@drawable/pin_item_background"
+            app:pinHeight="@dimen/dp51h"
+            app:pinLength="4"
+            app:pinWidth="@dimen/dp38w" />
+
+        <Button
+            android:id="@+id/bt_resend"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp55h"
+            android:background="@color/sky_color"
+            android:text="@string/resend"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp17_5"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

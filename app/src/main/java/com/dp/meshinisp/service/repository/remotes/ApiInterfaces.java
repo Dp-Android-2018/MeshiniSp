@@ -19,6 +19,7 @@ import com.dp.meshinisp.service.model.response.TripsResponse;
 import io.reactivex.Observable;
 import retrofit2.Response;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -96,5 +97,8 @@ public interface ApiInterfaces {
     @GET("/api/service-provider/request/upcoming")
     Observable<Response<TripsResponse>> listUpcomingRequests(@Query("page") int pageNumber);
 
+    //Delete a specific offer
+    @DELETE("/api/service-provider/offers/{offer}")
+    Observable<Response<MessageResponse>> deleteSpecificOffer(@Path("offer") int offerId);
 
 }

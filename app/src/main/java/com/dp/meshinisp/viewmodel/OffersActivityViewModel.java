@@ -2,6 +2,7 @@ package com.dp.meshinisp.viewmodel;
 
 import android.app.Application;
 
+import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.OffersResponse;
 import com.dp.meshinisp.service.repository.remotes.OffersRepository;
 
@@ -15,6 +16,7 @@ import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 public class OffersActivityViewModel extends AndroidViewModel {
     private LiveData<Response<OffersResponse>> data;
+    private LiveData<Response<MessageResponse>> deletedOfferResponse;
 
     private Lazy<OffersRepository> offersRepositoryLazy = inject(OffersRepository.class);
 
@@ -26,7 +28,15 @@ public class OffersActivityViewModel extends AndroidViewModel {
         data= offersRepositoryLazy.getValue().getAllOffers(pageNumber);
     }
 
+    public  void deleteSpecificOffer(int offerId) {
+        deletedOfferResponse= offersRepositoryLazy.getValue().deleteSpecificOffer(offerId);
+    }
+
     public LiveData<Response<OffersResponse>> getData() {
         return data;
+    }
+
+    public LiveData<Response<MessageResponse>> getDeletedOfferResponse() {
+        return deletedOfferResponse;
     }
 }

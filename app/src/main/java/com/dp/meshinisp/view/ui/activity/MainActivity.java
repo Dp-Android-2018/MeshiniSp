@@ -8,23 +8,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityMainBinding;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
-import com.dp.meshinisp.service.model.global.RequestsResponseModel;
-import com.dp.meshinisp.service.model.request.SearchRequestsRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.DateTimePicker;
@@ -33,15 +29,16 @@ import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.SpinnerAdapter;
 import com.dp.meshinisp.view.ui.callback.OnDateTimeSelected;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatSpinner;
@@ -49,9 +46,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.lifecycle.Observer;
 import kotlin.Lazy;
-import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -72,6 +67,8 @@ public class MainActivity extends BaseActivity {
     private CountryCityResponseModel selectedCountry;
     private int countryId;
     private View v;
+    private BottomSheetBehavior sheetBehavior;
+    private ConstraintLayout layoutBottomSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +78,41 @@ public class MainActivity extends BaseActivity {
         initializeUiData();
         setupToolbar();
         makeActionOnClickOnMenuItems();
+        initializeShowStateDialog();
 
+    }
+
+    private void initializeShowStateDialog() {
+        layoutBottomSheet = findViewById(R.id.bottom_sheet);
+        makeActionOnLayoutComponents(layoutBottomSheet.getRootView());
+        sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
+        sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED: {
+//                        View v = layoutBottomSheet.getRootView();
+//                        btnBottomSheet.setText("Close Sheet");
+                    }
+                    break;
+                    case BottomSheetBehavior.STATE_COLLAPSED: {
+//                        btnBottomSheet.setText("Expand Sheet");
+                    }
+                    break;
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
     }
 
     private void initializeUiData() {
@@ -167,8 +198,15 @@ public class MainActivity extends BaseActivity {
     }
 
     public void showDialog(View view) {
+        if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//            btnBottomSheet.setText("Close sheet");
+        } else {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//            btnBottomSheet.setText("Expand sheet");
+        }
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomDialog);
+        /*final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomDialog);
         View v = View.inflate(this, R.layout.request_guide_dialog, null);
         builder.setView(v);
         builder.setCancelable(true);
@@ -177,10 +215,11 @@ public class MainActivity extends BaseActivity {
 //        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         window.setBackgroundDrawableResource(R.color.transparent);
         WindowManager.LayoutParams layoutParams = window.getAttributes();
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         layoutParams.gravity = Gravity.BOTTOM;
         window.setAttributes(layoutParams);
         makeActionOnLayoutComponents(v);
-        dialog.show();
+        dialog.show();*/
     }
 
     private void makeActionOnLayoutComponents(View v) {
@@ -208,12 +247,12 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
-                        showSnackbar("please select country");
+                        showSnackbarOnDialogView(getString(R.string.please_select_country));
                     }
                 });
             });
         } else {
-            showSnackbar(getString(R.string.there_is_no_internet_connection));
+            showSnackbarOnDialogView(getString(R.string.there_is_no_internet_connection));
         }
     }
 
@@ -225,7 +264,7 @@ public class MainActivity extends BaseActivity {
                     SharedUtils.getInstance().showProgressDialog(this);
                     makeSearchRequest();
                 } else {
-                    showSnackbar(getString(R.string.there_is_no_internet_connection));
+                    showSnackbarOnDialogView(getString(R.string.there_is_no_internet_connection));
                 }
             } else {
                 showErrors();
@@ -236,38 +275,43 @@ public class MainActivity extends BaseActivity {
     private void makeSearchRequest() {
         ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         countryId = selectedCountry.getId();
-        mainActivityViewModelLazy.getValue().searchForRequests(1, countryId, fromEditText.getText().toString(), toEditText.getText().toString()).observe(this, searchRequestsResponseResponse -> {
-            SharedUtils.getInstance().cancelDialog();
-            if (searchRequestsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                    || searchRequestsResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
-                if (searchRequestsResponseResponse.body() != null) {
-                    if (!searchRequestsResponseResponse.body().getData().isEmpty()) {
-                        openActivityRequests();
+        mainActivityViewModelLazy.getValue().searchForRequests(1, countryId, fromEditText.getText().toString(), toEditText.getText().toString())
+                .observe(this, searchRequestsResponseResponse -> {
+                    SharedUtils.getInstance().cancelDialog();
+                    if (searchRequestsResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                            && ConfigurationFile.Constants.SUCCESS_CODE_TO > searchRequestsResponseResponse.code()) {
+                        if (searchRequestsResponseResponse.body() != null) {
+                            if (!searchRequestsResponseResponse.body().getData().isEmpty()) {
+                                openActivityRequests();
+                            } else {
+                                showSnackbarOnDialogView(getString(R.string.there_is_no_requests_available));
+                            }
+                        }
                     } else {
-                        Snackbar.make(v.getRootView(), "There is no Requests available !!", Snackbar.LENGTH_SHORT).show();
-                    }
-                }
-            } else {
-                Gson gson = new GsonBuilder().create();
-                ErrorResponse errorResponse = new ErrorResponse();
+                        Gson gson = new GsonBuilder().create();
+                        ErrorResponse errorResponse = new ErrorResponse();
 
-                try {
-                    errorResponse = gson.fromJson(searchRequestsResponseResponse.errorBody().string(), ErrorResponse.class);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                String error = "";
-                for (String string : errorResponse.getErrors()) {
-                    error += string;
-                    error += "\n";
-                }
-                Snackbar.make(v.getRootView(), error, Snackbar.LENGTH_SHORT).show();
-            }
-        });
+                        try {
+                            errorResponse = gson.fromJson(searchRequestsResponseResponse.errorBody().string(), ErrorResponse.class);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        String error = "";
+                        for (String string : errorResponse.getErrors()) {
+                            error += string;
+                            error += "\n";
+                        }
+                        showSnackbarOnDialogView(error);
+                    }
+                });
+    }
+
+    public void showSnackbarOnDialogView(String message) {
+        Snackbar.make(v.getRootView(), message, Snackbar.LENGTH_SHORT).show();
     }
 
     private void openActivityRequests() {
-        dialog.dismiss();
+//        dialog.dismiss();
         Intent intent = new Intent(this, RequestsActivity.class);
         intent.putExtra(ConfigurationFile.Constants.COUNTRY_ID, countryId);
         intent.putExtra(ConfigurationFile.Constants.DATE_FROM, fromEditText.getText().toString());
@@ -283,12 +327,12 @@ public class MainActivity extends BaseActivity {
 
     private void showErrors() {
         if (fromEditText.getText().toString().isEmpty()) {
-            showSnackbar(getString(R.string.please_select_start_date));
+            showSnackbarOnDialogView(getString(R.string.please_select_start_date));
             return;
         }
 
         if (toEditText.getText().toString().isEmpty()) {
-            showSnackbar(getString(R.string.please_select_end_date));
+            showSnackbarOnDialogView(getString(R.string.please_select_end_date));
         }
     }
 

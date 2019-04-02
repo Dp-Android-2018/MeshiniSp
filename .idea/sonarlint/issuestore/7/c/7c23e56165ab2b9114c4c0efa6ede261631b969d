@@ -1,29 +1,30 @@
 
-ƒsquid:UselessImportCheck"XRemove this unused import 'com.dp.meshinisp.service.model.global.RequestsResponseModel'.(Í›×Å8¾×í÷œ-
-Osquid:S1172²"+Remove this unused method parameter "view".(àï’†üÿÿÿÿ8´â›Ñ›-
-msquid:MaximumInheritanceDepth;"=This class has 10 parents which is greater than 5 authorized.(‘Ù±8´â›Ñ›-
-‡squid:S1450?"dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8¦Œš•-
-Jsquid:S1444>",Make this "public static drawer" field final(Œ÷›á8¦Œš•-
-†squid:UselessImportCheck"[Remove this unused import 'com.dp.meshinisp.service.model.response.SearchRequestsResponse'.(ßÄœ·8Çóÿ—-
-Usquid:S2696™"6Make the enclosing method "static" or remove this set.(Ú£Œû8Ğ€ŠĞ›-
-csquid:HiddenFieldCheckl"5Rename "v" which hides the field declared at line 73.(ˆÜ ˜üÿÿÿÿ8¦ÿ«–-
-csquid:HiddenFieldCheckq"5Rename "v" which hides the field declared at line 73.(Ôö×›úÿÿÿÿ8¦ÿ«–-
-‡"squid:ClassVariableVisibilityCheck>"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8¦Œš•-
-hsquid:UselessImportCheck3"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8·‘öğœ-
-Zsquid:S2696õ"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ôÕ†õœ-
-Zsquid:UselessImportCheck5"/Remove this unused import 'retrofit2.Response'.(¾éçï8·‘öğœ-
-@squid:S1643"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8ª†÷ğœ-
-_squid:HiddenFieldCheckµ"5Rename "v" which hides the field declared at line 73.(Äµûã8¦ÿ«–-
-osquid:CommentedOutCodeLine¢"<This block of commented-out lines of code should be removed.(ÆÆÆ¶üÿÿÿÿ8Ğ€ŠĞ›-
-Osquid:S1602l",Remove useless curly braces around statement(ˆÜ ˜üÿÿÿÿ8¢ËˆĞ›-
-‰squid:UselessImportCheck"YRemove this unused import 'com.dp.meshinisp.service.model.request.SearchRequestsRequest'.(Ñ·ì•ùÿÿÿÿ8ŠÛ‰õœ-
-dsquid:HiddenFieldCheckå"5Rename "v" which hides the field declared at line 73.(‘‚¢øúÿÿÿÿ8¦ÿ«–-
-qsquid:S3776ô"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÚÍÍ8ŠŸ±ùœ-
-csquid:UselessImportCheck"3Remove this unused import 'android.widget.Spinner'.(¸£ÃØüÿÿÿÿ8Øõœ-
-_squid:HiddenFieldCheck•"5Rename "v" which hides the field declared at line 73.(‹ãı„8¦ÿ«–-
-Gsquid:S1148‰"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ª†÷ğœ-
-^squid:HiddenFieldCheckg"5Rename "v" which hides the field declared at line 73.(éÇøä8¦ÿ«–-
-dsquid:HiddenFieldCheck´"5Rename "v" which hides the field declared at line 73.(ú±Ü†ıÿÿÿÿ8¦ÿ«–-
-[squid:UselessImportCheck)"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¾×í÷œ-
-csquid:HiddenFieldCheckb"5Rename "v" which hides the field declared at line 73.(Èş»Ïûÿÿÿÿ8¦ÿ«–-
-@squid:S1643"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8·‘öğœ-
+csquid:HiddenFieldChecke"5Rename "v" which hides the field declared at line 74.(Ì™ğÿÿÿÿÿ8…Ò­Ì-
+†squid:UselessImportCheck"[Remove this unused import 'com.dp.meshinisp.service.model.response.SearchRequestsResponse'.(ßÄœ·8…Ò­Ì-
+Gsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…Ò­Ì-
+msquid:MaximumInheritanceDepth<"=This class has 10 parents which is greater than 5 authorized.(‘Ù±8…Ò­Ì-
+^squid:HiddenFieldCheckk"5Rename "v" which hides the field declared at line 74.(É‹áË8…Ò­Ì-
+[squid:UselessImportCheck*"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8…Ò­Ì-
+Zsquid:UselessImportCheck6"/Remove this unused import 'retrofit2.Response'.(¾éçï8…Ò­Ì-
+Usquid:S2696"6Make the enclosing method "static" or remove this set.(Ú£Œû8…Ò­Ì-
+‡squid:S1450@"dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8…Ò­Ì-
+Zsquid:S2696í"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8…Ò­Ì-
+_squid:HiddenFieldCheckŒ"5Rename "v" which hides the field declared at line 74.(‹ãı„8…Ò­Ì-
+_squid:HiddenFieldCheck¬"5Rename "v" which hides the field declared at line 74.(Äµûã8…Ò­Ì-
+qsquid:S3776ì"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÚÍÍ8…Ò­Ì-
+‰squid:UselessImportCheck"YRemove this unused import 'com.dp.meshinisp.service.model.request.SearchRequestsRequest'.(Ñ·ì•ùÿÿÿÿ8…Ò­Ì-
+csquid:HiddenFieldCheckc"5Rename "v" which hides the field declared at line 74.(´ø¸Ãÿÿÿÿÿ8…Ò­Ì-
+ƒsquid:UselessImportCheck"XRemove this unused import 'com.dp.meshinisp.service.model.global.RequestsResponseModel'.(Í›×Å8¾×í÷œ-
+@squid:S1643†"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8…Ò­Ì-
+hsquid:UselessImportCheck4"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8…Ò­Ì-
+@squid:S1643…"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8·‘öğœ-
+dsquid:HiddenFieldCheckİ"5Rename "v" which hides the field declared at line 74.(‘‚¢øúÿÿÿÿ8…Ò­Ì-
+dsquid:HiddenFieldCheck¬"5Rename "v" which hides the field declared at line 74.(ú±Ü†ıÿÿÿÿ8…Ò­Ì-
+‡"squid:ClassVariableVisibilityCheck?"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8…Ò­Ì-
+osquid:CommentedOutCodeLine™"<This block of commented-out lines of code should be removed.(ÆÆÆ¶üÿÿÿÿ8…Ò­Ì-
+csquid:UselessImportCheck"3Remove this unused import 'android.widget.Spinner'.(¸£ÃØüÿÿÿÿ8…Ò­Ì-
+csquid:HiddenFieldChecki"5Rename "v" which hides the field declared at line 74.(Ôö×›úÿÿÿÿ8…Ò­Ì-
+^squid:HiddenFieldCheckg"5Rename "v" which hides the field declared at line 74.(Äª†İ8…Ò­Ì-
+osquid:CommentedOutCodeLine±"<This block of commented-out lines of code should be removed.(ß¢±µıÿÿÿÿ8§£´Ì-
+Jsquid:S1444?",Make this "public static drawer" field final(Œ÷›á8…Ò­Ì-
+Osquid:S1172©"+Remove this unused method parameter "view".(àï’†üÿÿÿÿ8…Ò­Ì-

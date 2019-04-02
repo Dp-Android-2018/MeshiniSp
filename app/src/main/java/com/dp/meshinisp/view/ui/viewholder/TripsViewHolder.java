@@ -28,7 +28,7 @@ public class TripsViewHolder extends RecyclerView.ViewHolder {
         binding.tvCountry.setText(requestsResponseModel.getCountry());
         binding.tvTripDate.setText(requestsResponseModel.getDate());
         binding.tvGuideName.setText(requestsResponseModel.getServiceProvider());
-        binding.tvCashAmount.setText(requestsResponseModel.getOfferPrice());
+        binding.tvCashAmount.setText(String.valueOf(requestsResponseModel.getOfferPrice()));
         ImageView ivFeedPhoto = binding.ivOffer;
         Picasso.get().load(requestsResponseModel.getImageUrl()).into(ivFeedPhoto);
         readMoreClickListener();
@@ -39,7 +39,7 @@ public class TripsViewHolder extends RecyclerView.ViewHolder {
             Intent intent = new Intent(v.getContext(), RequestDetailsActivity.class);
             intent.putExtra(ConfigurationFile.Constants.REQUEST_Type, tripsType);
             intent.putExtra(ConfigurationFile.Constants.REQUEST_ID, requestsResponseModel.getId());
-            intent.putExtra(ConfigurationFile.Constants.OFFER_PRICE, requestsResponseModel.getOfferPrice());
+            intent.putExtra(ConfigurationFile.Constants.OFFER_PRICE, String.valueOf(requestsResponseModel.getOfferPrice()));
             v.getContext().startActivity(intent);
         });
     }

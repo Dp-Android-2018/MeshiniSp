@@ -19,11 +19,9 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
-import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -82,7 +80,7 @@ public class RequestsActivity extends AppCompatActivity {
 
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                if (dy > ConfigurationFile.Constants.DEFAULT_INTEGER_VALUE) //check for scroll down
+                if (dy > ConfigurationFile.Constants.DEFAULT_INTEGER_VALUE)
                 {
                     visibleItemCount = linearLayoutManager.getChildCount();
                     totalItemCount = linearLayoutManager.getItemCount();
@@ -107,13 +105,10 @@ public class RequestsActivity extends AppCompatActivity {
     }
 
     private void observeViewmodel() {
-        requestsActivityViewModelLazy.getValue().getData().observe(this, new Observer<Response<SearchRequestsResponse>>() {
-            @Override
-            public void onChanged(Response<SearchRequestsResponse> searchRequestsResponseResponse) {
-                SharedUtils.getInstance().cancelDialog();
-                if (!searchRequestsResponseResponse.body().getData().isEmpty()) {
-                    addDataToLoadedData(searchRequestsResponseResponse.body());
-                }
+        requestsActivityViewModelLazy.getValue().getData().observe(this, searchRequestsResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (!searchRequestsResponseResponse.body().getData().isEmpty()) {
+                addDataToLoadedData(searchRequestsResponseResponse.body());
             }
         });
     }

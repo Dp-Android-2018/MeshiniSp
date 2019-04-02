@@ -5,11 +5,10 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.dp.meshinisp.R;
-import com.dp.meshinisp.databinding.ItemListOfferBinding;
+import com.dp.meshinisp.databinding.OfferListItemBinding;
 import com.dp.meshinisp.service.model.global.OffersResponseModel;
-import com.dp.meshinisp.service.model.global.RequestsResponseModel;
+import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
 import com.dp.meshinisp.view.ui.viewholder.OffersViewHolder;
-import com.dp.meshinisp.view.ui.viewholder.RequestsViewHolder;
 
 import java.util.ArrayList;
 
@@ -20,28 +19,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class OffersRecyclerViewAdapter extends RecyclerView.Adapter<OffersViewHolder> {
     private ArrayList<OffersResponseModel> requestsResponseModels;
+    private OnItemClickListener mListener;
 
     public OffersRecyclerViewAdapter(ArrayList<OffersResponseModel> requestsResponseModels) {
-        this.requestsResponseModels=requestsResponseModels;
+        this.requestsResponseModels = requestsResponseModels;
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
     @NonNull
     @Override
     public OffersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemListOfferBinding binding= DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_list_offer,parent,false);
+        OfferListItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.offer_list_item, parent, false);
         return new OffersViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull OffersViewHolder holder, int position) {
-        holder.bindClass(requestsResponseModels.get(position));
+        holder.bindClass(requestsResponseModels.get(position), mListener);
     }
 
     @Override
     public int getItemCount() {
-        if (requestsResponseModels !=null){
+        if (requestsResponseModels != null) {
             return requestsResponseModels.size();
-        }else {
+        } else {
             return 0;
         }
     }

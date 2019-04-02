@@ -103,8 +103,8 @@ public class AccountActivity extends AppCompatActivity {
                     @Override
                     public void onChanged(Response<MessageResponse> offerResponseResponse) {
                         SharedUtils.getInstance().cancelDialog();
-                        if (offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-                                || offerResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
+                        if (offerResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                                && ConfigurationFile.Constants.SUCCESS_CODE_TO > offerResponseResponse.code()) {
                             if (offerResponseResponse.body() != null) {
                                 showSnackbar(offerResponseResponse.body().getMessage());
                             }
