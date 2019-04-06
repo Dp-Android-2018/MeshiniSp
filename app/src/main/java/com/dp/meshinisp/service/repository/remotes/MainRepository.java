@@ -20,9 +20,9 @@ import static org.koin.java.standalone.KoinJavaComponent.inject;
 public class MainRepository {
     private Lazy<ApiInterfaces> endPointsLazy = inject(ApiInterfaces.class);
 
-    public LiveData<Response<SearchRequestsResponse>> searchForRequests(int pageId,int countryId,String startDate,String endDate) {
+    public LiveData<Response<SearchRequestsResponse>> searchForRequests(int pageId,int countryId,String startDate,String endDate,String paymentMethod) {
         MutableLiveData<Response<SearchRequestsResponse>> data = new MutableLiveData<>();
-        endPointsLazy.getValue().searchForRequests(pageId,countryId,startDate,endDate)
+        endPointsLazy.getValue().searchForRequests(pageId,countryId,startDate,endDate,paymentMethod)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Response<SearchRequestsResponse>>() {

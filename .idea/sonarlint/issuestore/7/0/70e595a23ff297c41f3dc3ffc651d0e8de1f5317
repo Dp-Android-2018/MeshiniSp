@@ -1,14 +1,20 @@
 
-ssquid:S00116&"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ú‡‚8šŠÁ-
-Msquid:S1066W"/Merge this if statement with the enclosing one.(à—åª8šŠÁ-
-Osquid:S1659(",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8šŠÁ-
-Ksquid:S1068!"-Remove this unused "countryId" private field.(Ä¦ºƒ8‚åùÀ-
-Psquid:S1068""-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ8šŠÁ-
-lsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(›õ€Œ8šŠÁ-
-nsquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(«º³ûøÿÿÿÿ8«Å®Á-
-Qsquid:S1659(".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8šŠÁ-
-usquid:S1450*"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8šŠÁ-
-Nsquid:S1068""+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ8šŠÁ-
-Hsquid:S1659""%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8šŠÁ-
-Ksquid:S1185K"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8šŠÁ-
-Jsquid:S1068*",Remove this unused "position" private field.(íñ8šŠÁ-
+Jsquid:S1172‰"+Remove this unused method parameter "text".(ßœ‹²8Ğú›ë-
+@squid:S1643Ç"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8‚ö¯’Ÿ-
+ssquid:S00116,"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8šŠÁ-
+Fsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8úˆïë-
+Nsquid:S1066 "/Merge this if statement with the enclosing one.(à—åª8šŠÁ-
+@squid:S1643ƒ"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8úˆïë-
+Gsquid:S1148Ã"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8‚ö¯’Ÿ-
+Osquid:S1659.",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8šŠÁ-
+vsquid:S3776²"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¯©Ê¹ùÿÿÿÿ8‚ö¯’Ÿ-
+Qsquid:S1659.".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8šŠÁ-
+Ssquid:S1066¸"/Merge this if statement with the enclosing one.(¯¦ş‡ıÿÿÿÿ8‘‚®’Ÿ-
+Nsquid:S1068("+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ8šŠÁ-
+@squid:S1643„"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8úˆïë-
+Lsquid:S1185”"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8šŠÁ-
+Ksquid:S1068'"-Remove this unused "countryId" private field.(Ä¦ºƒ8‚åùÀ-
+Psquid:S1068("-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ8šŠÁ-
+@squid:S1643È"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8‚ö¯’Ÿ-
+lsquid:MaximumInheritanceDepth$"<This class has 9 parents which is greater than 5 authorized.(›õ€Œ8šŠÁ-
+Hsquid:S1659("%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8šŠÁ-

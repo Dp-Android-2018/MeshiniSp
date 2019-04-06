@@ -25,7 +25,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     public LiveData<Response<SearchRequestsResponse>> searchForRequests(int pageId,int countryId,String startDate,String endDate) {
-        return mainRepositoryLazy.getValue().searchForRequests(pageId,countryId,startDate,endDate);
+        return mainRepositoryLazy.getValue().searchForRequests(pageId,countryId,startDate,endDate,"COD");
     }
 
     public LiveData<List<CountryCityResponseModel>> getCountries() {

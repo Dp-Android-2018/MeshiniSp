@@ -1,8 +1,8 @@
 
-esquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(ÚòÚÔ
-?squid:S1643^"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8¼ï”£-
-Nsquid:S1172,"+Remove this unused method parameter "view".(ËŠÝþÿÿÿÿ8õâ¢-
-?squid:S1643_"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¼ï”£-
-Ysquid:S2696)"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ÅµÕ¿-
-Fsquid:S1148Z"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8¼ï”£-
 Osquid:S1612J",Replace this lambda with a method reference.(†Òúˆûÿÿÿÿ8Ý“£-
+?squid:S1643_"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¼ï”£-
+Fsquid:S1148Z"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8¼ï”£-
+esquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(ÚòÚÔ
+Nsquid:S1172,"+Remove this unused method parameter "view".(ËŠÝþÿÿÿÿ8õâ¢-
+?squid:S1643^"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8¼ï”£-
+Ysquid:S2696)"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ÅµÕ¿-

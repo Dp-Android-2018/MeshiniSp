@@ -206,6 +206,8 @@ public class MainActivity extends BaseActivity {
 //            btnBottomSheet.setText("Expand sheet");
         }
 
+        binding.button2.setVisibility(View.INVISIBLE);
+
         /*final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomDialog);
         View v = View.inflate(this, R.layout.request_guide_dialog, null);
         builder.setView(v);
@@ -275,7 +277,8 @@ public class MainActivity extends BaseActivity {
     private void makeSearchRequest() {
         ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         countryId = selectedCountry.getId();
-        mainActivityViewModelLazy.getValue().searchForRequests(1, countryId, fromEditText.getText().toString(), toEditText.getText().toString())
+        mainActivityViewModelLazy.getValue().searchForRequests(1,
+                countryId, fromEditText.getText().toString(), toEditText.getText().toString())
                 .observe(this, searchRequestsResponseResponse -> {
                     SharedUtils.getInstance().cancelDialog();
                     if (searchRequestsResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM

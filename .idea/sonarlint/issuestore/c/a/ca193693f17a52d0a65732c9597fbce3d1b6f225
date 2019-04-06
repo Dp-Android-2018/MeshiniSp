@@ -1,14 +1,14 @@
 
 ?squid:S1643_"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ü¬¡îœ-
-^squid:UselessImportCheck".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ8¦ÅÍùš-
-esquid:MaximumInheritanceDepth+"<This class has 9 parents which is greater than 5 authorized.(®ÃÇš
-Tsquid:S10687"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8·‚¬ª›-
-Rsquid:S10688"/Remove this unused "tabSelected" private field.(ĞŒŒúÿÿÿÿ8—‡Ğùš-
-Fsquid:S1148["#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ü¬¡îœ-
 ?squid:S1643`"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ü¬¡îœ-
+Tsquid:S10687"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8·‚¬ª›-
 ksquid:CallToDeprecatedMethod¼"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ8ø¸„È›-
-Gsquid:S1148Š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ø¸„È›-
-jsquid:CommentedOutCodeLine¯"<This block of commented-out lines of code should be removed.(½¹ÂÀ8Ì´ŒÈ›-
-jsquid:CallToDeprecatedMethod2"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8ÓıÄùš-
 Gsquid:S1148ª"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ø¸„È›-
+Rsquid:S10688"/Remove this unused "tabSelected" private field.(ĞŒŒúÿÿÿÿ8—‡Ğùš-
+esquid:MaximumInheritanceDepth+"<This class has 9 parents which is greater than 5 authorized.(®ÃÇš
+jsquid:CallToDeprecatedMethod2"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8ÓıÄùš-
+Fsquid:S1148["#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ü¬¡îœ-
+Gsquid:S1148Š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ø¸„È›-
 squid:S14507"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8·‚¬ª›-
+jsquid:CommentedOutCodeLine¯"<This block of commented-out lines of code should be removed.(½¹ÂÀ8Ì´ŒÈ›-
+^squid:UselessImportCheck".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ8¦ÅÍùš-

@@ -1,15 +1,15 @@
 
-nsquid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(Þ¨ÁÈýÿÿÿÿ8„öš-
-Tsquid:S1068="1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8× Ãª›-
-isquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(žã•ê8‘æµöš-
-Ysquid:S10686"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ8¬·€øš-
-nsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(Ž×Ñ“úÿÿÿÿ8„öš-
-osquid:CommentedOutCodeLine£"<This block of commented-out lines of code should be removed.(Ä×Ðàüÿÿÿÿ8à˜¸öš-
-jsquid:CommentedOutCodeLineª"<This block of commented-out lines of code should be removed.(£©­ç8“í»öš-
-jsquid:CallToDeprecatedMethod8"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8„öš-
 csquid:UselessImportCheck"3Remove this unused import 'android.graphics.Color'.(øãíòþÿÿÿÿ8§·áøš-
+nsquid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(Þ¨ÁÈýÿÿÿÿ8„öš-
 Gsquid:S1148Ê"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8»Ú­øš-
-Gsquid:S1148ë"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8»Ú­øš-
-squid:S1450="\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8× Ãª›-
+Ysquid:S10686"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ8¬·€øš-
+jsquid:CallToDeprecatedMethod8"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8„öš-
+Tsquid:S1068="1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8× Ãª›-
 ksquid:CallToDeprecatedMethodü"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ðúÿÿÿÿ8“Æª›-
+squid:S1450="\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8× Ãª›-
+osquid:CommentedOutCodeLine£"<This block of commented-out lines of code should be removed.(Ä×Ðàüÿÿÿÿ8à˜¸öš-
+nsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(Ž×Ñ“úÿÿÿÿ8„öš-
 qsquid:MaximumInheritanceDepth-"<This class has 9 parents which is greater than 5 authorized.(ŸÿÇÅþÿÿÿÿ8„öš-
+isquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(žã•ê8‘æµöš-
+Gsquid:S1148ë"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8»Ú­øš-
+jsquid:CommentedOutCodeLineª"<This block of commented-out lines of code should be removed.(£©­ç8“í»öš-

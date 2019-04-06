@@ -117,7 +117,7 @@ public class ConfigurationFile {
         public static final int LIVESTOCK_ID = 5;
 
 
-        public static final int PAGE_ID = 0;
+        public static final int DEFAULT_PAGE_ID = 1;
         public static final int SUCCESS_CODE_FROM = 200;
         public static final int SUCCESS_CODE_TO = 300;
         public static final int SUCCESS_CODE = 200;

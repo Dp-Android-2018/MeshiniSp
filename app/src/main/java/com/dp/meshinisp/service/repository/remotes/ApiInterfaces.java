@@ -62,7 +62,8 @@ public interface ApiInterfaces {
 
     //Search requests (service provider)
     @GET("/api/service-provider/request/search")
-    Observable<Response<SearchRequestsResponse>> searchForRequests(@Query("page") int pageNumber, @Query("country_id") int countryId, @Query("start_date") String startDate, @Query("end_date") String endDate);
+    Observable<Response<SearchRequestsResponse>> searchForRequests(@Query("page") int pageNumber, @Query("country_id") int countryId
+            , @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("payment_method") String paymentMethod);
 
     //Get countries & cities (tourist)
     @GET("/api/utilities/countries")

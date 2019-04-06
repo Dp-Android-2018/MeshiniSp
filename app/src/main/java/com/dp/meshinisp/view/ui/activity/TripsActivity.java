@@ -6,7 +6,6 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
@@ -16,12 +15,10 @@ import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityTripsBinding;
 import com.dp.meshinisp.service.model.global.TripsResponseModel;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.TripsResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
-import com.dp.meshinisp.view.ui.adapter.OffersRecyclerViewAdapter;
 import com.dp.meshinisp.view.ui.adapter.TripsRecyclerViewAdapter;
 import com.dp.meshinisp.viewmodel.TripsActivityViewModel;
 import com.google.android.material.snackbar.Snackbar;
@@ -43,7 +40,7 @@ public class TripsActivity extends AppCompatActivity {
     private String startDate, endDate;
     LinearLayoutManager linearLayoutManager;
     private TripsRecyclerViewAdapter offersRecyclerViewAdapter;
-    private int pageId = ConfigurationFile.Constants.PAGE_ID;
+    private int pageId = ConfigurationFile.Constants.DEFAULT_PAGE_ID;
     private String next_page = ConfigurationFile.Constants.DEFAULT_STRING_VALUE;
     private ArrayList<TripsResponseModel> loadedData;
     int pastVisiblesItems, visibleItemCount, totalItemCount;
@@ -141,7 +138,7 @@ public class TripsActivity extends AppCompatActivity {
     private void loadMoreData() {
         loading = false;
         position = totalItemCount;
-        pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
+        pageId++;
         SharedUtils.getInstance().showProgressDialog(this);
         if (requestType) {
             tripsActivityViewModelLazy.getValue().listUpcomingRequests(pageId);
@@ -194,7 +191,6 @@ public class TripsActivity extends AppCompatActivity {
         loading = true;
         if (body.getPageLinks().getNextPageLink() != null) {
             next_page = body.getPageLinks().getNextPageLink();
-            pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
         } else {
             next_page = null;
         }

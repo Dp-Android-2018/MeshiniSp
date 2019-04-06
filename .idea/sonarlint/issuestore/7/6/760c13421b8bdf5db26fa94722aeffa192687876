@@ -1,3 +1,7 @@
 
-fsquid:UnusedPrivateMethod#":Remove this unused private "readMoreClickListener" method.(‰›ıë8«∞•¡ù-
-isquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(œ˛–Û8«∞•¡ù-
+[squid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(˜âÓÉ8ª¨ˇÍù-
+]squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(≥ãG8’ﬂ©Îù-
+Ösquid:UselessImportCheck	"URemove this unused import 'com.dp.meshinisp.view.ui.activity.RequestDetailsActivity'.( ≠ò£˘ˇˇˇˇ8’ﬂ©Îù-
+xsquid:UselessImportCheck"MRemove this unused import 'com.dp.meshinisp.utility.utils.ConfigurationFile'.(·¬•ﬂ8’ﬂ©Îù-
+Çsquid:S1450"dRemove the "requestsResponseModel" field and declare it as a local variable in the relevant methods.(∑√†á8œíáÎù-
+^squid:UselessImportCheck".Remove this unused import 'android.view.View'.(ÿΩ≠‰˛ˇˇˇˇ8Ì◊™Îù-

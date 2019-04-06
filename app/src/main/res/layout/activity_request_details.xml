@@ -412,13 +412,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view4" />
 
-                <com.ebanx.swipebtn.SwipeButton
+              <!--  <com.ebanx.swipebtn.SwipeButton
                     android:id="@+id/bt_slide_toStart_trip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp14w"
                     android:textAllCaps="false"
-                    android:visibility="invisible"
+                    android:visibility="visible"
                     app:button_background="@color/sky_color"
                     app:button_image_disabled="@drawable/ic_right_arrow"
                     app:button_image_enabled="@drawable/ic_keyboard_arrow_left_black"
@@ -432,6 +432,31 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_trip_schedule" />
+
+
+                    -->
+
+                <ng.max.slideview.SlideView
+                    android:id="@+id/bt_slide_toStart_trip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp14w"
+                    android:visibility="invisible"
+                    app:inner_text_top_padding="@dimen/dp14w"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_trip_schedule"
+                    app:sv_animateSlideText="true"
+                    app:sv_buttonBackgroundColor="@color/sky_color"
+                    app:sv_buttonImage="@drawable/ic_right_arrow"
+                    app:sv_buttonImageDisabled="@drawable/ic_keyboard_arrow_left_black"
+                    app:sv_reverseSlide="false"
+                    app:sv_slideBackgroundColor="@color/sky_color"
+                    app:sv_slideText="Slide to start Trip"
+                    app:sv_slideTextColor="@android:color/white"
+                    app:sv_slideTextSize="16sp"
+                    app:sv_strokeColor="@color/sky_color" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

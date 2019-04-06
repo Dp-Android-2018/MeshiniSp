@@ -1,5 +1,2 @@
 
-ƒsquid:UselessImportCheck
-"XRemove this unused import 'com.dp.meshinisp.service.model.global.RequestsResponseModel'.(Í›×Å8˜’ƒÁ-
 squid:S1319"The type of the "requestsResponseModels" object should be an interface such as "List" rather than the implementation "ArrayList".(Ïõ£Çıÿÿÿÿ
-~squid:UselessImportCheck"SRemove this unused import 'com.dp.meshinisp.view.ui.viewholder.RequestsViewHolder'.(›ßÏ“8°ÀÿÀ-

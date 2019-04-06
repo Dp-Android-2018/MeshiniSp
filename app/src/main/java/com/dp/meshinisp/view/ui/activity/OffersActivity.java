@@ -26,7 +26,6 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
@@ -41,7 +40,7 @@ public class OffersActivity extends AppCompatActivity {
     private String startDate, endDate;
     LinearLayoutManager linearLayoutManager;
     private OffersRecyclerViewAdapter offersRecyclerViewAdapter;
-    private int pageId = ConfigurationFile.Constants.PAGE_ID;
+    private int pageId = ConfigurationFile.Constants.DEFAULT_PAGE_ID;
     private String next_page = ConfigurationFile.Constants.DEFAULT_STRING_VALUE;
     private ArrayList<OffersResponseModel> loadedData;
     int pastVisiblesItems, visibleItemCount, totalItemCount;
@@ -170,7 +169,7 @@ public class OffersActivity extends AppCompatActivity {
     private void loadMoreData() {
         loading = false;
         position = totalItemCount;
-        pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
+        pageId++;
         SharedUtils.getInstance().showProgressDialog(this);
         offersActivityViewModelLazy.getValue().getAllOffers(pageId);
         observeViewmodel();
@@ -179,9 +178,30 @@ public class OffersActivity extends AppCompatActivity {
     private void observeViewmodel() {
         offersActivityViewModelLazy.getValue().getData().observe(this, offersResponseResponse -> {
             SharedUtils.getInstance().cancelDialog();
-            if (!offersResponseResponse.body().getData().isEmpty()) {
-                addDataToLoadedData(offersResponseResponse.body());
+            if (offersResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > offersResponseResponse.code()) {
+                if (offersResponseResponse.body() != null) {
+                    if (!offersResponseResponse.body().getData().isEmpty()) {
+                        addDataToLoadedData(offersResponseResponse.body());
+                    }
+                }
+            } else {
+                Gson gson = new GsonBuilder().create();
+                ErrorResponse errorResponse = new ErrorResponse();
+
+                try {
+                    errorResponse = gson.fromJson(offersResponseResponse.errorBody().string(), ErrorResponse.class);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String error = "";
+                for (String string : errorResponse.getErrors()) {
+                    error += string;
+                    error += "\n";
+                }
+                showSnackbr(error);
             }
+
         });
     }
 
@@ -192,7 +212,6 @@ public class OffersActivity extends AppCompatActivity {
         loading = true;
         if (body.getPageLinks().getNextPageLink() != null) {
             next_page = body.getPageLinks().getNextPageLink();
-            pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
         } else {
             next_page = null;
         }

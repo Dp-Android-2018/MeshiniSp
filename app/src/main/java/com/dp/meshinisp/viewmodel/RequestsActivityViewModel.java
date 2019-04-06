@@ -23,7 +23,7 @@ public class RequestsActivityViewModel extends AndroidViewModel {
     }
 
     public  void searchForRequests(int pageId,int countryId,String startDate,String endDate) {
-        data= mainRepositoryLazy.getValue().searchForRequests(pageId,countryId,startDate,endDate);
+        data= mainRepositoryLazy.getValue().searchForRequests(pageId,countryId,startDate,endDate,"COD");
     }
 
     public LiveData<Response<SearchRequestsResponse>> getData() {

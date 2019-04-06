@@ -1,21 +1,21 @@
 
-Gsquid:S1148³"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ÿ‰äÊ-
-Nsquid:S1172@"+Remove this unused method parameter "view".(ğ‘çùûÿÿÿÿ8ê‹²Â-
-Ksquid:S1068*"-Remove this unused "countryId" private field.(Ä¦ºƒ8ÒâÁ-
-usquid:S14503"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ê‹²Â-
-Psquid:S1068+"-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ8ê‹²Â-
-Nsquid:S1068+"+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ8ê‹²Â-
-lsquid:MaximumInheritanceDepth&"<This class has 9 parents which is greater than 5 authorized.(ƒ´¶Ñ8…ùÿï”-
-Hsquid:S1659+"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8ê‹²Â-
-Osquid:S16591",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ê‹²Â-
-jsquid:CommentedOutCodeLineÍ"<This block of commented-out lines of code should be removed.(–ò«Î8€’Ä-
-@squid:S1643¸"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ÿ‰äÊ-
-Ksquid:S1185x"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ê‹²Â-
 Jsquid:S10683",Remove this unused "position" private field.(íñ8ê‹²Â-
-Nsquid:S1172T"+Remove this unused method parameter "view".(á¬ù­ûÿÿÿÿ8ê‹²Â-
-Nsquid:S1066„"/Merge this if statement with the enclosing one.(à—åª8ê‹²Â-
-ssquid:S00116/"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8ê‹²Â-
-@squid:S1643·"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ÿ‰äÊ-
+Osquid:S16591",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ê‹²Â-
+Ksquid:S1185x"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ê‹²Â-
+@squid:S1643´"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ÿ‰äÊ-
 Qsquid:S16591".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ê‹²Â-
-‚squid:UselessImportCheck"WRemove this unused import 'com.dp.meshinisp.view.ui.adapter.OffersRecyclerViewAdapter'.(»ÚÄà8Ìà¿Â-
+usquid:S14503"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ê‹²Â-
+Ksquid:S1068*"-Remove this unused "countryId" private field.(Ä¦ºƒ8ÒâÁ-
 „squid:UselessImportCheck"TRemove this unused import 'com.dp.meshinisp.service.model.response.MessageResponse'.(ùß’üÿÿÿÿ8“´çÊ-
+Nsquid:S1066„"/Merge this if statement with the enclosing one.(à—åª8ê‹²Â-
+Gsquid:S1148°"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ÿ‰äÊ-
+@squid:S1643µ"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ÿ‰äÊ-
+Hsquid:S1659+"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8ê‹²Â-
+‚squid:UselessImportCheck"WRemove this unused import 'com.dp.meshinisp.view.ui.adapter.OffersRecyclerViewAdapter'.(»ÚÄà8Ìà¿Â-
+ssquid:S00116/"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8ê‹²Â-
+Nsquid:S1172T"+Remove this unused method parameter "view".(á¬ù­ûÿÿÿÿ8ê‹²Â-
+Psquid:S1068+"-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ8ê‹²Â-
+Nsquid:S1172@"+Remove this unused method parameter "view".(ğ‘çùûÿÿÿÿ8ê‹²Â-
+hsquid:UselessImportCheck	"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8ÄÒÍî-
+lsquid:MaximumInheritanceDepth&"<This class has 9 parents which is greater than 5 authorized.(ƒ´¶Ñ8…ùÿï”-
+Nsquid:S1068+"+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ8ê‹²Â-

@@ -1,11 +1,13 @@
 package com.dp.meshinisp.view.ui.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,6 +34,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import kotlin.Lazy;
+import ng.max.slideview.SlideView;
 import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
@@ -294,7 +297,22 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void makeActionOnBtnStartTrip() {
-        binding.btSlideToStartTrip.setOnStateChangeListener(active -> Snackbar.make(binding.getRoot(), "state : " + active, Snackbar.LENGTH_SHORT));
+       /* binding.btSlideToStartTrip.setOnStateChangeListener(active ->
+                Snackbar.make(binding.getRoot(), "state : " + active, Snackbar.LENGTH_SHORT)
+        );*/
+
+        SlideView slideView = binding.btSlideToStartTrip;
+        slideView.setOnSlideCompleteListener(new SlideView.OnSlideCompleteListener() {
+            @Override
+            public void onSlideComplete(SlideView slideView) {
+                // vibrate the device
+                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(100);
+
+                // go to a new activity
+                startActivity(new Intent(RequestDetailsActivity.this, OffersActivity.class));
+            }
+        });
 
     }
 }

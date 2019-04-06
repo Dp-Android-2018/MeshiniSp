@@ -32,7 +32,7 @@ public class RequestsActivity extends AppCompatActivity {
     private String startDate, endDate;
     LinearLayoutManager linearLayoutManager;
     private RequestsRecyclerViewAdapter requestsRecyclerViewAdapter;
-    private int pageId = ConfigurationFile.Constants.PAGE_ID;
+    private int pageId = ConfigurationFile.Constants.DEFAULT_PAGE_ID;
     private String next_page = ConfigurationFile.Constants.DEFAULT_STRING_VALUE;
     private ArrayList<RequestsResponseModel> loadedData;
     int pastVisiblesItems, visibleItemCount, totalItemCount;
@@ -98,7 +98,8 @@ public class RequestsActivity extends AppCompatActivity {
     private void loadMoreData() {
         loading = false;
         position = totalItemCount;
-        pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
+//        pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
+        pageId++;
         SharedUtils.getInstance().showProgressDialog(this);
         requestsActivityViewModelLazy.getValue().searchForRequests(pageId, countryId, startDate, endDate);
         observeViewmodel();
@@ -120,7 +121,7 @@ public class RequestsActivity extends AppCompatActivity {
         loading = true;
         if (body.getPageLinks().getNextPageLink() != null) {
             next_page = body.getPageLinks().getNextPageLink();
-            pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
+//            pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
         } else {
             next_page = null;
         }

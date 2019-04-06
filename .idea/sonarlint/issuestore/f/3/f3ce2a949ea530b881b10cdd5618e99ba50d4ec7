@@ -1,10 +1,10 @@
 
-jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‚¼¬Ìýÿÿÿÿ
-ssquid:S00116&"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8¬Éµ÷œ-
-Osquid:S1659(",Declare "totalItemCount" on a separate line.(üÆö›ýÿÿÿÿ8ïõÏ˜-
-Jsquid:S1068*",Remove this unused "position" private field.(íñ8ïõÏ˜-
-usquid:S1450*"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ïõÏ˜-
-Ksquid:S1185O"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ïõÏ˜-
-Msquid:S1066["/Merge this if statement with the enclosing one.(à—åª8ïõÏ˜-
-Qsquid:S1659(".Declare "visibleItemCount" on a separate line.(üÆö›ýÿÿÿÿ8ïõÏ˜-
-Hsquid:S1659""%Declare "endDate" on a separate line.(íÃáþÿÿÿÿ8÷öþøœ-
+Jsquid:S1068(",Remove this unused "position" private field.(íñ8ïõÏ˜-
+jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‚¼¬Ìýÿÿÿÿ
+Hsquid:S1659 "%Declare "endDate" on a separate line.(íÃáþÿÿÿÿ8÷öþøœ-
+Msquid:S1066Y"/Merge this if statement with the enclosing one.(à—åª8ïõÏ˜-
+Ksquid:S1185M"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ïõÏ˜-
+Qsquid:S1659&".Declare "visibleItemCount" on a separate line.(üÆö›ýÿÿÿÿ8ïõÏ˜-
+usquid:S1450("WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ïõÏ˜-
+Osquid:S1659&",Declare "totalItemCount" on a separate line.(üÆö›ýÿÿÿÿ8ïõÏ˜-
+ssquid:S00116$"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8¬Éµ÷œ-
