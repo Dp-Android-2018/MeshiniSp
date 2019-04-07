@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:context=".view.ui.activity.StartTripActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/start_trip_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/start_trip_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@android:color/black"
+                android:textSize="17.7sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="28dp"
+            android:src="@drawable/menu_dark"
+            app:layout_constraintEnd_toEndOf="@+id/start_trip_toolbar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="22dp"
+            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".MapsActivity" />
+
+        <!-- <ImageView
+             android:layout_width="43dp"
+             android:layout_height="43dp"
+             android:layout_marginEnd="23dp"
+             android:layout_marginBottom="11dp"
+             android:src="@drawable/ic_gps_fixed_indicator"
+             app:layout_constraintBottom_toBottomOf="@+id/map"
+             app:layout_constraintEnd_toEndOf="parent" />-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="31dp"
+            android:onClick="openLocations"
+            android:src="@drawable/ic_format_list_bulleted_48px"
+            app:layout_constraintBottom_toBottomOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="174dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_drop_down_arrow"
+            android:text="Directions"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@+id/iv_pickup_location"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_pickup_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="13dp"
+            android:src="@drawable/ic_placeholder"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="Giza Pyramids"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_pickup_location"
+            app:layout_constraintStart_toEndOf="@+id/iv_pickup_location"
+            app:layout_constraintTop_toTopOf="@+id/iv_pickup_location" />
+
+        <TextView
+            android:id="@+id/tv_location_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:text="(12 KM)"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_location_tv"
+            app:layout_constraintStart_toEndOf="@+id/tv_location_tv"
+            app:layout_constraintTop_toTopOf="@+id/tv_location_tv" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="14dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toTopOf="@+id/bt_slide_toStart_trip"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_arrive_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="Arrive by"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/tv_arrive_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:text="12:59 pm"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_arrive_time_tv"
+            app:layout_constraintStart_toEndOf="@+id/tv_arrive_time_tv"
+            app:layout_constraintTop_toTopOf="@+id/tv_arrive_time_tv" />
+
+
+        <ng.max.slideview.SlideView
+            android:id="@+id/bt_slide_toStart_trip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible"
+            app:inner_text_top_padding="@dimen/dp14w"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:sv_animateSlideText="true"
+            app:sv_buttonBackgroundColor="@color/directions_color"
+            app:sv_buttonImage="@drawable/ic_right_arrow"
+            app:sv_buttonImageDisabled="@drawable/ic_keyboard_arrow_left_black"
+            app:sv_reverseSlide="false"
+            app:sv_slideBackgroundColor="@color/slide_to_finish_color"
+            app:sv_slideText="Slide to finish Trip"
+            app:sv_slideTextColor="@android:color/white"
+            app:sv_slideTextSize="16sp"
+            app:sv_strokeColor="@color/slide_to_finish_color" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include layout="@layout/destination_list_dialog" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

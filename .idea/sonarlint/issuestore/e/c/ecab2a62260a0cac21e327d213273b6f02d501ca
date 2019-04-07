@@ -1,0 +1,19 @@
+
+nsquid:CommentedOutCodeLineZ"<This block of commented-out lines of code should be removed.(‚ØÖÌúÿÿÿÿ8È‹ã¾Ÿ-
+Ysquid:S2696)"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8×œ”ÀŸ-
+lsquid:MaximumInheritanceDepth"<This class has 8 parents which is greater than 5 authorized.(”îÝË8·©Œ·Ÿ-
+isquid:CommentedOutCodeLine}"<This block of commented-out lines of code should be removed.(ãÛ±„8È‹ã¾Ÿ-
+vsquid:S1450"SRemove the "mMap" field and declare it as a local variable in the relevant methods.(—­ƒÌÿÿÿÿÿ8Œû·Ÿ-
+Ksquid:S1199T"-Extract this nested code block into a method.(¢Ò´¨8È‹ã¾Ÿ-
+Psquid:S1199Y"-Extract this nested code block into a method.(ðË®Æÿÿÿÿÿ8È‹ã¾Ÿ-
+ƒsquid:S1450!"`Remove the "layoutBottomSheet" field and declare it as a local variable in the relevant methods.(©õÎºýÿÿÿÿ8ìºŸ-
+nsquid:S1450""PRemove the "v" field and declare it as a local variable in the relevant methods.(Áû©Œ8ÀŒ£ºŸ-
+^squid:HiddenFieldCheck1"5Rename "v" which hides the field declared at line 34.(›°Ù»8È‹ã¾Ÿ-
+csquid:HiddenFieldCheck2"5Rename "v" which hides the field declared at line 34.(ÃÿÞûÿÿÿÿ8‘µ”ÀŸ-
+Isquid:S1172{"+Remove this unused method parameter "view".(Ë¼ïä8È‹ã¾Ÿ-
+isquid:CommentedOutCodeLineU"<This block of commented-out lines of code should be removed.(ç‰ý8È‹ã¾Ÿ-
+Csquid:S1068""%Remove this unused "v" private field.(Áû©Œ8ÀŒ£ºŸ-
+nsquid:CommentedOutCodeLineq"<This block of commented-out lines of code should be removed.(Â€Î£üÿÿÿÿ8È‹ã¾Ÿ-
+\"squid:SwitchLastCaseIsDefaultCheckO""Add a default case to this switch.(³ÒÂŒÿÿÿÿÿ8È‹ã¾Ÿ-
+¤squid:S1186g"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ìó°þÿÿÿÿ8È‹ã¾Ÿ-
+isquid:CommentedOutCodeLineQ"<This block of commented-out lines of code should be removed.(þ ×œ8È‹ã¾Ÿ-

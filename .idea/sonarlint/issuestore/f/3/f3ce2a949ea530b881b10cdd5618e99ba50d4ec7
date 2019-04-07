@@ -1,10 +1,13 @@
 
-Jsquid:S1068(",Remove this unused "position" private field.(íñ8ïõÏ˜-
-jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‚¼¬Ìıÿÿÿÿ
-Hsquid:S1659 "%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8÷öşøœ-
-Msquid:S1066Y"/Merge this if statement with the enclosing one.(à—åª8ïõÏ˜-
-Ksquid:S1185M"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ïõÏ˜-
-Qsquid:S1659&".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ïõÏ˜-
-usquid:S1450("WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ïõÏ˜-
-Osquid:S1659&",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ïõÏ˜-
-ssquid:S00116$"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8¬Éµ÷œ-
+usquid:S1450)"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ïõÏ˜-
+nsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ8‰šŸ-
+jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‚¼¬Ìıÿÿÿÿ
+Jsquid:S1068)",Remove this unused "position" private field.(íñ8ïõÏ˜-
+Msquid:S1066\"/Merge this if statement with the enclosing one.(à—åª8ïõÏ˜-
+Hsquid:S1659!"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8÷öşøœ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ8ñ•šŸ-
+Ksquid:S1185P"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ïõÏ˜-
+ssquid:S00116%"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8¬Éµ÷œ-
+Osquid:S1659'",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ïõÏ˜-
+Qsquid:S1659'".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ïõÏ˜-
+Ysquid:S26964"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8Ş‚å¾Ÿ-

@@ -3,6 +3,7 @@ package com.dp.meshinisp.service.repository.remotes;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.RequestDetailsResponse;
+import com.dp.meshinisp.service.model.response.StartTripResponse;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -61,6 +62,35 @@ public class RequestDetailsRepository {
                     @Override
                     public void onNext(Response<MessageResponse> offerResponseResponse) {
                         data.setValue(offerResponseResponse);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        return data;
+    }
+
+    public LiveData<Response<StartTripResponse>> startTrip(int requestId) {
+        MutableLiveData<Response<StartTripResponse>> data = new MutableLiveData<>();
+        endPointsLazy.getValue().startTrip(requestId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Response<StartTripResponse>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<StartTripResponse> startTripResponseResponse) {
+                        data.setValue(startTripResponseResponse);
                     }
 
                     @Override

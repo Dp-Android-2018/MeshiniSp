@@ -10,6 +10,7 @@ import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.OffersResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.OffersRecyclerViewAdapter;
@@ -47,11 +48,13 @@ public class OffersActivity extends AppCompatActivity {
     private boolean loading = true;
     private int position = 0;
     private Lazy<OffersActivityViewModel> offersActivityViewModelLazy = inject(OffersActivityViewModel.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_offers);
+        ConfigurationFile.Constants.AUTHORIZATION=customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         loadedData = new ArrayList<>();
         setupToolbar();
         initializeViewModel();
@@ -108,6 +111,8 @@ public class OffersActivity extends AppCompatActivity {
                     && ConfigurationFile.Constants.SUCCESS_CODE_TO > messageResponseResponse.code()) {
                 loadedData.remove(position);
                 offersRecyclerViewAdapter.notifyItemRemoved(position);
+//                offersRecyclerViewAdapter.notifyDataSetChanged();
+//                offersRecyclerViewAdapter.notifyItemRangeChanged(position, loadedData.size());
                 if (messageResponseResponse.body() != null) {
                     showSnackbr(messageResponseResponse.body().getMessage());
                 }

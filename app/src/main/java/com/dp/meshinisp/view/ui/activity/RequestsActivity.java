@@ -7,6 +7,7 @@ import com.dp.meshinisp.databinding.ActivityRequestsBinding;
 import com.dp.meshinisp.service.model.global.RequestsResponseModel;
 import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.RequestsRecyclerViewAdapter;
@@ -39,6 +40,7 @@ public class RequestsActivity extends AppCompatActivity {
     private boolean loading = true;
     private int position = 0;
     private Lazy<RequestsActivityViewModel> requestsActivityViewModelLazy = inject(RequestsActivityViewModel.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class RequestsActivity extends AppCompatActivity {
         countryId = getIntent().getIntExtra(ConfigurationFile.Constants.COUNTRY_ID, 0);
         startDate = getIntent().getStringExtra(ConfigurationFile.Constants.DATE_FROM);
         endDate = getIntent().getStringExtra(ConfigurationFile.Constants.DATE_TO);
+        ConfigurationFile.Constants.AUTHORIZATION=customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         loadedData = new ArrayList<>();
         setupToolbar();
         initializeViewModel();

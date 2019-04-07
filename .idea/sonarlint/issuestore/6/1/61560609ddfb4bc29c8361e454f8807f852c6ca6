@@ -1,25 +1,32 @@
 
-csquid:CallToDeprecatedMethodò"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8œãŸŸ-
-hsquid:CallToDeprecatedMethodô"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8œãŸŸ-
-Bsquid:S1148›"#Use a logger to log this exception.(Ç’Çê8åêì-
-Vsquid:S1135"2Complete the task associated to this TODO comment.(áÃæùÿÿÿÿ8åêì-
-Psquid:S1602ƒ",Remove useless curly braces around statement(ø€È¡ùÿÿÿÿ8åêì-
-Gsquid:S1148‰"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8åêì-
-`squid:CallToDeprecatedMethod±"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8œãŸŸ-
-Gsquid:S1148ç"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8åêì-
-@squid:S1643"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8åêì-
-\"squid:SwitchLastCaseIsDefaultCheckD""Add a default case to this switch.(”ûÜÿÿÿÿÿ8¯‰íÇ-
-@squid:S1643"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ŞÏËÇ-
-Nsquid:S1066"/Merge this if statement with the enclosing one.(¡ì¯ı8åêì-
-?squid:S11701"!Make this final field static too.(íİàİ8çš„Ë-
-@squid:S1643ë"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8„ä››-
-osquid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(êöƒşÿÿÿÿ8åêì-
-xsquid:S1450-"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ8¯‰íÇ-
-@squid:S1643ì"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8åêì-
-;squid:S1643§"Use a StringBuilder instead.(º”Ì‡8åêì-
-vsquid:S001161"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íİàİ8çš„Ë-
-dsquid:CallToDeprecatedMethod¶"/Remove this use of "vibrate"; it is deprecated.(„š„âøÿÿÿÿ8Ç‰Ÿ-
-esquid:CallToDeprecatedMethodó"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8œãŸŸ-
-lsquid:MaximumInheritanceDepth*"<This class has 9 parents which is greater than 5 authorized.(şÊŸ®8¯‰íÇ-
-jsquid:CommentedOutCodeLine®"<This block of commented-out lines of code should be removed.(©£Îá8’µŸ-
-;squid:S1643¦"Use a StringBuilder instead.(°–ôÔ8»Á†š-
+Gsquid:S1148ë"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8åêì-
+Bsquid:S1148Ÿ"#Use a logger to log this exception.(Ç’Çê8åêì-
+dsquid:CallToDeprecatedMethod´"/Remove this use of "vibrate"; it is deprecated.(„š„âøÿÿÿÿ8Ê“™ºŸ-
+@squid:S1643ï"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8„ä››-
+;squid:S1643«"Use a StringBuilder instead.(º”Ì‡8åêì-
+csquid:CallToDeprecatedMethodö"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8œãŸŸ-
+\"squid:SwitchLastCaseIsDefaultCheckH""Add a default case to this switch.(”ûÜÿÿÿÿÿ8¯‰íÇ-
+esquid:CallToDeprecatedMethod÷"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8œãŸŸ-
+psquid:UnusedPrivateMethodÖ">Remove this unused private "showStartTripErrorMessage" method.(ÅÑ¯ÿÿÿÿÿ8ƒ£õ¾Ÿ-
+?squid:S11703"!Make this final field static too.(íİàİ8çš„Ë-
+@squid:S1643á"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ê¾·½Ÿ-
+Nsquid:S1066’"/Merge this if statement with the enclosing one.(¡ì¯ı8åêì-
+Gsquid:S1148İ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ê¾·½Ÿ-
+vsquid:S001163"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íİàİ8çš„Ë-
+lsquid:MaximumInheritanceDepth,"<This class has 9 parents which is greater than 5 authorized.(şÊŸ®8¯‰íÇ-
+;squid:S1643ª"Use a StringBuilder instead.(°–ôÔ8»Á†š-
+@squid:S1643‘"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ŞÏËÇ-
+osquid:CommentedOutCodeLine‰"<This block of commented-out lines of code should be removed.(êöƒşÿÿÿÿ8åêì-
+`squid:CallToDeprecatedMethodµ"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8œãŸŸ-
+xsquid:S1450/"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ8¯‰íÇ-
+@squid:S1643â"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¬®½Ÿ-
+osquid:CommentedOutCodeLineË"<This block of commented-out lines of code should be removed.(Îò…øÿÿÿÿ8ƒ£õ¾Ÿ-
+Ysquid:S2696<"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ª²á¾Ÿ-
+Psquid:S1602‡",Remove useless curly braces around statement(ø€È¡ùÿÿÿÿ8åêì-
+Gsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8åêì-
+Vsquid:S1135“"2Complete the task associated to this TODO comment.(áÃæùÿÿÿÿ8åêì-
+hsquid:CallToDeprecatedMethodø"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8œãŸŸ-
+@squid:S1643’"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8åêì-
+@squid:S1643ğ"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8åêì-
+ksquid:UnusedPrivateMethod¿"9Remove this unused private "makeStartTripRequest" method.(¥ÛÇóüÿÿÿÿ8ÊÙî¿Ÿ-
+jsquid:CommentedOutCodeLine·"<This block of commented-out lines of code should be removed.(ØÀä¿8ÊÙî¿Ÿ-

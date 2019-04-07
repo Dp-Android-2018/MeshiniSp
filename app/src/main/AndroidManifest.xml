@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -25,7 +24,13 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".view.ui.activity.ChangePasswordProfileActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDMgu01yqga2ma844kZP5lUUNCdfCSjyE8" />
+
+        <activity android:name=".view.ui.activity.StartTripActivity"></activity>
+        <activity android:name=".view.ui.activity.ChangePasswordProfileActivity" />
         <activity android:name=".view.ui.activity.OffersActivity" />
         <activity android:name=".view.ui.activity.ChatActivity" />
         <activity android:name=".view.ui.activity.RequestDetailsActivity" />

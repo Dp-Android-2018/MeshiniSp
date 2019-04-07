@@ -5,6 +5,7 @@ import android.app.Application;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.RequestDetailsResponse;
+import com.dp.meshinisp.service.model.response.StartTripResponse;
 import com.dp.meshinisp.service.repository.remotes.RequestDetailsRepository;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,9 @@ public class RequestDetailsViewModel extends AndroidViewModel {
         return requestDetailsRepositoryLazy.getValue().sendOffer(requestId, offerRequest);
     }
 
+    public LiveData<Response<StartTripResponse>> startTrip(int requestId) {
+        return requestDetailsRepositoryLazy.getValue().startTrip(requestId);
+    }
 
     public LiveData<Response<RequestDetailsResponse>> getData() {
         return data;

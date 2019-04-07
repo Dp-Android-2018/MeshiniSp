@@ -329,3 +329,13 @@ b
 +app/src/main/res/layout/offer_list_item.xml,d\8\d8305c8861fd64b6a40d7647d831450012fabbdd
 ]
 -app/src/main/res/layout/payment_list_item.xml,4\0\409d04a0837d22dc8e57446aa0ef4585ea9aef89
+ƒ
+Sapp/src/main/java/com/dp/meshinisp/service/model/global/StartTripResponseModel.java,9\f\9f13a55206366ec044b712697f3722cf09e67c5b
+†
+Vapp/src/main/java/com/dp/meshinisp/service/repository/remotes/StartTripRepository.java,3\a\3a2f4a96b563c67e969136ab81b8ca362a501869
+€
+Papp/src/main/java/com/dp/meshinisp/service/model/response/StartTripResponse.java,c\3\c3a247cf3dfd656a73f791358699a51371774449
+t
+Dapp/src/main/java/com/dp/meshinisp/viewmodel/StartTripViewModel.java,2\f\2f1ff1f92c28acc5881e7647c53825ac487b8457
+z
+Japp/src/main/java/com/dp/meshinisp/view/ui/activity/StartTripActivity.java,e\c\ecab2a62260a0cac21e327d213273b6f02d501ca

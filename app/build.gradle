@@ -127,4 +127,14 @@ dependencies {
     //slide view
     implementation 'com.github.MAXDeliveryNG:slideview:1.1.0'
 
+    //place picker dependencies
+    implementation "com.google.android.gms:play-services-location:16.0.0"
+    implementation "com.google.android.gms:play-services-places:16.0.0"
+
+    //material drawer
+    implementation('com.mikepenz:materialdrawer:5.9.5@aar') {
+        transitive = true
+        exclude group: 'com.android.support'
+    }
+
 }

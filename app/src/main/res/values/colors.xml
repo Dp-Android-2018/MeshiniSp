@@ -15,4 +15,7 @@
     <color name="off_white_color">#ECECEC</color>
     <color name="white_off_color">#F6F6F6</color>
     <color name="trip_item_shadow_color">#29000000</color>
+    <color name="slide_to_finish_color">#727272</color>
+    <color name="directions_color">#4D4D4D</color>
+
 </resources>

@@ -19,7 +19,9 @@ import com.dp.meshinisp.service.model.global.RequestDetailsModel;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.MessageResponse;
+import com.dp.meshinisp.service.model.response.StartTripResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.viewmodel.RequestDetailsViewModel;
@@ -47,6 +49,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
     private RequestDetailsModel data;
     Lazy<RequestDetailsViewModel> requestDetailsViewModelLazy = inject(RequestDetailsViewModel.class);
     private final int CALL_REQUEST = 100;
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_request_details);
         requestType = getIntent().getStringExtra(ConfigurationFile.Constants.REQUEST_Type);
         requestId = getIntent().getIntExtra(ConfigurationFile.Constants.REQUEST_ID, 0);
+        ConfigurationFile.Constants.AUTHORIZATION=customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         checkRequestType(requestType);
         setupToolbar();
         initializeViewModel();
@@ -297,22 +301,58 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void makeActionOnBtnStartTrip() {
-       /* binding.btSlideToStartTrip.setOnStateChangeListener(active ->
-                Snackbar.make(binding.getRoot(), "state : " + active, Snackbar.LENGTH_SHORT)
-        );*/
-
         SlideView slideView = binding.btSlideToStartTrip;
-        slideView.setOnSlideCompleteListener(new SlideView.OnSlideCompleteListener() {
-            @Override
-            public void onSlideComplete(SlideView slideView) {
-                // vibrate the device
-                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(100);
-
-                // go to a new activity
-                startActivity(new Intent(RequestDetailsActivity.this, OffersActivity.class));
+        slideView.setOnSlideCompleteListener(slideView1 -> {
+            // vibrate the device
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(100);
+            if (ValidationUtils.isConnectingToInternet(this)) {
+//                openStartTripActivity();
+                makeStartTripRequest();
+            }else {
+                showSnackbar(getString(R.string.there_is_no_internet_connection));
             }
         });
 
+    }
+
+    private void makeStartTripRequest() {
+        SharedUtils.getInstance().showProgressDialog(this);
+        requestDetailsViewModelLazy.getValue().startTrip(requestId).observe(this, startTripResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (startTripResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > startTripResponseResponse.code()) {
+                if (startTripResponseResponse.body() != null){
+                    showSnackbar(startTripResponseResponse.body().getMessage());
+                    openStartTripActivity();
+                }
+            } else {
+//                showSnackbar("ERROR CODE :"+startTripResponseResponse.code());
+                showStartTripErrorMessage(startTripResponseResponse);
+            }
+        });
+    }
+
+    private void openStartTripActivity() {
+        Intent intent=new Intent(RequestDetailsActivity.this, StartTripActivity.class);
+        intent.putExtra(ConfigurationFile.Constants.OFFER_PRICE,"ff");
+        startActivity(intent);
+    }
+
+    private void showStartTripErrorMessage(Response<StartTripResponse> startTripResponseResponse) {
+        Gson gson = new GsonBuilder().create();
+        ErrorResponse errorResponse = new ErrorResponse();
+
+        try {
+            errorResponse = gson.fromJson(startTripResponseResponse.errorBody().string(), ErrorResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String error = "";
+        for (String string : errorResponse.getErrors()) {
+            error += string;
+            error += "\n";
+        }
+        showSnackbar(error);
     }
 }

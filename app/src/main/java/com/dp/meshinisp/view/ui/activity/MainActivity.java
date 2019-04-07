@@ -4,9 +4,11 @@ import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -91,7 +93,9 @@ public class MainActivity extends BaseActivity {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
+                        sheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
                         break;
+
                     case BottomSheetBehavior.STATE_EXPANDED: {
 //                        View v = layoutBottomSheet.getRootView();
 //                        btnBottomSheet.setText("Close Sheet");
@@ -222,6 +226,21 @@ public class MainActivity extends BaseActivity {
         window.setAttributes(layoutParams);
         makeActionOnLayoutComponents(v);
         dialog.show();*/
+    }
+
+    @Override public boolean dispatchTouchEvent(MotionEvent event){
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (sheetBehavior.getState()==BottomSheetBehavior.STATE_EXPANDED) {
+
+                Rect outRect = new Rect();
+                layoutBottomSheet.getGlobalVisibleRect(outRect);
+
+                if(!outRect.contains((int)event.getRawX(), (int)event.getRawY()))
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        }
+
+        return super.dispatchTouchEvent(event);
     }
 
     private void makeActionOnLayoutComponents(View v) {

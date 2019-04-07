@@ -14,6 +14,7 @@ import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.OffersResponse;
 import com.dp.meshinisp.service.model.response.RequestDetailsResponse;
 import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
+import com.dp.meshinisp.service.model.response.StartTripResponse;
 import com.dp.meshinisp.service.model.response.TripsResponse;
 
 import io.reactivex.Observable;
@@ -101,5 +102,9 @@ public interface ApiInterfaces {
     //Delete a specific offer
     @DELETE("/api/service-provider/offers/{offer}")
     Observable<Response<MessageResponse>> deleteSpecificOffer(@Path("offer") int offerId);
+
+    //Delete a specific offer
+    @POST("/api/service-provider/request/{request}/start")
+    Observable<Response<StartTripResponse>> startTrip(@Path("request") int requestId);
 
 }
