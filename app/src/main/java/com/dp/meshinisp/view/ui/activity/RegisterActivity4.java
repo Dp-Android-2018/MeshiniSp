@@ -3,19 +3,10 @@ package com.dp.meshinisp.view.ui.activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import androidx.databinding.DataBindingUtil;
-
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import kotlin.Lazy;
-import retrofit2.Response;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegister4Binding;
@@ -37,6 +28,12 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import kotlin.Lazy;
+import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -107,6 +104,7 @@ public class RegisterActivity4 extends AppCompatActivity {
     private void openHomeActivity() {
         Intent intent = new Intent(RegisterActivity4.this, RegisterActivity5.class);
         startActivity(intent);
+        finish();
     }
 
     public void showSnackbar(String message) {

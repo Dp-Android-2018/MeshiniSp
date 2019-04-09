@@ -1,35 +1,35 @@
 
-hsquid:UselessImportCheck"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8°ßª¾Ÿ-
-¤squid:S1186t"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ìó°şÿÿÿÿ8°ßª¾Ÿ-
-‡squid:S1450="dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8°ßª¾Ÿ-
-nsquid:CommentedOutCodeLinei"<This block of commented-out lines of code should be removed.(‚ØÖÌúÿÿÿÿ8°ßª¾Ÿ-
-osquid:CommentedOutCodeLine¼"<This block of commented-out lines of code should be removed.(ÆÆÆ¶üÿÿÿÿ8°ßª¾Ÿ-
-_squid:HiddenFieldCheck¯"5Rename "v" which hides the field declared at line 71.(‹ãı„8°ßª¾Ÿ-
-Psquid:S1199h"-Extract this nested code block into a method.(ğË®Æÿÿÿÿÿ8°ßª¾Ÿ-
-csquid:UnusedPrivateMethodé"1Remove this unused private "showSnackbar" method.(È˜ƒùÿÿÿÿ8°ßª¾Ÿ-
-Osquid:S1172Ì"+Remove this unused method parameter "view".(àï’†üÿÿÿÿ8°ßª¾Ÿ-
-Jsquid:S1444<",Make this "public static drawer" field final(Œ÷›á8°ßª¾Ÿ-
+qsquid:S3776¨"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÚÍÍ8°ßª¾Ÿ-
+jsquid:CommentedOutCodeLineÒ"<This block of commented-out lines of code should be removed.(ïïŒè8°ßª¾Ÿ-
 osquid:CommentedOutCodeLineÏ"<This block of commented-out lines of code should be removed.(öâ©°ıÿÿÿÿ8°ßª¾Ÿ-
-‡"squid:ClassVariableVisibilityCheck<"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8°ßª¾Ÿ-
-msquid:MaximumInheritanceDepth9"=This class has 10 parents which is greater than 5 authorized.(‘Ù±8°ßª¾Ÿ-
-Nsquid:S1066é"/Merge this if statement with the enclosing one.(‘Ôñ8°ßª¾Ÿ-
-Hsquid:S1068C"*Remove this unused "dialog" private field.(Û¿ÜÃ8°ßª¾Ÿ-
+dsquid:HiddenFieldCheck™"5Rename "v" which hides the field declared at line 71.(‘‚¢øúÿÿÿÿ8°ßª¾Ÿ-
+Jsquid:S1444<",Make this "public static drawer" field final(Œ÷›á8°ßª¾Ÿ-
 dsquid:HiddenFieldCheckî"5Rename "v" which hides the field declared at line 71.(ú±Ü†ıÿÿÿÿ8°ßª¾Ÿ-
+_squid:HiddenFieldCheckŠ"5Rename "v" which hides the field declared at line 71.(Äª†İ8°ßª¾Ÿ-
+hsquid:UselessImportCheck"8Remove this unused import 'android.widget.LinearLayout'.(çîšçúÿÿÿÿ8°ßª¾Ÿ-
+@squid:S1643Ä"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8°ßª¾Ÿ-
+\"squid:SwitchLastCaseIsDefaultCheck^""Add a default case to this switch.(³ÒÂŒÿÿÿÿÿ8°ßª¾Ÿ-
+Nsquid:S1066é"/Merge this if statement with the enclosing one.(‘Ôñ8°ßª¾Ÿ-
+isquid:CommentedOutCodeLined"<This block of commented-out lines of code should be removed.(ç‰ı8°ßª¾Ÿ-
+csquid:UnusedPrivateMethodé"1Remove this unused private "showSnackbar" method.(È˜ƒùÿÿÿÿ8°ßª¾Ÿ-
+Zsquid:S2696©"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8°ßª¾Ÿ-
+Ksquid:S1199c"-Extract this nested code block into a method.(¢Ò´¨8°ßª¾Ÿ-
+_squid:HiddenFieldCheck¯"5Rename "v" which hides the field declared at line 71.(‹ãı„8°ßª¾Ÿ-
+osquid:CommentedOutCodeLine¼"<This block of commented-out lines of code should be removed.(ÆÆÆ¶üÿÿÿÿ8°ßª¾Ÿ-
+‡squid:S1450="dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8°ßª¾Ÿ-
+¤squid:S1186t"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ìó°şÿÿÿÿ8°ßª¾Ÿ-
+@squid:S1643Ã"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8·‘öğœ-
+Psquid:S1199h"-Extract this nested code block into a method.(ğË®Æÿÿÿÿÿ8°ßª¾Ÿ-
 osquid:CommentedOutCodeLineĞ"<This block of commented-out lines of code should be removed.(‘ûŒşÿÿÿÿ8°ßª¾Ÿ-
 jsquid:CommentedOutCodeLine×"<This block of commented-out lines of code should be removed.(ÀƒËŸ8°ßª¾Ÿ-
-\"squid:SwitchLastCaseIsDefaultCheck^""Add a default case to this switch.(³ÒÂŒÿÿÿÿÿ8°ßª¾Ÿ-
-Ksquid:S1199c"-Extract this nested code block into a method.(¢Ò´¨8°ßª¾Ÿ-
-dsquid:HiddenFieldCheck™"5Rename "v" which hides the field declared at line 71.(‘‚¢øúÿÿÿÿ8°ßª¾Ÿ-
-Usquid:S2696³"6Make the enclosing method "static" or remove this set.(Ú£Œû8°ßª¾Ÿ-
-isquid:CommentedOutCodeLined"<This block of commented-out lines of code should be removed.(ç‰ı8°ßª¾Ÿ-
-dsquid:HiddenFieldCheck†"5Rename "v" which hides the field declared at line 71.(´ø¸Ãÿÿÿÿÿ8°ßª¾Ÿ-
-@squid:S1643Ã"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8·‘öğœ-
-qsquid:S3776¨"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ÚÍÍ8°ßª¾Ÿ-
 dsquid:HiddenFieldCheckˆ"5Rename "v" which hides the field declared at line 71.(Ì™ğÿÿÿÿÿ8°ßª¾Ÿ-
-_squid:HiddenFieldCheckŠ"5Rename "v" which hides the field declared at line 71.(Äª†İ8°ßª¾Ÿ-
-Zsquid:S2696©"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8°ßª¾Ÿ-
-@squid:S1643Ä"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8°ßª¾Ÿ-
+Osquid:S1172Ì"+Remove this unused method parameter "view".(àï’†üÿÿÿÿ8°ßª¾Ÿ-
+msquid:MaximumInheritanceDepth9"=This class has 10 parents which is greater than 5 authorized.(‘Ù±8°ßª¾Ÿ-
+Usquid:S2696³"6Make the enclosing method "static" or remove this set.(Ú£Œû8°ßª¾Ÿ-
+dsquid:HiddenFieldCheck†"5Rename "v" which hides the field declared at line 71.(´ø¸Ãÿÿÿÿÿ8°ßª¾Ÿ-
 dsquid:HiddenFieldCheckŒ"5Rename "v" which hides the field declared at line 71.(Ôö×›úÿÿÿÿ8°ßª¾Ÿ-
-_squid:HiddenFieldCheck"5Rename "v" which hides the field declared at line 71.(É‹áË8°ßª¾Ÿ-
-jsquid:CommentedOutCodeLineÒ"<This block of commented-out lines of code should be removed.(ïïŒè8°ßª¾Ÿ-
+‡"squid:ClassVariableVisibilityCheck<"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8°ßª¾Ÿ-
+Hsquid:S1068C"*Remove this unused "dialog" private field.(Û¿ÜÃ8°ßª¾Ÿ-
+nsquid:CommentedOutCodeLinei"<This block of commented-out lines of code should be removed.(‚ØÖÌúÿÿÿÿ8°ßª¾Ÿ-
 Gsquid:S1148¿"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8°ßª¾Ÿ-
+_squid:HiddenFieldCheck"5Rename "v" which hides the field declared at line 71.(É‹áË8°ßª¾Ÿ-

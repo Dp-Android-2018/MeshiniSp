@@ -3,6 +3,7 @@ package com.dp.meshinisp.service.repository.remotes;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
+import com.dp.meshinisp.service.model.response.EmptyResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 
 import java.util.List;
@@ -113,5 +114,35 @@ public class Register1Repository {
                 });
         return data;
     }
+
+    public LiveData<Response<Void>> checkMailAndPhone(String mail,String phone) {
+        MutableLiveData<Response<Void>> data = new MutableLiveData<>();
+        endPointsLazy.getValue().checkMailAndPhone(mail,phone)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Response<Void>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<Void> voidResponse) {
+data.setValue(voidResponse);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        return data;
+    }
+
 
 }

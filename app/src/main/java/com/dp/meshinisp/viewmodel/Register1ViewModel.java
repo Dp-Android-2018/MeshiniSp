@@ -29,6 +29,10 @@ public class Register1ViewModel extends AndroidViewModel {
         return registerRepositoryLazy.getValue().register(registerRequest);
     }
 
+    public LiveData<Response<Void>> checkMailAndPhone(String mail, String phone) {
+        return registerRepositoryLazy.getValue().checkMailAndPhone(mail,phone);
+    }
+
     public LiveData<List<CountryCityResponseModel>> getCountries() {
         return registerRepositoryLazy.getValue().getCountries();
     }

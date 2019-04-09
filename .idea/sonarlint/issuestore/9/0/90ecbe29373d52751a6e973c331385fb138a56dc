@@ -1,13 +1,17 @@
 
-squid:S14500"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8þî¿ª›-
-ksquid:CallToDeprecatedMethodò"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ðúÿÿÿÿ8ªÌ·þš-
-osquid:CommentedOutCodeLine›"<This block of commented-out lines of code should be removed.(Ôä±âûÿÿÿÿ8ªÌ·þš-
-]"squid:SwitchLastCaseIsDefaultCheck…""Add a default case to this switch.(Ò“ÿšùÿÿÿÿ8€€ãüš-
-jsquid:CallToDeprecatedMethod+"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8‘¢Ïöš-
-esquid:MaximumInheritanceDepth%"<This class has 9 parents which is greater than 5 authorized.(ð“©°
-Gsquid:S1148Û"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ªÌ·þš-
-isquid:CommentedOutCodeLinew"<This block of commented-out lines of code should be removed.(³Ò»·8¬Ã÷þš-
-¤squid:S1186n"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âÈºùÿÿÿÿ8êôþš-
-Gsquid:S1148»"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ªÌ·þš-
-Tsquid:S10680"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8þî¿ª›-
-|squid:S4144q"^Update this method so that its implementation is not identical to "onTabSelected" on line 104.(êÇÄµ8Æ¨Å›-
+]squid:UselessImportCheck
+"2Remove this unused import 'android.view.MenuItem'.(Ð¬Ó‘8Éè™æŸ-
+squid:S14503"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8¬ä—æŸ-
+Žsquid:UselessImportCheck"^Remove this unused import 'com.google.android.material.bottomnavigation.BottomNavigationView'.(ºØÇÿÿÿÿÿ8áßæŸ-
+jsquid:CommentedOutCodeLine°"<This block of commented-out lines of code should be removed.(½¹ÂÀ8ÔÇéæŸ-
+csquid:UselessImportCheck!"8Remove this unused import 'androidx.annotation.NonNull'.(ˆÛúÜ8Éè™æŸ-
+Gsquid:S1148¬"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ŽíÐæŸ-
+Tsquid:S10683"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8¬ä—æŸ-
+€squid:UselessImportCheck"PRemove this unused import 'com.ashokvarma.bottomnavigation.BottomNavigationBar'.(³˜÷œøÿÿÿÿ8¥´ÝæŸ-
+rsquid:UselessImportCheck"GRemove this unused import 'com.roughike.bottombar.OnTabSelectListener'.(Œû™ž8¬ä—æŸ-
+Gsquid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ŽíÐæŸ-
+ksquid:CallToDeprecatedMethodÄ"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ðúÿÿÿÿ8ŽíÐæŸ-
+jsquid:CallToDeprecatedMethod."6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8¬ä—æŸ-
+\"squid:SwitchLastCaseIsDefaultCheck_""Add a default case to this switch.(øå´¡ÿÿÿÿÿ8ŽíÐæŸ-
+lsquid:MaximumInheritanceDepth("<This class has 9 parents which is greater than 5 authorized.(ð“©°8¬ä—æŸ-
+squid:UselessImportCheck"QRemove this unused import 'com.ashokvarma.bottomnavigation.BottomNavigationItem'.(¼³âúÿÿÿÿ8™¶çæŸ-

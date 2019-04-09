@@ -55,7 +55,12 @@ public class ConfigurationFile {
         public static final String TRIPS_TYPE_UPCOMING = "upcoming";
         public static final String OFFERS_TYPE_ACTIVITY = "offer activity";
         public static final String OFFER_PRICE = "offer price";
-        public static final String PREREQUESTS_TYPE = "order type";
+        public static final String TRIPS_DATA = "trips data";
+
+
+        public static final String ON_FOOT_TYPE = "onfoot";
+        public static final String CAR_TYPE = "car";
+        public static final String MOTORBIKE_TYPE = "motorcycle";
         public static final String ORDER_TYPE = "order type";
         public static final String OTHERS_TYPE = "others type";
         public static final String EMPLOYMENT_TYPE = "employment type";

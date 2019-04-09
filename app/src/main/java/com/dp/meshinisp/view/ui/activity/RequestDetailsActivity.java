@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRequestDetailsBinding;
 import com.dp.meshinisp.service.model.global.RequestDetailsModel;
+import com.dp.meshinisp.service.model.global.StartTripResponseModel;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.MessageResponse;
@@ -31,6 +32,7 @@ import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -57,7 +59,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_request_details);
         requestType = getIntent().getStringExtra(ConfigurationFile.Constants.REQUEST_Type);
         requestId = getIntent().getIntExtra(ConfigurationFile.Constants.REQUEST_ID, 0);
-        ConfigurationFile.Constants.AUTHORIZATION=customUtilsLazy.getValue().getSavedMemberData().getApiToken();
+        ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         checkRequestType(requestType);
         setupToolbar();
         initializeViewModel();
@@ -260,12 +262,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
     }
 
     private void makeActionOnBtnCall() {
-        binding.btCall.setOnClickListener(v -> {
-            callPhoneNumber();
-            /*Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:"+Integer.parseInt(data.getClient().getPhone())));
-            startActivity(callIntent);*/
-        });
+        binding.btCall.setOnClickListener(v -> callPhoneNumber());
     }
 
     public void callPhoneNumber() {
@@ -307,9 +304,8 @@ public class RequestDetailsActivity extends AppCompatActivity {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(100);
             if (ValidationUtils.isConnectingToInternet(this)) {
-//                openStartTripActivity();
                 makeStartTripRequest();
-            }else {
+            } else {
                 showSnackbar(getString(R.string.there_is_no_internet_connection));
             }
         });
@@ -322,20 +318,19 @@ public class RequestDetailsActivity extends AppCompatActivity {
             SharedUtils.getInstance().cancelDialog();
             if (startTripResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
                     && ConfigurationFile.Constants.SUCCESS_CODE_TO > startTripResponseResponse.code()) {
-                if (startTripResponseResponse.body() != null){
+                if (startTripResponseResponse.body() != null) {
                     showSnackbar(startTripResponseResponse.body().getMessage());
-                    openStartTripActivity();
+                    openStartTripActivity(startTripResponseResponse.body().getData());
                 }
             } else {
-//                showSnackbar("ERROR CODE :"+startTripResponseResponse.code());
                 showStartTripErrorMessage(startTripResponseResponse);
             }
         });
     }
 
-    private void openStartTripActivity() {
-        Intent intent=new Intent(RequestDetailsActivity.this, StartTripActivity.class);
-        intent.putExtra(ConfigurationFile.Constants.OFFER_PRICE,"ff");
+    private void openStartTripActivity(ArrayList<StartTripResponseModel> data) {
+        Intent intent = new Intent(RequestDetailsActivity.this, StartTripActivity.class);
+        intent.putParcelableArrayListExtra(ConfigurationFile.Constants.TRIPS_DATA, data);
         startActivity(intent);
     }
 

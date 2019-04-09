@@ -4,14 +4,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegister2Binding;
@@ -236,7 +233,7 @@ public class RegisterActivity2 extends AppCompatActivity {
                         }
                     });
                     progressDialog.dismiss();
-                    Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
+//                    Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(exception -> {
                     progressDialog.dismiss();
@@ -269,6 +266,7 @@ public class RegisterActivity2 extends AppCompatActivity {
         Intent intent = new Intent(RegisterActivity2.this, RegisterActivity3.class);
         intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA, new Gson().toJson(register1Request));
         startActivity(intent);
+        finish();
     }
 
 }

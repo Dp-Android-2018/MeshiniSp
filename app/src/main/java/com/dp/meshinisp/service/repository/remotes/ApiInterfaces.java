@@ -8,6 +8,7 @@ import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.response.ActivationResponse;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
+import com.dp.meshinisp.service.model.response.EmptyResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.service.model.response.LoginResponse;
 import com.dp.meshinisp.service.model.response.MessageResponse;
@@ -40,6 +41,10 @@ public interface ApiInterfaces {
     //register
     @POST("/api/service-provider/register")
     Observable<Response<LoginRegisterResponse>> register(@Body RegisterRequest request);
+
+    //check mail and phone
+    @GET("/api/service-provider/check")
+    Observable<Response<Void>> checkMailAndPhone(@Query("email") String email, @Query("phone") String phone);
 
     //Get languages
     @GET("/api/utilities/languages")
@@ -106,5 +111,6 @@ public interface ApiInterfaces {
     //Delete a specific offer
     @POST("/api/service-provider/request/{request}/start")
     Observable<Response<StartTripResponse>> startTrip(@Path("request") int requestId);
+
 
 }

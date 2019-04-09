@@ -339,3 +339,17 @@ t
 Dapp/src/main/java/com/dp/meshinisp/viewmodel/StartTripViewModel.java,2\f\2f1ff1f92c28acc5881e7647c53825ac487b8457
 z
 Japp/src/main/java/com/dp/meshinisp/view/ui/activity/StartTripActivity.java,e\c\ecab2a62260a0cac21e327d213273b6f02d501ca
+p
+@app/src/main/java/com/dp/meshinisp/utility/utils/DrawerUtil.java,c\f\cfd0c13314968bb06b1272e4174124b59bf24cdd
+_
+/app/src/main/res/layout/activity_start_trip.xml,8\d\8d56550cb6172559b28f47783a83e7ada21b6b13
+c
+3app/src/main/res/layout/destination_list_dialog.xml,6\5\65be600f086147f91ad799e8034c1ccab57ecc9e
+a
+1app/src/main/res/layout/item_list_destination.xml,6\b\6b651d05b7dd80013a026a0bae11e4ebffa1f11d
+Å
+Qapp/src/main/java/com/dp/meshinisp/view/ui/viewholder/DestinationsViewHolder.java,c\e\ce4ad0a63f944eebf09e4502408bf7817fd79d76
+á
+Wapp/src/main/java/com/dp/meshinisp/view/ui/adapter/DestinationsRecyclerViewAdapter.java,2\0\20c790bd7f42aedb3266ea23ccf1919121185548
+|
+Lapp/src/main/java/com/dp/meshinisp/service/model/response/EmptyResponse.java,d\0\d04b29e48e78b4edd4bda3168d1f3b2060ddb5b0

@@ -19,6 +19,9 @@
         <item name="android:paddingEnd">5dp</item>
     </style>
 
+    <style name="bottom_nav" parent="Widget.Design.BottomNavigationView">
+        <item name="enforceTextAppearance">false</item>
+    </style>
     <!--<style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
         <item name="android:textColor">@android:color/white</item>
     </style>

@@ -27,6 +27,7 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
@@ -54,7 +55,7 @@ public class OffersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_offers);
-        ConfigurationFile.Constants.AUTHORIZATION=customUtilsLazy.getValue().getSavedMemberData().getApiToken();
+        ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         loadedData = new ArrayList<>();
         setupToolbar();
         initializeViewModel();
@@ -76,6 +77,7 @@ public class OffersActivity extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         binding.rvOffers.setLayoutManager(linearLayoutManager);
         binding.rvOffers.setAdapter(offersRecyclerViewAdapter);
+        binding.rvOffers.setItemAnimator(new DefaultItemAnimator());
         makeActionOnClickOnRecyclerViewItem();
         makeOnScrollOnRecyclerView();
     }
@@ -98,21 +100,18 @@ public class OffersActivity extends AppCompatActivity {
         if (ValidationUtils.isConnectingToInternet(this)) {
             SharedUtils.getInstance().showProgressDialog(this);
             offersActivityViewModelLazy.getValue().deleteSpecificOffer(loadedData.get(position).getId());
-            observeDeleteSpecificOfferData();
+            observeDeleteSpecificOfferData(position);
         } else {
             showSnackbr(getString(R.string.there_is_no_internet_connection));
         }
     }
 
-    private void observeDeleteSpecificOfferData() {
+    private void observeDeleteSpecificOfferData(int position) {
         offersActivityViewModelLazy.getValue().getDeletedOfferResponse().observe(this, messageResponseResponse -> {
             SharedUtils.getInstance().cancelDialog();
             if (messageResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
                     && ConfigurationFile.Constants.SUCCESS_CODE_TO > messageResponseResponse.code()) {
-                loadedData.remove(position);
-                offersRecyclerViewAdapter.notifyItemRemoved(position);
-//                offersRecyclerViewAdapter.notifyDataSetChanged();
-//                offersRecyclerViewAdapter.notifyItemRangeChanged(position, loadedData.size());
+                offersRecyclerViewAdapter.removeItem(position);
                 if (messageResponseResponse.body() != null) {
                     showSnackbr(messageResponseResponse.body().getMessage());
                 }

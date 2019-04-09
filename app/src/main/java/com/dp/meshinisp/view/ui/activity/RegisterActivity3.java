@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -17,6 +18,7 @@ import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -28,6 +30,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import kotlin.Lazy;
@@ -56,21 +59,9 @@ public class RegisterActivity3 extends AppCompatActivity {
         register1Request = registerRequestLazy.getValue();
         Gson gson = new Gson();
         register1Request = gson.fromJson(getIntent().getStringExtra(ConfigurationFile.Constants.REGISTER1DATA), RegisterRequest.class);
-        initializeBottomBar();
-        makeActionToUploadImage();
         setVehicleType();
+        makeActionToUploadImage();
         makeClickListenerOnClickOnBtnNext();
-    }
-
-    private void initializeBottomBar() {
-        binding.bottomBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_trekking, getString(R.string.on_foot)))
-                .addItem(new BottomNavigationItem(R.drawable.ic_car, getString(R.string.car)))
-                .addItem(new BottomNavigationItem(R.drawable.motorcycle, getString(R.string.motorbike)))
-                .addItem(new BottomNavigationItem(R.drawable.ic_bus, getString(R.string.bus)))
-                .addItem(new BottomNavigationItem(R.drawable.van, getString(R.string.van)))
-                .setFirstSelectedPosition(0)
-                .initialise();
     }
 
     private void makeClickListenerOnClickOnBtnNext() {
@@ -99,63 +90,25 @@ public class RegisterActivity3 extends AppCompatActivity {
     }
 
     private void setVehicleType() {
-        binding.bottomBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener(){
-            @Override
-            public void onTabSelected(int position) {
-                showSnackbar("tab id :" + position);
-                setRegisterVehicleType(position);
-                tabSelected = true;
+        binding.bottomBar.setOnNavigationItemSelectedListener(item -> {
+            tabSelected = true;
+            switch (item.getItemId()) {
+                case R.id.trekking:
+                    register1Request.setVehicleType(ConfigurationFile.Constants.ON_FOOT_TYPE);
+                    break;
+
+                case R.id.car:
+                    register1Request.setVehicleType(ConfigurationFile.Constants.CAR_TYPE);
+                    break;
+
+                case R.id.motorbike:
+                    register1Request.setVehicleType(ConfigurationFile.Constants.MOTORBIKE_TYPE);
+                    break;
+
             }
-            @Override
-            public void onTabUnselected(int position) {
-            }
-            @Override
-            public void onTabReselected(int position) {
-                showSnackbar("tab id :" + position);
-                setRegisterVehicleType(position);
-                tabSelected = true;
-            }
+            return true;
         });
-       /* showSnackbar("tab id :" + binding.bottomBar.getCurrentTab().getTitle());
-//        setRegisterVehicleType(binding.bottomBar.getCurrentTab().getId());
-        binding.bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelected(int tabId) {
-                showSnackbar("tab id :" + tabId);
-                setRegisterVehicleType(tabId);
-                tabSelected = true;
-            }
-        });*/
 
-    }
-
-    private void setRegisterVehicleType(int id) {
-        switch (id) {
-            case 0:
-                showSnackbar("onfoot");
-                register1Request.setVehicleType("onfoot");
-                break;
-            case 1:
-                showSnackbar("car");
-                register1Request.setVehicleType("car");
-                break;
-            case 2:
-                showSnackbar("motorcycle");
-                register1Request.setVehicleType("motorcycle");
-                break;
-            case 3:
-                showSnackbar("bus");
-                register1Request.setVehicleType("bus");
-                break;
-            case 4:
-                showSnackbar("van");
-                register1Request.setVehicleType("van");
-                break;
-           /* default:
-                register1Request.setVehicleType("onfoot");
-                break;*/
-
-        }
     }
 
     private void makeActionToUploadImage() {
@@ -199,13 +152,13 @@ public class RegisterActivity3 extends AppCompatActivity {
             } else {
                 Snackbar.make(binding.getRoot(), "There is no pictures!!", Snackbar.LENGTH_SHORT).show();
             }
-        }else {
+        } else {
             showSnackbar(getString(R.string.there_is_no_internet_connection));
         }
     }
 
     private void putFileToStorageReference() {
-        riversRef = storageRef.child("vehicle_pic"+ConfigurationFile.Constants.SERVICEPROVIDER_DIRECTORY_NAME);
+        riversRef = storageRef.child("vehicle_pic" + ConfigurationFile.Constants.SERVICEPROVIDER_DIRECTORY_NAME);
         riversRef.putFile(filePath)
                 .addOnSuccessListener(taskSnapshot -> {
                     taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(uri -> {
@@ -220,7 +173,7 @@ public class RegisterActivity3 extends AppCompatActivity {
                         }
                     });
                     progressDialog.dismiss();
-                    Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
+//                    Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(exception -> {
                     progressDialog.dismiss();
@@ -236,6 +189,7 @@ public class RegisterActivity3 extends AppCompatActivity {
         Intent intent = new Intent(RegisterActivity3.this, RegisterActivity4.class);
         intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA, new Gson().toJson(register1Request));
         startActivity(intent);
+        finish();
     }
 
     private void initializeProgressDialog() {

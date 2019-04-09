@@ -7,8 +7,11 @@ import android.widget.ImageView;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityStartTripBinding;
+import com.dp.meshinisp.service.model.global.StartTripResponseModel;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
+import com.dp.meshinisp.view.ui.adapter.DestinationsRecyclerViewAdapter;
+import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -17,28 +20,36 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 public class StartTripActivity extends FragmentActivity implements OnMapReadyCallback {
     ActivityStartTripBinding binding;
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
     private GoogleMap mMap;
     private BottomSheetBehavior sheetBehavior;
     private ConstraintLayout layoutBottomSheet;
     private View v;
-    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
+    private ArrayList<StartTripResponseModel> data;
+    RecyclerView destinationsRecyclerView;
+    DestinationsRecyclerViewAdapter destinationsRecyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_start_trip);
-        ConfigurationFile.Constants.AUTHORIZATION=customUtilsLazy.getValue().getSavedMemberData().getApiToken();
+        data = getIntent().getParcelableArrayListExtra(ConfigurationFile.Constants.TRIPS_DATA);
+        ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
         setupToolbar();
         initializeMap();
         initializeShowStateDialog();
@@ -77,23 +88,22 @@ public class StartTripActivity extends FragmentActivity implements OnMapReadyCal
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
-//                        sheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+                        binding.btDirections.setVisibility(View.VISIBLE);
                         break;
 
                     case BottomSheetBehavior.STATE_EXPANDED: {
-//                        View v = layoutBottomSheet.getRootView();
-//                        btnBottomSheet.setText("Close Sheet");
+                        binding.btDirections.setVisibility(View.INVISIBLE);
                     }
                     break;
                     case BottomSheetBehavior.STATE_COLLAPSED: {
-//                        btnBottomSheet.setText("Expand Sheet");
+                        binding.btDirections.setVisibility(View.VISIBLE);
                     }
                     break;
                     case BottomSheetBehavior.STATE_DRAGGING:
-
+                        binding.btDirections.setVisibility(View.INVISIBLE);
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
-
+                        binding.btDirections.setVisibility(View.INVISIBLE);
                         break;
                 }
             }
@@ -107,26 +117,35 @@ public class StartTripActivity extends FragmentActivity implements OnMapReadyCal
 
     private void makeActionOnLayoutComponents(View v) {
         this.v = v;
-        ImageView ivClose=v.findViewById(R.id.iv_close);
+        ImageView ivClose = v.findViewById(R.id.iv_close);
         ivClose.setOnClickListener(v1 -> sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED));
-        /*fromEditText = v.findViewById(R.id.et_dialog_from);
-        toEditText = v.findViewById(R.id.et_dialog_to);
-        countrySpinner = v.findViewById(R.id.sp_country);
-        Button btnSearch = v.findViewById(R.id.bt_search_for_requests);
-        pickDateAndTime(fromEditText);
-        pickDateAndTime(toEditText);
-        setCountrySpinner();
-        makeSearch(btnSearch);*/
+        initializeRecyclerView();
+    }
+
+    private void initializeRecyclerView() {
+        destinationsRecyclerView = v.findViewById(R.id.rv_destinations);
+        destinationsRecyclerViewAdapter = new DestinationsRecyclerViewAdapter(data);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        destinationsRecyclerView.setLayoutManager(linearLayoutManager);
+        destinationsRecyclerView.setAdapter(destinationsRecyclerViewAdapter);
+        makeActionOnClickOnRecyclerViewItem();
+    }
+
+    private void makeActionOnClickOnRecyclerViewItem() {
+        destinationsRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+//                opnDetailsActivity(position, "Clicked");
+            }
+
+            @Override
+            public void onDeleteClick(int position) {
+//                removeItem(position);
+            }
+        });
     }
 
     public void openLocations(View view) {
         sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        /*if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-
-//            btnBottomSheet.setText("Close sheet");
-        } else {
-            sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//            btnBottomSheet.setText("Expand sheet");
-        }*/
     }
 }

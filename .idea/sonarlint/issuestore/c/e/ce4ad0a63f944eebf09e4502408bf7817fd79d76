@@ -1,0 +1,5 @@
+
+~squid:UselessImportCheck"NRemove this unused import 'com.dp.meshinisp.databinding.OfferListItemBinding'.(›å·Íùÿÿÿÿ8Ç„ÎáŸ-
+ƒsquid:S1450"eRemove the "startTripResponseModel" field and declare it as a local variable in the relevant methods.(·Ú¦á8ÜºÄáŸ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ùşÃ¡øÿÿÿÿ8¡Œ×áŸ-
+Xsquid:S1068":Remove this unused "startTripResponseModel" private field.(·Ú¦á8ÜºÄáŸ-

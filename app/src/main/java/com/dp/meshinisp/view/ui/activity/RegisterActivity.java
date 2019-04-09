@@ -9,18 +9,25 @@ import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegisterBinding;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
+import com.dp.meshinisp.service.model.response.ErrorResponse;
+import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.SpinnerAdapter;
 import com.dp.meshinisp.viewmodel.Register1ViewModel;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import kotlin.Lazy;
+import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -33,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     SpinnerAdapter countrySpinnerAdapter;
     SpinnerAdapter citySpinnerAdapter;
     RegisterRequest registerRequest;
+    RegisterRequest registerRequest2;
     private String firstName;
     private String lastName;
     private String email;
@@ -44,6 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_register);
         registerRequest=registerRequestLazy.getValue();
+        registerRequest2=registerRequestLazy.getValue();
         setCountrySpinner();
     }
 
@@ -106,18 +115,51 @@ public class RegisterActivity extends AppCompatActivity {
         if (!ValidationUtils.isEmpty(firstName) && !ValidationUtils.isEmpty(lastName)
         &&!ValidationUtils.isEmpty(password) && (password.length() >= 8) &&!ValidationUtils.isEmpty(email)
                 &&!ValidationUtils.isEmpty(phone)){
-            addDataToRegisterRequest();
-            openNextActivity();
+            checkPhoneAndMail();
         }else {
             showAllErrors();
 
         }
     }
 
+    private void checkPhoneAndMail() {
+        SharedUtils.getInstance().showProgressDialog(this);
+        registerViewModelLazy.getValue().checkMailAndPhone(email,phone).observe(this, loginRegisterResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
+            || loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND){
+                addDataToRegisterRequest();
+                openNextActivity();
+            }else {
+                Gson gson = new GsonBuilder().create();
+                ErrorResponse errorResponse = new ErrorResponse();
+
+                try {
+                    errorResponse = gson.fromJson(loginRegisterResponseResponse.errorBody().string(), ErrorResponse.class);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String error = "";
+                for (String string : errorResponse.getErrors()) {
+                    error += string;
+                    error += "\n";
+                }
+                showSnackbar(error);
+            }
+        });
+    }
+
+    private RegisterRequest getCheckRequest() {
+        registerRequest2.setPhone(phone);
+        registerRequest2.setEmail(email);
+        return registerRequest2;
+    }
+
     private void openNextActivity() {
         Intent intent=new Intent(RegisterActivity.this,RegisterActivity2.class);
         intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA,registerRequest);
         startActivity(intent);
+        finish();
     }
 
     private void addDataToRegisterRequest() {
