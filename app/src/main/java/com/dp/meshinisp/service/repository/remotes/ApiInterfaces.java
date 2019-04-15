@@ -6,6 +6,7 @@ import com.dp.meshinisp.service.model.request.LoginRequest;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
+import com.dp.meshinisp.service.model.request.StartDestinationRequest;
 import com.dp.meshinisp.service.model.response.ActivationResponse;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
 import com.dp.meshinisp.service.model.response.EmptyResponse;
@@ -111,6 +112,19 @@ public interface ApiInterfaces {
     //Delete a specific offer
     @POST("/api/service-provider/request/{request}/start")
     Observable<Response<StartTripResponse>> startTrip(@Path("request") int requestId);
+
+    //Set next destination for an active trip
+    @POST("/api/service-provider/request/{request}/start-destination")
+    Observable<Response<Void>> setNextDestination(@Path("request") int requestId,@Body StartDestinationRequest startDestinationRequest);
+
+    //Set a destination as done for the current trip
+    @POST("/api/service-provider/request/{request}/finish-destination")
+    Observable<Response<Void>> setDoneDestination(@Path("request") int requestId,@Body StartDestinationRequest startDestinationRequest);
+
+    //Complete a trip
+    @POST("/api/service-provider/request/{request}/complete")
+    Observable<Response<MessageResponse>> finishTrip(@Path("request") int requestId);
+
 
 
 }

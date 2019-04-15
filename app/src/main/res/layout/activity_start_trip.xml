@@ -104,6 +104,7 @@
             android:text="Giza Pyramids"
             android:textColor="@android:color/black"
             android:textSize="17sp"
+            android:maxLength="25"
             app:layout_constraintBottom_toBottomOf="@+id/iv_pickup_location"
             app:layout_constraintStart_toEndOf="@+id/iv_pickup_location"
             app:layout_constraintTop_toTopOf="@+id/iv_pickup_location" />
@@ -127,7 +128,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginBottom="14dp"
             android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toTopOf="@+id/bt_slide_toStart_trip"
+            app:layout_constraintBottom_toTopOf="@+id/bt_slide_tofinish_trip"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -156,7 +157,7 @@
 
 
         <ng.max.slideview.SlideView
-            android:id="@+id/bt_slide_toStart_trip"
+            android:id="@+id/bt_slide_tofinish_trip"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

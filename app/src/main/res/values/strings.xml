@@ -130,11 +130,16 @@
     <string name="add_another_language">Add another Language</string>
     <string name="rate">Rate :</string>
     <string name="completed_trips">Completed Trips</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="call">Call</string>
     <string name="send_offer">Send offer</string>
     <string name="requests">Requests</string>
     <string name="cash">Cash</string>
+    <string name="current_trip">Current Trip</string>
+    <string name="offer_sent">Offer Sent</string>
+    <string name="offer_accepted">Offer Accepted</string>
+    <string name="start">Start</string>
+    <string name="done">Done</string>
 
     <string-array name="education_request_types">
         <item>Basic education</item>
@@ -142,4 +147,9 @@
         <item>Postgraduate studies</item>
         <item>Rehabilitation and training courses</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="destinations_list">Destinations list</string>
+    <string name="write_review_optional">Write Review (optional)</string>
 </resources>

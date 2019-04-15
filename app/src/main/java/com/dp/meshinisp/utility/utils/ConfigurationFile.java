@@ -56,6 +56,7 @@ public class ConfigurationFile {
         public static final String OFFERS_TYPE_ACTIVITY = "offer activity";
         public static final String OFFER_PRICE = "offer price";
         public static final String TRIPS_DATA = "trips data";
+        public static final String REQUEST_DATA = "request data";
 
 
         public static final String ON_FOOT_TYPE = "onfoot";

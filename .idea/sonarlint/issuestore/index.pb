@@ -353,3 +353,7 @@ Qapp/src/main/java/com/dp/meshinisp/view/ui/viewholder/DestinationsViewHolder.ja
 Wapp/src/main/java/com/dp/meshinisp/view/ui/adapter/DestinationsRecyclerViewAdapter.java,2\0\20c790bd7f42aedb3266ea23ccf1919121185548
 |
 Lapp/src/main/java/com/dp/meshinisp/service/model/response/EmptyResponse.java,d\0\d04b29e48e78b4edd4bda3168d1f3b2060ddb5b0
+R
+"app/src/main/res/menu/vehicles.xml,2\7\2731d0da70b8d39c319cc957faf6df0855e68d90
+z
+Japp/src/main/java/com/dp/meshinisp/view/ui/fragment/StartTripFragment.java,6\c\6c4491f65d9d128423e3646cafd19969c3a15aaf

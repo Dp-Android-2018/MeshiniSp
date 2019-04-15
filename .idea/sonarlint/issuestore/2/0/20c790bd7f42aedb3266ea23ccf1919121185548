@@ -1,3 +1,2 @@
 
-~squid:UselessImportCheck	"NRemove this unused import 'com.dp.meshinisp.databinding.OfferListItemBinding'.(›å·Íùÿÿÿÿ8¯™ÉáŸ-
-šsquid:S1319"‚The type of the "startTripResponseModels" object should be an interface such as "List" rather than the implementation "ArrayList".(Áâ¸¦
+šsquid:S1319"‚The type of the "startTripResponseModels" object should be an interface such as "List" rather than the implementation "ArrayList".(Áâ¸¦

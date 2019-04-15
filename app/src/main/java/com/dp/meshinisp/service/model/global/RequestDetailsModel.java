@@ -1,10 +1,13 @@
 package com.dp.meshinisp.service.model.global;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class RequestDetailsModel {
+public class RequestDetailsModel implements Parcelable {
     @SerializedName("id")
     private int id;
 
@@ -34,6 +37,30 @@ public class RequestDetailsModel {
 
     @SerializedName("pickup_time")
     private String pickupTime;
+
+    protected RequestDetailsModel(Parcel in) {
+        id = in.readInt();
+        country = in.readString();
+        pickupAddress = in.readString();
+        pickupLat = in.readFloat();
+        pickupLong = in.readFloat();
+        vehicleType = in.readString();
+        places = in.createStringArrayList();
+        pickupDate = in.readString();
+        pickupTime = in.readString();
+    }
+
+    public static final Creator<RequestDetailsModel> CREATOR = new Creator<RequestDetailsModel>() {
+        @Override
+        public RequestDetailsModel createFromParcel(Parcel in) {
+            return new RequestDetailsModel(in);
+        }
+
+        @Override
+        public RequestDetailsModel[] newArray(int size) {
+            return new RequestDetailsModel[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -113,5 +140,23 @@ public class RequestDetailsModel {
 
     public void setPickupTime(String pickupTime) {
         this.pickupTime = pickupTime;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(country);
+        dest.writeString(pickupAddress);
+        dest.writeFloat(pickupLat);
+        dest.writeFloat(pickupLong);
+        dest.writeString(vehicleType);
+        dest.writeStringList(places);
+        dest.writeString(pickupDate);
+        dest.writeString(pickupTime);
     }
 }

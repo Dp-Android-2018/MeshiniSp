@@ -1,15 +1,15 @@
 
-Gsquid:S1148Ç"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»Ú­øš-
+ksquid:CallToDeprecatedMethodù"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ8“Æª›-
 jsquid:CallToDeprecatedMethod5"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8„öš-
-jsquid:CommentedOutCodeLine§"<This block of commented-out lines of code should be removed.(£©­ç8“í»öš-
+Gsquid:S1148Ç"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»Ú­øš-
+osquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(Ä×Ğàüÿÿÿÿ8à˜¸öš-
+squid:S1450:"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8× Ãª›-
+isquid:CommentedOutCodeLinev"<This block of commented-out lines of code should be removed.(ã•ê8‘æµöš-
 qsquid:MaximumInheritanceDepth*"<This class has 9 parents which is greater than 5 authorized.(ŸÿÇÅşÿÿÿÿ8„öš-
 nsquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(Ş¨ÁÈıÿÿÿÿ8„öš-
-osquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(Ä×Ğàüÿÿÿÿ8à˜¸öš-
-Gsquid:S1148è"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»Ú­øš-
-isquid:CommentedOutCodeLinev"<This block of commented-out lines of code should be removed.(ã•ê8‘æµöš-
-squid:S1450:"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8× Ãª›-
-Ysquid:S10683"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ8¬·€øš-
-Tsquid:S1068:"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8× Ãª›-
-ksquid:CallToDeprecatedMethodù"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ8“Æª›-
-nsquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(×Ñ“úÿÿÿÿ8„öš-
 jsquid:CommentedOutCodeLineì"<This block of commented-out lines of code should be removed.(½¹ÂÀ8ïüÈêŸ-
+Ysquid:S10683"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ8¬·€øš-
+jsquid:CommentedOutCodeLine§"<This block of commented-out lines of code should be removed.(£©­ç8“í»öš-
+Tsquid:S1068:"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8× Ãª›-
+Gsquid:S1148è"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»Ú­øš-
+nsquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(×Ñ“úÿÿÿÿ8„öš-

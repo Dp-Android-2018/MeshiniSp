@@ -13,6 +13,12 @@
     <!--</group>-->
     <group android:id="@+id/g1"
         android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/current_trip"
+            android:checked="true"
+            android:title="@string/current_trip" />
+
         <item
             android:id="@+id/your_trip"
             android:checked="true"

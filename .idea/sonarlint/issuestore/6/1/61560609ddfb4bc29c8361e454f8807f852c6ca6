@@ -1,26 +1,31 @@
 
-@squid:S1643“"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ŞÏËÇ-
-Vsquid:S1135"2Complete the task associated to this TODO comment.(áÃæùÿÿÿÿ8åêì-
-@squid:S1643İ"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¬®½Ÿ-
-@squid:S1643”"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8åêì-
-hsquid:CallToDeprecatedMethodú"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8œãŸŸ-
-Bsquid:S1148œ"#Use a logger to log this exception.(Ç’Çê8åêì-
-Ysquid:S2696>"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ª²á¾Ÿ-
-@squid:S1643Ü"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ê¾·½Ÿ-
-`squid:CallToDeprecatedMethod·"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8œãŸŸ-
-xsquid:S14501"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ8¯‰íÇ-
-vsquid:S001165"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íİàİ8çš„Ë-
-;squid:S1643¬"Use a StringBuilder instead.(°–ôÔ8»Á†š-
-esquid:CallToDeprecatedMethodù"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8œãŸŸ-
-Gsquid:S1148Ø"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ê¾·½Ÿ-
-@squid:S1643ñ"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8„ä››-
-\"squid:SwitchLastCaseIsDefaultCheckJ""Add a default case to this switch.(”ûÜÿÿÿÿÿ8¯‰íÇ-
-@squid:S1643ò"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8åêì-
-Gsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8åêì-
-?squid:S11705"!Make this final field static too.(íİàİ8çš„Ë-
-lsquid:MaximumInheritanceDepth."<This class has 9 parents which is greater than 5 authorized.(şÊŸ®8¯‰íÇ-
-;squid:S1643­"Use a StringBuilder instead.(º”Ì‡8åêì-
-Nsquid:S1066"/Merge this if statement with the enclosing one.(¡ì¯ı8åêì-
-csquid:CallToDeprecatedMethodø"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8œãŸŸ-
-dsquid:CallToDeprecatedMethod±"/Remove this use of "vibrate"; it is deprecated.(„š„âøÿÿÿÿ8Ê“™ºŸ-
-Gsquid:S1148í"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8åêì-
+`squid:CallToDeprecatedMethodÊ"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8Ì¸¾·¡-
+osquid:CommentedOutCodeLineï"<This block of commented-out lines of code should be removed.(‡á–Ÿûÿÿÿÿ8Ì¸¾·¡-
+Gsquid:S1148‚"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ì¸¾·¡-
+\"squid:SwitchLastCaseIsDefaultCheckO""Add a default case to this switch.(”ûÜÿÿÿÿÿ8î˜¶¡-
+vsquid:S00116:"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íİàİ8î˜¶¡-
+@squid:S1643†"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ì¸¾·¡-
+Vsquid:S1135¥"2Complete the task associated to this TODO comment.(áÃæùÿÿÿÿ8Ì¸¾·¡-
+lsquid:MaximumInheritanceDepth3"<This class has 9 parents which is greater than 5 authorized.(şÊŸ®8î˜¶¡-
+nsquid:UnusedPrivateMethodí"ARemove this unused private "openSelectedFragmentWithData" method.(ıœş™8Ì¸¾·¡-
+Gsquid:S1148û"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ì¸¾·¡-
+@squid:S1643§"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ì¸¾·¡-
+esquid:CallToDeprecatedMethod"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8Ì¸¾·¡-
+;squid:S1643À"Use a StringBuilder instead.(º”Ì‡8Ì¸¾·¡-
+@squid:S1643ÿ"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ì¸¾·¡-
+csquid:CallToDeprecatedMethod"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8Ì¸¾·¡-
+@squid:S1643¦"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ì¸¾·¡-
+jsquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(­ŞÜ8Ì¸¾·¡-
+xsquid:S14506"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ8î˜¶¡-
+gsquid:CallToDeprecatedMethodw"3Remove this use of "getDrawable"; it is deprecated.(„¿ÔÛøÿÿÿÿ8¿¿·¡-
+@squid:S1643‡"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ì¸¾·¡-
+dsquid:CallToDeprecatedMethodÆ"/Remove this use of "vibrate"; it is deprecated.(„š„âøÿÿÿÿ8Ì¸¾·¡-
+Gsquid:S1148¢"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ì¸¾·¡-
+Nsquid:S1066¤"/Merge this if statement with the enclosing one.(¡ì¯ı8Ì¸¾·¡-
+Bsquid:S1148±"#Use a logger to log this exception.(Ç’Çê8Ì¸¾·¡-
+dsquid:CallToDeprecatedMethodx"0Remove this use of "getColor"; it is deprecated.(¿ÕÁöûÿÿÿÿ8¿¿·¡-
+Ysquid:S2696C"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8î˜¶¡-
+?squid:S1170:"!Make this final field static too.(íİàİ8î˜¶¡-
+;squid:S1643¿"Use a StringBuilder instead.(°–ôÔ8Ì¸¾·¡-
+@squid:S1643€"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ì¸¾·¡-
+hsquid:CallToDeprecatedMethod"3Remove this use of "getDrawable"; it is deprecated.(œ·ùşÿÿÿÿ8Ì¸¾·¡-

@@ -16,7 +16,7 @@
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
-        android:appComponentFactory="@string/action_settings"
+        android:appComponentFactory="settings"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
@@ -27,7 +27,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDMgu01yqga2ma844kZP5lUUNCdfCSjyE8" />
+            android:value="AIzaSyBmQpNW53XMiXH3Hxzn7iKQRtBe88sAxQE" />
 
         <activity android:name=".view.ui.activity.StartTripActivity"></activity>
         <activity android:name=".view.ui.activity.ChangePasswordProfileActivity" />

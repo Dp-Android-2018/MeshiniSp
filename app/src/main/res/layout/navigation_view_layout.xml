@@ -27,10 +27,27 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_nav_item_1"
+                    android:id="@+id/tv_nav_item_7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp7w"
+                    android:gravity="start"
+                    android:text="@string/current_trip"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.443"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/navigation_view_header_layout" />
+
+                <TextView
+                    android:id="@+id/tv_nav_item_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp17w"
                     android:gravity="start"
                     android:text="@string/your_trips"
                     android:textAlignment="center"
@@ -41,7 +58,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.443"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/navigation_view_header_layout" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nav_item_7" />
 
                 <TextView
                     android:id="@+id/tv_nav_item_2"

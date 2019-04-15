@@ -9,7 +9,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
+import com.dp.meshinisp.view.ui.fragment.StartTripFragment;
 import com.dp.meshinisp.viewmodel.RequestDetailsViewModel;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
@@ -37,6 +40,8 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import kotlin.Lazy;
 import ng.max.slideview.SlideView;
 import retrofit2.Response;
@@ -103,6 +108,18 @@ public class RequestDetailsActivity extends AppCompatActivity {
         binding.etOfferAmount.setVisibility(View.VISIBLE);
         binding.btOk.setVisibility(View.VISIBLE);
         doneSendingOffer();
+        offerSent();
+        binding.btSendOffer.setText(getResources().getString(R.string.offer_sent));
+    }
+
+    private void offerSent() {
+        binding.btSendOffer.setFocusable(false);
+        binding.btSendOffer.setEnabled(false);
+        binding.btSendOffer.setVisibility(View.VISIBLE);
+        binding.btSendOffer.setBackground(getResources().getDrawable(R.drawable.btn_background_black));
+        binding.btSendOffer.setTextColor(getResources().getColor(R.color.md_black_1000));
+        binding.btOk.setVisibility(View.INVISIBLE);
+        binding.etOfferAmount.setVisibility(View.INVISIBLE);
     }
 
     private void initializeUpcomingScreen() {
@@ -114,6 +131,8 @@ public class RequestDetailsActivity extends AppCompatActivity {
         binding.etOfferAmount.setVisibility(View.VISIBLE);
         binding.btOk.setVisibility(View.VISIBLE);
         doneSendingOffer();
+        offerSent();
+        binding.btSendOffer.setText(getResources().getString(R.string.offer_accepted));
     }
 
     private void initializeViewModel() {
@@ -191,6 +210,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
         binding.btSendOffer.setOnClickListener(v -> {
             binding.btSendOffer.setVisibility(View.GONE);
             binding.etOfferAmount.setVisibility(View.VISIBLE);
+            binding.btOk.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.left_to_right_anim));
             binding.btOk.setVisibility(View.VISIBLE);
         });
     }
@@ -207,6 +227,7 @@ public class RequestDetailsActivity extends AppCompatActivity {
                                         && ConfigurationFile.Constants.SUCCESS_CODE_TO > offerResponseResponse.code()) {
                                     showSnackbar(getString(R.string.offer_sent_successfully));
                                     doneSendingOffer();
+                                    offerSent();
                                 } else {
                                     showErrorMessage(offerResponseResponse);
                                 }
@@ -328,10 +349,26 @@ public class RequestDetailsActivity extends AppCompatActivity {
         });
     }
 
-    private void openStartTripActivity(ArrayList<StartTripResponseModel> data) {
+    private void openStartTripActivity(ArrayList<StartTripResponseModel> startTripResponseModels) {
+//        openSelectedFragmentWithData(new StartTripFragment());
+    /*    LayoutInflater inflater =(LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.activity_main, null);
+        Intent i = new Intent();
+        i.putParcelableArrayListExtra(ConfigurationFile.Constants.TRIPS_DATA, data);
+        i.setClass(view.getContext(), StartTripActivity.class);
+        view.getContext().startActivity(i);*/
         Intent intent = new Intent(RequestDetailsActivity.this, StartTripActivity.class);
-        intent.putParcelableArrayListExtra(ConfigurationFile.Constants.TRIPS_DATA, data);
+        intent.putParcelableArrayListExtra(ConfigurationFile.Constants.TRIPS_DATA, startTripResponseModels);
+        intent.putExtra(ConfigurationFile.Constants.REQUEST_DATA, data);
+        intent.putExtra(ConfigurationFile.Constants.REQUEST_ID, requestId);
         startActivity(intent);
+    }
+
+    private void openSelectedFragmentWithData() {
+
+        /*FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_framelayout, fragment);
+        transaction.commit();*/
     }
 
     private void showStartTripErrorMessage(Response<StartTripResponse> startTripResponseResponse) {

@@ -1,7 +1,7 @@
 package com.dp.meshinisp.service.repository.remotes;
 
+import com.dp.meshinisp.service.model.request.StartDestinationRequest;
 import com.dp.meshinisp.service.model.response.MessageResponse;
-import com.dp.meshinisp.service.model.response.OffersResponse;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -17,25 +17,25 @@ import static org.koin.java.standalone.KoinJavaComponent.inject;
 public class StartTripRepository {
     private Lazy<ApiInterfaces> endPointsLazy = inject(ApiInterfaces.class);
 
-    public LiveData<Response<OffersResponse>> getAllOffers(int pageNumber) {
-        MutableLiveData<Response<OffersResponse>> data = new MutableLiveData<>();
-        endPointsLazy.getValue().getAllOffers(pageNumber)
+    public LiveData<Response<Void>> setNextDestination(int requestId, StartDestinationRequest startDestinationRequest) {
+        MutableLiveData<Response<Void>> data = new MutableLiveData<>();
+        endPointsLazy.getValue().setNextDestination(requestId, startDestinationRequest)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response<OffersResponse>>() {
+                .subscribe(new Observer<Response<Void>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(Response<OffersResponse> offersResponseResponse) {
-                        data.setValue(offersResponseResponse);
+                    public void onNext(Response<Void> voidResponse) {
+                        data.setValue(voidResponse);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+
                     }
 
                     @Override
@@ -46,9 +46,38 @@ public class StartTripRepository {
         return data;
     }
 
-    public LiveData<Response<MessageResponse>> deleteSpecificOffer(int offerId) {
+    public LiveData<Response<Void>> setDoneDestination(int requestId, StartDestinationRequest startDestinationRequest) {
+        MutableLiveData<Response<Void>> data = new MutableLiveData<>();
+        endPointsLazy.getValue().setDoneDestination(requestId, startDestinationRequest)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Response<Void>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<Void> voidResponse) {
+                        data.setValue(voidResponse);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        return data;
+    }
+
+    public LiveData<Response<MessageResponse>> finishTrip(int requestId) {
         MutableLiveData<Response<MessageResponse>> data = new MutableLiveData<>();
-        endPointsLazy.getValue().deleteSpecificOffer(offerId)
+        endPointsLazy.getValue().finishTrip(requestId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Response<MessageResponse>>() {

@@ -1,17 +1,17 @@
 
-]squid:UselessImportCheck
-"2Remove this unused import 'android.view.MenuItem'.(Ğ¬Ó‘8Éè™æŸ-
+Gsquid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8íĞæŸ-
 squid:S14503"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8¬ä—æŸ-
 squid:UselessImportCheck"^Remove this unused import 'com.google.android.material.bottomnavigation.BottomNavigationView'.(ºØÇÿÿÿÿÿ8áßæŸ-
-jsquid:CommentedOutCodeLine°"<This block of commented-out lines of code should be removed.(½¹ÂÀ8ÔÇéæŸ-
-csquid:UselessImportCheck!"8Remove this unused import 'androidx.annotation.NonNull'.(ˆÛúÜ8Éè™æŸ-
-Gsquid:S1148¬"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8íĞæŸ-
-Tsquid:S10683"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8¬ä—æŸ-
-€squid:UselessImportCheck"PRemove this unused import 'com.ashokvarma.bottomnavigation.BottomNavigationBar'.(³˜÷œøÿÿÿÿ8¥´İæŸ-
-rsquid:UselessImportCheck"GRemove this unused import 'com.roughike.bottombar.OnTabSelectListener'.(Œû™8¬ä—æŸ-
-Gsquid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8íĞæŸ-
-ksquid:CallToDeprecatedMethodÄ"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ8íĞæŸ-
-jsquid:CallToDeprecatedMethod."6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8¬ä—æŸ-
-\"squid:SwitchLastCaseIsDefaultCheck_""Add a default case to this switch.(øå´¡ÿÿÿÿÿ8íĞæŸ-
 lsquid:MaximumInheritanceDepth("<This class has 9 parents which is greater than 5 authorized.(ğ“©°8¬ä—æŸ-
+Gsquid:S1148¬"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8íĞæŸ-
+csquid:UselessImportCheck!"8Remove this unused import 'androidx.annotation.NonNull'.(ˆÛúÜ8Éè™æŸ-
+rsquid:UselessImportCheck"GRemove this unused import 'com.roughike.bottombar.OnTabSelectListener'.(Œû™8¬ä—æŸ-
 squid:UselessImportCheck"QRemove this unused import 'com.ashokvarma.bottomnavigation.BottomNavigationItem'.(¼³âúÿÿÿÿ8™¶çæŸ-
+€squid:UselessImportCheck"PRemove this unused import 'com.ashokvarma.bottomnavigation.BottomNavigationBar'.(³˜÷œøÿÿÿÿ8¥´İæŸ-
+]squid:UselessImportCheck
+"2Remove this unused import 'android.view.MenuItem'.(Ğ¬Ó‘8Éè™æŸ-
+jsquid:CallToDeprecatedMethod."6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8¬ä—æŸ-
+jsquid:CommentedOutCodeLine°"<This block of commented-out lines of code should be removed.(½¹ÂÀ8ÔÇéæŸ-
+\"squid:SwitchLastCaseIsDefaultCheck_""Add a default case to this switch.(øå´¡ÿÿÿÿÿ8íĞæŸ-
+Tsquid:S10683"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8¬ä—æŸ-
+ksquid:CallToDeprecatedMethodÄ"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ8íĞæŸ-

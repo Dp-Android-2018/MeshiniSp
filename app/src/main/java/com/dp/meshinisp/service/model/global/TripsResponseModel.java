@@ -24,8 +24,8 @@ public class TripsResponseModel {
     @SerializedName("pickup_address")
     private String pickupAddress;
 
-    @SerializedName("service_provider")
-    private String serviceProvider;
+    @SerializedName("client")
+    private String client;
 
     @SerializedName("offer_price")
     private float offerPrice;
@@ -86,12 +86,12 @@ public class TripsResponseModel {
         this.pickupAddress = pickupAddress;
     }
 
-    public String getServiceProvider() {
-        return serviceProvider;
+    public String getClient() {
+        return client;
     }
 
     public void setServiceProvider(String serviceProvider) {
-        this.serviceProvider = serviceProvider;
+        this.client = serviceProvider;
     }
 
     public float getOfferPrice() {

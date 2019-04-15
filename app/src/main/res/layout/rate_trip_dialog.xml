@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rating_constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rate_dialog_background"
+        android:backgroundTint="@android:color/white">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView2"
+            android:layout_width="@dimen/dp109w"
+            android:layout_height="@dimen/dp110h"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="9dp"
+            android:src="@drawable/im_man"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp7w"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="@dimen/dp7w"
+            android:progressBackgroundTint="@color/yellow_color"
+            android:progressTint="@color/yellow_color"
+            android:rating="10"
+            android:secondaryProgressTint="@color/yellow_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
+
+        <EditText
+            android:id="@+id/et_first_name"
+            style="@style/EditText"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="13dp"
+            android:background="@drawable/edittext_background_black"
+            android:hint="@string/write_review_optional"
+            android:textAlignment="viewStart"
+            android:inputType="textMultiLine"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <Button
+            android:id="@+id/bt_send_offer"
+            android:layout_width="@dimen/dp133h"
+            android:layout_height="@dimen/dp31w"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/btn_background_dark"
+            android:text="@string/done"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_first_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ItemListDestinationBinding;
-import com.dp.meshinisp.databinding.OfferListItemBinding;
 import com.dp.meshinisp.service.model.global.StartTripResponseModel;
 import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
 import com.dp.meshinisp.view.ui.viewholder.DestinationsViewHolder;

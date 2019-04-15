@@ -2,8 +2,9 @@ package com.dp.meshinisp.viewmodel;
 
 import android.app.Application;
 
-import com.dp.meshinisp.service.model.response.OffersResponse;
-import com.dp.meshinisp.service.repository.remotes.OffersRepository;
+import com.dp.meshinisp.service.model.request.StartDestinationRequest;
+import com.dp.meshinisp.service.model.response.MessageResponse;
+import com.dp.meshinisp.service.repository.remotes.StartTripRepository;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -14,20 +15,24 @@ import retrofit2.Response;
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 public class StartTripViewModel extends AndroidViewModel {
-    private LiveData<Response<OffersResponse>> data;
 
-    private Lazy<OffersRepository> offersRepositoryLazy = inject(OffersRepository.class);
+    private Lazy<StartTripRepository> offersRepositoryLazy = inject(StartTripRepository.class);
 
     public StartTripViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public  void getAllOffers(int pageNumber) {
-        data= offersRepositoryLazy.getValue().getAllOffers(pageNumber);
+    public LiveData<Response<Void>> setNextDestination(int requestId, StartDestinationRequest startDestinationRequest) {
+        return offersRepositoryLazy.getValue().setNextDestination(requestId, startDestinationRequest);
     }
 
-    public LiveData<Response<OffersResponse>> getData() {
-        return data;
+    public LiveData<Response<Void>> setDoneDestination(int requestId, StartDestinationRequest startDestinationRequest) {
+        return offersRepositoryLazy.getValue().setDoneDestination(requestId, startDestinationRequest);
     }
+
+     public LiveData<Response<MessageResponse>> finishTrip(int requestId) {
+        return offersRepositoryLazy.getValue().finishTrip(requestId);
+    }
+
 
 }

@@ -1,0 +1,18 @@
+
+\"squid:SwitchLastCaseIsDefaultChecks""Add a default case to this switch.(³ÒÂŒÿÿÿÿÿ8™Ïƒ¶¡-
+vsquid:S14504"SRemove the "mMap" field and declare it as a local variable in the relevant methods.(—­ƒÌÿÿÿÿÿ8™Ïƒ¶¡-
+ƒsquid:S14506"`Remove the "layoutBottomSheet" field and declare it as a local variable in the relevant methods.(©õÎºıÿÿÿÿ8™Ïƒ¶¡-
+^squid:HiddenFieldCheckV"5Rename "v" which hides the field declared at line 55.(›°Ù»8™Ïƒ¶¡-
+¥squid:S1186Š"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ìó°şÿÿÿÿ8™Ïƒ¶¡-
+fsquid:UselessImportCheck"6Remove this unused import 'android.util.AttributeSet'.(ì®Å±ùÿÿÿÿ8Š†¶¡-
+Psquid:S1199|"-Extract this nested code block into a method.(ğË®Æÿÿÿÿÿ8™Ïƒ¶¡-
+osquid:CommentedOutCodeLine¤"<This block of commented-out lines of code should be removed.(í°¯ÿÿÿÿÿ8™Ïƒ¶¡-
+Ksquid:S1199x"-Extract this nested code block into a method.(¢Ò´¨8™Ïƒ¶¡-
+nsquid:CommentedOutCodeLineO"<This block of commented-out lines of code should be removed.(´ŒĞÚùÿÿÿÿ8ñ–¶¡-
+Ysquid:S2696E"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ñ¨¶¡-
+qsquid:MaximumInheritanceDepth0"<This class has 8 parents which is greater than 5 authorized.(ïâîˆşÿÿÿÿ8šŠ¶¡-
+csquid:HiddenFieldCheckW"5Rename "v" which hides the field declared at line 55.(ãÚıâûÿÿÿÿ8™Ïƒ¶¡-
+Jsquid:S1172®"+Remove this unused method parameter "view".(Ë¼ïä8™Ïƒ¶¡-
+_squid:UselessImportCheck"4Remove this unused import 'android.content.Context'.(©Ê‰è8Š†¶¡-
+osquid:CommentedOutCodeLine©"<This block of commented-out lines of code should be removed.(Ì¸Î±ıÿÿÿÿ8™Ïƒ¶¡-
+}squid:UselessImportCheck"RRemove this unused import 'com.dp.meshinisp.databinding.ActivityStartTripBinding'.(ìâ«®8º™“¶¡-

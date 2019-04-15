@@ -27,7 +27,7 @@ public class TripsViewHolder extends RecyclerView.ViewHolder {
         this.tripsType=tripsType;
         binding.tvCountry.setText(requestsResponseModel.getCountry());
         binding.tvTripDate.setText(requestsResponseModel.getDate());
-        binding.tvGuideName.setText(requestsResponseModel.getServiceProvider());
+        binding.tvGuideName.setText(requestsResponseModel.getClient());
         binding.tvCashAmount.setText(String.valueOf(requestsResponseModel.getOfferPrice()));
         ImageView ivFeedPhoto = binding.ivOffer;
         Picasso.get().load(requestsResponseModel.getImageUrl()).into(ivFeedPhoto);
