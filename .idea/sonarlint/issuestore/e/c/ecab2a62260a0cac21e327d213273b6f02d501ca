@@ -1,44 +1,0 @@
-
-‰squid:S1450S"kRemove the "mFusedLocationProviderClient" field and declare it as a local variable in the relevant methods.(¾àŸ£8šğºá¡-
-isquid:UselessImportCheck7">Remove this unused import 'com.google.android.gms.tasks.Task'.(¦âÏô8šğºá¡-
-Jsquid:S1172Í"+Remove this unused method parameter "view".(Ë¼ïä8šğºá¡-
-Ysquid:S2696]"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8šğºá¡-
-Lsquid:S1199Ï"-Extract this nested code block into a method.(¢Ò´¨8šğºá¡-
-W
-squid:S106•"9Replace this use of System.out or System.err by a logger.(šœËğ8¤²±â¡-
-esquid:CallToDeprecatedMethod"0Remove this use of "getColor"; it is deprecated.(ÖÍ«‘üÿÿÿÿ8šğºá¡-
-|squid:UselessImportCheck6"LRemove this unused import 'com.google.android.gms.tasks.OnCompleteListener'.(Çğ¸Òÿÿÿÿÿ8¡×¡-
-tsquid:UnusedPrivateMethod¿"HRemove this unused private "makeActionOnClickOnRecyclerViewItem" method.(Ñ¥Ïp8šğºá¡-
-^squid:S1068S"@Remove this unused "mFusedLocationProviderClient" private field.(¾àŸ£8ÏÜŠÛ¡-
-msquid:S1871®"IThis case's code block is the same as the block for the case on line 299.(ªëÅŞúÿÿÿÿ8šğºá¡-
-jsquid:CommentedOutCodeLine¶"<This block of commented-out lines of code should be removed.(˜÷ñö8šğºá¡-
-^squid:HiddenFieldChecke"5Rename "v" which hides the field declared at line 79.(›°Ù»8È‹ã¾Ÿ-
-ksquid:UselessImportCheck";Remove this unused import 'android.graphics.BitmapFactory'.(âàºÍûÿÿÿÿ8•¯à¡-
-osquid:CommentedOutCodeLineÈ"<This block of commented-out lines of code should be removed.(Ì¸Î±ıÿÿÿÿ8šğºá¡-
-ysquid:UselessImportCheckB"IRemove this unused import 'androidx.recyclerview.widget.ItemTouchHelper'.(’Šíûÿÿÿÿ8šğºá¡-
-hsquid:UselessImportCheck	"8Remove this unused import 'android.graphics.ColorSpace'.(ä©ÅÉøÿÿÿÿ8ªõÉØ¡-
-^squid:UselessImportCheck"3Remove this unused import 'android.graphics.RectF'.(ı‚›µ8•¯à¡-
-esquid:CallToDeprecatedMethod“"0Remove this use of "getColor"; it is deprecated.(Ò¨ü˜ûÿÿÿÿ8šğºá¡-
-bsquid:UselessImportCheck"2Remove this unused import 'android.widget.Button'.(²òıÿÿÿÿ8äøŞ×¡-
-ƒsquid:S1450N"`Remove the "layoutBottomSheet" field and declare it as a local variable in the relevant methods.(©õÎºıÿÿÿÿ8šğºá¡-
-^squid:UselessImportCheck"3Remove this unused import 'android.view.ViewGroup'.(‹îá8š¨íÚ¡-
-^squid:UselessImportCheck"4Remove this unused import 'android.graphics.Bitmap'.(¾ì8•¯à¡-
-Msquid:S1066w"/Merge this if statement with the enclosing one.(±ò›­8šğºá¡-
-]"squid:SwitchLastCaseIsDefaultCheckÊ""Add a default case to this switch.(³ÒÂŒÿÿÿÿÿ8šğºá¡-
-osquid:S1301ª"KReplace this "switch" statement by "if" statements to increase readability.(øãş•ÿÿÿÿÿ8šğºá¡-
-dsquid:UselessImportCheck"4Remove this unused import 'android.graphics.Canvas'.(õ«•üÿÿÿÿ8•¯à¡-
-]"squid:SwitchLastCaseIsDefaultCheckª""Add a default case to this switch.(øãş•ÿÿÿÿÿ8šğºá¡-
-_squid:UselessImportCheck"4Remove this unused import 'android.widget.EditText'.(†Å›Ú8µÄØ¡-
-¥squid:S1186á"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ìó°şÿÿÿÿ8šğºá¡-
-`squid:S1854"<Remove this useless assignment to local variable "location".(¾ĞÆäÿÿÿÿÿ8ò¯Õá¡-
-Qsquid:S1481"-Remove this unused "location" local variable.(¾ĞÆäÿÿÿÿÿ8ò¯Õá¡-
-osquid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(ÍŠŞ§úÿÿÿÿ8šğºá¡-
-Csquid:S1068T"%Remove this unused "p" private field.(úüéõ8šğºá¡-
-vsquid:S1450L"SRemove the "mMap" field and declare it as a local variable in the relevant methods.(—­ƒÌÿÿÿÿÿ8šğºá¡-
-osquid:CommentedOutCodeLineÃ"<This block of commented-out lines of code should be removed.(í°¯ÿÿÿÿÿ8šğºá¡-
-osquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(Âì²ıÿÿÿÿ8šğºá¡-
-Qsquid:S1199Ó"-Extract this nested code block into a method.(ğË®Æÿÿÿÿÿ8šğºá¡-
-osquid:CommentedOutCodeLineğ"<This block of commented-out lines of code should be removed.(ÆµÆ‡şÿÿÿÿ8šğºá¡-
-csquid:HiddenFieldCheckf"5Rename "v" which hides the field declared at line 79.(ãÚıâûÿÿÿÿ8šğºá¡-
-Ssquid:S1905ï"4Remove this unnecessary cast to "SwipeMenuListView".(›£Ìğ8šğºá¡-
-lsquid:MaximumInheritanceDepthI"<This class has 8 parents which is greater than 5 authorized.(”îİË8šğºá¡-

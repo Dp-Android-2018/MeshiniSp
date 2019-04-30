@@ -1,0 +1,11 @@
+
+Ÿsquid:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÆÁ¡ì8¡—Ð÷£-
+usquid:S3776Z"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(‘žœôúÿÿÿÿ8Â“‰¨¤-
+V
+squid:S106d"9Replace this use of System.out or System.err by a logger.(’ç¿ù8¨†×§¤-
+nsquid:CommentedOutCodeLine}"<This block of commented-out lines of code should be removed.(¿”¿Çøÿÿÿÿ8ðíÞ¨¤-
+¥squid:S1186†"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Æº×þÿÿÿÿ8ðíÞ¨¤-
+Msquid:S1066c"/Merge this if statement with the enclosing one.(¸óÑü8—ë¦¤-
+nsquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(îì¶âøÿÿÿÿ8™î–§¤-
+Msquid:S1066l"/Merge this if statement with the enclosing one.(Ý¶Í‘8Â“‰¨¤-
+nsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(Û³†žùÿÿÿÿ8¡—Ð÷£-

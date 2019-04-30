@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityHomeBinding;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     ActivityHomeBinding binding;
 

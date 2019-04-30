@@ -24,7 +24,7 @@ public class TripsViewHolder extends RecyclerView.ViewHolder {
 
     public void bindClass(TripsResponseModel videosResponseModel, String tripsType) {
         this.requestsResponseModel = videosResponseModel;
-        this.tripsType=tripsType;
+        this.tripsType = tripsType;
         binding.tvCountry.setText(requestsResponseModel.getCountry());
         binding.tvTripDate.setText(requestsResponseModel.getDate());
         binding.tvGuideName.setText(requestsResponseModel.getClient());

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp16h"
-        android:text="@string/app_name"
+        android:text="@string/app_name_icon"
         android:textColor="@color/text_color_black"
         android:textSize="@dimen/sp15_5"
         app:layout_constraintEnd_toEndOf="parent"

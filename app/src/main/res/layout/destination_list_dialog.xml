@@ -19,8 +19,8 @@
             android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="@dimen/dp19h"
+            android:layout_marginTop="@dimen/dp11h"
             android:gravity="center"
             android:text="@string/destinations_list"
             android:textColor="@color/text_color_black"
@@ -30,10 +30,10 @@
 
         <ImageView
             android:id="@+id/iv_close"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="20dp"
+            android:layout_width="@dimen/dp13w"
+            android:layout_height="@dimen/dp13w"
+            android:layout_marginTop="@dimen/dp15w"
+            android:layout_marginEnd="@dimen/dp18h"
             android:src="@drawable/ic_close"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,14 +41,14 @@
         <View
             android:id="@+id/view5"
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="11dp"
-            android:background="@color/sky_color"
+            android:layout_height="@dimen/dp1h"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
-        <com.baoyz.swipemenulistview.SwipeMenuListView
+       <!-- <com.baoyz.swipemenulistview.SwipeMenuListView
             android:id="@+id/rv_destinations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,21 +57,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view5"
-            tools:listitem="@layout/item_list_destination" />
+            tools:listitem="@layout/item_list_destination" />-->
 
-        <!--<androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_destinations"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5"
-        tools:listitem="@layout/item_list_destination" />
-
-    -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_destinations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view5"
+            tools:listitem="@layout/item_destination_rv_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,15 +1,29 @@
 
-ksquid:CallToDeprecatedMethodù"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ8“Æª›-
-jsquid:CallToDeprecatedMethod5"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8„öš-
-Gsquid:S1148Ç"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»Ú­øš-
-osquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(Ä×Ğàüÿÿÿÿ8à˜¸öš-
-squid:S1450:"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8× Ãª›-
-isquid:CommentedOutCodeLinev"<This block of commented-out lines of code should be removed.(ã•ê8‘æµöš-
-qsquid:MaximumInheritanceDepth*"<This class has 9 parents which is greater than 5 authorized.(ŸÿÇÅşÿÿÿÿ8„öš-
-nsquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(Ş¨ÁÈıÿÿÿÿ8„öš-
-jsquid:CommentedOutCodeLineì"<This block of commented-out lines of code should be removed.(½¹ÂÀ8ïüÈêŸ-
-Ysquid:S10683"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ8¬·€øš-
-jsquid:CommentedOutCodeLine§"<This block of commented-out lines of code should be removed.(£©­ç8“í»öš-
-Tsquid:S1068:"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8× Ãª›-
-Gsquid:S1148è"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»Ú­øš-
-nsquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(×Ñ“úÿÿÿÿ8„öš-
+Jsquid:S1172¥"+Remove this unused method parameter "view".(ñ½Ö8¦¹Ä§¤-
+osquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(ø¢„Úıÿÿÿÿ8Ù†ı¤¤-
+Ksquid:S1602î",Remove useless curly braces around statement(‹¦ë¢8‹Éı¤¤-
+gsquid:CommentedOutCodeLine2"<This block of commented-out lines of code should be removed.(Ş¨ÁÈıÿÿÿÿ
+osquid:CommentedOutCodeLine¯"<This block of commented-out lines of code should be removed.(Ä×Ğàüÿÿÿÿ8¿ãˆø£-
+Gsquid:S1148Ö"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¿ãˆø£-
+nsquid:CommentedOutCodeLinex"<This block of commented-out lines of code should be removed.(ƒ‰—°ùÿÿÿÿ8·ûğ¨¤-
+osquid:CommentedOutCodeLineú"<This block of commented-out lines of code should be removed.(ö´Š§ÿÿÿÿÿ8‹Éı¤¤-
+V
+squid:S106§"9Replace this use of System.out or System.err by a logger.(’‰È	8ôÎ¸§¤-
+Ksquid:S1602ı",Remove useless curly braces around statement(ôİÄ¥8‹Éı¤¤-
+xsquid:S1450<"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ
+Rsquid:S10685"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ
+Usquid:S1068="2Remove this unused "selectLanguage" private field.(‚ËŒıÿÿÿÿ8É‰¢ø£-
+jsquid:UnusedPrivateMethod"=Remove this unused private "initializeProgressDialog" method.(Æ£¦»8¢æ‡¥¤-
+psquid:UnusedPrivateMethod‡">Remove this unused private "makeActonOnSelectLanguage" method.(¼ğ“ªøÿÿÿÿ8¿ãˆø£-
+jsquid:CommentedOutCodeLine¶"<This block of commented-out lines of code should be removed.(£©­ç8¿ãˆø£-
+osquid:CommentedOutCodeLineş"<This block of commented-out lines of code should be removed.(ö´Š§ÿÿÿÿÿ8‹Éı¤¤-
+jsquid:CommentedOutCodeLineƒ"<This block of commented-out lines of code should be removed.(«Ò÷å8™ßı¤¤-
+[
+squid:S106Z"9Replace this use of System.out or System.err by a logger.(±ğ¹®ÿÿÿÿÿ8·¬õù£-
+jsquid:CommentedOutCodeLineˆ"<This block of commented-out lines of code should be removed.(„ç‰Î8¿ãˆø£-
+Gsquid:S1148÷"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¿ãˆø£-
+msquid:MaximumInheritanceDepth,"=This class has 10 parents which is greater than 5 authorized.(¿€Ò²8¦¹Ä§¤-
+Msquid:S1068<"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ
+€squid:S14507"]Remove the "progressDialog" field and declare it as a local variable in the relevant methods.(·á…Çùÿÿÿÿ8™ßı¤¤-
+W
+squid:S106¦"9Replace this use of System.out or System.err by a logger.(ÿïÁ8öÀ·§¤-

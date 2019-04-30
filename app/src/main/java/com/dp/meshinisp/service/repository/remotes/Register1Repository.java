@@ -3,7 +3,6 @@ package com.dp.meshinisp.service.repository.remotes;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
-import com.dp.meshinisp.service.model.response.EmptyResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 
 import java.util.List;

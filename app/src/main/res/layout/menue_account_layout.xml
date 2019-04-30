@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="@dimen/dp119h">
+    android:layout_height="wrap_content">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp1h"
-        android:layout_marginTop="@dimen/dp4h"
+        android:layout_marginTop="@dimen/dp14w"
         android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_rate" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_rate" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/im_user_image"
         android:layout_width="@dimen/dp47w"
         android:layout_height="@dimen/dp47h"
-        android:layout_marginStart="@dimen/dp23w"
         android:layout_marginTop="@dimen/dp12h"
-        android:src="@drawable/im_man"
+        tools:src="@drawable/im_man"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,23 +29,29 @@
         android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="@dimen/dp7w"
-        android:text="Ahmed Khairallah"
+        android:layout_marginEnd="8dp"
+        tools:text="Ahmed Khairallah"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp15_5"
-        app:layout_constraintStart_toStartOf="@+id/im_user_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/im_user_image" />
 
     <TextView
         android:id="@+id/tv_user_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:drawableEnd="@drawable/star"
         android:drawablePadding="@dimen/dp4h"
-        android:text="(4.5)"
+        tools:text="(4.5)"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp15_5"
-        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
 
 

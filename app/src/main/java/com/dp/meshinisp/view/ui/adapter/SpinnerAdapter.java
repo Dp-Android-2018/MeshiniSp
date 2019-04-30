@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 
 public class SpinnerAdapter extends ArrayAdapter<CountryCityResponseModel> {
 
+
     public SpinnerAdapter(Context context, List<CountryCityResponseModel> countryCityPojos){
         super(context,0,countryCityPojos);
     }
@@ -47,4 +48,5 @@ public class SpinnerAdapter extends ArrayAdapter<CountryCityResponseModel> {
 
         return convertView;
     }
+
 }

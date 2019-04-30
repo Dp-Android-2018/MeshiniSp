@@ -7,67 +7,108 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        tools:context=".view.ui.activity.StartTripActivity">
+        tools:context=".view.ui.fragment.StartTripFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/start_trip_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/start_trip_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@android:color/black"
-                android:textSize="17.7sp"
-                android:textStyle="bold" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <ImageView
-            android:id="@+id/iv_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="28dp"
-            android:src="@drawable/menu_dark"
-            app:layout_constraintEnd_toEndOf="@+id/start_trip_toolbar"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginBottom="@dimen/dp20h"
             app:layout_constraintBottom_toTopOf="@+id/bt_directions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:context=".MapsActivity" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!-- <ImageView
-             android:layout_width="43dp"
-             android:layout_height="43dp"
-             android:layout_marginEnd="23dp"
-             android:layout_marginBottom="11dp"
-             android:src="@drawable/ic_gps_fixed_indicator"
-             app:layout_constraintBottom_toBottomOf="@+id/map"
-             app:layout_constraintEnd_toEndOf="parent" />-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp23w"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+                <ImageView
+                    android:id="@+id/iv_menu_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp23w"
+                    android:src="@drawable/menu_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp7w"
+                    android:layout_marginEnd="@dimen/dp7w"
+                    android:text="@string/app_name_icon"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp26w"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </fragment>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="31dp"
-            android:onClick="openLocations"
+            android:layout_marginEnd="@dimen/dp21h"
+            android:layout_marginBottom="@dimen/dp35w"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/map"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_background_white">
+
+                <ImageView
+                    android:id="@+id/iv_call"
+                    android:layout_width="@dimen/dp38w"
+                    android:layout_height="@dimen/dp38w"
+                    android:layout_margin="@dimen/dp7w"
+                    android:src="@drawable/ic_phone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/circle_background_white">
+
+                <ImageView
+                    android:id="@+id/iv_zoom_to_my_location"
+                    android:layout_width="@dimen/dp38w"
+                    android:layout_height="@dimen/dp38w"
+                    android:layout_margin="@dimen/dp7w"
+
+                    android:src="@drawable/ic_gps_nn" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_locations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp28h"
             android:src="@drawable/ic_format_list_bulleted_48px"
             app:layout_constraintBottom_toBottomOf="@+id/bt_directions"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,109 +116,129 @@
 
         <Button
             android:id="@+id/bt_directions"
-            android:layout_width="174dp"
+            android:layout_width="@dimen/dp156h"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="@dimen/dp16w"
+            android:layout_marginBottom="@dimen/dp14w"
             android:drawableStart="@drawable/ic_drop_down_arrow"
-            android:text="Directions"
+            android:text="@string/directions"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@+id/iv_pickup_location"
+            app:layout_constraintBottom_toTopOf="@+id/iv_pickup_location_layout"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_pickup_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginBottom="13dp"
-            android:src="@drawable/ic_placeholder"
-            app:layout_constraintBottom_toTopOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_location_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="Giza Pyramids"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            android:maxLength="25"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_pickup_location"
-            app:layout_constraintStart_toEndOf="@+id/iv_pickup_location"
-            app:layout_constraintTop_toTopOf="@+id/iv_pickup_location" />
-
-        <TextView
-            android:id="@+id/tv_location_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="19dp"
-            android:text="(12 KM)"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_location_tv"
-            app:layout_constraintStart_toEndOf="@+id/tv_location_tv"
-            app:layout_constraintTop_toTopOf="@+id/tv_location_tv" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginBottom="14dp"
-            android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toTopOf="@+id/bt_slide_tofinish_trip"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_arrive_time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:text="Arrive by"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-        <TextView
-            android:id="@+id/tv_arrive_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="19dp"
-            android:text="12:59 pm"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_arrive_time_tv"
-            app:layout_constraintStart_toEndOf="@+id/tv_arrive_time_tv"
-            app:layout_constraintTop_toTopOf="@+id/tv_arrive_time_tv" />
-
-
-        <ng.max.slideview.SlideView
-            android:id="@+id/bt_slide_tofinish_trip"
+        <LinearLayout
+            android:id="@+id/iv_pickup_location_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:visibility="visible"
-            app:inner_text_top_padding="@dimen/dp14w"
+            android:layout_marginStart="@dimen/dp7w"
+            android:layout_marginEnd="@dimen/dp7w"
+            android:layout_marginBottom="@dimen/dp14w"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_pickup_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_placeholder" />
+
+            <TextView
+                android:id="@+id/tv_location_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                tools:text="Giza Pyramids"
+                android:lines="2"
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_location_distance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="(12 KM)"
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/imageView2_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp7w"
+            android:layout_marginEnd="@dimen/dp7w"
+            android:layout_marginBottom="@dimen/dp14w"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/bt_slide_tofinish_trip_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_clock" />
+
+            <TextView
+                android:id="@+id/tv_arrive_time_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                tools:text="@string/arrive_by"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_arrive_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="12:59 pm"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bt_slide_tofinish_trip_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45h"
+            android:background="@color/slide_to_finish_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:sv_animateSlideText="true"
-            app:sv_buttonBackgroundColor="@color/directions_color"
-            app:sv_buttonImage="@drawable/ic_right_arrow"
-            app:sv_buttonImageDisabled="@drawable/ic_keyboard_arrow_left_black"
-            app:sv_reverseSlide="false"
-            app:sv_slideBackgroundColor="@color/slide_to_finish_color"
-            app:sv_slideText="Slide to finish Trip"
-            app:sv_slideTextColor="@android:color/white"
-            app:sv_slideTextSize="16sp"
-            app:sv_strokeColor="@color/slide_to_finish_color" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ng.max.slideview.SlideView
+                android:id="@+id/bt_slide_tofinish_trip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                app:inner_text_top_padding="@dimen/dp14w"
+                app:sv_animateSlideText="true"
+                app:sv_buttonBackgroundColor="@color/directions_color"
+                app:sv_buttonImage="@drawable/ic_right_arrow"
+                app:sv_buttonImageDisabled="@drawable/ic_keyboard_arrow_left_black"
+                app:sv_reverseSlide="false"
+                app:sv_slideBackgroundColor="@color/slide_to_finish_color"
+                app:sv_slideText="@string/slide_to_finish_trip"
+                app:sv_slideTextColor="@android:color/white"
+                app:sv_slideTextSize="16sp"
+                app:sv_strokeColor="@color/slide_to_finish_color" />
+
+        </LinearLayout>
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"

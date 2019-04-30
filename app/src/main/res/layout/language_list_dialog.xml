@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet_language_list"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp287h"
+        android:layout_gravity="bottom"
+        android:background="@drawable/dialog_top_corner"
+        android:backgroundTint="@android:color/white"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp19h"
+            android:layout_marginTop="@dimen/dp11h"
+            android:gravity="center"
+            android:text="@string/select_languages_you_speak"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/sp19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_language_close"
+            android:layout_width="@dimen/dp13w"
+            android:layout_height="@dimen/dp13w"
+            android:layout_marginTop="@dimen/dp15w"
+            android:layout_marginEnd="@dimen/dp18h"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp1h"
+            android:layout_marginTop="@dimen/dp10h"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        <!-- <com.baoyz.swipemenulistview.SwipeMenuListView
+             android:id="@+id/rv_destinations"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:clipChildren="false"
+             android:clipToPadding="false"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/view5"
+             tools:listitem="@layout/item_list_destination" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view5"
+            tools:listitem="@layout/language_spinner_list_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

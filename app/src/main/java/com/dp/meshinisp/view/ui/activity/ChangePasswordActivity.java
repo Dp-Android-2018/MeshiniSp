@@ -15,6 +15,7 @@ import com.dp.meshinisp.databinding.ActivityChangePasswordBinding;
 import com.dp.meshinisp.service.model.request.ActivationRequest;
 import com.dp.meshinisp.service.model.response.ActivationResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.viewmodel.ChangePasswordViewModel;
@@ -22,11 +23,12 @@ import com.google.android.material.snackbar.Snackbar;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends BaseActivity {
 
     private String email;
     private String activationToken;
     ActivityChangePasswordBinding binding;
+    Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
     Lazy<ChangePasswordViewModel> changePasswordViewModelLazy = inject(ChangePasswordViewModel.class);
 
     @Override
@@ -62,7 +64,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
                                 && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
                             openNextActivity();
-                        } else {
+                        }else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE){
+                            logout();
+                        }
+                        else {
                             showSnackBar("error code :" + activationResponseResponse.code());
                         }
                     }

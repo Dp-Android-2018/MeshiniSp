@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 public class LoginResponseModel {
 
+    @SerializedName("id")
+    private int userId;
+
     @SerializedName("first_name")
     private String firstName;
 
@@ -14,6 +17,10 @@ public class LoginResponseModel {
 
     @SerializedName("email")
     private String email;
+
+
+    @SerializedName("rating")
+    private float userRating;
 
     @SerializedName("city")
     private CityModel city;
@@ -28,7 +35,7 @@ public class LoginResponseModel {
     private boolean activated;
 
     @SerializedName("status")
-    private int status;
+    private boolean status;
 
     @SerializedName("profile_picture")
     private String profilePictureUrl;
@@ -50,6 +57,14 @@ public class LoginResponseModel {
 
     @SerializedName("api_token")
     private String apiToken;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -107,14 +122,6 @@ public class LoginResponseModel {
         this.activated = activated;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public String getProfilePictureUrl() {
         return profilePictureUrl;
     }
@@ -169,5 +176,21 @@ public class LoginResponseModel {
 
     public void setApiToken(String apiToken) {
         this.apiToken = apiToken;
+    }
+
+    public float getUserRating() {
+        return userRating;
+    }
+
+    public void setUserRating(float userRating) {
+        this.userRating = userRating;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

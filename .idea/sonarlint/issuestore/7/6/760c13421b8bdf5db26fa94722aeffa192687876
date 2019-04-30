@@ -1,7 +1,7 @@
 
-^squid:UselessImportCheck".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ8í×ªë-
-[squid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8»¬ÿê-
-…squid:UselessImportCheck	"URemove this unused import 'com.dp.meshinisp.view.ui.activity.RequestDetailsActivity'.(Ê­˜£ùÿÿÿÿ8Õß©ë-
-‚squid:S1450"dRemove the "requestsResponseModel" field and declare it as a local variable in the relevant methods.(·Ã ‡8Ï’‡ë-
-xsquid:UselessImportCheck"MRemove this unused import 'com.dp.meshinisp.utility.utils.ConfigurationFile'.(áÂ¥ß8Õß©ë-
-]squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8Õß©ë-
+{squid:S1450"dRemove the "requestsResponseModel" field and declare it as a local variable in the relevant methods.(·Ã ‡
+~squid:UselessImportCheck	"URemove this unused import 'com.dp.meshinisp.view.ui.activity.RequestDetailsActivity'.(Ê­˜£ùÿÿÿÿ
+qsquid:UselessImportCheck"MRemove this unused import 'com.dp.meshinisp.utility.utils.ConfigurationFile'.(áÂ¥ß
+Vsquid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G
+Wsquid:UselessImportCheck".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ
+Tsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ

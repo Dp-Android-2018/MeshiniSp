@@ -9,7 +9,7 @@ import android.os.Bundle;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityChatBinding;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends BaseActivity {
 
     ActivityChatBinding binding;
 

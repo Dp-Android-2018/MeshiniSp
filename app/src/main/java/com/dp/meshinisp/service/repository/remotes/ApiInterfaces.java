@@ -1,15 +1,17 @@
 package com.dp.meshinisp.service.repository.remotes;
 
 import com.dp.meshinisp.service.model.request.ActivationRequest;
+import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
 import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
 import com.dp.meshinisp.service.model.request.LoginRequest;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
+import com.dp.meshinisp.service.model.request.RateTripRequest;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.request.StartDestinationRequest;
 import com.dp.meshinisp.service.model.response.ActivationResponse;
+import com.dp.meshinisp.service.model.response.ActiveTripResponse;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
-import com.dp.meshinisp.service.model.response.EmptyResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.service.model.response.LoginResponse;
 import com.dp.meshinisp.service.model.response.MessageResponse;
@@ -115,16 +117,31 @@ public interface ApiInterfaces {
 
     //Set next destination for an active trip
     @POST("/api/service-provider/request/{request}/start-destination")
-    Observable<Response<Void>> setNextDestination(@Path("request") int requestId,@Body StartDestinationRequest startDestinationRequest);
+    Observable<Response<Void>> setNextDestination(@Path("request") int requestId, @Body StartDestinationRequest startDestinationRequest);
 
     //Set a destination as done for the current trip
     @POST("/api/service-provider/request/{request}/finish-destination")
-    Observable<Response<Void>> setDoneDestination(@Path("request") int requestId,@Body StartDestinationRequest startDestinationRequest);
+    Observable<Response<Void>> setDoneDestination(@Path("request") int requestId, @Body StartDestinationRequest startDestinationRequest);
 
     //Complete a trip
     @POST("/api/service-provider/request/{request}/complete")
     Observable<Response<MessageResponse>> finishTrip(@Path("request") int requestId);
 
+    //Rate a completed trip
+    @POST("/api/service-provider/request/{request}/review")
+    Observable<Response<MessageResponse>> rateTrip(@Path("request") int requestId, @Body RateTripRequest rateTripRequest);
+
+    //Get the details of an active request (if the service provider has one)
+    @GET("/api/service-provider/request/active-request/details")
+    Observable<Response<ActiveTripResponse>> getActiveTripData();
+
+    //Change language (service provider)
+    @POST("/api/service-provider/change-language")
+    Observable<Response<Void>> changeLanguage(@Body ChangeLanguageRequest changeLanguageRequest);
+
+    //Logout (service provider)
+    @POST("/api/service-provider/logout")
+    Observable<Response<Void>> logout();
 
 
 }

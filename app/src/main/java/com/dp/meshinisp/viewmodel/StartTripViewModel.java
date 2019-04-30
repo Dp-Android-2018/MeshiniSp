@@ -2,6 +2,7 @@ package com.dp.meshinisp.viewmodel;
 
 import android.app.Application;
 
+import com.dp.meshinisp.service.model.request.RateTripRequest;
 import com.dp.meshinisp.service.model.request.StartDestinationRequest;
 import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.repository.remotes.StartTripRepository;
@@ -30,8 +31,12 @@ public class StartTripViewModel extends AndroidViewModel {
         return offersRepositoryLazy.getValue().setDoneDestination(requestId, startDestinationRequest);
     }
 
-     public LiveData<Response<MessageResponse>> finishTrip(int requestId) {
+    public LiveData<Response<MessageResponse>> finishTrip(int requestId) {
         return offersRepositoryLazy.getValue().finishTrip(requestId);
+    }
+
+    public LiveData<Response<MessageResponse>> rateTrip(int requestId, RateTripRequest rateTripRequest) {
+        return offersRepositoryLazy.getValue().rateTrip(requestId, rateTripRequest);
     }
 
 

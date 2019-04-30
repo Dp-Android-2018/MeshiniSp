@@ -1,5 +1,6 @@
 package com.dp.meshinisp.view.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -20,7 +21,6 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import kotlin.Lazy;
@@ -28,7 +28,7 @@ import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class ChangePasswordProfileActivity extends AppCompatActivity {
+public class ChangePasswordProfileActivity extends BaseActivity {
 
     ActivityChangePasswordProfileBinding binding;
     Lazy<ChangePasswordProfileViewModel> changePasswordProfileViewModelLazy = inject(ChangePasswordProfileViewModel.class);
@@ -39,6 +39,12 @@ public class ChangePasswordProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_change_password_profile);
         ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
+        setupToolbar();
+    }
+
+    private void setupToolbar() {
+        binding.accountToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
+        binding.accountToolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     public void saveChanges(View view) {
@@ -73,6 +79,8 @@ public class ChangePasswordProfileActivity extends AppCompatActivity {
                     }
                     new Handler().postDelayed(() -> onBackPressed(), ConfigurationFile.Constants.WAIT_VALUE);
 
+                } else if (offerResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    logout();
                 } else {
                     showErrorMessage(offerResponseResponse);
                 }

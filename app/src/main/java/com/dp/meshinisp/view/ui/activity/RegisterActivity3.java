@@ -37,7 +37,7 @@ import kotlin.Lazy;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class RegisterActivity3 extends AppCompatActivity {
+public class RegisterActivity3 extends BaseActivity {
 
     ActivityRegister3Binding binding;
     Lazy<RegisterRequest> registerRequestLazy = inject(RegisterRequest.class);
@@ -76,6 +76,7 @@ public class RegisterActivity3 extends AppCompatActivity {
 
     private void showErrors() {
         if (!tabSelected) {
+            showSnackbar("vehicle type :"+register1Request.getVehicleType());
             showSnackbar(getString(R.string.please_choose_your_vehicle_type));
             return;
         }
@@ -90,6 +91,8 @@ public class RegisterActivity3 extends AppCompatActivity {
     }
 
     private void setVehicleType() {
+        tabSelected = true;
+        register1Request.setVehicleType(ConfigurationFile.Constants.ON_FOOT_TYPE);
         binding.bottomBar.setOnNavigationItemSelectedListener(item -> {
             tabSelected = true;
             switch (item.getItemId()) {
@@ -103,6 +106,10 @@ public class RegisterActivity3 extends AppCompatActivity {
 
                 case R.id.motorbike:
                     register1Request.setVehicleType(ConfigurationFile.Constants.MOTORBIKE_TYPE);
+                    break;
+
+                default:
+                    register1Request.setVehicleType(ConfigurationFile.Constants.ON_FOOT_TYPE);
                     break;
 
             }
@@ -147,7 +154,6 @@ public class RegisterActivity3 extends AppCompatActivity {
         if (ValidationUtils.isConnectingToInternet(this)) {
             if (filePath != null) {
                 storageRef = FirebaseStorage.getInstance().getReference();
-                initializeProgressDialog();
                 putFileToStorageReference();
             } else {
                 Snackbar.make(binding.getRoot(), "There is no pictures!!", Snackbar.LENGTH_SHORT).show();
@@ -172,16 +178,20 @@ public class RegisterActivity3 extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     });
-                    progressDialog.dismiss();
-//                    Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(exception -> {
-                    progressDialog.dismiss();
                     Snackbar.make(binding.getRoot(), exception.getMessage(), Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnProgressListener(taskSnapshot -> {
                     double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                    progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+                    binding.progressBar.setVisibility(View.VISIBLE);
+                    binding.tvProgressNumber.setVisibility(View.VISIBLE);
+                    binding.progressBar.setProgress((int)progress);
+                    binding.tvProgressNumber.setText((int) progress+ ConfigurationFile.Constants.PERCENT);
+                    if(progress == 100){
+                        // Set a message of completion
+                        binding.tvProgressNumber.setText(getResources().getString(R.string.operation_completed));
+                    }
                 });
     }
 
@@ -190,22 +200,5 @@ public class RegisterActivity3 extends AppCompatActivity {
         intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA, new Gson().toJson(register1Request));
         startActivity(intent);
         finish();
-    }
-
-    private void initializeProgressDialog() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading");
-        progressDialog.setCancelable(false);
-        progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", (dialog, which) -> {
-            if (riversRef != null) {
-                uploadTask = riversRef.getActiveUploadTasks().get(0);
-                if (uploadTask != null) {
-                    uploadTask.cancel();
-                    progressDialog.dismiss();
-                    Snackbar.make(binding.getRoot(), "Upload cancelled sussessfully :(", Snackbar.LENGTH_SHORT).show();
-                }
-            }
-        });
-        progressDialog.show();
     }
 }

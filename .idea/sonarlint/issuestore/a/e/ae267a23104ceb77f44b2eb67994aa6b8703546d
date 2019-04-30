@@ -1,0 +1,4 @@
+
+†squid:S1319f"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(àŸí
+squid:S1319j"qThe type of the "places" object should be an interface such as "List" rather than the implementation "ArrayList".(÷âªíıÿÿÿÿ
+fsquid:UselessImportCheck"BRemove this unused import 'com.google.android.gms.common.api.Api'.(»

@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/app_name"
+                android:text="@string/app_name_icon"
                 android:textColor="@android:color/black"
                 android:textSize="17.7sp"
                 android:textStyle="bold" />
@@ -38,9 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10h"
-            android:layout_marginEnd="@dimen/dp1h"
             android:background="@color/bt_bg_color"
-            android:onClick="listPastRequests"
             android:text="@string/past"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/sp15"
@@ -55,7 +53,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10h"
             android:background="@color/bt_bg_color"
-            android:onClick="listUpcomingRequests"
             android:text="@string/upcoming"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/sp15"
@@ -83,9 +80,9 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/dp2h"
             android:background="@color/sky_color"
-            app:layout_constraintEnd_toStartOf="@+id/bt_upcoming"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/bt_upcoming"
             app:layout_constraintTop_toBottomOf="@+id/bt_past" />
 
         <View

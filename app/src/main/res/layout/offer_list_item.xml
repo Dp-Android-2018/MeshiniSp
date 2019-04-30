@@ -7,9 +7,9 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/dp9h"
         android:backgroundTint="@color/white_off_color"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="@dimen/dp9h">
 
         <com.ramotion.foldingcell.FoldingCell
             android:id="@+id/folding_cell"
@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp4h"
-                    android:text="Ahmed sobhy"
+                    tools:text="Ahmed sobhy"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_name_tv"
@@ -71,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp4h"
-                    android:text="4.87"
+                    tools:text="4.87"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_country_tv"
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp4h"
-                    android:text="225"
+                    tools:text="225"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_date_tv"
@@ -119,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp4h"
-                    android:text="225"
+                    tools:text="225"
                     android:textColor="@color/text_color_black"
                     android:textSize="@dimen/sp11_5"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_offer_tv"

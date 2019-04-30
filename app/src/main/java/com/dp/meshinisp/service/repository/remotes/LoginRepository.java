@@ -32,7 +32,7 @@ public class LoginRepository {
 
                     @Override
                     public void onNext(Response<LoginResponse> loginResponseResponse) {
-                            data.setValue(loginResponseResponse);
+                        data.setValue(loginResponseResponse);
                     }
 
                     @Override

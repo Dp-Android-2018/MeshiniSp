@@ -37,7 +37,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@string/app_name"
+                        android:text="@string/app_name_icon"
                         android:textColor="@android:color/black"
                         android:textSize="17.7sp"
                         android:textStyle="bold" />
@@ -53,6 +53,32 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/account_toolbar" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="@dimen/dp117h"
+                    android:layout_height="@dimen/dp117h"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:progressDrawable="@drawable/progressbar_states"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+                <TextView
+                    android:id="@+id/tv_progress_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/sky_color"
+                    android:textSize="14sp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/circleImageView" />
 
                 <View
                     android:id="@+id/view_update_photo"
@@ -144,7 +170,7 @@
             android:id="@+id/bt_change_password"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp55h"
-            android:layout_marginBottom="2dp"
+            android:layout_marginBottom="@dimen/dp2h"
             android:background="@color/text_color_black"
             android:onClick="changePassword"
             android:text="@string/change_password"

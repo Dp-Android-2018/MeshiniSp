@@ -37,7 +37,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.443"
                     app:layout_constraintStart_toStartOf="parent"

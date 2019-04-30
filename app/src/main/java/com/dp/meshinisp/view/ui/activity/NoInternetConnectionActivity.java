@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.dp.meshinisp.R;
 
 
-public class NoInternetConnectionActivity extends AppCompatActivity {
+public class NoInternetConnectionActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

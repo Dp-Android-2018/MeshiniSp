@@ -1,35 +1,34 @@
 package com.dp.meshinisp.view.ui.activity;
 
 import android.content.Intent;
-
-import androidx.databinding.DataBindingUtil;
-
 import android.os.Bundle;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import kotlin.Lazy;
-import retrofit2.Response;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityPhoneActivitationBinding;
 import com.dp.meshinisp.service.model.request.ActivationRequest;
 import com.dp.meshinisp.service.model.response.ActivationResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.viewmodel.PhoneActivationViewModel;
 import com.goodiebag.pinview.Pinview;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import kotlin.Lazy;
+import retrofit2.Response;
+
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class PhoneActivitationActivity extends AppCompatActivity {
+public class PhoneActivitationActivity extends BaseActivity {
 
     ActivityPhoneActivitationBinding binding;
     String email;
     Lazy<PhoneActivationViewModel> phoneActivationViewModelLazy = inject(PhoneActivationViewModel.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +62,8 @@ public class PhoneActivitationActivity extends AppCompatActivity {
                         if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
                                 && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
                             openNextActivityWithToken(activationResponseResponse.body().getActivationToken());
+                        } else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                            logout();
                         } else {
                             showSnackBar("error code :" + activationResponseResponse.code());
                         }
@@ -86,6 +87,8 @@ public class PhoneActivitationActivity extends AppCompatActivity {
                         if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
                                 && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
                             showSnackBar("Code Sent Successfully.");
+                        } else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                            logout();
                         } else {
                             showSnackBar("error code :" + activationResponseResponse.code());
                         }

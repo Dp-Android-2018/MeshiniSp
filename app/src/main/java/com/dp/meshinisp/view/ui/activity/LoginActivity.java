@@ -14,6 +14,7 @@ import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
+import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseToken;
 import com.dp.meshinisp.viewmodel.LoginViewModel;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
@@ -21,29 +22,33 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import kotlin.Lazy;
 import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     ActivityLoginBinding binding;
     Lazy<LoginViewModel> loginViewModelLazy = inject(LoginViewModel.class);
     Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
+    private String deviceToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        getAndSetDeviceToken();
         makeActionOnClickOntvNewUserSignUp();
         makeActionOnClickOntvForgetPassword();
         makeActionOnClickOnbtLogin();
+    }
+
+    private void getAndSetDeviceToken() {
+        FirebaseToken.getInstance().getFirebaseToken().observe(this, s -> deviceToken = s);
     }
 
     private void makeActionOnClickOnbtLogin() {
@@ -70,9 +75,11 @@ public class LoginActivity extends AppCompatActivity {
             if (loginResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
                     && ConfigurationFile.Constants.SUCCESS_CODE_TO > loginResponseResponse.code()) {
                 if (loginResponseResponse.body() != null) {
-                    Snackbar.make(binding.getRoot(), "Login Success :)", Snackbar.LENGTH_SHORT).show();
                     saveDataToSharedPreferences(loginResponseResponse.body().getData());
                     openMainActivity();
+                }
+                if (loginResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    logout();
                 } else {
                     Snackbar.make(binding.getRoot(), "no data", Snackbar.LENGTH_SHORT).show();
                 }
@@ -122,6 +129,13 @@ public class LoginActivity extends AppCompatActivity {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setEmail(binding.etMail.getText().toString());
         loginRequest.setPassword(binding.etPassword.getText().toString());
+        loginRequest.setDeviceToken(deviceToken);
+        /*SharedUtils.getInstance().showProgressDialog(this);
+        FirebaseToken.getInstance().getFirebaseToken().observe(this, s -> {
+            SharedUtils.getInstance().cancelDialog();
+            loginRequest.setDeviceToken(s);
+        });*/
+
         return loginRequest;
     }
 

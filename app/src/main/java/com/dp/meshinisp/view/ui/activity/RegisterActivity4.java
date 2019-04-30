@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegister4Binding;
@@ -14,8 +15,10 @@ import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
+import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseToken;
 import com.dp.meshinisp.viewmodel.Register1ViewModel;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.snackbar.Snackbar;
@@ -37,11 +40,12 @@ import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class RegisterActivity4 extends AppCompatActivity {
+public class RegisterActivity4 extends BaseActivity {
 
     ActivityRegister4Binding binding;
     Lazy<Register1ViewModel> registerViewModelLazy = inject(Register1ViewModel.class);
     Lazy<RegisterRequest> registerRequestLazy = inject(RegisterRequest.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
     RegisterRequest register1Request;
     private Uri filePath;
     private ProgressDialog progressDialog;
@@ -52,16 +56,22 @@ public class RegisterActivity4 extends AppCompatActivity {
     private boolean photoUploaded;
     private boolean tabSelected;
     private URL uploadedFileUrl;
+    private String deviceToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, (R.layout.activity_register4));
         register1Request = registerRequestLazy.getValue();
+        getAndSetDeviceToken();
         Gson gson = new Gson();
         register1Request = gson.fromJson(getIntent().getStringExtra(ConfigurationFile.Constants.REGISTER1DATA), RegisterRequest.class);
         makeActionToUploadImage();
         makeClickListenerOnClickOnBtnNext();
+    }
+
+    private void getAndSetDeviceToken() {
+        FirebaseToken.getInstance().getFirebaseToken().observe(this, s -> deviceToken = s);
     }
 
     private void makeClickListenerOnClickOnBtnNext() {
@@ -71,34 +81,38 @@ public class RegisterActivity4 extends AppCompatActivity {
     private void makeRegister() {
         if (ValidationUtils.isConnectingToInternet(this)) {
             SharedUtils.getInstance().showProgressDialog(this);
-            registerViewModelLazy.getValue().register(register1Request).observe(this, new Observer<Response<LoginRegisterResponse>>() {
-                @Override
-                public void onChanged(Response<LoginRegisterResponse> loginRegisterResponseResponse) {
-                    SharedUtils.getInstance().cancelDialog();
-                    if (loginRegisterResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                            && ConfigurationFile.Constants.SUCCESS_CODE_TO > loginRegisterResponseResponse.code()) {
-                        openHomeActivity();
-                    } else {
-                        Gson gson = new GsonBuilder().create();
-                        ErrorResponse errorResponse = new ErrorResponse();
-
-                        try {
-                            errorResponse = gson.fromJson(loginRegisterResponseResponse.errorBody().string(), ErrorResponse.class);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        String error = "";
-                        for (String string : errorResponse.getErrors()) {
-                            error += string;
-                            error += "\n";
-                        }
-                        showSnackbar(error);
-                    }
+            register1Request.setDeviceToken(deviceToken);
+            registerViewModelLazy.getValue().register(register1Request).observe(this, (Response<LoginRegisterResponse> loginRegisterResponseResponse) -> {
+                SharedUtils.getInstance().cancelDialog();
+                if (loginRegisterResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > loginRegisterResponseResponse.code()) {
+                    openHomeActivity();
+                } else if (loginRegisterResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    logout();
+                } else {
+                    showErrors(loginRegisterResponseResponse);
                 }
             });
         } else {
             showSnackbar(getString(R.string.there_is_no_internet_connection));
         }
+    }
+
+    private void showErrors(Response<LoginRegisterResponse> loginRegisterResponseResponse) {
+        Gson gson = new GsonBuilder().create();
+        ErrorResponse errorResponse = new ErrorResponse();
+
+        try {
+            errorResponse = gson.fromJson(loginRegisterResponseResponse.errorBody().string(), ErrorResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String error = "";
+        for (String string : errorResponse.getErrors()) {
+            error += string;
+            error += "\n";
+        }
+        showSnackbar(error);
     }
 
     private void openHomeActivity() {
@@ -143,7 +157,6 @@ public class RegisterActivity4 extends AppCompatActivity {
         if (ValidationUtils.isConnectingToInternet(this)) {
             if (filePath != null) {
                 storageRef = FirebaseStorage.getInstance().getReference();
-                initializeProgressDialog();
                 putFileToStorageReference();
             } else {
                 Snackbar.make(binding.getRoot(), "There is no pictures!!", Snackbar.LENGTH_SHORT).show();
@@ -169,33 +182,20 @@ public class RegisterActivity4 extends AppCompatActivity {
                         }
                     });
 
-                    progressDialog.dismiss();
-//                    Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(exception -> {
-                    progressDialog.dismiss();
                     Snackbar.make(binding.getRoot(), exception.getMessage(), Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnProgressListener(taskSnapshot -> {
                     double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                    progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+                    binding.progressBar.setVisibility(View.VISIBLE);
+                    binding.tvProgressNumber.setVisibility(View.VISIBLE);
+                    binding.progressBar.setProgress((int) progress);
+                    binding.tvProgressNumber.setText((int) progress + ConfigurationFile.Constants.PERCENT);
+                    if (progress == 100) {
+                        // Set a message of completion
+                        binding.tvProgressNumber.setText(getResources().getString(R.string.operation_completed));
+                    }
                 });
-    }
-
-    private void initializeProgressDialog() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading");
-        progressDialog.setCancelable(false);
-        progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", (dialog, which) -> {
-            if (riversRef != null) {
-                uploadTask = riversRef.getActiveUploadTasks().get(0);
-                if (uploadTask != null) {
-                    uploadTask.cancel();
-                    progressDialog.dismiss();
-                    Snackbar.make(binding.getRoot(), "Upload cancelled sussessfully :(", Snackbar.LENGTH_SHORT).show();
-                }
-            }
-        });
-        progressDialog.show();
     }
 }

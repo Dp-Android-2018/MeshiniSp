@@ -1,5 +1,4 @@
 
-~squid:UselessImportCheck"NRemove this unused import 'com.dp.meshinisp.databinding.OfferListItemBinding'.(›å·Íùÿÿÿÿ8Ç„ÎáŸ-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ùşÃ¡øÿÿÿÿ8¡Œ×áŸ-
-Xsquid:S1068":Remove this unused "startTripResponseModel" private field.(·Ú¦á8ÜºÄáŸ-
-ƒsquid:S1450"eRemove the "startTripResponseModel" field and declare it as a local variable in the relevant methods.(·Ú¦á8ÜºÄáŸ-
+Msquid:S1066)"/Merge this if statement with the enclosing one.(Íº×€8ÃÔ÷¤-
+\squid:UselessImportCheck
+"1Remove this unused import 'com.google.gson.Gson'.(–§8‡ÉŞ÷¤-

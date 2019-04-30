@@ -1,7 +1,7 @@
 
-hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8ÍÍ·î-
-Ysquid:S2696p"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8Ğç†¡-
-Fsquid:S1148b"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ñ€îœ-
-?squid:S1643f"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8— šîœ-
-?squid:S1643g"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8— šîœ-
-qsquid:MaximumInheritanceDepth!"<This class has 9 parents which is greater than 5 authorized.(·¡ïõøÿÿÿÿ8§Íåï”-
+fsquid:MaximumInheritanceDepth "=This class has 10 parents which is greater than 5 authorized.(şàÈí
+Fsquid:S1148i"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ÙŸÒ¤-
+8squid:S1643m"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+?squid:S1643n"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¸ÙŸÒ¤-
+jsquid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(ê®¢8¸ÙŸÒ¤-
+Ysquid:S2696w"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8¸ÙŸÒ¤-

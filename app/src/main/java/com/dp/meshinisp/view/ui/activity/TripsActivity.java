@@ -1,11 +1,17 @@
 package com.dp.meshinisp.view.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
@@ -17,6 +23,7 @@ import com.dp.meshinisp.service.model.global.TripsResponseModel;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.TripsResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.TripsRecyclerViewAdapter;
@@ -32,7 +39,7 @@ import java.util.Objects;
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 
-public class TripsActivity extends AppCompatActivity {
+public class TripsActivity extends BaseActivity {
 
     ActivityTripsBinding binding;
     private boolean requestType;
@@ -47,23 +54,28 @@ public class TripsActivity extends AppCompatActivity {
     private boolean loading = true;
     private int position = 0;
     private Lazy<TripsActivityViewModel> tripsActivityViewModelLazy = inject(TripsActivityViewModel.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_trips);
         loadedData = new ArrayList<>();
         setupToolbar();
+        listPastRequests();
+        listUpcomingRequests();
         getAndSetPastRequests();
         initializeRecyclerViewAdapter();
     }
 
-    public void listPastRequests(View view) {
-        binding.vPast.setVisibility(View.VISIBLE);
-        binding.vUpcoming.setVisibility(View.INVISIBLE);
-        requestType = false;
-        getAndSetPastRequests();
-        initializeRecyclerViewAdapter();
+    public void listPastRequests() {
+        binding.btPast.setOnClickListener(v -> {
+            binding.vPast.setVisibility(View.VISIBLE);
+            binding.vUpcoming.setVisibility(View.INVISIBLE);
+            requestType = false;
+            getAndSetPastRequests();
+            initializeRecyclerViewAdapter();
+        });
     }
 
     private void getAndSetPastRequests() {
@@ -78,12 +90,14 @@ public class TripsActivity extends AppCompatActivity {
         }
     }
 
-    public void listUpcomingRequests(View view) {
-        binding.vPast.setVisibility(View.INVISIBLE);
-        binding.vUpcoming.setVisibility(View.VISIBLE);
-        requestType = true;
-        getAndSetUpcomingRequests();
-        initializeRecyclerViewAdapter();
+    public void listUpcomingRequests() {
+        binding.btUpcoming.setOnClickListener(v -> {
+            binding.vPast.setVisibility(View.INVISIBLE);
+            binding.vUpcoming.setVisibility(View.VISIBLE);
+            requestType = true;
+            getAndSetUpcomingRequests();
+            initializeRecyclerViewAdapter();
+        });
     }
 
     private void getAndSetUpcomingRequests() {
@@ -157,6 +171,8 @@ public class TripsActivity extends AppCompatActivity {
                 if (!tripsResponseResponse.body().getData().isEmpty()) {
                     addDataToLoadedData(tripsResponseResponse.body());
                 }
+            } else if (tripsResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                logout();
             } else {
                 showErrorMessage(tripsResponseResponse);
             }
@@ -207,6 +223,8 @@ public class TripsActivity extends AppCompatActivity {
     }
 
     private void setupToolbar() {
+//        binding.tripsToolbar.setNavigationIcon(R.drawable.ic_menu_black);
+//        binding.tripsToolbar.setNavigationOnClickListener(v -> MainActivity.drawer.openDrawer(GravityCompat.START));
         binding.tripsToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
         binding.tripsToolbar.setNavigationOnClickListener(v -> onBackPressed());
     }

@@ -9,7 +9,7 @@
     android:textColor="@android:color/black"
     android:background="@drawable/item_destination_background"
     android:textAlignment="center"
-    android:padding="23dp"
+    android:padding="@dimen/dp21h"
     android:textSize="17sp"
     app:layout_constraintBottom_toTopOf="@+id/view5"
     app:layout_constraintEnd_toEndOf="parent"

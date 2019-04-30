@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -17,7 +16,7 @@
             android:layout_width="@dimen/dp109w"
             android:layout_height="@dimen/dp110h"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="@dimen/dp8h"
             android:src="@drawable/im_man"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,52 +24,85 @@
 
         <RatingBar
             android:id="@+id/ratingBar"
-            style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp7w"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="@dimen/dp8h"
             android:layout_marginEnd="@dimen/dp7w"
+            android:numStars="5"
             android:progressBackgroundTint="@color/yellow_color"
             android:progressTint="@color/yellow_color"
-            android:rating="10"
             android:secondaryProgressTint="@color/yellow_color"
+            android:stepSize="1.0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
 
+        <!--style="@style/Base.Widget.AppCompat.RatingBar.Indicator"-->
+
         <EditText
-            android:id="@+id/et_first_name"
+            android:id="@+id/et_review_comment"
             style="@style/EditText"
             android:layout_width="0dp"
-            android:layout_height="76dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="13dp"
+            android:layout_height="@dimen/dp68h"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginTop="@dimen/dp19h"
+            android:layout_marginEnd="@dimen/dp12h"
             android:background="@drawable/edittext_background_black"
             android:hint="@string/write_review_optional"
-            android:textAlignment="viewStart"
             android:inputType="textMultiLine"
             android:singleLine="true"
+            android:textAlignment="viewStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
-        <Button
-            android:id="@+id/bt_send_offer"
-            android:layout_width="@dimen/dp133h"
-            android:layout_height="@dimen/dp31w"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="13dp"
-            android:background="@drawable/btn_background_dark"
-            android:text="@string/done"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp13h"
+            android:layout_marginBottom="@dimen/dp7w"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_first_name" />
+            app:layout_constraintTop_toBottomOf="@+id/et_review_comment">
+
+            <Button
+                android:id="@+id/bt_send_review"
+                android:layout_width="@dimen/dp133h"
+                android:layout_height="@dimen/dp31w"
+                android:layout_marginTop="@dimen/dp13h"
+                android:layout_marginBottom="@dimen/dp12h"
+                android:background="@drawable/btn_background_dark"
+                android:text="@string/done"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.112"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_review_comment"
+                app:layout_constraintVertical_bias="1.0" />
+
+          <!--  <Button
+                android:id="@+id/bt_skip"
+                android:layout_width="@dimen/dp133h"
+                android:layout_height="@dimen/dp31w"
+                android:layout_marginStart="@dimen/dp18h"
+                android:layout_marginTop="@dimen/dp13h"
+                android:layout_marginBottom="@dimen/dp12h"
+                android:background="@drawable/btn_background_dark"
+                android:text="@string/skip"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_review_comment" />-->
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

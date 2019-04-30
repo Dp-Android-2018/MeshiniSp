@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_no_internet"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/dp27h"
         android:text="@string/there_is_no_internet_connection"
         android:textColor="@color/text_color_no_data"
         android:textSize="@dimen/sp12_5"

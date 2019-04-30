@@ -9,6 +9,7 @@ public class ConfigurationFile {
     public static class UrlConstants {
 
         public static final String BASE_URL = "http://151.106.52.109:2018";
+//        public static final String BASE_URL = "http://151.106.52.109:2019";
     }
 
     public static class Constants {
@@ -16,9 +17,9 @@ public class ConfigurationFile {
         public static final String API_KEY = "27180383-4918-4b94-9e24-27e37ec19c94";
         public static final String CONTENT_TYPE = "application/json";
         public static final String ACCEPT = "application/json";
-        public static final String BEARER_STRING = "Bearer ";
         public static String ACCEPT_LANGUAGE = "en";
         public static String AUTHORIZATION = "token";
+        public static final String BEARER_STRING = "Bearer ";
 
 
         public static String REGISTER1DATA = "REGISTER1Data";
@@ -27,8 +28,11 @@ public class ConfigurationFile {
 
         public static final String ACCEPT_LANGUAGE_ARABIC = "ar";
         public static final String ACCEPT_LANGUAGE_ENGLISH = "en";
+        public static final String ACCEPT_LANGUAGE_FRENCH = "fr";
         public static final String DEFAULT_LANGUAGE_STRING = "0";
         public static final String ENGLISH_LANGUAGE_STRING = "English";
+        public static final String ARABIC_LANGUAGE_STRING = "العربية";
+        public static final String FRENCH_LANGUAGE_STRING = "français";
 
         public static final String DATE_FORMAT = "yyyy-MM-dd";
         public static final String MALE_TYPE = "male";
@@ -57,11 +61,18 @@ public class ConfigurationFile {
         public static final String OFFER_PRICE = "offer price";
         public static final String TRIPS_DATA = "trips data";
         public static final String REQUEST_DATA = "request data";
+        public static final String ACTIVE_REQUEST_DATA = "active request data";
+        public static final String FIREBASE_REQUEST_DATA = "firebase request data";
+        public static final String START_TRIP_TYPE = "trip from";
+        public static final String FROM_REQUEST_DETAILS = "from request details";
 
 
         public static final String ON_FOOT_TYPE = "onfoot";
         public static final String CAR_TYPE = "car";
         public static final String MOTORBIKE_TYPE = "motorcycle";
+        public static final String BRACKET_BEFORE = "(";
+        public static final String BRACKET_AFTER = ")";
+        public static final String PERCENT = "%";
         public static final String ORDER_TYPE = "order type";
         public static final String OTHERS_TYPE = "others type";
         public static final String EMPLOYMENT_TYPE = "employment type";

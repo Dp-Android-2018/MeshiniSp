@@ -1,13 +1,14 @@
 
-Osquid:S1659'",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ïõÏ˜-
-Jsquid:S1068)",Remove this unused "position" private field.(íñ8ïõÏ˜-
-Hsquid:S1659!"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8÷öşøœ-
-nsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ8‰šŸ-
-Msquid:S1066\"/Merge this if statement with the enclosing one.(à—åª8ïõÏ˜-
-ssquid:S00116%"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8¬Éµ÷œ-
-jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(‚¼¬Ìıÿÿÿÿ
-usquid:S1450)"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ïõÏ˜-
-Qsquid:S1659'".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ïõÏ˜-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ8ñ•šŸ-
-Ysquid:S26964"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8Ş‚å¾Ÿ-
-Ksquid:S1185P"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ïõÏ˜-
+Hsquid:S1659'",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+Fsquid:S1066\"/Merge this if statement with the enclosing one.(à—åª
+nsquid:S1450)"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ
+lsquid:S00116%"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ
+Asquid:S1659!"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ
+gsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ
+isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+Csquid:S1068)",Remove this unused "position" private field.(íñ
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ
+fsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(©…‚÷
+Dsquid:S1185P"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ
+Jsquid:S1659'".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+Rsquid:S26964"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ

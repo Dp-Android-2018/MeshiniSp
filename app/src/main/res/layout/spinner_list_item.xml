@@ -12,12 +12,10 @@
         android:layout_height="@dimen/dp40h"
         android:background="@color/transparent"
         android:gravity="center"
-        android:hint="select country"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:hint="@string/select_country"
         android:textColor="@android:color/black"
         android:textColorHint="@color/text_color_black"
-        android:textSize="@dimen/sp15"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/view10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,11 +24,12 @@
     <View
         android:id="@+id/view10"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp1h"
+        android:layout_marginTop="8dp"
         android:background="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tv_country_name"
-        app:layout_constraintStart_toStartOf="@+id/tv_country_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_country_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

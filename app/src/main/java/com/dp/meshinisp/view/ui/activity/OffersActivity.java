@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityOffersBinding;
+import com.dp.meshinisp.databinding.ItemDestinationRvLayoutBinding;
 import com.dp.meshinisp.service.model.global.OffersResponseModel;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.MessageResponse;
@@ -31,11 +32,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
+import okhttp3.ResponseBody;
 import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class OffersActivity extends AppCompatActivity {
+public class OffersActivity extends BaseActivity {
 
     ActivityOffersBinding binding;
     private int countryId;
@@ -93,6 +95,16 @@ public class OffersActivity extends AppCompatActivity {
             public void onDeleteClick(int position) {
                 removeItem(position);
             }
+
+            @Override
+            public void onStartClick(int position, ItemDestinationRvLayoutBinding binding) {
+
+            }
+
+            @Override
+            public void onEndClick(int position, ItemDestinationRvLayoutBinding binding) {
+
+            }
         });
     }
 
@@ -115,18 +127,20 @@ public class OffersActivity extends AppCompatActivity {
                 if (messageResponseResponse.body() != null) {
                     showSnackbr(messageResponseResponse.body().getMessage());
                 }
+            } else if (messageResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                logout();
             } else {
-                showErrors(messageResponseResponse);
+                showErrors(messageResponseResponse.errorBody());
             }
         });
     }
 
-    private void showErrors(Response<MessageResponse> messageResponseResponse) {
+    private void showErrors(ResponseBody messageResponseResponse) {
         Gson gson = new GsonBuilder().create();
         ErrorResponse errorResponse = new ErrorResponse();
 
         try {
-            errorResponse = gson.fromJson(messageResponseResponse.errorBody().string(), ErrorResponse.class);
+            errorResponse = gson.fromJson(messageResponseResponse.string(), ErrorResponse.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -189,21 +203,10 @@ public class OffersActivity extends AppCompatActivity {
                         addDataToLoadedData(offersResponseResponse.body());
                     }
                 }
+            } else if (offersResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                logout();
             } else {
-                Gson gson = new GsonBuilder().create();
-                ErrorResponse errorResponse = new ErrorResponse();
-
-                try {
-                    errorResponse = gson.fromJson(offersResponseResponse.errorBody().string(), ErrorResponse.class);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                String error = "";
-                for (String string : errorResponse.getErrors()) {
-                    error += string;
-                    error += "\n";
-                }
-                showSnackbr(error);
+                showErrors(offersResponseResponse.errorBody());
             }
 
         });

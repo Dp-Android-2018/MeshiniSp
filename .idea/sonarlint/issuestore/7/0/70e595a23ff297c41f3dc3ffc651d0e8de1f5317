@@ -1,23 +1,24 @@
 
-@squid:S1643Ë"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8³¡óâŸ-
-Jsquid:S1172"+Remove this unused method parameter "text".(ßœ‹²8³¡óâŸ-
-Lsquid:S1185˜"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8³¡óâŸ-
-ssquid:S00116."TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8ŸÎáâŸ-
-Ssquid:S1066¼"/Merge this if statement with the enclosing one.(¯¦ş‡ıÿÿÿÿ8³¡óâŸ-
-lsquid:MaximumInheritanceDepth&"<This class has 9 parents which is greater than 5 authorized.(›õ€Œ8ŸÎáâŸ-
-usquid:S14502"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8Â¦íâŸ-
-Ksquid:S1068)"-Remove this unused "countryId" private field.(Ä¦ºƒ8‚åùÀ-
-Osquid:S16590",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ŸÎáâŸ-
-Jsquid:S10682",Remove this unused "position" private field.(íñ8Â¦íâŸ-
-Gsquid:S1148ƒ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8³¡óâŸ-
-Nsquid:S1068*"+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ8ŸÎáâŸ-
-Ysquid:S2696:"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ŸÎáâŸ-
-Psquid:S1068*"-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ8ŸÎáâŸ-
-@squid:S1643Ì"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8ŸÎáâŸ-
-vsquid:S3776¶"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¯©Ê¹ùÿÿÿÿ8³¡óâŸ-
-@squid:S1643ˆ"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8ŸÎáâŸ-
-Qsquid:S16590".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ŸÎáâŸ-
-@squid:S1643‡"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8³¡óâŸ-
-Nsquid:S1066¤"/Merge this if statement with the enclosing one.(à—åª8³¡óâŸ-
-Hsquid:S1659*"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8ŸÎáâŸ-
-Gsquid:S1148Ç"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8³¡óâŸ-
+Isquid:S1068,"-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ
+Jsquid:S1172›"+Remove this unused method parameter "text".(ßœ‹²8 ¤ºù¤-
+9squid:S1643•"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+nsquid:S14504"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ
+¤squid:S1186d"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¨ÏØ¨ıÿÿÿÿ8ˆÉõ¤-
+„squid:UselessImportCheck"TRemove this unused import 'com.dp.meshinisp.service.model.response.MessageResponse'.(ùß’üÿÿÿÿ8­…Áù¤-
+Dsquid:S1068+"-Remove this unused "countryId" private field.(Ä¦ºƒ
+fsquid:MaximumInheritanceDepth("=This class has 10 parents which is greater than 5 authorized.(ÛââÛ
+Jsquid:S16592".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+lsquid:S001160"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ
+Gsquid:S1148‘"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ¤ºù¤-
+@squid:S1643–"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8 ¤ºù¤-
+Lsquid:S1185¦"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8 ¤ºù¤-
+Hsquid:S16592",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+Gsquid:S1068,"+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ
+Asquid:S1659,"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ
+Nsquid:S1066²"/Merge this if statement with the enclosing one.(à—åª8 ¤ºù¤-
+Ssquid:S1066Ê"/Merge this if statement with the enclosing one.(¯¦ş‡ıÿÿÿÿ8 ¤ºù¤-
+Zsquid:UselessImportCheck$"/Remove this unused import 'retrofit2.Response'.(¾éçï8ûòÁù¤-
+Csquid:S10684",Remove this unused "position" private field.(íñ
+isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+Rsquid:S2696<"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ
+Ÿsquid:S1186i"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğú¾¬8‘’¸ù¤-

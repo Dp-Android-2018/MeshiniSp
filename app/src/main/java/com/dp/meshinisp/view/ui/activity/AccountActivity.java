@@ -42,7 +42,7 @@ import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class AccountActivity extends AppCompatActivity {
+public class AccountActivity extends BaseActivity {
 
     ActivityAccountBinding binding;
     Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
@@ -84,17 +84,15 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     public void saveChanges(View view) {
-        uploadFile();
-
         if ((
                 !binding.etFirstName.getText().toString().isEmpty()
                         && !binding.etLastName.getText().toString().isEmpty()
                         && !binding.etEmail.getText().toString().isEmpty()
                         && !binding.etPhone.getText().toString().isEmpty()
-                        &&( !customUtilsLazy.getValue().getSavedMemberData().getFirstName().equals(binding.etFirstName.getText().toString())
+                        && (!customUtilsLazy.getValue().getSavedMemberData().getFirstName().equals(binding.etFirstName.getText().toString())
                         || !customUtilsLazy.getValue().getSavedMemberData().getLastName().equals(binding.etLastName.getText().toString())
                         || !customUtilsLazy.getValue().getSavedMemberData().getEmail().equals(binding.etEmail.getText().toString())
-                        || !customUtilsLazy.getValue().getSavedMemberData().getPhone().equals(binding.etPhone.getText().toString()) )
+                        || !customUtilsLazy.getValue().getSavedMemberData().getPhone().equals(binding.etPhone.getText().toString()))
         ) || photoUploaded
         ) {
             if (ValidationUtils.isConnectingToInternet(this)) {
@@ -110,6 +108,8 @@ public class AccountActivity extends AppCompatActivity {
                             }
                             new Handler().postDelayed(() -> onBackPressed(), ConfigurationFile.Constants.WAIT_VALUE);
 
+                        } else if (offerResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                            logout();
                         } else {
                             showErrorMessage(offerResponseResponse);
                         }
@@ -209,6 +209,7 @@ public class AccountActivity extends AppCompatActivity {
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 binding.circleImageView.setImageBitmap(bitmap);
+                uploadFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -221,7 +222,7 @@ public class AccountActivity extends AppCompatActivity {
         if (ValidationUtils.isConnectingToInternet(this)) {
             if (filePath != null) {
                 storageRef = FirebaseStorage.getInstance().getReference();
-                initializeProgressDialog();
+//                initializeProgressDialog();
                 putFileToStorageReference();
             } else {
 //                Snackbar.make(binding.getRoot(), "There is no pictures!!", Snackbar.LENGTH_SHORT).show();
@@ -244,16 +245,21 @@ public class AccountActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     });
-                    progressDialog.dismiss();
                     Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(exception -> {
-                    progressDialog.dismiss();
                     Snackbar.make(binding.getRoot(), exception.getMessage(), Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnProgressListener(taskSnapshot -> {
                     double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                    progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+                    binding.progressBar.setVisibility(View.VISIBLE);
+                    binding.tvProgressNumber.setVisibility(View.VISIBLE);
+                    binding.progressBar.setProgress((int) progress);
+                    binding.tvProgressNumber.setText(progress + ConfigurationFile.Constants.PERCENT);
+                    if (progress == 100) {
+                        // Set a message of completion
+                        binding.tvProgressNumber.setText(getResources().getString(R.string.operation_completed));
+                    }
                 });
     }
 

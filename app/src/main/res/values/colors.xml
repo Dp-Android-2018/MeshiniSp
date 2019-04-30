@@ -3,6 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#4E4E4E</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!--<color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>-->
+
     <color name="sky_color">#3FB9B9</color>
     <color name="sky_color_dark">#349D9D</color>
     <color name="white_90">#E6ffffff</color>

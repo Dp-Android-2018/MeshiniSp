@@ -1,3 +1,4 @@
 
-msquid:UselessImportCheck"=Remove this unused import 'androidx.core.view.GravityCompat'.(…Ü…çÿÿÿÿÿ8Àå¬¼–-
-jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(ÏÎøìûÿÿÿÿ
+fsquid:UselessImportCheck"=Remove this unused import 'androidx.core.view.GravityCompat'.(…Ü…çÿÿÿÿÿ
+isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+fsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(Ø¡ûó

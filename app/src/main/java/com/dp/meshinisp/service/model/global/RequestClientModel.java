@@ -18,6 +18,9 @@ public class RequestClientModel {
     @SerializedName("device_token")
     private String deviceToken;
 
+    @SerializedName("name")
+    private String clientName;
+
     public int getTripsCount() {
         return tripsCount;
     }
@@ -56,5 +59,13 @@ public class RequestClientModel {
 
     public void setDeviceToken(String deviceToken) {
         this.deviceToken = deviceToken;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 }

@@ -26,7 +26,7 @@ import kotlin.Lazy;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
-public class RequestsActivity extends AppCompatActivity {
+public class RequestsActivity extends BaseActivity {
 
     ActivityRequestsBinding binding;
     private int countryId;

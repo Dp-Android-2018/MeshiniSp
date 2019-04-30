@@ -1,18 +1,23 @@
 
-@squid:S1643²"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ÿ‰äÊ-
-Jsquid:S10680",Remove this unused "position" private field.(íñ8ê‹²Â-
-Gsquid:S1148­"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ÿ‰äÊ-
-Nsquid:S1068("+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ8ê‹²Â-
-Osquid:S1659.",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ê‹²Â-
-lsquid:MaximumInheritanceDepth#"<This class has 9 parents which is greater than 5 authorized.(ƒ´¶Ñ8…ùÿï”-
-@squid:S1643±"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ÿ‰äÊ-
-Qsquid:S1659.".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ8ê‹²Â-
-Psquid:S1068("-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ8ê‹²Â-
-usquid:S14500"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ8ê‹²Â-
-Hsquid:S1659("%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ8ê‹²Â-
-Nsquid:S1066"/Merge this if statement with the enclosing one.(à—åª8ê‹²Â-
-Nsquid:S1172="+Remove this unused method parameter "view".(ğ‘çùûÿÿÿÿ8ê‹²Â-
-Ksquid:S1185u"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8ê‹²Â-
-Ksquid:S1068'"-Remove this unused "countryId" private field.(Ä¦ºƒ8ÒâÁ-
-Nsquid:S1172Q"+Remove this unused method parameter "view".(á¬ù­ûÿÿÿÿ8ê‹²Â-
-ssquid:S00116,"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ8ê‹²Â-
+dsquid:UselessImportCheck";Remove this unused import 'androidx.fragment.app.Fragment'.(‚Š©“ùÿÿÿÿ
+Asquid:S1659/"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ
+\squid:UselessImportCheck"8Remove this unused import 'android.view.LayoutInflater'.(À¯ÑÇ
+lsquid:S001163"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ
+Wsquid:UselessImportCheck"3Remove this unused import 'android.view.ViewGroup'.(‹îá
+fsquid:MaximumInheritanceDepth*"=This class has 10 parents which is greater than 5 authorized.(°‹è”
+Gsquid:S1066"/Merge this if statement with the enclosing one.(à—åª
+Hsquid:S16595",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+nsquid:S14507"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ
+Jsquid:S16595".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+@squid:S1148½"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Gsquid:S1068/"+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ
+hsquid:CommentedOutCodeLineâ"<This block of commented-out lines of code should be removed.(¤‹æğúÿÿÿÿ
+9squid:S1643Á"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+Esquid:S1185ƒ"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ
+Isquid:S1068/"-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ
+Dsquid:S1068."-Remove this unused "countryId" private field.(Ä¦ºƒ
+9squid:S1643Â"Use a StringBuilder instead.(äìüÆùÿÿÿÿ
+Csquid:S10687",Remove this unused "position" private field.(íñ
+Vsquid:S10689"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8§šû¤-
+]squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8§šû¤-

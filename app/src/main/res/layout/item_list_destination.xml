@@ -14,8 +14,8 @@
         android:id="@+id/tv_destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="@dimen/dp22w"
+        android:layout_marginBottom="@dimen/dp21w"
         android:text="Giza Pyramids"
         android:textColor="@android:color/black"
         android:textSize="17sp"
@@ -27,12 +27,23 @@
     <View
         android:id="@+id/view5"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp1h"
         android:background="@color/sky_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:layout_width="57dp"
+        android:layout_height="0dp"
+        android:background="@color/start_trip_color"
+        android:drawableBottom="@drawable/ic_drop_down_arrow_start"
+        android:text="@string/start"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/view5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

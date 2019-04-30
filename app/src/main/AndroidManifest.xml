@@ -23,35 +23,124 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true"
-        tools:replace="android:appComponentFactory">
+        tools:replace="android:appComponentFactory"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBmQpNW53XMiXH3Hxzn7iKQRtBe88sAxQE" />
+            android:value="AIzaSyCKzPmrsBgCHmWgpucrwovaZV4vRTZvnMs" />
 
-        <activity android:name=".view.ui.activity.StartTripActivity"></activity>
-        <activity android:name=".view.ui.activity.ChangePasswordProfileActivity" />
-        <activity android:name=".view.ui.activity.OffersActivity" />
-        <activity android:name=".view.ui.activity.ChatActivity" />
-        <activity android:name=".view.ui.activity.RequestDetailsActivity" />
-        <activity android:name=".view.ui.activity.RequestsActivity" />
-        <activity android:name=".view.ui.activity.ChangePasswordActivity" />
-        <activity android:name=".view.ui.activity.PhoneActivitationActivity" />
-        <activity android:name=".view.ui.activity.RegisterActivity5" />
-        <activity android:name=".view.ui.activity.RegisterActivity4" />
-        <activity android:name=".view.ui.activity.RegisterActivity3" />
-        <activity android:name=".view.ui.activity.RegisterActivity2" />
-        <activity android:name=".view.ui.activity.MainActivity" />
-        <activity android:name=".view.ui.activity.NoInternetConnectionActivity" />
-        <activity android:name=".view.ui.activity.BaseActivity" />
-        <activity android:name=".view.ui.activity.HomeActivity" />
-        <activity android:name=".view.ui.activity.LoginActivity" />
-        <activity android:name=".view.ui.activity.RegisterActivity" />
-        <activity android:name=".view.ui.activity.ResetPasswordActivity" />
-        <activity android:name=".view.ui.activity.AccountActivity" />
-        <activity android:name=".view.ui.activity.PaymentActivity" />
-        <activity android:name=".view.ui.activity.TripsActivity" />
-        <activity android:name=".view.ui.activity.SplashScreenActivity">
+        <!--<activity android:name=".view.ui.activity.StartTripFragment"></activity>-->
+        <activity
+            android:name=".view.ui.activity.ChangePasswordProfileActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.OffersActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.ChatActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.RequestDetailsActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.RequestsActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.ChangePasswordActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.PhoneActivitationActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.RegisterActivity5"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.RegisterActivity4"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.RegisterActivity3"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.RegisterActivity2"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.MainActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.NoInternetConnectionActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.BaseActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.HomeActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.LoginActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.RegisterActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.ResetPasswordActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.AccountActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.PaymentActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.TripsActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.ui.activity.SplashScreenActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,6 +155,14 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".utility.utils.firebase.classes.MessageReceiver">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".utility.utils.NotificationReceiver" />
     </application>
 
 </manifest>

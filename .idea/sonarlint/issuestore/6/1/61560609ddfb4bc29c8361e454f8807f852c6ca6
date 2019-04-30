@@ -1,31 +1,19 @@
 
-`squid:CallToDeprecatedMethodÊ"0Remove this use of "getColor"; it is deprecated.(‚Ì³Ô8Ì¸¾·¡-
-osquid:CommentedOutCodeLineï"<This block of commented-out lines of code should be removed.(‡á–Ÿûÿÿÿÿ8Ì¸¾·¡-
-Gsquid:S1148‚"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ì¸¾·¡-
-\"squid:SwitchLastCaseIsDefaultCheckO""Add a default case to this switch.(”ûÜÿÿÿÿÿ8žî˜¶¡-
-vsquid:S00116:"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÝàÝ8žî˜¶¡-
-@squid:S1643†"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8Ì¸¾·¡-
-Vsquid:S1135¥"2Complete the task associated to this TODO comment.(žáÃæùÿÿÿÿ8Ì¸¾·¡-
-lsquid:MaximumInheritanceDepth3"<This class has 9 parents which is greater than 5 authorized.(þÊŸ®8žî˜¶¡-
-nsquid:UnusedPrivateMethodí"ARemove this unused private "openSelectedFragmentWithData" method.(ýœþ™8Ì¸¾·¡-
-Gsquid:S1148û"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ì¸¾·¡-
-@squid:S1643§"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ì¸¾·¡-
-esquid:CallToDeprecatedMethodŽ"0Remove this use of "getColor"; it is deprecated.(ÎÄÊ±üÿÿÿÿ8Ì¸¾·¡-
-;squid:S1643À"Use a StringBuilder instead.(º”Ì‡8Ì¸¾·¡-
-@squid:S1643ÿ"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8Ì¸¾·¡-
-csquid:CallToDeprecatedMethod"3Remove this use of "getDrawable"; it is deprecated.(÷¢÷¥8Ì¸¾·¡-
-@squid:S1643¦"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8Ì¸¾·¡-
-jsquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(­ÞÜ8Ì¸¾·¡-
-xsquid:S14506"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ8žî˜¶¡-
-gsquid:CallToDeprecatedMethodw"3Remove this use of "getDrawable"; it is deprecated.(„¿ÔÛøÿÿÿÿ8¿¿·¡-
-@squid:S1643‡"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ì¸¾·¡-
-dsquid:CallToDeprecatedMethodÆ"/Remove this use of "vibrate"; it is deprecated.(„š„âøÿÿÿÿ8Ì¸¾·¡-
-Gsquid:S1148¢"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ì¸¾·¡-
-Nsquid:S1066¤"/Merge this if statement with the enclosing one.(¡ì¯ý8Ì¸¾·¡-
-Bsquid:S1148±"#Use a logger to log this exception.(Ç’Çê8Ì¸¾·¡-
-dsquid:CallToDeprecatedMethodx"0Remove this use of "getColor"; it is deprecated.(¿ÕÁöûÿÿÿÿ8¿¿·¡-
-Ysquid:S2696C"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8žî˜¶¡-
-?squid:S1170:"!Make this final field static too.(íÝàÝ8žî˜¶¡-
-;squid:S1643¿"Use a StringBuilder instead.(°–ôÔ8Ì¸¾·¡-
-@squid:S1643€"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Ì¸¾·¡-
-hsquid:CallToDeprecatedMethod"3Remove this use of "getDrawable"; it is deprecated.(œ·ùþÿÿÿÿ8Ì¸¾·¡-
+;squid:S1643¶"Use a StringBuilder instead.(º”Ì‡8êë¨Ó¤-
+ksquid:MaximumInheritanceDepth0"=This class has 10 parents which is greater than 5 authorized.(ËÙÖ üÿÿÿÿ
+9squid:S1643þ"Use a StringBuilder instead.(Íòàðüÿÿÿÿ
+Rsquid:S2696@"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ
+@squid:S1643ð"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8êë¨Ó¤-
+Gsquid:S1148ú"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8êë¨Ó¤-
+4squid:S1643µ"Use a StringBuilder instead.(°–ôÔ
+qsquid:S14503"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ
+Vsquid:S1135"2Complete the task associated to this TODO comment.(žáÃæùÿÿÿÿ8êë¨Ó¤-
+9squid:S1643ï"Use a StringBuilder instead.(Íòàðüÿÿÿÿ
+U"squid:SwitchLastCaseIsDefaultCheckL""Add a default case to this switch.(”ûÜÿÿÿÿÿ
+„squid:UselessImportCheck"TRemove this unused import 'com.dp.meshinisp.service.model.response.MessageResponse'.(ùß’üÿÿÿÿ8ÝÒ¨ú¤-
+osquid:S001167"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÝàÝ
+8squid:S11707"!Make this final field static too.(íÝàÝ
+Bsquid:S1148©"#Use a logger to log this exception.(Ç’Çê8êë¨Ó¤-
+Gsquid:S1148ë"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8êë¨Ó¤-
+@squid:S1643ÿ"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8êë¨Ó¤-
+Nsquid:S1066œ"/Merge this if statement with the enclosing one.(¡ì¯ý8êë¨Ó¤-

@@ -1,17 +1,20 @@
 
-@squid:S1643Š"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8øË‹¢-
-Nsquid:S1172V"+Remove this unused method parameter "view".(ËŠİşÿÿÿÿ8Ğˆó-
-Usquid:S1068;"2Remove this unused "selectLanguage" private field.(‚ËŒıÿÿÿÿ8¼ÓØŸ-
-Gsquid:S1148ô"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8øË‹¢-
-lsquid:MaximumInheritanceDepth-"<This class has 9 parents which is greater than 5 authorized.(‘Ä¬8§Œ„ğ”-
-Osquid:S1612o",Replace this lambda with a method reference.(†Òúˆûÿÿÿÿ8øË‹¢-
-Isquid:S1172º"+Remove this unused method parameter "view".(ã¿Æg8øË‹¢-
-@squid:S1643‰"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ï²¨¡-
-jsquid:CallToDeprecatedMethod5"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8¼ÓØŸ-
-ksquid:CallToDeprecatedMethod…"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ8øË‹¢-
-jsquid:CommentedOutCodeLineã"<This block of commented-out lines of code should be removed.(—÷Û8øË‹¢-
-Osquid:S1172¿"+Remove this unused method parameter "view".(¢Á®ìıÿÿÿÿ8øË‹¢-
-usquid:S3776V"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ËŠİşÿÿÿÿ8 Š°¡-
-Ysquid:S10683"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ8¼ÓØŸ-
-Gsquid:S1148…"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8øË‹¢-
-Gsquid:S1148Õ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8øË‹¢-
+nsquid:S3776V"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ËŠİşÿÿÿÿ
+Osquid:S1172¿"+Remove this unused method parameter "view".(¢Á®ìıÿÿÿÿ8ã×€Ó¤-
+€squid:S14505"]Remove the "progressDialog" field and declare it as a local variable in the relevant methods.(·á…Çùÿÿÿÿ8¢ĞÓ¤-
+Rsquid:S10683"6Remove this unused "PICK_IMAGE_REQUEST" private field.(Æ¥½÷øÿÿÿÿ
+osquid:CommentedOutCodeLineá"<This block of commented-out lines of code should be removed.(ø¢„Úıÿÿÿÿ8ßµĞÓ¤-
+jsquid:CommentedOutCodeLineä"<This block of commented-out lines of code should be removed.(—÷Û8ã×€Ó¤-
+Isquid:S1172º"+Remove this unused method parameter "view".(ã¿Æg8ã×€Ó¤-
+Osquid:S1612m",Replace this lambda with a method reference.(†Òúˆûÿÿÿÿ8ã×€Ó¤-
+isquid:UselessImportCheck%"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+9squid:S1643Š"Use a StringBuilder instead.(äìüÆùÿÿÿÿ
+Gsquid:S1148…"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ã×€Ó¤-
+@squid:S1643‰"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ã×€Ó¤-
+jsquid:UnusedPrivateMethodŠ"=Remove this unused private "initializeProgressDialog" method.(Æ£¦»8ßµĞÓ¤-
+Nsquid:S1068;"2Remove this unused "selectLanguage" private field.(‚ËŒıÿÿÿÿ
+Gsquid:S1148Ö"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ã×€Ó¤-
+Ksquid:S1602ú",Remove useless curly braces around statement(ôİÄ¥8¢ĞÓ¤-
+Gsquid:S1172V"+Remove this unused method parameter "view".(ËŠİşÿÿÿÿ
+Gsquid:S1148õ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ã×€Ó¤-
+ksquid:MaximumInheritanceDepth-"=This class has 10 parents which is greater than 5 authorized.(‰ôºûşÿÿÿÿ

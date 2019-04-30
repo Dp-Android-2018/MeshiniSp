@@ -12,6 +12,7 @@ import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.SpinnerAdapter;
@@ -32,11 +33,12 @@ import retrofit2.Response;
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends BaseActivity {
 
     ActivityRegisterBinding binding;
-    Lazy<Register1ViewModel> registerViewModelLazy=inject(Register1ViewModel.class);
-    Lazy<RegisterRequest> registerRequestLazy=inject(RegisterRequest.class);
+    Lazy<Register1ViewModel> registerViewModelLazy = inject(Register1ViewModel.class);
+    Lazy<RegisterRequest> registerRequestLazy = inject(RegisterRequest.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
     SpinnerAdapter countrySpinnerAdapter;
     SpinnerAdapter citySpinnerAdapter;
     RegisterRequest registerRequest;
@@ -46,19 +48,22 @@ public class RegisterActivity extends AppCompatActivity {
     private String email;
     private String password;
     private String phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_register);
-        registerRequest=registerRequestLazy.getValue();
-        registerRequest2=registerRequestLazy.getValue();
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
+        registerRequest = registerRequestLazy.getValue();
+        registerRequest2 = registerRequestLazy.getValue();
         setCountrySpinner();
     }
 
-    public void setCountrySpinner(){
+    public void setCountrySpinner() {
         if (ValidationUtils.isConnectingToInternet(this)) {
+            SharedUtils.getInstance().showProgressDialog(this);
             registerViewModelLazy.getValue().getCountries().observe(this, (List<CountryCityResponseModel> countryCityPojos) -> {
+                SharedUtils.getInstance().cancelDialog();
                 countrySpinnerAdapter = new SpinnerAdapter(RegisterActivity.this, countryCityPojos);
                 binding.spCountry.setAdapter(countrySpinnerAdapter);
                 binding.spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -74,14 +79,16 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
             });
-        }else {
+        } else {
             showSnackbar(getString(R.string.there_is_no_internet_connection));
         }
     }
 
-    public void setCitySpinner(int countryId){
+    public void setCitySpinner(int countryId) {
         if (ValidationUtils.isConnectingToInternet(this)) {
+            SharedUtils.getInstance().showProgressDialog(this);
             registerViewModelLazy.getValue().getCities(countryId).observe(this, countryCityPojos -> {
+                SharedUtils.getInstance().cancelDialog();
                 citySpinnerAdapter = new SpinnerAdapter(RegisterActivity.this, countryCityPojos);
                 binding.spCity.setAdapter(citySpinnerAdapter);
                 binding.spCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -97,26 +104,26 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
             });
-        }else {
+        } else {
             showSnackbar(getString(R.string.there_is_no_internet_connection));
         }
     }
 
-    public void getDataFromView(View view){
-         firstName=binding.etFirstName.getText().toString();
-         lastName=binding.etLastName.getText().toString();
-         email=binding.etEmail.getText().toString();
-         password=binding.etPassword.getText().toString();
-         phone=binding.etPhone.getText().toString();
+    public void getDataFromView(View view) {
+        firstName = binding.etFirstName.getText().toString();
+        lastName = binding.etLastName.getText().toString();
+        email = binding.etEmail.getText().toString();
+        password = binding.etPassword.getText().toString();
+        phone = binding.etPhone.getText().toString();
 
-        if(registerRequest.getCityId()==0){
+        if (registerRequest.getCityId() == 0) {
             showSnackbar(getString(R.string.select_city_error_message));
         }
         if (!ValidationUtils.isEmpty(firstName) && !ValidationUtils.isEmpty(lastName)
-        &&!ValidationUtils.isEmpty(password) && (password.length() >= 8) &&!ValidationUtils.isEmpty(email)
-                &&!ValidationUtils.isEmpty(phone)){
+                && !ValidationUtils.isEmpty(password) && (password.length() >= 8) && !ValidationUtils.isEmpty(email)
+                && !ValidationUtils.isEmpty(phone) && ValidationUtils.isMail(email)) {
             checkPhoneAndMail();
-        }else {
+        } else {
             showAllErrors();
 
         }
@@ -124,29 +131,35 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void checkPhoneAndMail() {
         SharedUtils.getInstance().showProgressDialog(this);
-        registerViewModelLazy.getValue().checkMailAndPhone(email,phone).observe(this, loginRegisterResponseResponse -> {
+        registerViewModelLazy.getValue().checkMailAndPhone(email, phone).observe(this, loginRegisterResponseResponse -> {
             SharedUtils.getInstance().cancelDialog();
             if (loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE
-            || loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND){
+                    || loginRegisterResponseResponse.code() == ConfigurationFile.Constants.SUCCESS_CODE_SECOND) {
                 addDataToRegisterRequest();
                 openNextActivity();
-            }else {
-                Gson gson = new GsonBuilder().create();
-                ErrorResponse errorResponse = new ErrorResponse();
-
-                try {
-                    errorResponse = gson.fromJson(loginRegisterResponseResponse.errorBody().string(), ErrorResponse.class);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                String error = "";
-                for (String string : errorResponse.getErrors()) {
-                    error += string;
-                    error += "\n";
-                }
-                showSnackbar(error);
+            } else if (loginRegisterResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                logout();
+            } else {
+                showErrors(loginRegisterResponseResponse);
             }
         });
+    }
+
+    private void showErrors(Response<Void> loginRegisterResponseResponse) {
+        Gson gson = new GsonBuilder().create();
+        ErrorResponse errorResponse = new ErrorResponse();
+
+        try {
+            errorResponse = gson.fromJson(loginRegisterResponseResponse.errorBody().string(), ErrorResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String error = "";
+        for (String string : errorResponse.getErrors()) {
+            error += string;
+            error += "\n";
+        }
+        showSnackbar(error);
     }
 
     private RegisterRequest getCheckRequest() {
@@ -156,8 +169,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void openNextActivity() {
-        Intent intent=new Intent(RegisterActivity.this,RegisterActivity2.class);
-        intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA,registerRequest);
+        Intent intent = new Intent(RegisterActivity.this, RegisterActivity2.class);
+        intent.putExtra(ConfigurationFile.Constants.REGISTER1DATA, registerRequest);
         startActivity(intent);
         finish();
     }
@@ -171,36 +184,36 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void showAllErrors() {
-        if(ValidationUtils.isEmpty(firstName)){
+        if (ValidationUtils.isEmpty(firstName)) {
             showSnackbar(getString(R.string.enter_first_name_error_message));
             return;
         }
-        if (ValidationUtils.isEmpty(lastName)){
+        if (ValidationUtils.isEmpty(lastName)) {
             showSnackbar(getString(R.string.enter_last_name_error_message));
             return;
         }
-        if(ValidationUtils.isEmpty(email)){
+        if (ValidationUtils.isEmpty(email)) {
             showSnackbar(getString(R.string.enter_mail_error_message));
             return;
         }
-        if(ValidationUtils.isEmpty(password)){
+        if (ValidationUtils.isEmpty(password)) {
             showSnackbar(getString(R.string.enter_password_error_message));
             return;
         }
-        if (ValidationUtils.isEmpty(phone)){
+        if (ValidationUtils.isEmpty(phone)) {
             showSnackbar(getString(R.string.enter_phone_error_message));
             return;
         }
-        if(!ValidationUtils.isMail(email)){
+        if (!ValidationUtils.isMail(email)) {
             showSnackbar(getString(R.string.invalid_mail_error_message));
             return;
         }
-        if(password.length()<8){
+        if (password.length() < 8) {
             showSnackbar(getString(R.string.password_length_message_error));
         }
     }
 
-    public void showSnackbar(String message){
-        Snackbar.make(binding.getRoot(),message,Snackbar.LENGTH_LONG).show();
+    public void showSnackbar(String message) {
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG).show();
     }
 }

@@ -1,3 +1,4 @@
 
-Osquid:S16022",Remove useless curly braces around statement(ìšªÎúÿÿÿÿ8ÍÍÊÌ›-
-qsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(§ÍÈ›ûÿÿÿÿ8ñË¿Ì›-
+Hsquid:S16021",Remove useless curly braces around statement(ìšªÎúÿÿÿÿ
+ksquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(ÊÅÿúÿÿÿÿ
+Vsquid:S1068"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8î—û¤-

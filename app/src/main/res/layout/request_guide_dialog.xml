@@ -1,103 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottom_sheet"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dp288h"
-    android:layout_gravity="bottom"
-    android:backgroundTint="@android:color/white"
-    android:background="@drawable/dialog_top_corner"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="@dimen/dp54h"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textView25"
+    <!--<androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp12h"
-        android:gravity="center"
-        android:text="@string/search_for_requests"
-        android:textColor="@color/text_color_black"
-        android:textSize="@dimen/sp19"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">-->
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="@string/choose_country_city"
-        android:textColor="@color/text_color_black"
-        android:textSize="@dimen/sp15_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        <!---->
+    <!--app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"-->
 
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/sp_country"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp31w"
-        android:layout_marginStart="@dimen/dp29h"
-        android:layout_marginTop="@dimen/dp16h"
-        android:layout_marginEnd="@dimen/dp29h"
-        android:background="@drawable/spinner_bg_colored"
-        android:dropDownSelector="@drawable/drop_down_arrow"
-        android:prompt="@string/country"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp258w"
+            android:layout_gravity="bottom"
+            android:background="@drawable/dialog_top_corner"
+            android:backgroundTint="@android:color/white"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="@dimen/dp54h"
+            >
 
-    <EditText
-        android:id="@+id/et_dialog_from"
-        style="@style/EditText"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp31w"
-        android:layout_marginStart="@dimen/dp29h"
-        android:layout_marginTop="@dimen/dp17h"
-        android:layout_marginEnd="@dimen/dp29h"
-        android:background="@drawable/edit_text_border"
-        android:drawableEnd="@drawable/ic_calendar_pic"
-        android:focusable="false"
-        android:hint="From"
-        android:paddingEnd="@dimen/dp18h"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_country" />
+            <!--<TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp12h"
+                android:gravity="center"
+                android:text="@string/search_for_requests"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/sp19"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />-->
 
-    <EditText
-        android:id="@+id/et_dialog_to"
-        style="@style/EditText"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp31w"
-        android:layout_marginStart="@dimen/dp29h"
-        android:layout_marginTop="@dimen/dp17h"
-        android:layout_marginEnd="@dimen/dp29h"
-        android:background="@drawable/edit_text_border"
-        android:drawableEnd="@drawable/ic_calendar_pic"
-        android:focusable="false"
-        android:hint="To"
-        android:paddingEnd="@dimen/dp18h"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dialog_from" />
+            <Button
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40w"
+                android:background="@drawable/dialog_top_corner"
+                android:backgroundTint="@android:color/white"
+                android:text="@string/search_for_requests"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/sp18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/bt_search_for_requests"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp14w"
-        android:text="@string/search_for_requests"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/sp18"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dialog_to" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp8w"
+                android:gravity="center"
+                android:text="@string/choose_country_city"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/sp15_5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/sp_country_request"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp31w"
+                android:layout_marginStart="@dimen/dp29h"
+                android:layout_marginTop="@dimen/dp16h"
+                android:layout_marginEnd="@dimen/dp29h"
+                android:background="@drawable/spinner_bg_colored"
+                android:dropDownSelector="@drawable/drop_down_arrow"
+                android:popupBackground="@drawable/edit_text_shape"
+                android:prompt="@string/country"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+            <EditText
+                android:id="@+id/et_dialog_from"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp31w"
+                android:layout_marginStart="@dimen/dp29h"
+                android:layout_marginTop="@dimen/dp17h"
+                android:layout_marginEnd="@dimen/dp29h"
+                android:background="@drawable/edit_text_border"
+                android:drawableEnd="@drawable/ic_calendar_pic"
+                android:focusable="false"
+                android:hint="@string/from"
+                android:paddingEnd="@dimen/dp18h"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sp_country_request" />
+
+            <EditText
+                android:id="@+id/et_dialog_to"
+                style="@style/EditText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp31w"
+                android:layout_marginStart="@dimen/dp29h"
+                android:layout_marginTop="@dimen/dp17h"
+                android:layout_marginEnd="@dimen/dp29h"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/edit_text_border"
+                android:drawableEnd="@drawable/ic_calendar_pic"
+                android:focusable="false"
+                android:hint="@string/to"
+                android:paddingEnd="@dimen/dp18h"
+                app:layout_constraintBottom_toTopOf="@+id/bt_search_for_requests"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_dialog_from" />
+
+            <Button
+                android:id="@+id/bt_search_for_requests"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp36h"
+                android:background="@color/directions_color"
+                android:text="@string/search_for_requests"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+</layout>

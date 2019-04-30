@@ -10,7 +10,7 @@ import android.view.View;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegister5Binding;
 
-public class RegisterActivity5 extends AppCompatActivity {
+public class RegisterActivity5 extends BaseActivity {
     ActivityRegister5Binding binding;
 
     @Override

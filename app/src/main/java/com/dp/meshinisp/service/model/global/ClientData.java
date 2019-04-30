@@ -28,7 +28,7 @@ public class ClientData {
     private boolean activated;
 
     @SerializedName("status")
-    private int status;
+    private boolean status;
 
     @SerializedName("profile_picture")
     private String profilePictureUrl;
@@ -108,11 +108,11 @@ public class ClientData {
         this.activated = activated;
     }
 
-    public int getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

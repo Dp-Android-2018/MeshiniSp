@@ -7,6 +7,7 @@ import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityResetPasswordBinding;
 import com.dp.meshinisp.service.model.request.ActivationRequest;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.viewmodel.ResetPasswordViewModel;
@@ -19,10 +20,11 @@ import kotlin.Lazy;
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 
-public class ResetPasswordActivity extends AppCompatActivity {
+public class ResetPasswordActivity extends BaseActivity {
 
     ActivityResetPasswordBinding binding;
     Lazy<ResetPasswordViewModel> resetPasswordViewModelLazy = inject(ResetPasswordViewModel.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
                         showSnackBar("Success");
                         openNextActivity();
+                    } else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                        logout();
                     } else {
                         showSnackBar("error code :" + activationResponseResponse.code());
                     }

@@ -28,6 +28,7 @@ public class OffersRecyclerViewAdapter extends RecyclerView.Adapter<OffersViewHo
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
+
     @NonNull
     @Override
     public OffersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

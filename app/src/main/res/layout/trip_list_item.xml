@@ -6,7 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp264h"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp8w"
         android:background="@drawable/trip_list_item_background"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp8w"
             android:layout_marginBottom="@dimen/dp16w"
-            android:text="Egypt"
+            tools:text="Egypt"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp15"
             app:layout_constraintBottom_toBottomOf="@+id/iv_offer"
@@ -55,58 +55,70 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp4h"
-            android:text="20/2/2019"
+            tools:text="20/2/2019"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/sp15"
             app:layout_constraintBottom_toBottomOf="@+id/tv_trip_date_tv"
             app:layout_constraintStart_toEndOf="@+id/tv_trip_date_tv"
             app:layout_constraintTop_toTopOf="@+id/tv_trip_date_tv" />
 
-        <TextView
-            android:id="@+id/tv_guide_name_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp4w"
-            android:text="@string/guide_name"
-            android:textColor="@color/text_color_black"
-            android:textSize="@dimen/sp15"
-            app:layout_constraintStart_toStartOf="@+id/tv_trip_date_tv"
-            app:layout_constraintTop_toBottomOf="@+id/tv_trip_date_tv" />
-
-        <TextView
-            android:id="@+id/tv_guide_name"
+        <LinearLayout
+            android:id="@+id/tv_guide_name_tv_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp4h"
-            android:layout_marginEnd="@dimen/dp14w"
-            android:text="Ahmed khairallh"
-            android:textColor="@color/text_color_black"
-            android:textSize="@dimen/sp15"
-
-            app:layout_constraintBottom_toBottomOf="@+id/tv_guide_name_tv"
+            android:layout_marginEnd="@dimen/dp7w"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_guide_name_tv"
-            app:layout_constraintTop_toTopOf="@+id/tv_guide_name_tv" />
+            app:layout_constraintStart_toStartOf="@+id/tv_trip_date_tv"
+            app:layout_constraintTop_toBottomOf="@+id/tv_trip_date_tv">
+
+            <TextView
+                android:id="@+id/tv_guide_name_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/guide_name"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/sp15" />
+
+            <TextView
+                android:id="@+id/tv_guide_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textAlignment="viewStart"
+                tools:text="Ahmed khairallh"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/sp15" />
+
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_cash_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp7w"
             android:layout_marginEnd="@dimen/dp9h"
             android:layout_marginBottom="@dimen/dp10h"
-            android:text="1500EGP"
+            tools:text="1500EGP"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/sp15"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp7w"
+            android:layout_marginEnd="@dimen/dp10h"
             android:text="@string/cash"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/sp15"
-            app:layout_constraintBottom_toTopOf="@+id/tv_cash_amount"
-            app:layout_constraintEnd_toEndOf="@+id/tv_cash_amount" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_guide_name_tv_layout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
