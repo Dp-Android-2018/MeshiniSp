@@ -31,6 +31,7 @@ import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
 import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseDataBase;
+import com.dp.meshinisp.view.ui.callback.ActiveTripCallback;
 import com.dp.meshinisp.view.ui.fragment.MainFragment;
 import com.dp.meshinisp.view.ui.fragment.StartTripFragment;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
@@ -95,14 +96,17 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
 
     private void checkForActiveTrip() {
         FirebaseDataBase firebaseDataBase = new FirebaseDataBase();
-        firebaseDataBase.setUserId(customUtilsLazy.getValue().getSavedMemberData().getUserId(), activeTrip -> {
-            if (activeTrip) {
-                firebaseDataBase.setActiveTripDataCallback(activeTripFirebase -> {
-                    if (activeTripFirebase != null) {
-                        binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
-                        binding.navigationView.tvNavItem7.setOnClickListener(v -> openActiveTrip(activeTripFirebase));
-                    }
-                });
+        firebaseDataBase.setUserId(customUtilsLazy.getValue().getSavedMemberData().getUserId(), new ActiveTripCallback() {
+            @Override
+            public void hasActiveTrip(boolean activeTrip) {
+                if (activeTrip) {
+                    firebaseDataBase.setActiveTripDataCallback(activeTripFirebase -> {
+                        if (activeTripFirebase != null) {
+                            binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
+                            binding.navigationView.tvNavItem7.setOnClickListener(v -> MainActivity.this.openActiveTrip(activeTripFirebase));
+                        }
+                    });
+                }
             }
         });
     }

@@ -28,7 +28,6 @@ public class FirebaseDataBase {
                 if (dataSnapshot.child(String.valueOf(userId)).getValue() != null) {
                     activeTripCallback.hasActiveTrip(true);
                     activeTripFirebase = dataSnapshot.child(String.valueOf(userId)).getValue(ActiveTripFirebase.class);
-                    System.out.println("reques id  : " + activeTripFirebase.getRequest_id());
                     if(activeTripDataCallback!=null) {
                         activeTripDataCallback.ActiveTripData(activeTripFirebase);
                     }
@@ -46,7 +45,7 @@ public class FirebaseDataBase {
     public void setUserId(int userId, ActiveTripCallback activeTripCallback) {
         this.userId = userId;
         this.activeTripCallback = activeTripCallback;
-        System.out.println("user id in firebase : " + userId);
+//        System.out.println("user id in firebase : " + userId);
     }
 
     public void setActiveTripDataCallback(ActiveTripDataCallback activeTripDataCallback) {

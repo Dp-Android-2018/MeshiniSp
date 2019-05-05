@@ -73,6 +73,10 @@ public class ConfigurationFile {
         public static final String BRACKET_BEFORE = "(";
         public static final String BRACKET_AFTER = ")";
         public static final String PERCENT = "%";
+
+        public static final String USER_ID = "User Id";
+        public static final String USER_DATA = "User data";
+        public static final String TRIP_ID = "trip Id";
         public static final String ORDER_TYPE = "order type";
         public static final String OTHERS_TYPE = "others type";
         public static final String EMPLOYMENT_TYPE = "employment type";

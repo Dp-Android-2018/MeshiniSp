@@ -19,7 +19,9 @@ import androidx.databinding.DataBindingUtil;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRequestDetailsBinding;
+import com.dp.meshinisp.service.model.global.Message;
 import com.dp.meshinisp.service.model.global.RequestDetailsModel;
+import com.dp.meshinisp.service.model.global.ServiceProviderData;
 import com.dp.meshinisp.service.model.global.StartTripResponseModel;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
@@ -29,13 +31,17 @@ import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
+import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseToken;
 import com.dp.meshinisp.viewmodel.RequestDetailsViewModel;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import kotlin.Lazy;
@@ -54,6 +60,8 @@ public class RequestDetailsActivity extends BaseActivity {
     Lazy<RequestDetailsViewModel> requestDetailsViewModelLazy = inject(RequestDetailsViewModel.class);
     private final int CALL_REQUEST = 100;
     private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
+    private DatabaseReference reference;
+    private String deviceToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +70,7 @@ public class RequestDetailsActivity extends BaseActivity {
         requestType = getIntent().getStringExtra(ConfigurationFile.Constants.REQUEST_Type);
         requestId = getIntent().getIntExtra(ConfigurationFile.Constants.REQUEST_ID, 0);
         ConfigurationFile.Constants.AUTHORIZATION = customUtilsLazy.getValue().getSavedMemberData().getApiToken();
+        FirebaseToken.getInstance().getFirebaseToken().observe(this, s -> deviceToken = s);
         checkRequestType(requestType);
         setupToolbar();
         initializeViewModel();
@@ -270,9 +279,30 @@ public class RequestDetailsActivity extends BaseActivity {
 
     private void makeActionOnBtnStartChat() {
         binding.btStartChat.setOnClickListener(v -> {
-            Intent intent = new Intent(RequestDetailsActivity.this, ChatActivity.class);
-            startActivity(intent);
+            addServiceProviderToFirebase();
         });
+    }
+
+    public void addServiceProviderToFirebase() {
+        reference = FirebaseDatabase.getInstance().getReference("serviceProviders/"
+                + customUtilsLazy.getValue().getSavedMemberData().getUserId() + "/conversations");
+        String chatPath = "Meshini" + customUtilsLazy.getValue().getSavedMemberData().getUserId() + "-" + data.getClient().getId() + "-" + data.getId();
+        final ServiceProviderData serviceProviderData = new ServiceProviderData(chatPath, customUtilsLazy.getValue().getSavedMemberData().getFirstName(), deviceToken);
+
+        reference.child("user-" + data.getClient().getId()).setValue(serviceProviderData).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                openChatActivity();
+            } else {
+                showSnackbar("Firebase error !!");
+            }
+        });
+    }
+
+    private void openChatActivity() {
+        Intent intent = new Intent(RequestDetailsActivity.this, ChatActivity.class);
+        intent.putExtra(ConfigurationFile.Constants.USER_DATA, new Gson().toJson(data.getClient()));
+        intent.putExtra(ConfigurationFile.Constants.TRIP_ID, data.getId());
+        startActivity(intent);
     }
 
     private void makeActionOnBtnCall() {

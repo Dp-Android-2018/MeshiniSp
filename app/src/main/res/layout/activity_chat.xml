@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,9 +41,11 @@
             android:textColor="@android:color/black"
             android:textSize="17.7sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chat_toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/chat_toolbar"
+            />
 
         <View
             android:id="@+id/view2"
@@ -58,30 +59,27 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_chat_title" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView4"
+            android:id="@+id/iv_user"
             android:layout_width="@dimen/dp27h"
             android:layout_height="@dimen/dp27h"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="@dimen/dp7w"
             android:src="@drawable/im_man"
-            app:layout_constraintEnd_toStartOf="@+id/textView28"
-            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp4h"
             android:text="@string/mohammed_saeed"
             android:textColor="@color/text_color_black"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/circleImageView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView4"
-            app:layout_constraintTop_toTopOf="@+id/circleImageView4" />
+            app:layout_constraintBottom_toBottomOf="@+id/iv_user"
+            app:layout_constraintStart_toEndOf="@+id/iv_user"
+            app:layout_constraintTop_toTopOf="@+id/iv_user" />
 
         <View
             android:id="@+id/view8"
@@ -92,30 +90,35 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/circleImageView4" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_user" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
+            android:id="@+id/rv_messages"
+            android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/dp7w"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toTopOf="@+id/view9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view8" />
+            app:layout_constraintTop_toBottomOf="@+id/view8"
+            tools:listitem="@layout/item_list_chat"/>
 
-        <View
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/view9"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp50h"
+            android:layout_marginBottom="4dp"
             android:background="@color/text_color_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/et_message"
             android:layout_width="@dimen/dp271w"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp9h"
             android:layout_marginTop="@dimen/dp9h"
             android:layout_marginBottom="@dimen/dp9h"
@@ -123,6 +126,8 @@
             android:hint="@string/type_your_message"
             android:paddingStart="@dimen/dp9h"
             android:paddingEnd="@dimen/dp4h"
+            android:maxLines="5"
+            android:minHeight="@dimen/dp36h"
             android:textColor="@color/text_color_black"
             android:textColorHint="@color/text_color_black"
             android:textSize="13sp"
@@ -131,15 +136,16 @@
             app:layout_constraintTop_toTopOf="@+id/view9" />
 
         <ImageView
+            android:id="@+id/iv_send_message"
             android:layout_width="@dimen/dp31w"
             android:layout_height="@dimen/dp31h"
             android:layout_marginEnd="@dimen/dp4h"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_paper_plane"
-            app:layout_constraintBottom_toBottomOf="@+id/editText5"
+            app:layout_constraintBottom_toBottomOf="@+id/et_message"
             app:layout_constraintEnd_toEndOf="@+id/view9"
-            app:layout_constraintStart_toEndOf="@+id/editText5"
-            app:layout_constraintTop_toTopOf="@+id/editText5" />
+            app:layout_constraintStart_toEndOf="@+id/et_message"
+            app:layout_constraintTop_toTopOf="@+id/et_message" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

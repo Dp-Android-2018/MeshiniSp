@@ -3,6 +3,9 @@ package com.dp.meshinisp.service.model.global;
 import com.google.gson.annotations.SerializedName;
 
 public class RequestClientModel {
+    @SerializedName("id")
+    private int id;
+
     @SerializedName("trips_count")
     private int tripsCount;
 
@@ -67,5 +70,13 @@ public class RequestClientModel {
 
     public void setClientName(String clientName) {
         this.clientName = clientName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

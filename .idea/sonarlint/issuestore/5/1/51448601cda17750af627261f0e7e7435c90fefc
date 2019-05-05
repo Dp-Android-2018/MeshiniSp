@@ -1,9 +1,6 @@
 
-Rsquid:S2696)"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ
-Gsquid:S11722"+Remove this unused method parameter "view".(ËŠİşÿÿÿÿ
-8squid:S1643g"Use a StringBuilder instead.(äìüÆùÿÿÿÿ
-Hsquid:S1612P",Replace this lambda with a method reference.(†Òúˆûÿÿÿÿ
-ksquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(¾–¥¢üÿÿÿÿ
-8squid:S1643f"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
-?squid:S1148b"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 ]squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8È˜•û¤-
+8squid:S1643g"Use a StringBuilder instead.(äìüÆùÿÿÿÿ
+8squid:S1643f"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+Hsquid:S1612P",Replace this lambda with a method reference.(†Òúˆûÿÿÿÿ
+?squid:S1148b"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

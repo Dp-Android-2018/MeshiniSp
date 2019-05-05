@@ -156,4 +156,5 @@
     <string name="operation_completed">Operation completed.</string>
     <string name="finish_trip">Finish</string>
     <string name="select_languages_you_speak">Select languages you speak</string>
+    <string name="there_are_many_variations_of_passages_of_lorem_ipsum_available_but_the_majority_have_suffered_alteration_in_some_form_by_injected">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected</string>
 </resources>

@@ -1,0 +1,28 @@
+
+nsquid:CommentedOutCodeLineQ"<This block of commented-out lines of code should be removed.(«¦±©øÿÿÿÿ8ð š“¨-
+isquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(Ä†ÓÍ8–Òæ“¨-
+Isquid:S10688"+Remove this unused "history" private field.(ÑÛ8Œ†á•¨-
+hsquid:CommentedOutCodeLineX"<This block of commented-out lines of code should be removed.(é¹ÐM8 €à•¨-
+jsquid:CommentedOutCodeLineŠ"<This block of commented-out lines of code should be removed.(óÏŸ†8ôøä“¨-
+jsquid:CommentedOutCodeLine‘"<This block of commented-out lines of code should be removed.(Ÿ¶ØÕ8ØØ˜“¨-
+vsquid:UselessImportCheck"LRemove this unused import 'com.google.firebase.database.ChildEventListener'.(§ÞÔ.8ºáÛ•¨-
+isquid:UselessImportCheck">Remove this unused import 'android.service.autofill.UserData'.(Ö€‚Ž8Âª¥“¨-
+nsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(Ûºöùüÿÿÿÿ8»ÊÙ“¨-
+ˆ"squid:ClassVariableVisibilityCheck6"TMake messages a static final constant or non-public and provide accessors if needed.(ÍÕù78Ó”“¨-
+Osquid:S1068;",Remove this unused "activity" private field.(‰€Ôßûÿÿÿÿ8 ù—“¨-
+jsquid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(ß»ª‡8–Ûä“¨-
+jsquid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(†ìªÁ8È˜˜“¨-
+…squid:UselessImportCheck"ZRemove this unused import 'com.dp.meshinisp.utility.utils.firebase.classes.FirebaseToken'.(†‚©ã8Þ÷Ö“¨-
+Ksquid:S1068?"-Remove this unused "navigator" private field.(¿ž¬ð8ôøä“¨-
+nsquid:CommentedOutCodeLine_"<This block of commented-out lines of code should be removed.(àÿùÙýÿÿÿÿ8»®–“¨-
+jsquid:CommentedOutCodeLine–"<This block of commented-out lines of code should be removed.(Õà˜Û8 ù—“¨-
+Isquid:S1068<"+Remove this unused "checker" private field.(ºøýþ8Ó”“¨-
+|squid:S2293H"YReplace the type specification in this constructor call with the diamond operator ("<>").(½äÃÝùÿÿÿÿ8Ó”“¨-
+wsquid:UselessImportCheck"GRemove this unused import 'com.google.firebase.database.DatabaseError'.(ˆÔµýÿÿÿÿ8ºáÛ•¨-
+Rsquid:S1068>"/Remove this unused "deviceToken" private field.(ÞÇòŽýÿÿÿÿ8»ÊÙ“¨-
+Jsquid:S10685"-Remove this unused "reference" private field.(ëú¼8Œ†á•¨-
+Ysquid:UselessImportCheck%"/Remove this unused import 'java.sql.Timestamp'.(èò½+8Œ†á•¨-
+ˆ"squid:ClassVariableVisibilityCheck7"SMake message a static final constant or non-public and provide accessors if needed.(‰‘“Ý8±¼ü’¨-
+isquid:CommentedOutCodeLine@"<This block of commented-out lines of code should be removed.(²‡©ñ8‚çæ“¨-
+qsquid:UselessImportCheck"FRemove this unused import 'com.google.firebase.database.DataSnapshot'.(þÇŒ„8ºáÛ•¨-
+usquid:UselessImportCheck"JRemove this unused import 'com.google.firebase.database.FirebaseDatabase'.(×Ë—8ºáÛ•¨-

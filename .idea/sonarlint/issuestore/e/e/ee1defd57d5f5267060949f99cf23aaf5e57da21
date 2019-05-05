@@ -1,7 +1,5 @@
 
-fsquid:MaximumInheritanceDepth "=This class has 10 parents which is greater than 5 authorized.(şàÈí
-Fsquid:S1148i"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ÙŸÒ¤-
-8squid:S1643m"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
 ?squid:S1643n"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¸ÙŸÒ¤-
 jsquid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(ê®¢8¸ÙŸÒ¤-
-Ysquid:S2696w"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8¸ÙŸÒ¤-
+8squid:S1643m"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+Fsquid:S1148i"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ÙŸÒ¤-
