@@ -24,5 +24,6 @@
     <color name="directions_color">#4D4D4D</color>
     <color name="start_trip_color">#3FB9B9</color>
     <color name="done_trip_color">#27AE60</color>
+    <color name="financial_border_color">#A3A4A4</color>
 
 </resources>

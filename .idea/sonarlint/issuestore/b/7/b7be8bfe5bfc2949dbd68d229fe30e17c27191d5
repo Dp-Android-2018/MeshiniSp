@@ -1,8 +1,2 @@
 
-Š"squid:ClassVariableVisibilityCheck"PMake toID a static final constant or non-public and provide accessors if needed.(íá‚úşÿÿÿÿ8½ë‚“¨-
-Š"squid:ClassVariableVisibilityCheck"PMake type a static final constant or non-public and provide accessors if needed.(ÙşÓ¼ûÿÿÿÿ8½ë‚“¨-
-Œ"squid:ClassVariableVisibilityCheck"RMake isRead a static final constant or non-public and provide accessors if needed.(ß¥è²ûÿÿÿÿ8½ë‚“¨-
-‡"squid:ClassVariableVisibilityCheck"RMake fromID a static final constant or non-public and provide accessors if needed.(š¿Ü©8½ë‚“¨-
-ˆ"squid:ClassVariableVisibilityCheck"SMake content a static final constant or non-public and provide accessors if needed.(­ÁÅ’8½ë‚“¨-
-"squid:ClassVariableVisibilityCheck	"UMake timestamp a static final constant or non-public and provide accessors if needed.(£ú£ıÿÿÿÿ8½ë‚“¨-
 Msquid:EmptyStatementUsageCheck"Remove this empty statement.(ş¢‘¸8½ë‚“¨-

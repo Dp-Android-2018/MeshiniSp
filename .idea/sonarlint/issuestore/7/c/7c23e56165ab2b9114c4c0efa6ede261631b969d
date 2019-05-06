@@ -1,15 +1,22 @@
 
-gsquid:UnusedPrivateMethodÅ"5Remove this unused private "showNotification" method.(²•¢ñÿÿÿÿÿ8ËÂÌ¤-
-Ysquid:UselessImportCheck,".Remove this unused import 'java.util.Objects'.(¼¸õ›8‚ú„û¤-
-isquid:CommentedOutCodeLine¶"<This block of commented-out lines of code should be removed.(Šı˜8§¤¹Ë¤-
-fsquid:UnusedPrivateMethod¢"9Remove this unused private "openSelectedFragment" method.(ÛË¹ 8§¤¹Ë¤-
-Jsquid:S1444E",Make this "public static drawer" field final(Œ÷›á8Ç”ü ¤-
-jsquid:CommentedOutCodeLine»"<This block of commented-out lines of code should be removed.(²ˆ¢Î8ËÂÌ¤-
-@squid:S1643¨"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8á„Ûû¤-
-¥squid:S1186ã"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŞÔí±øÿÿÿÿ8á„Ûû¤-
-Usquid:S2696Ê"6Make the enclosing method "static" or remove this set.(Ú£Œû8á„Ûû¤-
-Gsquid:S1148£"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8á„Ûû¤-
-@squid:S1643§"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8©Í†û¤-
-ssquid:S1450L"URemove the "dialog" field and declare it as a local variable in the relevant methods.(Û¿ÜÃ8Ç”ü ¤-
-‡squid:S1450F"dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8Ç”ü ¤-
-‡"squid:ClassVariableVisibilityCheckE"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8Ç”ü ¤-
+¥squid:S1186ç"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŞÔí±øÿÿÿÿ8á„Ûû¤-
+Ysquid:UselessImportCheck-".Remove this unused import 'java.util.Objects'.(¼¸õ›8‚ú„û¤-
+vsquid:S2177 "WRename this method; there is a "private" method in the parent class with the same name.(Ò­®®8è—é»¨-
+Jsquid:S1905ò"+Remove this unnecessary cast to "TextView".(ÖŒÎ8è—é»¨-
+{squid:S2177±"WRename this method; there is a "private" method in the parent class with the same name.(È˜ƒùÿÿÿÿ8è—é»¨-
+ssquid:S1450M"URemove the "dialog" field and declare it as a local variable in the relevant methods.(Û¿ÜÃ8Ç”ü ¤-
+@squid:S1643«"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8©Í†û¤-
+‡"squid:ClassVariableVisibilityCheckF"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8Ç”ü ¤-
+Jsquid:S1444F",Make this "public static drawer" field final(Œ÷›á8Ç”ü ¤-
+csquid:S2387E"E"mainActivityViewModelLazy" is the name of a field in "BaseActivity".(Æèóï8è—é»¨-
+gsquid:UnusedPrivateMethodÉ"5Remove this unused private "showNotification" method.(²•¢ñÿÿÿÿÿ8ËÂÌ¤-
+@squid:S1643¬"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8á„Ûû¤-
+Gsquid:S1148§"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8á„Ûû¤-
+msquid:MaximumInheritanceDepthB"=This class has 10 parents which is greater than 5 authorized.(Šƒê²8è—é»¨-
+fsquid:UnusedPrivateMethod¦"9Remove this unused private "openSelectedFragment" method.(ÛË¹ 8§¤¹Ë¤-
+isquid:CommentedOutCodeLineº"<This block of commented-out lines of code should be removed.(Šı˜8§¤¹Ë¤-
+Jsquid:S1905ó"+Remove this unnecessary cast to "TextView".(ê™Ú‰8è—é»¨-
+Osquid:S1905ô"+Remove this unnecessary cast to "TextView".(µ…Â°ûÿÿÿÿ8è—é»¨-
+‡squid:S1450G"dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8Ç”ü ¤-
+Usquid:S2696Î"6Make the enclosing method "static" or remove this set.(Ú£Œû8á„Ûû¤-
+jsquid:CommentedOutCodeLine¿"<This block of commented-out lines of code should be removed.(²ˆ¢Î8ËÂÌ¤-

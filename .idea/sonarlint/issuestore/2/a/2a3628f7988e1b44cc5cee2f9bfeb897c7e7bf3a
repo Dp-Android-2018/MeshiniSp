@@ -1,24 +1,24 @@
 
-lsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(µò†8²öÁÒ¤-
-ssquid:S3008""PRename this field "TOKEN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ÍîÜøÿÿÿÿ8²öÁÒ¤-
-isquid:S1192*"FDefine a constant instead of duplicating this literal "title" 4 times.(îÃŒÌüÿÿÿÿ8²öÁÒ¤-
-Usquid:S1068"7Remove this unused "notificationManager" private field.(£Ë˜8²öÁÒ¤-
-~squid:UselessImportCheck"SRemove this unused import 'com.dp.meshinisp.view.ui.activity.SplashScreenActivity'.(¾Æ‹ð8ÂÞÓ¤-
-[
-squid:S106-"9Replace this use of System.out or System.err by a logger.(¡òõ÷ûÿÿÿÿ8²öÁÒ¤-
 Jsquid:S1068"'Remove this unused "TAG" private field.(£§§Žþÿÿÿÿ8²öÁÒ¤-
 V
 squid:S106)"9Replace this use of System.out or System.err by a logger.(¥Ê“í8²öÁÒ¤-
-[
-squid:S106*"9Replace this use of System.out or System.err by a logger.(îÃŒÌüÿÿÿÿ8²öÁÒ¤-
-\"squid:SwitchLastCaseIsDefaultCheck/""Add a default case to this switch.(‘½Ýšúÿÿÿÿ8²öÁÒ¤-
-Rsquid:S1066,"/Merge this if statement with the enclosing one.(—Óï•úÿÿÿÿ8²öÁÒ¤-
-qsquid:S3008"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£§§Žþÿÿÿÿ8²öÁÒ¤-
-psquid:HiddenFieldChecki"GRename "notificationManager" which hides the field declared at line 31.(øÔª8îÝ¿Õ¤-
-Nsquid:S1444""+Make this "public static TOKEN" field final(÷ÍîÜøÿÿÿÿ8²öÁÒ¤-
-‹"squid:ClassVariableVisibilityCheck""QMake TOKEN a static final constant or non-public and provide accessors if needed.(÷ÍîÜøÿÿÿÿ8²öÁÒ¤-
-rsquid:S00100["NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÇ¸òýÿÿÿÿ8îÝ¿Õ¤-
 V
 squid:S106("9Replace this use of System.out or System.err by a logger.(©ôÂ8ÚöÏ¤-
 [
+squid:S106-"9Replace this use of System.out or System.err by a logger.(¡òõ÷ûÿÿÿÿ8²öÁÒ¤-
+[
+squid:S106*"9Replace this use of System.out or System.err by a logger.(îÃŒÌüÿÿÿÿ8²öÁÒ¤-
+~squid:UselessImportCheck"SRemove this unused import 'com.dp.meshinisp.view.ui.activity.SplashScreenActivity'.(¾Æ‹ð8ÂÞÓ¤-
+isquid:S1192*"FDefine a constant instead of duplicating this literal "title" 4 times.(îÃŒÌüÿÿÿÿ8²öÁÒ¤-
+psquid:HiddenFieldChecki"GRename "notificationManager" which hides the field declared at line 31.(øÔª8îÝ¿Õ¤-
+‹"squid:ClassVariableVisibilityCheck""QMake TOKEN a static final constant or non-public and provide accessors if needed.(÷ÍîÜøÿÿÿÿ8²öÁÒ¤-
+rsquid:S00100["NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÇ¸òýÿÿÿÿ8îÝ¿Õ¤-
+Rsquid:S1066,"/Merge this if statement with the enclosing one.(—Óï•úÿÿÿÿ8²öÁÒ¤-
+ssquid:S3008""PRename this field "TOKEN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ÍîÜøÿÿÿÿ8²öÁÒ¤-
+Usquid:S1068"7Remove this unused "notificationManager" private field.(£Ë˜8²öÁÒ¤-
+Nsquid:S1444""+Make this "public static TOKEN" field final(÷ÍîÜøÿÿÿÿ8²öÁÒ¤-
+\"squid:SwitchLastCaseIsDefaultCheck/""Add a default case to this switch.(‘½Ýšúÿÿÿÿ8²öÁÒ¤-
+qsquid:S3008"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£§§Žþÿÿÿÿ8²öÁÒ¤-
+[
 squid:S106o"9Replace this use of System.out or System.err by a logger.(¯±ò¸ûÿÿÿÿ8îÝ¿Õ¤-
+lsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(µò†8²öÁÒ¤-

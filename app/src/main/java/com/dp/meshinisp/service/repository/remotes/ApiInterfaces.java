@@ -3,6 +3,7 @@ package com.dp.meshinisp.service.repository.remotes;
 import com.dp.meshinisp.service.model.request.ActivationRequest;
 import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
 import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
+import com.dp.meshinisp.service.model.request.FinancialRequest;
 import com.dp.meshinisp.service.model.request.LoginRequest;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
@@ -12,6 +13,7 @@ import com.dp.meshinisp.service.model.request.StartDestinationRequest;
 import com.dp.meshinisp.service.model.response.ActivationResponse;
 import com.dp.meshinisp.service.model.response.ActiveTripResponse;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
+import com.dp.meshinisp.service.model.response.FinancialResponse;
 import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.service.model.response.LoginResponse;
 import com.dp.meshinisp.service.model.response.MessageResponse;
@@ -143,5 +145,8 @@ public interface ApiInterfaces {
     @POST("/api/service-provider/logout")
     Observable<Response<Void>> logout();
 
+    //Get profile data (and revenue data) (service provider)
+    @GET("/api/service-provider/profile")
+    Observable<Response<FinancialResponse>> getFinancialData(@Query("start_date") String startDate, @Query("end_date") String endDate);
 
 }

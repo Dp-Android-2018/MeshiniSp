@@ -56,6 +56,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import androidx.lifecycle.Observer;
+
 import kotlin.Lazy;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
@@ -183,17 +184,15 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
     private void makeActionOnClickOnMenuItems() {
         binding.navigationView.tvNavItem1.setOnClickListener(v -> {
             MainActivity.drawer.closeDrawer(GravityCompat.START);
-//            openSelectedFragment(new TripsActivity());
             openActivity(TripsActivity.class);
         });
 
         binding.navigationView.tvNavItem2.setOnClickListener(v -> openActivity(OffersActivity.class));
-//        binding.navigationView.tvNavItem3.setOnClickListener(v -> showNotification());
 
         binding.navigationView.tvNavItem4.setOnClickListener(v -> showDialogToChangeLanguage());
         binding.navigationView.tvNavItem5.setOnClickListener(v -> openPlayStoreToRateApp());
         binding.navigationView.tvNavItem6.setOnClickListener(v -> logout());
-
+        binding.navigationView.tvNavItem8.setOnClickListener(v -> openActivity(FinancialActivity.class));
 
         binding.navigationView.navigationViewHeaderLayout.vAccount.setOnClickListener(v -> openActivity(AccountActivity.class));
     }
@@ -278,14 +277,14 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
                     logout();
                 } else {
                     if (voidResponse.errorBody() != null) {
-                        showStartTripErrorMessage(voidResponse.errorBody());
+                        showMainErrorMessage(voidResponse.errorBody());
                     }
                 }
             }
         });
     }
 
-    private void showStartTripErrorMessage(ResponseBody errorResponseBody) {
+    private void showMainErrorMessage(ResponseBody errorResponseBody) {
         Gson gson = new GsonBuilder().create();
         ErrorResponse errorResponse = new ErrorResponse();
 

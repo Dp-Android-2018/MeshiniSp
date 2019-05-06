@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.crashlytics.android.Crashlytics;
 import com.dp.meshinisp.application.MyApplication;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
@@ -17,18 +20,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 
-import androidx.lifecycle.Observer;
 import io.fabric.sdk.android.Fabric;
 import kotlin.Lazy;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -77,7 +75,7 @@ public class BaseActivity extends AppCompatActivity implements ConnectionReceive
         finish();
     }
 
-    private void showStartTripErrorMessage(ResponseBody errorResponseBody) {
+    public void showStartTripErrorMessage(ResponseBody errorResponseBody) {
         Gson gson = new GsonBuilder().create();
         ErrorResponse errorResponse = new ErrorResponse();
 

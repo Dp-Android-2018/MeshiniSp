@@ -1,14 +1,14 @@
 
-bsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(øúÿü
-?squid:S1643["Use a StringBuilder instead.(Íòàðüÿÿÿÿ8—ùËû¤-
-hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉþÿÿÿÿ8ØÀÊû¤-
-Zsquid:S2696†"6Make the enclosing method "static" or remove this set.(Íî½Ðûÿÿÿÿ8—ùËû¤-
 ?squid:S1643\"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8—ùËû¤-
-psquid:S00117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø™åÕ8—ùËû¤-
-psquid:S00117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ŒØ”8—ùËû¤-
-Fsquid:S1148W"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8—ùËû¤-
-jsquid:MaximumInheritanceDepth#"<This class has 9 parents which is greater than 5 authorized.(Ä©½ôûÿÿÿÿ
+?squid:S1643["Use a StringBuilder instead.(Íòàðüÿÿÿÿ8—ùËû¤-
+Zsquid:S2696†"6Make the enclosing method "static" or remove this set.(Íî½Ðûÿÿÿÿ8—ùËû¤-
+hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉþÿÿÿÿ8ØÀÊû¤-
 Usquid:S2696ƒ"6Make the enclosing method "static" or remove this set.(ô½ñ§8—ùËû¤-
+psquid:S00117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø™åÕ8—ùËû¤-
+Fsquid:S1148W"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8—ùËû¤-
 Usquid:S2696‰"6Make the enclosing method "static" or remove this set.(ŒÐ¼¯8—ùËû¤-
-Zsquid:UselessImportCheck"/Remove this unused import 'retrofit2.Response'.(¾éçï8ØÀÊû¤-
 Zsquid:S2696"6Make the enclosing method "static" or remove this set.(°äÈþþÿÿÿÿ8—ùËû¤-
+jsquid:MaximumInheritanceDepth#"<This class has 9 parents which is greater than 5 authorized.(Ä©½ôûÿÿÿÿ
+psquid:S00117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ŒØ”8—ùËû¤-
+bsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(øúÿü
+Zsquid:UselessImportCheck"/Remove this unused import 'retrofit2.Response'.(¾éçï8ØÀÊû¤-

@@ -156,4 +156,10 @@
     <string name="operation_completed">تم الرفع.</string>
     <string name="finish_trip">إنهاء</string>
     <string name="select_languages_you_speak">حدد اللغات التي تتحدثها</string>
+    <string name="there_are_many_variations_of_passages_of_lorem_ipsum_available_but_the_majority_have_suffered_alteration_in_some_form_by_injected">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected</string>
+    <string name="financial">الأمور المالية</string>
+    <string name="no_of_complete_ntrips">عدد الرحلات المكتملة</string>
+    <string name="total_revenue">مجموع الإيرادات</string>
+    <string name="meshini_fees">رسوم مشيني</string>
+    <string name="total_profit">مجموع الأرباح</string>
 </resources>

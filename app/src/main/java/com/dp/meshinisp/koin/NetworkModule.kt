@@ -27,8 +27,8 @@ val NetworkModule = module {
 
 internal fun provideOkHttpClient(context: Context): OkHttpClient {
     val okHttpClient = OkHttpClient.Builder()
-    okHttpClient.connectTimeout(60, TimeUnit.SECONDS)
-            .readTimeout(60, TimeUnit.SECONDS)
+    okHttpClient.connectTimeout(120, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
     okHttpClient.addInterceptor {
         val original = it.request()
 
