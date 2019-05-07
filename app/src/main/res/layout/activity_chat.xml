@@ -109,7 +109,6 @@
             android:id="@+id/view9"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp50h"
-            android:layout_marginBottom="@dimen/dp4h"
             android:background="@color/text_color_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

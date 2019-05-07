@@ -9,18 +9,20 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dp.meshinisp.R;
-import com.dp.meshinisp.databinding.ItemListChatBinding;
+import com.dp.meshinisp.databinding.ItemListChatServisProviderBinding;
+import com.dp.meshinisp.databinding.ItemListChatUserBinding;
 import com.dp.meshinisp.service.model.global.Message;
-import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
 import com.dp.meshinisp.view.ui.viewholder.ChatViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.dp.meshinisp.utility.utils.ConfigurationFile.Constants.VIEW_TYPE_MESSAGE_RECEIVED;
+import static com.dp.meshinisp.utility.utils.ConfigurationFile.Constants.VIEW_TYPE_MESSAGE_SENT;
+
 
 public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatViewHolder> {
     private List<Message> data = new ArrayList<>();
-    private OnItemClickListener mListener;
     private int serviceProviderId;
     private int userId;
 
@@ -34,20 +36,37 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatViewHolder
         notifyDataSetChanged();
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        mListener = listener;
+    @Override
+    public int getItemViewType(int position) {
+        if (data.get(position).getFromID().equals("serviceProvider-" + serviceProviderId)) {
+            return VIEW_TYPE_MESSAGE_SENT;
+
+        } else {
+            return VIEW_TYPE_MESSAGE_RECEIVED;
+        }
     }
 
     @NonNull
     @Override
     public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemListChatBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_list_chat, parent, false);
-        return new ChatViewHolder(binding);
+        if (viewType == VIEW_TYPE_MESSAGE_SENT) {
+            ItemListChatServisProviderBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_list_chat_servis_provider, parent, false);
+            return new ChatViewHolder(binding);
+        } else if (viewType == VIEW_TYPE_MESSAGE_RECEIVED) {
+            ItemListChatUserBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_list_chat_user, parent, false);
+            return new ChatViewHolder(binding);
+        }
+        return null;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-        holder.bindClass(data.get(position), mListener, serviceProviderId, userId);
+        if (data.get(position).getFromID().equals("serviceProvider-" + serviceProviderId)) {
+            holder.bindServiceProvider(data.get(position), serviceProviderId, userId);
+        } else {
+            holder.bindUser(data.get(position), serviceProviderId, userId);
+        }
+
     }
 
     @Override

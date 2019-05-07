@@ -1,0 +1,6 @@
+
+fsquid:MaximumInheritanceDepth!"=This class has 10 parents which is greater than 5 authorized.(–¦¯Œ
+@squid:S1643‡"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8‡ßéç¨-
+@squid:S1643ˆ"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8‡ßéç¨-
+Gsquid:S1148ƒ"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8‡ßéç¨-
+psquid:S3776b"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ó×¨„8™ŠÞç¨-

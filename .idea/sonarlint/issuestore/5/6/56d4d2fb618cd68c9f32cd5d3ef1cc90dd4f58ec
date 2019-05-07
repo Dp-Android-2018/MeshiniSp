@@ -1,11 +1,12 @@
 
-isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
-Gsquid:S1148›"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï¶Õù¤-
-ƒsquid:UselessImportCheck"ZRemove this unused import 'com.dp.meshinisp.service.model.response.LoginRegisterResponse'.(¼‡àóşÿÿÿÿ
-Bsquid:S1172p"+Remove this unused method parameter "view".(…€¤
-asquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ
-fsquid:MaximumInheritanceDepth$"=This class has 10 parents which is greater than 5 authorized.(Íü½Ü
-@squid:S1643Ÿ"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ï¶Õù¤-
 asquid:UnusedPrivateMethod¥"4Remove this unused private "getCheckRequest" method.(Ú¤±ğ8ï©Óù¤-
+@squid:S1643Ÿ"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ï¶Õù¤-
+asquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ
 @squid:S1643 "Use a StringBuilder instead.(äìüÆùÿÿÿÿ8ï¶Õù¤-
 Vsquid:S1068)"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8§Ì—û¤-
+Bsquid:S1172p"+Remove this unused method parameter "view".(…€¤
+isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+fsquid:MaximumInheritanceDepth$"=This class has 10 parents which is greater than 5 authorized.(Íü½Ü
+ƒsquid:UselessImportCheck"ZRemove this unused import 'com.dp.meshinisp.service.model.response.LoginRegisterResponse'.(¼‡àóşÿÿÿÿ
+Gsquid:S1148›"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï¶Õù¤-
+vsquid:S2177Ø"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8›áá¨-

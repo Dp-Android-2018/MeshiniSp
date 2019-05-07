@@ -1,48 +1,48 @@
 
-Zsquid:S2696Ÿ"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8û¿ˆÐ£-
-`squid:HiddenFieldCheckª"6Rename "v" which hides the field declared at line 109.(™¯ï¼8Ø›àÐ£-
-ysquid:UselessImportCheck6"NRemove this unused import 'com.dp.meshinisp.view.ui.activity.AccountActivity'.(Ý¨šµ8îàÊú¤-
-Rsquid:S1068r"4Remove this unused "destinationsList" private field.(¢è¢‚8€—êô¤-
-Msquid:S1066ü"/Merge this if statement with the enclosing one.(ï¾²78Ê‰ŒÌ¤-
-jsquid:CommentedOutCodeLineí"<This block of commented-out lines of code should be removed.(Ñ•ƒ´8€—êô¤-
-Psquid:S1602¹",Remove useless curly braces around statement(òäöÑùÿÿÿÿ8¾Ìþ©¤-
- squid:S1186Ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(çÅðÙ8Ê‰ŒÌ¤-
-Gsquid:S1148Å"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ê‰ŒÌ¤-
-osquid:S00116|"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÝàÝ
-¥squid:S1186‡"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÚÁúÿÿÿÿ8Ç´õ¤-
-Qsquid:S1199´"-Extract this nested code block into a method.(ðË®Æÿÿÿÿÿ8 Š“ô¤-
-esquid:HiddenFieldCheck¹"6Rename "v" which hides the field declared at line 109.(òäöÑùÿÿÿÿ8Ø›àÐ£-
-Usquid:S1068y"9Remove this unused "markerWithDefaultIcon" private field.(Þ‘µ§øÿÿÿÿ
-osquid:CommentedOutCodeLineÐ"<This block of commented-out lines of code should be removed.(ô¸šàþÿÿÿÿ8€—êô¤-
-lsquid:S1450n"URemove the "dialog" field and declare it as a local variable in the relevant methods.(Û¿ÜÃ
-jsquid:UnusedPrivateMethod‡"8Remove this unused private "createSwipeMenuItem" method.(êÇíÅûÿÿÿÿ8ÛÃêõ¤-
-`squid:HiddenFieldCheck›"6Rename "v" which hides the field declared at line 109.(®øðé8ÛÃêõ¤-
- squid:S1186Œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÑÝ§¡8³»×õ¤-
 @squid:S1643ø"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8ÛÃêõ¤-
-qsquid:S3776­"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ýñÛ€8å×Ìú¤-
-jsquid:CommentedOutCodeLineß"<This block of commented-out lines of code should be removed.(™¦à‹8Ç„þõ¤-
-Bsquid:S1148Ü"#Use a logger to log this exception.(Ç’Çê8Ê‰ŒÌ¤-
 8squid:S1170|"!Make this final field static too.(íÝàÝ
-Lsquid:S1199°"-Extract this nested code block into a method.(¢Ò´¨8 Š“ô¤-
-vsquid:UselessImportCheck7"KRemove this unused import 'com.dp.meshinisp.view.ui.activity.BaseActivity'.(ÑÎ•õ8´æü¤-
-Lsquid:S1068x"5Remove this unused "markerWithIconCar" private field.(þ…Š²
-]"squid:SwitchLastCaseIsDefaultCheck«""Add a default case to this switch.(³ÒÂŒÿÿÿÿÿ8 Š“ô¤-
-esquid:HiddenFieldCheckƒ"6Rename "v" which hides the field declared at line 109.(»á±¨ûÿÿÿÿ8Ê‰ŒÌ¤-
-qsquid:S3776é"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(€Ø¾Œ8¦ÓÎú¤-
 |squid:S1450l"`Remove the "layoutBottomSheet" field and declare it as a local variable in the relevant methods.(©õÎºýÿÿÿÿ
-osquid:CommentedOutCodeLineÃ"<This block of commented-out lines of code should be removed.(ºÒ½Ýþÿÿÿÿ8Ê‰ŒÌ¤-
+¥squid:S1186‡"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ÚÁúÿÿÿÿ8Ç´õ¤-
+Lsquid:S1068x"5Remove this unused "markerWithIconCar" private field.(þ…Š²
  squid:S1186Ê"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÀÄÞ’8Ê‰ŒÌ¤-
-osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿†ïšýÿÿÿÿ8 Š“ô¤-
-Gsquid:S1148ó"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÛÃêõ¤-
+qsquid:S3776é"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(€Ø¾Œ8¦ÓÎú¤-
 vsquid:S3776à"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ô»øÿÿÿÿ8Ê‰ŒÌ¤-
-osquid:CommentedOutCodeLine–"<This block of commented-out lines of code should be removed.(Ìª˜™úÿÿÿÿ8„»¼ô¤-
- squid:S1186Ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÁïÕÒ8Ê‰ŒÌ¤-
-Csquid:S1068}"'Remove this unused "TAG" private field.(Ç“›Žøÿÿÿÿ
-jsquid:CommentedOutCodeLineÙ"<This block of commented-out lines of code should be removed.(—‹”…8Ê‰ŒÌ¤-
-¥squid:S1186Â"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ìó°þÿÿÿÿ8 Š“ô¤-
-`squid:HiddenFieldCheckˆ"6Rename "v" which hides the field declared at line 109.(íÞåÄ8Ê‰ŒÌ¤-
-Nsquid:S1066Î"/Merge this if statement with the enclosing one.(¥‰°ú8Ê‰ŒÌ¤-
-isquid:CommentedOutCodeLineÙ"<This block of commented-out lines of code should be removed.(þ“‡l8ÅðÌú¤-
-Qsquid:S1068†"9Remove this unused "comingLocationAddress" private field.( ›îø
-`squid:HiddenFieldCheck¼"6Rename "v" which hides the field declared at line 109.(žè¹¦8áúž©¤-
+ysquid:UselessImportCheck6"NRemove this unused import 'com.dp.meshinisp.view.ui.activity.AccountActivity'.(Ý¨šµ8îàÊú¤-
 @squid:S1643÷"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8…¯áõ¤-
+`squid:HiddenFieldCheckˆ"6Rename "v" which hides the field declared at line 109.(íÞåÄ8Ê‰ŒÌ¤-
+`squid:HiddenFieldCheck¼"6Rename "v" which hides the field declared at line 109.(žè¹¦8áúž©¤-
+esquid:HiddenFieldCheckƒ"6Rename "v" which hides the field declared at line 109.(»á±¨ûÿÿÿÿ8Ê‰ŒÌ¤-
+osquid:CommentedOutCodeLineÃ"<This block of commented-out lines of code should be removed.(ºÒ½Ýþÿÿÿÿ8Ê‰ŒÌ¤-
+vsquid:UselessImportCheck7"KRemove this unused import 'com.dp.meshinisp.view.ui.activity.BaseActivity'.(ÑÎ•õ8´æü¤-
+Psquid:S1602¹",Remove useless curly braces around statement(òäöÑùÿÿÿÿ8¾Ìþ©¤-
+Gsquid:S1148Å"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ê‰ŒÌ¤-
+Gsquid:S1148ó"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÛÃêõ¤-
+Nsquid:S1066Î"/Merge this if statement with the enclosing one.(¥‰°ú8Ê‰ŒÌ¤-
+osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿†ïšýÿÿÿÿ8 Š“ô¤-
+esquid:HiddenFieldCheck¹"6Rename "v" which hides the field declared at line 109.(òäöÑùÿÿÿÿ8Ø›àÐ£-
+Zsquid:S2696Ÿ"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8û¿ˆÐ£-
+ squid:S1186Œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÑÝ§¡8³»×õ¤-
+Qsquid:S1199´"-Extract this nested code block into a method.(ðË®Æÿÿÿÿÿ8 Š“ô¤-
+ squid:S1186Ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(çÅðÙ8Ê‰ŒÌ¤-
+¥squid:S1186Â"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ìó°þÿÿÿÿ8 Š“ô¤-
+Qsquid:S1068†"9Remove this unused "comingLocationAddress" private field.( ›îø
+jsquid:UnusedPrivateMethod‡"8Remove this unused private "createSwipeMenuItem" method.(êÇíÅûÿÿÿÿ8ÛÃêõ¤-
+osquid:CommentedOutCodeLineÐ"<This block of commented-out lines of code should be removed.(ô¸šàþÿÿÿÿ8€—êô¤-
+ squid:S1186Ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÁïÕÒ8Ê‰ŒÌ¤-
+jsquid:CommentedOutCodeLineß"<This block of commented-out lines of code should be removed.(™¦à‹8Ç„þõ¤-
+`squid:HiddenFieldCheckª"6Rename "v" which hides the field declared at line 109.(™¯ï¼8Ø›àÐ£-
+]"squid:SwitchLastCaseIsDefaultCheck«""Add a default case to this switch.(³ÒÂŒÿÿÿÿÿ8 Š“ô¤-
+lsquid:S1450n"URemove the "dialog" field and declare it as a local variable in the relevant methods.(Û¿ÜÃ
+isquid:CommentedOutCodeLineÙ"<This block of commented-out lines of code should be removed.(þ“‡l8ÅðÌú¤-
+jsquid:CommentedOutCodeLineí"<This block of commented-out lines of code should be removed.(Ñ•ƒ´8€—êô¤-
+Bsquid:S1148Ü"#Use a logger to log this exception.(Ç’Çê8Ê‰ŒÌ¤-
+Msquid:S1066ü"/Merge this if statement with the enclosing one.(ï¾²78Ê‰ŒÌ¤-
+osquid:CommentedOutCodeLine–"<This block of commented-out lines of code should be removed.(Ìª˜™úÿÿÿÿ8„»¼ô¤-
+osquid:S00116|"WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÝàÝ
+Csquid:S1068}"'Remove this unused "TAG" private field.(Ç“›Žøÿÿÿÿ
+Usquid:S1068y"9Remove this unused "markerWithDefaultIcon" private field.(Þ‘µ§øÿÿÿÿ
+Lsquid:S1199°"-Extract this nested code block into a method.(¢Ò´¨8 Š“ô¤-
+jsquid:CommentedOutCodeLineÙ"<This block of commented-out lines of code should be removed.(—‹”…8Ê‰ŒÌ¤-
+qsquid:S3776­"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ýñÛ€8å×Ìú¤-
+`squid:HiddenFieldCheck›"6Rename "v" which hides the field declared at line 109.(®øðé8ÛÃêõ¤-
+Rsquid:S1068r"4Remove this unused "destinationsList" private field.(¢è¢‚8€—êô¤-

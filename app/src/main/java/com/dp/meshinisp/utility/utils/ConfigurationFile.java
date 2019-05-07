@@ -77,6 +77,8 @@ public class ConfigurationFile {
         public static final String USER_ID = "User Id";
         public static final String USER_DATA = "User data";
         public static final String TRIP_ID = "trip Id";
+        public static final int VIEW_TYPE_MESSAGE_SENT=1;
+        public static final int VIEW_TYPE_MESSAGE_RECEIVED=2;
         public static final String ORDER_TYPE = "order type";
         public static final String OTHERS_TYPE = "others type";
         public static final String EMPLOYMENT_TYPE = "employment type";

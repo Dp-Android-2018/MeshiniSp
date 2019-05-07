@@ -1,2 +1,4 @@
 
 isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£ξ
+Isquid:S1172+"+Remove this unused method parameter "view".(χ®†8Υ‘βα¨-
+msquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(Ρ‰ƒΰ8Υ‘βα¨-

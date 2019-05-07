@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableField;
@@ -19,26 +18,21 @@ import com.dp.meshinisp.service.model.global.ConversationHistory;
 import com.dp.meshinisp.service.model.global.LastMessage;
 import com.dp.meshinisp.service.model.global.Message;
 import com.dp.meshinisp.service.model.global.RequestClientModel;
-import com.dp.meshinisp.service.model.global.ServiceProviderData;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
-import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
 import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseToken;
 import com.dp.meshinisp.view.ui.adapter.ChatRecyclerViewAdapter;
-import com.dp.meshinisp.view.ui.adapter.OffersRecyclerViewAdapter;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import kotlin.Lazy;
