@@ -34,9 +34,7 @@ public class DateTimePicker {
         mTimePicker = new TimePickerDialog(context, (view, hourOfDay, minute1) -> {
             selectedTime = ((hourOfDay < 10 ? "0" + hourOfDay : String.valueOf(hourOfDay)) + ":" +
                     (minute1 < 10 ? "0" + minute1 : minute1) + ":00");
-//            onDateTimeSelected.onDateTimeReady(selectedDate,selectedTime);
         }, hour, minute, true);
-        //mTimePicker.setTitle(context.getString(R.string.select_time));
         mTimePicker.show();
     }
 
@@ -51,10 +49,8 @@ public class DateTimePicker {
         mDatePicker = new DatePickerDialog(context, (view, year1, month1, dayOfMonth) -> {
             selectedDate = String.valueOf(year1) + "-" + ((month1 + 1) < 10 ? "0" + (month1 + 1) : month1) + "-" + (dayOfMonth < 10 ? "0" + dayOfMonth : dayOfMonth);
             onDateTimeSelected.onDateReady(selectedDate);
-            //listener.onDateSet(selectedDate);
 //            showTimePickerDialog();
         }, year, month, mCuurDate.get(Calendar.DATE));
-        //mDatePicker.setTitle(context.getString(R.string.select_date));
         mDatePicker.show();
     }
 }

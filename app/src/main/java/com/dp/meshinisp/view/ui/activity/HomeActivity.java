@@ -20,13 +20,10 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_home);
 
-        binding.ivGetStartedArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(HomeActivity.this,LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        binding.ivGetStartedArrow.setOnClickListener(v -> {
+            Intent intent=new Intent(HomeActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
 
     }

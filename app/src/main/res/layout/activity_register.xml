@@ -141,22 +141,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sp_city" />
 
-                <!-- <Button
-                    android:id="@+id/bt_sign_up"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp55h"
-                    android:layout_marginTop="32dp"
-                    android:background="@color/sky_color"
-                    android:onClick="getDataFromView"
-                    android:text="@string/next"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/sp14_5"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_phone" />-->
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

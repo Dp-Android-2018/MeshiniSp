@@ -18,14 +18,6 @@ public class CustomUtils {
         prefrenceUtils.getValue().saveObjectToSharedPreferences(ConfigurationFile.SharedPrefConstants.SHARED_PREF_NAME, data);
     }
 
-    /*public void saveMobileUserDataToPrefs(SignUpRequest data) {
-        prefrenceUtils.saveObjectToSharedPreferences(ConfigurationFile.SharedPrefConstants.NewDataToSave, data);
-    }
-
-    public SignUpRequest getSaveMobileUserDataToPrefs() {
-        return (SignUpRequest) prefrenceUtils.getSavedObject(ConfigurationFile.SharedPrefConstants.NewDataToSave, SignUpRequest.class);
-    }*/
-
     public void saveActivationTypeToPrefs(String objName, boolean objValue){
         prefrenceUtils.getValue().saveMemberTypeSharedPreferences(objName,objValue);
     }

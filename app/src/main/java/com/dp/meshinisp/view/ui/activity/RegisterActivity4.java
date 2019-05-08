@@ -45,16 +45,12 @@ public class RegisterActivity4 extends BaseActivity {
     ActivityRegister4Binding binding;
     Lazy<Register1ViewModel> registerViewModelLazy = inject(Register1ViewModel.class);
     Lazy<RegisterRequest> registerRequestLazy = inject(RegisterRequest.class);
-    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
     RegisterRequest register1Request;
     private Uri filePath;
-    private ProgressDialog progressDialog;
     private StorageReference storageRef;
     private StorageReference riversRef;
-    private UploadTask uploadTask;
     Bitmap bitmap;
     private boolean photoUploaded;
-    private boolean tabSelected;
     private URL uploadedFileUrl;
     private String deviceToken;
 
@@ -193,7 +189,6 @@ public class RegisterActivity4 extends BaseActivity {
                     binding.progressBar.setProgress((int) progress);
                     binding.tvProgressNumber.setText((int) progress + ConfigurationFile.Constants.PERCENT);
                     if (progress == 100) {
-                        // Set a message of completion
                         binding.tvProgressNumber.setText(getResources().getString(R.string.operation_completed));
                     }
                 });

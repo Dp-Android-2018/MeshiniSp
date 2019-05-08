@@ -8,41 +8,32 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 
+import androidx.core.app.NotificationCompat;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.service.model.global.LoginResponseModel;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.view.ui.activity.MainActivity;
 import com.dp.meshinisp.view.ui.activity.RequestDetailsActivity;
-import com.dp.meshinisp.view.ui.activity.SplashScreenActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import kotlin.Lazy;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 public class MessageReceiver extends FirebaseMessagingService {
-    private static String TAG = "Receiver :";
-    private NotificationManagerCompat notificationManager;
     public static final String CHANNEL_ID = "exampleChannel";
-
-    public static String TOKEN = null;
     private Intent intent;
-    Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
+    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        System.out.println("Notification Log Title:" + remoteMessage.getNotification().getTitle());
-        System.out.println("Notification Log Body:" + remoteMessage.getNotification().getBody());
-        System.out.println("Notification Log Data :" + remoteMessage.getData().get("title"));
         if (remoteMessage.getData() != null) {
             if (remoteMessage.getData().get("title") != null) {
-                System.out.println("title is : " + remoteMessage.getData().get("title"));
                 intent = new Intent();
                 switch (remoteMessage.getData().get("title")) {
                     case "account-approved":
@@ -108,7 +99,6 @@ public class MessageReceiver extends FirebaseMessagingService {
 
     @Override
     public void onNewToken(String token) {
-        System.out.println("Refreshed token: " + token);
     }
 
 

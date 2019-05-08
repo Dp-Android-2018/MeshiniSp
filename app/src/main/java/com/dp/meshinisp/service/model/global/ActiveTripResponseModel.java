@@ -3,7 +3,6 @@ package com.dp.meshinisp.service.model.global;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.android.gms.common.api.Api;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

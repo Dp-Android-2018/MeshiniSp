@@ -1,7 +1,5 @@
 package com.dp.meshinisp.view.ui.activity;
 
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -12,9 +10,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegister2Binding;
-import com.dp.meshinisp.databinding.ItemDestinationRvLayoutBinding;
 import com.dp.meshinisp.databinding.LanguageSpinnerListItemBinding;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
@@ -25,15 +29,12 @@ import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.DestinationAdapter;
 import com.dp.meshinisp.view.ui.adapter.LanguageRecyclerViewAdapter;
 import com.dp.meshinisp.view.ui.adapter.SpinnerAdapter;
-import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
 import com.dp.meshinisp.view.ui.callback.OnLanguageItemClickListener;
-import com.dp.meshinisp.viewmodel.Register2ViewModel;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -42,13 +43,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
@@ -56,19 +50,15 @@ import static org.koin.java.standalone.KoinJavaComponent.inject;
 public class RegisterActivity2 extends BaseActivity {
 
     ActivityRegister2Binding binding;
-    Lazy<Register2ViewModel> registerViewModelLazy = inject(Register2ViewModel.class);
     private Lazy<Register2Repository> registerRepositoryLazy = inject(Register2Repository.class);
     Lazy<RegisterRequest> registerRequestLazy = inject(RegisterRequest.class);
     RegisterRequest register1Request;
-    //    RegisterRequest register2Request;
     SpinnerAdapter languageSpinnerAdapter;
 
     private static final int PICK_IMAGE_REQUEST = 234;
     private Uri filePath;
-    private ProgressDialog progressDialog;
     private StorageReference storageRef;
     private StorageReference riversRef;
-    private UploadTask uploadTask;
     Bitmap bitmap;
     private boolean photoUploaded;
     private boolean selectLanguage;
@@ -108,22 +98,17 @@ public class RegisterActivity2 extends BaseActivity {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
-//                        binding.btDirections.setVisibility(View.VISIBLE);
                         break;
 
                     case BottomSheetBehavior.STATE_EXPANDED: {
-//                        binding.btDirections.setVisibility(View.INVISIBLE);
                     }
                     break;
                     case BottomSheetBehavior.STATE_COLLAPSED: {
-//                        binding.btDirections.setVisibility(View.VISIBLE);
                     }
                     break;
                     case BottomSheetBehavior.STATE_DRAGGING:
-//                        binding.btDirections.setVisibility(View.INVISIBLE);
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
-//                        binding.btDirections.setVisibility(View.INVISIBLE);
                         break;
                 }
             }
@@ -143,7 +128,6 @@ public class RegisterActivity2 extends BaseActivity {
 
     private void initializeRecyclerView(View rootView) {
         RecyclerView destinationsRecyclerView = rootView.findViewById(R.id.rv_language);
-//        System.out.println("languages : "+allLanguages.get(0).getName());
         if (!allLanguages.isEmpty()) {
             languageRecyclerViewAdapter = new LanguageRecyclerViewAdapter(allLanguages);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(rootView.getContext(), RecyclerView.VERTICAL, false);
@@ -151,7 +135,6 @@ public class RegisterActivity2 extends BaseActivity {
             destinationsRecyclerView.setAdapter(languageRecyclerViewAdapter);
             makeActionOnClickOnRecyclerViewItem();
         } else {
-            System.out.println("language error ");
         }
     }
 
@@ -160,7 +143,6 @@ public class RegisterActivity2 extends BaseActivity {
             @Override
             public void onCheckboxChecked(int position, LanguageSpinnerListItemBinding convertView) {
                 selectLanguages.add(allLanguages.get(position).getId());
-                System.out.println("this language checked : " + allLanguages.get(position).getName());
             }
 
             @Override
@@ -168,27 +150,19 @@ public class RegisterActivity2 extends BaseActivity {
                 for (int i = 0; i < selectLanguages.size(); i++) {
                     if (selectLanguages.get(i) == allLanguages.get(position).getId()) {
                         selectLanguages.remove(i);
-                        System.out.println("this language unckecked : " + allLanguages.get(position).getName());
                     }
                 }
-                /*if (selectLanguages.contains(allLanguages.get(position).getId())) {
-                    selectLanguages.remove(allLanguages.get(position).getId());
-                    System.out.println("this language unckecked : " + allLanguages.get(position).getName());
-                }*/
             }
         });
     }
 
     private void getLanguages() {
         SharedUtils.getInstance().showProgressDialog(this);
-        registerRepositoryLazy.getValue().getLanguages().observeForever(new Observer<List<CountryCityResponseModel>>() {
-            @Override
-            public void onChanged(List<CountryCityResponseModel> places) {
-                SharedUtils.getInstance().cancelDialog();
-                allLanguages = places;
-                initizeShowStateDialog();
-                setLanguageSpinner();
-            }
+        registerRepositoryLazy.getValue().getLanguages().observeForever(places -> {
+            SharedUtils.getInstance().cancelDialog();
+            allLanguages = places;
+            initizeShowStateDialog();
+            setLanguageSpinner();
         });
 
     }
@@ -200,9 +174,6 @@ public class RegisterActivity2 extends BaseActivity {
             languageIds = selectLanguages;
             register1Request.setLanguageIds(languageIds);
             if (filePath != null && !languageIds.isEmpty()) {
-                /*for (int i = 0; i < languageIds.size(); i++) {
-                    System.out.println("places : " + i + " : " + languageIds.get(i));
-                }*/
                 uploadFile();
 
             } else {
@@ -226,75 +197,8 @@ public class RegisterActivity2 extends BaseActivity {
     }
 
     public void setLanguageSpinner() {
-        binding.tvAddAnotherLanguage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
-        });
-        /*destinationAdapter = new DestinationAdapter();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        binding.rvSpLanguage.setLayoutManager(linearLayoutManager);
-        binding.rvSpLanguage.setAdapter(destinationAdapter);*/
-
+        binding.tvAddAnotherLanguage.setOnClickListener(v -> sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED));
     }
-
-    private void makeActonOnSelectLanguage() {
-        /* binding.spLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    CountryCityResponseModel selectedLanguage = (CountryCityResponseModel) parent.getItemAtPosition(position);
-                    selectedLanguageId = selectedLanguage.getId();
-                    if (languageIds.isEmpty()){
-                        languageIds.add(selectedLanguageId);
-                    }else {
-                        for (int i=0;i<languageIds.size();i++){
-                            if (!languageIds.get(i).equals(selectedLanguageId)) {
-                                languageIds.add(selectedLanguageId);
-                            }
-                        }
-                    }
-
-                    if (!languageIds.isEmpty()) {
-                        register1Request.setLanguageIds(languageIds);
-                        selectLanguage=true;
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    showSnackbar(getString(R.string.please_choose_languages));
-                }
-            });*/
-    }
-
-
-    /*public void addAnotherLanguage(View view) {
-        System.out.println("destinationAdapter.getSelectedPlaces().size() :"+destinationAdapter.getSelectedPlaces().size());
-        System.out.println("destinationAdapter.getAllPlaces().size()"+destinationAdapter.getAllPlaces().size());
-
-        if ( destinationAdapter.getAllPlaces().size() != 1 ) {
-            destinationAdapter.incrementRecyclerViewSize();
-            destinationAdapter.notifyDataSetChanged();
-        }else {
-            showSnackbar("There is no other languages to add :(");
-        }
-        *//*if (!languageIds.isEmpty()){
-            System.out.println("languageId : "+languageIds.get(0));
-            languageIds.remove(selectedLanguageId);
-            addLanguageSpinner();
-        }*//*
-    }*/
-
-   /* private void addLanguageSpinner() {
-        LinearLayout linearLayout = findViewById(R.id.main_container);
-        childLayout.setTag(linearLayout.getChildCount() + 1); // set some Id
-        linearLayout.addView(childLayout); // Adding for first time
-        for(int i=0; i<5; i++) {
-            childLayout.setTag(linearLayout.getChildCount() + 1);
-            linearLayout.addView(childLayout); //child_layout is your row layout design
-        }
-    }*/
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
@@ -345,7 +249,6 @@ public class RegisterActivity2 extends BaseActivity {
         if (ValidationUtils.isConnectingToInternet(this)) {
             if (filePath != null) {
                 storageRef = FirebaseStorage.getInstance().getReference();
-//                initializeProgressDialog();
                 putFileToStorageReference();
             } else {
                 Snackbar.make(binding.getRoot(), "There is no pictures!!", Snackbar.LENGTH_SHORT).show();
@@ -370,42 +273,20 @@ public class RegisterActivity2 extends BaseActivity {
                             e.printStackTrace();
                         }
                     });
-//                    progressDialog.dismiss();
-//                    Snackbar.make(binding.getRoot(), "Uploaded Successfully", Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(exception -> {
-//                    progressDialog.dismiss();
                     Snackbar.make(binding.getRoot(), exception.getMessage(), Snackbar.LENGTH_SHORT).show();
                 })
                 .addOnProgressListener(taskSnapshot -> {
                     double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-//                    progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
                     binding.progressBar.setVisibility(View.VISIBLE);
                     binding.tvProgressNumber.setVisibility(View.VISIBLE);
                     binding.progressBar.setProgress((int) progress);
                     binding.tvProgressNumber.setText((int) progress + ConfigurationFile.Constants.PERCENT);
                     if (progress == 100) {
-                        // Set a message of completion
                         binding.tvProgressNumber.setText(getResources().getString(R.string.operation_completed));
                     }
                 });
-    }
-
-    private void initializeProgressDialog() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading");
-        progressDialog.setCancelable(false);
-        progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", (dialog, which) -> {
-            if (riversRef != null) {
-                uploadTask = riversRef.getActiveUploadTasks().get(0);
-                if (uploadTask != null) {
-                    uploadTask.cancel();
-                    progressDialog.dismiss();
-                    Snackbar.make(binding.getRoot(), "Upload cancelled sussessfully :(", Snackbar.LENGTH_SHORT).show();
-                }
-            }
-        });
-        progressDialog.show();
     }
 
     private void openNextActivity() {

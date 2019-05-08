@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:layout_width="57dp"
+        android:layout_width="@dimen/dp51w"
         android:layout_height="0dp"
         android:background="@color/start_trip_color"
         android:drawableBottom="@drawable/ic_drop_down_arrow_start"

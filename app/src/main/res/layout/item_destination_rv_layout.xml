@@ -41,7 +41,7 @@
             android:background="@color/start_trip_color"
             android:drawableBottom="@drawable/ic_drop_down_arrow_start"
             android:text="@string/start"
-            android:padding="8dp"
+            android:padding="@dimen/dp7w"
             android:textAllCaps="false"
             app:layout_constraintBottom_toTopOf="@+id/view5"
             app:layout_constraintEnd_toEndOf="parent"

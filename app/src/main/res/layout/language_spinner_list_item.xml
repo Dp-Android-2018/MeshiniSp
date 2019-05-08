@@ -39,7 +39,7 @@
         android:id="@+id/view10"
         android:layout_width="0dp"
         android:layout_height="@dimen/dp1h"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/dp7w"
         android:background="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

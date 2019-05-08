@@ -1,12 +1,11 @@
 package com.dp.meshinisp.utility.utils.firebase.classes;
 
-import com.dp.meshinisp.utility.utils.SharedUtils;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
-
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 public class FirebaseToken {
 
@@ -27,12 +26,9 @@ public class FirebaseToken {
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener((Task<InstanceIdResult> task) -> {
                     if (!task.isSuccessful()) {
-                        System.out.println("device Token 1: Failed");
                         return;
                     }
-                    // Get new Instance ID token
                     deviceToken.setValue(task.getResult().getToken());
-                    System.out.println("device Token 1:" + deviceToken.getValue());
                 });
         return deviceToken;
     }

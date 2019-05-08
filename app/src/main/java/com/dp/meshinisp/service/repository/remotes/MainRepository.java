@@ -1,16 +1,15 @@
 package com.dp.meshinisp.service.repository.remotes;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
-import com.dp.meshinisp.service.model.request.StartDestinationRequest;
 import com.dp.meshinisp.service.model.response.ActiveTripResponse;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
 import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
 
 import java.util.List;
-
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

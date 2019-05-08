@@ -16,34 +16,6 @@ import android.widget.ImageView;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
-import com.dp.meshinisp.R;
-import com.dp.meshinisp.databinding.ActivityMainBinding;
-import com.dp.meshinisp.service.model.global.ActiveTripResponseModel;
-import com.dp.meshinisp.service.model.global.RequestDetailsModel;
-import com.dp.meshinisp.service.model.global.StartTripResponseModel;
-import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
-import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.utility.utils.ConfigurationFile;
-import com.dp.meshinisp.utility.utils.CustomUtils;
-import com.dp.meshinisp.utility.utils.firebase.classes.MessageReceiver;
-import com.dp.meshinisp.utility.utils.RequestBottomSheetDialog;
-import com.dp.meshinisp.utility.utils.SharedUtils;
-import com.dp.meshinisp.utility.utils.ValidationUtils;
-import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
-import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseDataBase;
-import com.dp.meshinisp.view.ui.callback.ActiveTripCallback;
-import com.dp.meshinisp.view.ui.fragment.MainFragment;
-import com.dp.meshinisp.view.ui.fragment.StartTripFragment;
-import com.dp.meshinisp.viewmodel.MainActivityViewModel;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Objects;
-
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -55,11 +27,34 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import androidx.lifecycle.Observer;
+import com.dp.meshinisp.R;
+import com.dp.meshinisp.databinding.ActivityMainBinding;
+import com.dp.meshinisp.service.model.global.ActiveTripResponseModel;
+import com.dp.meshinisp.service.model.global.RequestDetailsModel;
+import com.dp.meshinisp.service.model.global.StartTripResponseModel;
+import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
+import com.dp.meshinisp.service.model.response.ErrorResponse;
+import com.dp.meshinisp.utility.utils.ConfigurationFile;
+import com.dp.meshinisp.utility.utils.CustomUtils;
+import com.dp.meshinisp.utility.utils.RequestBottomSheetDialog;
+import com.dp.meshinisp.utility.utils.SharedUtils;
+import com.dp.meshinisp.utility.utils.ValidationUtils;
+import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
+import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseDataBase;
+import com.dp.meshinisp.utility.utils.firebase.classes.MessageReceiver;
+import com.dp.meshinisp.view.ui.fragment.MainFragment;
+import com.dp.meshinisp.view.ui.fragment.StartTripFragment;
+import com.dp.meshinisp.viewmodel.MainActivityViewModel;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 import kotlin.Lazy;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 //implements AdvancedWebView.Listener
@@ -97,17 +92,14 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
 
     private void checkForActiveTrip() {
         FirebaseDataBase firebaseDataBase = new FirebaseDataBase();
-        firebaseDataBase.setUserId(customUtilsLazy.getValue().getSavedMemberData().getUserId(), new ActiveTripCallback() {
-            @Override
-            public void hasActiveTrip(boolean activeTrip) {
-                if (activeTrip) {
-                    firebaseDataBase.setActiveTripDataCallback(activeTripFirebase -> {
-                        if (activeTripFirebase != null) {
-                            binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
-                            binding.navigationView.tvNavItem7.setOnClickListener(v -> MainActivity.this.openActiveTrip(activeTripFirebase));
-                        }
-                    });
-                }
+        firebaseDataBase.setUserId(customUtilsLazy.getValue().getSavedMemberData().getUserId(), activeTrip -> {
+            if (activeTrip) {
+                firebaseDataBase.setActiveTripDataCallback(activeTripFirebase -> {
+                    if (activeTripFirebase != null) {
+                        binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
+                        binding.navigationView.tvNavItem7.setOnClickListener(v -> MainActivity.this.openActiveTrip(activeTripFirebase));
+                    }
+                });
             }
         });
     }
@@ -264,21 +256,18 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
 
     private void openAppAgain(String language) {
         SharedUtils.getInstance().showProgressDialog(this);
-        mainActivityViewModelLazy.getValue().changeLanguage(getChangeLanguageRequest(language)).observe(this, new Observer<Response<Void>>() {
-            @Override
-            public void onChanged(Response<Void> voidResponse) {
-                SharedUtils.getInstance().cancelDialog();
-                if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
-                    Intent intent = new Intent(MainActivity.this, SplashScreenActivity.class);
-                    startActivity(intent);
-                    finishAffinity();
-                } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
-                    logout();
-                } else {
-                    if (voidResponse.errorBody() != null) {
-                        showMainErrorMessage(voidResponse.errorBody());
-                    }
+        mainActivityViewModelLazy.getValue().changeLanguage(getChangeLanguageRequest(language)).observe(this, voidResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
+                Intent intent = new Intent(MainActivity.this, SplashScreenActivity.class);
+                startActivity(intent);
+                finishAffinity();
+            } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                logout();
+            } else {
+                if (voidResponse.errorBody() != null) {
+                    showMainErrorMessage(voidResponse.errorBody());
                 }
             }
         });

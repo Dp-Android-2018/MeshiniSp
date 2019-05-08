@@ -130,12 +130,6 @@ public class LoginActivity extends BaseActivity {
         loginRequest.setEmail(binding.etMail.getText().toString());
         loginRequest.setPassword(binding.etPassword.getText().toString());
         loginRequest.setDeviceToken(deviceToken);
-        /*SharedUtils.getInstance().showProgressDialog(this);
-        FirebaseToken.getInstance().getFirebaseToken().observe(this, s -> {
-            SharedUtils.getInstance().cancelDialog();
-            loginRequest.setDeviceToken(s);
-        });*/
-
         return loginRequest;
     }
 

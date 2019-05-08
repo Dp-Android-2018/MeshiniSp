@@ -1,10 +1,10 @@
 package com.dp.meshinisp.service.repository.remotes;
 
-import com.dp.meshinisp.service.model.response.OffersResponse;
-import com.dp.meshinisp.service.model.response.TripsResponse;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.dp.meshinisp.service.model.response.TripsResponse;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;

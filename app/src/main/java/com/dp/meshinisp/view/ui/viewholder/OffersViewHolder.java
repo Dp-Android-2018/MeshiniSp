@@ -1,17 +1,10 @@
 package com.dp.meshinisp.view.ui.viewholder;
 
-import android.content.Intent;
-import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dp.meshinisp.databinding.OfferListItemBinding;
 import com.dp.meshinisp.service.model.global.OffersResponseModel;
-import com.dp.meshinisp.utility.utils.ConfigurationFile;
-import com.dp.meshinisp.view.ui.activity.RequestDetailsActivity;
 import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
-
-import java.util.ArrayList;
-
-import androidx.recyclerview.widget.RecyclerView;
 
 
 public class OffersViewHolder extends RecyclerView.ViewHolder {

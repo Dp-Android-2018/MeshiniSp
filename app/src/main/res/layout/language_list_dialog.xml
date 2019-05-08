@@ -48,17 +48,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
-        <!-- <com.baoyz.swipemenulistview.SwipeMenuListView
-             android:id="@+id/rv_destinations"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:clipChildren="false"
-             android:clipToPadding="false"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/view5"
-             tools:listitem="@layout/item_list_destination" />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_language"
             android:layout_width="match_parent"

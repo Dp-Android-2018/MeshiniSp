@@ -99,7 +99,6 @@ public class BaseActivity extends AppCompatActivity implements ConnectionReceive
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
         if (!isConnected) {
-            //show a No Internet Alert or Dialog
             Intent I = new Intent(BaseActivity.this, NoInternetConnectionActivity.class);
             startActivity(I);
             finish();
@@ -110,14 +109,12 @@ public class BaseActivity extends AppCompatActivity implements ConnectionReceive
             startActivity(I);
             finish();
             finishAffinity();
-            // dismiss the dialog or refresh the activity
         }
     }
 
     @Override
     protected void attachBaseContext(Context newBase) {
         Locale newLocale = new Locale(getAppLang());
-        // .. create or get your new Locale object here.
 
         Context context = ContextWrapper.wrap(newBase, newLocale);
         super.attachBaseContext(context);

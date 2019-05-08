@@ -1,21 +1,13 @@
 package com.dp.meshinisp.view.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import kotlin.Lazy;
-import retrofit2.Response;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityTripsBinding;
@@ -23,7 +15,6 @@ import com.dp.meshinisp.service.model.global.TripsResponseModel;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.service.model.response.TripsResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
-import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.adapter.TripsRecyclerViewAdapter;
@@ -36,6 +27,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import kotlin.Lazy;
+import retrofit2.Response;
+
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 
@@ -43,8 +37,6 @@ public class TripsActivity extends BaseActivity {
 
     ActivityTripsBinding binding;
     private boolean requestType;
-    private int countryId;
-    private String startDate, endDate;
     LinearLayoutManager linearLayoutManager;
     private TripsRecyclerViewAdapter offersRecyclerViewAdapter;
     private int pageId = ConfigurationFile.Constants.DEFAULT_PAGE_ID;
@@ -54,7 +46,6 @@ public class TripsActivity extends BaseActivity {
     private boolean loading = true;
     private int position = 0;
     private Lazy<TripsActivityViewModel> tripsActivityViewModelLazy = inject(TripsActivityViewModel.class);
-    private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -223,8 +214,6 @@ public class TripsActivity extends BaseActivity {
     }
 
     private void setupToolbar() {
-//        binding.tripsToolbar.setNavigationIcon(R.drawable.ic_menu_black);
-//        binding.tripsToolbar.setNavigationOnClickListener(v -> MainActivity.drawer.openDrawer(GravityCompat.START));
         binding.tripsToolbar.setNavigationIcon(R.drawable.ic_chevron_left_black_24dp);
         binding.tripsToolbar.setNavigationOnClickListener(v -> onBackPressed());
     }

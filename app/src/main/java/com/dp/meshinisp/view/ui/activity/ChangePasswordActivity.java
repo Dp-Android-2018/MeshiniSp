@@ -56,20 +56,17 @@ public class ChangePasswordActivity extends BaseActivity {
     private void makeResetPassword() {
         if (ValidationUtils.isConnectingToInternet(this)) {
             SharedUtils.getInstance().showProgressDialog(this);
-            changePasswordViewModelLazy.getValue().resetPassword(getRequest(), activationToken).observe(this, new Observer<Response<ActivationResponse>>() {
-                @Override
-                public void onChanged(Response<ActivationResponse> activationResponseResponse) {
-                    if (activationResponseResponse != null) {
-                        SharedUtils.getInstance().cancelDialog();
-                        if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                                && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
-                            openNextActivity();
-                        }else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE){
-                            logout();
-                        }
-                        else {
-                            showSnackBar("error code :" + activationResponseResponse.code());
-                        }
+            changePasswordViewModelLazy.getValue().resetPassword(getRequest(), activationToken).observe(this, activationResponseResponse -> {
+                if (activationResponseResponse != null) {
+                    SharedUtils.getInstance().cancelDialog();
+                    if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                            && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
+                        openNextActivity();
+                    }else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE){
+                        logout();
+                    }
+                    else {
+                        showSnackBar("error code :" + activationResponseResponse.code());
                     }
                 }
             });

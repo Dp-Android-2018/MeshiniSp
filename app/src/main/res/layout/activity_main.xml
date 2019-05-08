@@ -32,11 +32,6 @@
             android:id="@+id/navigation_view"
             layout="@layout/navigation_view_layout" />
 
-        <!--<im.delight.android.webview.AdvancedWebView
-            android:id="@+id/webview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />-->
-
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

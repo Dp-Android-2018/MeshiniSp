@@ -52,9 +52,6 @@ public class OffersRecyclerViewAdapter extends RecyclerView.Adapter<OffersViewHo
 
     public void removeItem(int position) {
         requestsResponseModels.remove(position);
-        // notify the item removed by position
-        // to perform recycler view delete animations
-        // NOTE: don't call notifyDataSetChanged()
         notifyItemRemoved(position);
     }
 }

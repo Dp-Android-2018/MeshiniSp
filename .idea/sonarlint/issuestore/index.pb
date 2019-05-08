@@ -216,3 +216,7 @@ V
 &app/src/main/res/values-fr/strings.xml,e\d\ed82f87ac53e0b875f8d4d21980d2d99de5ad860
 ^
 .app/src/main/res/layout/activity_financial.xml,7\9\79c069d5f5d44a545e5e0b83ea1fbf365e693965
+j
+:app/src/main/res/layout/item_list_chat_servis_provider.xml,d\b\dbf4b4a395d649c5905fd308ae20f3494a878610
+_
+/app/src/main/res/layout/item_list_chat_user.xml,a\e\aeccb84ff6e1266e166dd3c5d53ffe5d2893d0ea

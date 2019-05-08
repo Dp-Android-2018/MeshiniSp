@@ -37,6 +37,7 @@ import java.net.URL;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+
 import kotlin.Lazy;
 import retrofit2.Response;
 
@@ -255,7 +256,8 @@ public class AccountActivity extends BaseActivity {
                     binding.progressBar.setVisibility(View.VISIBLE);
                     binding.tvProgressNumber.setVisibility(View.VISIBLE);
                     binding.progressBar.setProgress((int) progress);
-                    binding.tvProgressNumber.setText(progress + ConfigurationFile.Constants.PERCENT);
+                    String progressPercent = (int) progress + ConfigurationFile.Constants.PERCENT;
+                    binding.tvProgressNumber.setText(progressPercent);
                     if (progress == 100) {
                         // Set a message of completion
                         binding.tvProgressNumber.setText(getResources().getString(R.string.operation_completed));

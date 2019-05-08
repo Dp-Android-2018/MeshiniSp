@@ -5,6 +5,4 @@ import com.dp.meshinisp.databinding.LanguageSpinnerListItemBinding;
 public interface OnLanguageItemClickListener {
     void onCheckboxChecked(int position, LanguageSpinnerListItemBinding convertView);
     void onCheckboxUnChecked(int position, LanguageSpinnerListItemBinding convertView);
-
-//    void onDeleteClick(int position);
 }

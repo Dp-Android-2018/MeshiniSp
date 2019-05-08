@@ -2,6 +2,11 @@ package com.dp.meshinisp.view.ui.activity;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRequestsBinding;
 import com.dp.meshinisp.service.model.global.RequestsResponseModel;
@@ -17,11 +22,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
@@ -101,7 +101,6 @@ public class RequestsActivity extends BaseActivity {
     private void loadMoreData() {
         loading = false;
         position = totalItemCount;
-//        pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
         pageId++;
         SharedUtils.getInstance().showProgressDialog(this);
         requestsActivityViewModelLazy.getValue().searchForRequests(pageId, countryId, startDate, endDate);
@@ -124,7 +123,6 @@ public class RequestsActivity extends BaseActivity {
         loading = true;
         if (body.getPageLinks().getNextPageLink() != null) {
             next_page = body.getPageLinks().getNextPageLink();
-//            pageId = Integer.parseInt(next_page.substring(next_page.length() - 1));
         } else {
             next_page = null;
         }

@@ -38,8 +38,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
 
-        <!--style="@style/Base.Widget.AppCompat.RatingBar.Indicator"-->
-
         <EditText
             android:id="@+id/et_review_comment"
             style="@style/EditText"
@@ -85,22 +83,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_review_comment"
                 app:layout_constraintVertical_bias="1.0" />
-
-          <!--  <Button
-                android:id="@+id/bt_skip"
-                android:layout_width="@dimen/dp133h"
-                android:layout_height="@dimen/dp31w"
-                android:layout_marginStart="@dimen/dp18h"
-                android:layout_marginTop="@dimen/dp13h"
-                android:layout_marginBottom="@dimen/dp12h"
-                android:background="@drawable/btn_background_dark"
-                android:text="@string/skip"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_review_comment" />-->
 
         </LinearLayout>
 

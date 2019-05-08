@@ -18,13 +18,10 @@ public class RegisterActivity5 extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_register5);
 
-        binding.btDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(RegisterActivity5.this,LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        binding.btDone.setOnClickListener(v -> {
+            Intent intent=new Intent(RegisterActivity5.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }

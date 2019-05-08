@@ -68,22 +68,19 @@ public class ChangePasswordProfileActivity extends BaseActivity {
     }
 
     private void makeChangePasswordRequest() {
-        changePasswordProfileViewModelLazy.getValue().changePassword(getChangedPasswordRequest()).observe(this, new Observer<Response<MessageResponse>>() {
-            @Override
-            public void onChanged(Response<MessageResponse> offerResponseResponse) {
-                SharedUtils.getInstance().cancelDialog();
-                if (offerResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > offerResponseResponse.code()) {
-                    if (offerResponseResponse.body() != null) {
-                        showSnackbar(offerResponseResponse.body().getMessage());
-                    }
-                    new Handler().postDelayed(() -> onBackPressed(), ConfigurationFile.Constants.WAIT_VALUE);
-
-                } else if (offerResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
-                    logout();
-                } else {
-                    showErrorMessage(offerResponseResponse);
+        changePasswordProfileViewModelLazy.getValue().changePassword(getChangedPasswordRequest()).observe(this, offerResponseResponse -> {
+            SharedUtils.getInstance().cancelDialog();
+            if (offerResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > offerResponseResponse.code()) {
+                if (offerResponseResponse.body() != null) {
+                    showSnackbar(offerResponseResponse.body().getMessage());
                 }
+                new Handler().postDelayed(() -> onBackPressed(), ConfigurationFile.Constants.WAIT_VALUE);
+
+            } else if (offerResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                logout();
+            } else {
+                showErrorMessage(offerResponseResponse);
             }
         });
     }

@@ -3,10 +3,10 @@ package com.dp.meshinisp.view.ui.fragment;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -28,6 +28,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.akexorcist.googledirection.DirectionCallback;
 import com.akexorcist.googledirection.GoogleDirection;
 import com.akexorcist.googledirection.constant.AvoidType;
@@ -35,8 +47,6 @@ import com.akexorcist.googledirection.model.Direction;
 import com.akexorcist.googledirection.model.Leg;
 import com.akexorcist.googledirection.model.Route;
 import com.akexorcist.googledirection.util.DirectionConverter;
-import com.baoyz.swipemenulistview.SwipeMenu;
-import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityStartTripBinding;
 import com.dp.meshinisp.databinding.ItemDestinationRvLayoutBinding;
@@ -51,20 +61,20 @@ import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
-import com.dp.meshinisp.view.ui.activity.AccountActivity;
-import com.dp.meshinisp.view.ui.activity.BaseActivity;
 import com.dp.meshinisp.view.ui.activity.LoginActivity;
 import com.dp.meshinisp.view.ui.activity.MainActivity;
 import com.dp.meshinisp.view.ui.adapter.DestinationsRecyclerViewAdapter;
 import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
 import com.dp.meshinisp.viewmodel.StartTripViewModel;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -79,17 +89,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
 import ng.max.slideview.SlideView;
 import okhttp3.ResponseBody;
@@ -100,8 +99,8 @@ import static org.koin.java.standalone.KoinJavaComponent.inject;
 public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     ActivityStartTripBinding binding;
     private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
-    Lazy<StartTripViewModel> startTripViewModelLazy = inject(StartTripViewModel.class);
-    Lazy<MainActivityViewModel> mainActivityViewModelLazy = inject(MainActivityViewModel.class);
+    private Lazy<StartTripViewModel> startTripViewModelLazy = inject(StartTripViewModel.class);
+    private Lazy<MainActivityViewModel> mainActivityViewModelLazy = inject(MainActivityViewModel.class);
     private ActiveTripFirebase activeTripFirebase;
     private GoogleMap mMap;
     private BottomSheetBehavior sheetBehavior;
@@ -111,39 +110,37 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     private ArrayList<StartTripResponseModel> data;
     private RequestDetailsModel requestDetailsModel;
     private int requestId;
-    private ArrayList<String> destinationsList;
     private float ratingValue;
-    EditText reviewEditText;
-    RecyclerView destinationsRecyclerView;
-    DestinationsRecyclerViewAdapter destinationsRecyclerViewAdapter;
-    SwipeMenu menu;
-    private MarkerOptions markerWithIconCar;
-    private MarkerOptions markerWithDefaultIcon;
-
+    private EditText reviewEditText;
+    private RecyclerView destinationsRecyclerView;
+    private DestinationsRecyclerViewAdapter destinationsRecyclerViewAdapter;
     private ActiveTripResponseModel activeTripResponseModel;
     private final int CALL_REQUEST = 100;
-    private static final String TAG = "START";
-    SupportMapFragment mapFragment;
-    LocationManager locationManager;
+    private SupportMapFragment mapFragment;
+    private LocationManager locationManager;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
-    Marker marker1;
-    Marker marker2;
-    LocationListener locationListener;
-    LatLng pickupLocation;
-    LatLng comingLocation;
-    private String comingLocationAddress;
-    Polyline polyline;
+    private Marker marker1;
+    private Marker marker2;
+    private LocationListener locationListener;
+    private LatLng pickupLocation;
+    private Polyline polyline;
     private int firebaseNextDestinationId;
     private LatLng yourLocation;
+    private boolean mLocationPermissionGranted;
+    public Context activityContext;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.activityContext=context;
+    }
 
     public StartTripFragment() {
-        // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.activity_start_trip, container, false);
         return binding.getRoot();
     }
@@ -192,12 +189,6 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
                     }
                 }
         );
-       /* binding.ivZoomToMyLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMap.getUiSettings().setMyLocationButtonEnabled(true);
-            }
-        });*/
     }
 
     public void callPhoneNumber() {
@@ -214,7 +205,6 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
 
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + telephone.trim()));
-//            callIntent.setData(Uri.parse("tel:" + data.getClient().getPhone().trim()));
             startActivity(callIntent);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -249,7 +239,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(activityContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
             }
         }
@@ -262,7 +252,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
 
         }
         binding.ivBack.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), MainActivity.class);
+            Intent intent = new Intent(activityContext, MainActivity.class);
             startActivity(intent);
             getActivity().finish();
         });
@@ -291,58 +281,62 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     private void getAndDrawMyWay(LatLng nextLocation, String nextLocationTitle) {
         makeClickOnButtonDirections(nextLocation, nextLocationTitle);
         locationManager = (LocationManager) getActivity().getSystemService(LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(getContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]
-                            {Manifest.permission.ACCESS_FINE_LOCATION},
-                    REQUEST_LOCATION_PERMISSION);
-        }
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-                //get the location name from latitude and longitude
-                Geocoder geocoder = new Geocoder(getContext().getApplicationContext());
-                try {
-                    List<Address> addresses =
-                            geocoder.getFromLocation(latitude, longitude, 1);
-                    String result = addresses.get(0).getLocality() + ":";
-                    result += addresses.get(0).getCountryName();
-                    yourLocation = new LatLng(latitude, longitude);
-                    mMap.clear();
-                    if (marker1 != null) {
-                        marker1.remove();
-                        addMarker1ToMap(yourLocation, result, nextLocation, nextLocationTitle);
-                        marker1.setRotation(location.getBearing());
-                    } else {
-                        addMarker1ToMap(yourLocation, result, nextLocation, nextLocationTitle);
-                        marker1.setRotation(location.getBearing());
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            if (ActivityCompat.checkSelfPermission(activityContext,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]
+                                {Manifest.permission.ACCESS_FINE_LOCATION},
+                        REQUEST_LOCATION_PERMISSION);
+            }
+            locationListener = new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    double latitude = location.getLatitude();
+                    double longitude = location.getLongitude();
+                    //get the location name from latitude and longitude
+                    Geocoder geocoder = new Geocoder(activityContext);
+                    try {
+                        List<Address> addresses =
+                                geocoder.getFromLocation(latitude, longitude, 1);
+                        String result = addresses.get(0).getLocality() + ":";
+                        result += addresses.get(0).getCountryName();
+                        yourLocation = new LatLng(latitude, longitude);
+                        mMap.clear();
+                        if (marker1 != null) {
+                            marker1.remove();
+                            addMarker1ToMap(yourLocation, result, nextLocation, nextLocationTitle);
+                            marker1.setRotation(location.getBearing());
+                        } else {
+                            addMarker1ToMap(yourLocation, result, nextLocation, nextLocationTitle);
+                            marker1.setRotation(location.getBearing());
+                        }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
-            }
 
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras) {
 
-            }
+                }
 
-            @Override
-            public void onProviderEnabled(String provider) {
+                @Override
+                public void onProviderEnabled(String provider) {
 
-            }
+                }
 
-            @Override
-            public void onProviderDisabled(String provider) {
+                @Override
+                public void onProviderDisabled(String provider) {
 
-            }
-        };
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                }
+            };
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        } else {
+            showGPSDisabledAlertToUser();
+        }
     }
 
     private void addMarker1ToMap(LatLng yourLocation, String result, LatLng nextLocation, String nextLocationTitle) {
@@ -350,7 +344,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_car_marker_small)).flat(true));
 
         mMap.setMaxZoomPreference(20);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(yourLocation, 12.0f));
+//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(yourLocation, 12.0f));
         drawLineBetweenTwoLocations(yourLocation, nextLocation, nextLocationTitle);
     }
 
@@ -363,13 +357,17 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onStop() {
         super.onStop();
-        locationManager.removeUpdates(locationListener);
+        if (locationListener != null) {
+            locationManager.removeUpdates(locationListener);
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        locationManager.removeUpdates(locationListener);
+        if (locationListener != null) {
+            locationManager.removeUpdates(locationListener);
+        }
     }
 
     private void drawLineBetweenTwoLocations(LatLng userLocation, LatLng nextLocation, String nextLocationTitle) {
@@ -379,6 +377,14 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
         } else {
             marker2 = mMap.addMarker(new MarkerOptions().position(nextLocation).title(nextLocationTitle));
         }
+
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        builder.include(marker1.getPosition());
+        builder.include(marker2.getPosition());
+        LatLngBounds bounds = builder.build();
+        int padding = 110; // offset from edges of the map in pixels
+        CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+        mMap.animateCamera(cu);
 
         GoogleDirection.withServerKey("AIzaSyCKzPmrsBgCHmWgpucrwovaZV4vRTZvnMs")
                 .from(userLocation)
@@ -395,7 +401,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
                             Route route = direction.getRouteList().get(0);
                             Leg leg = route.getLegList().get(0);
                             ArrayList<LatLng> directionPositionList = leg.getDirectionPoint();
-                            PolylineOptions polylineOptions = DirectionConverter.createPolyline(getContext().getApplicationContext(), directionPositionList, 5, Color.BLUE);
+                            PolylineOptions polylineOptions = DirectionConverter.createPolyline(activityContext, directionPositionList, 5, Color.BLUE);
                             // Do something
                             polyline = mMap.addPolyline(polylineOptions);
                             String distance = leg.getDistance().getText();
@@ -403,14 +409,12 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
                             binding.tvLocationDistance.setText(ConfigurationFile.Constants.BRACKET_BEFORE + distance + ConfigurationFile.Constants.BRACKET_AFTER);
                             binding.tvArriveTime.setText(ConfigurationFile.Constants.BRACKET_BEFORE + duration + ConfigurationFile.Constants.BRACKET_AFTER);
                         } else {
-//                            System.out.println("Error direction :" + direction.getErrorMessage());
                             showSnackbar("Error direction :" + direction.getErrorMessage());
                         }
                     }
 
                     @Override
                     public void onDirectionFailure(Throwable t) {
-//                        System.out.println("Error onDirectionFailure :" + t.getMessage());
                         showSnackbar("Error onDirectionFailure :" + t.getMessage());
                     }
                 });
@@ -461,53 +465,9 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void initializeRecyclerView() {
-       /* SwipeMenuListView listView = v.findViewById(R.id.rv_destinations);
-//        destinationsRecyclerViewAdapter = new DestinationsRecyclerViewAdapter(data);
-        destinationsList = new ArrayList<>();
-        for (int i = 0; i < data.size(); i++) {
-            destinationsList.add(data.get(i).getName());
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.item_tv_destination, destinationsList);
-
-        listView.setAdapter(adapter);
-        SwipeMenuCreator creator = (SwipeMenu menu) -> {
-            this.menu = menu;
-            // create "open" item
-            createSwipeMenuItem(ContextCompat.getColor(getContext(), R.color.start_trip_color), R.drawable.ic_drop_down_arrow_start
-                    , (int) getResources().getDimension(R.dimen.dp51w), getResources().getString(R.string.start));
-
-            createSwipeMenuItem(ContextCompat.getColor(getContext(), R.color.done_trip_color), R.drawable.ic_done
-                    , (int) getResources().getDimension(R.dimen.dp50h), getResources().getString(R.string.done));
-
-        };
-
-        listView.setMenuCreator(creator);
-      *//*  listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                view.setBackgroundColor(getResources().getColor(R.color.sky_color));
-            }
-        });*//*
-
-        listView.setOnMenuItemClickListener((position, menuClicked, index) -> {
-            switch (index) {
-                case 0:
-                    startGoingToDestination(position);
-                    menuClicked.getMenuItem(index).setBackground(new ColorDrawable(ContextCompat.getColor(getContext(), R.color.bb_darkBackgroundColor)));
-                    showSnackbar(menuClicked.getMenuItem(index).getTitle());
-
-                    break;
-                case 1:
-                    doneThisDestination(position);
-                    break;
-            }
-            // false : close the menu; true : not close the menu
-            return false;
-        });*/
         destinationsRecyclerView = v.findViewById(R.id.rv_destinations);
         destinationsRecyclerViewAdapter = new DestinationsRecyclerViewAdapter(data, activeTripFirebase);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext().getApplicationContext(), RecyclerView.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activityContext, RecyclerView.VERTICAL, false);
         destinationsRecyclerView.setLayoutManager(linearLayoutManager);
         destinationsRecyclerView.setAdapter(destinationsRecyclerViewAdapter);
         makeActionOnClickOnRecyclerViewItem();
@@ -540,7 +500,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
 
     private void doneThisDestination(int position, ItemDestinationRvLayoutBinding binding) {
         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        SharedUtils.getInstance().showProgressDialog(getContext());
+        SharedUtils.getInstance().showProgressDialog(activityContext);
         startTripViewModelLazy.getValue().setDoneDestination(requestId, getStartDestinationRequest(data.get(position).getId()))
                 .observe(this, voidResponse -> {
                     SharedUtils.getInstance().cancelDialog();
@@ -550,7 +510,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
                         marker1 = null;
                         marker2 = null;
                         polyline = null;
-                        binding.getRoot().setBackgroundColor(getContext().getResources().getColor(R.color.slide_to_finish_color));
+                        binding.getRoot().setBackgroundColor(activityContext.getResources().getColor(R.color.slide_to_finish_color));
                         binding.btDoneDestination.setVisibility(View.GONE);
                         binding.ivDone.setVisibility(View.VISIBLE);
                     } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
@@ -592,7 +552,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     private void startGoingToDestination(int position, ItemDestinationRvLayoutBinding binding) {
         this.binding.tvLocationTv.setText(data.get(position).getName());
         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        SharedUtils.getInstance().showProgressDialog(getContext());
+        SharedUtils.getInstance().showProgressDialog(activityContext);
         startTripViewModelLazy.getValue().setNextDestination(requestId, getStartDestinationRequest(data.get(position).getId()))
                 .observe(this, voidResponse -> {
                     SharedUtils.getInstance().cancelDialog();
@@ -604,7 +564,6 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
                         polyline = null;
                         getAndDrawMyWay(new LatLng(data.get(position).getLocationLat(), data.get(position).getLocationLong())
                                 , data.get(position).getName());
-//                        binding.getRoot().setBackgroundColor(getContext().getResources().getColor(R.color.start_trip_color));
                         binding.btStartDestination.setVisibility(View.GONE);
                         binding.btDoneDestination.setVisibility(View.VISIBLE);
                     } else {
@@ -644,24 +603,6 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
         return startDestinationRequest;
     }
 
-    private void createSwipeMenuItem(int color, int iconDrawable, int dimension, String title) {
-        SwipeMenuItem startTipItem = new SwipeMenuItem(
-                getContext());
-        // set item background
-        startTipItem.setBackground(new ColorDrawable(color));
-        startTipItem.setIcon(iconDrawable);
-        // set item width
-        startTipItem.setWidth(dimension);
-        // set item title
-        startTipItem.setTitle(title);
-        // set item title fontsize
-        startTipItem.setTitleSize(17);
-        // set item title font color
-        startTipItem.setTitleColor(Color.WHITE);
-        // add to menu
-        menu.addMenuItem(startTipItem);
-    }
-
 
     public void openLocations() {
         binding.ivLocations.setOnClickListener(v -> sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED));
@@ -673,7 +614,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
             // vibrate the device
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(100);
-            if (ValidationUtils.isConnectingToInternet(Objects.requireNonNull(getContext()))) {
+            if (ValidationUtils.isConnectingToInternet(Objects.requireNonNull(activityContext))) {
                 makeFinishTripRequest();
             } else {
                 showSnackbar(getString(R.string.there_is_no_internet_connection));
@@ -683,8 +624,8 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void makeFinishTripRequest() {
-        if (ValidationUtils.isConnectingToInternet(Objects.requireNonNull(getContext()))) {
-            SharedUtils.getInstance().showProgressDialog(getContext());
+        if (ValidationUtils.isConnectingToInternet(Objects.requireNonNull(activityContext))) {
+            SharedUtils.getInstance().showProgressDialog(activityContext);
             startTripViewModelLazy.getValue().finishTrip(requestId).observe(this, startTripResponseResponse -> {
                 SharedUtils.getInstance().cancelDialog();
                 if (startTripResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
@@ -707,8 +648,8 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void showRateTripDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getContext()));
-        v = View.inflate(getContext(), R.layout.rate_trip_dialog, null);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(activityContext));
+        v = View.inflate(activityContext, R.layout.rate_trip_dialog, null);
         builder.setView(v);
         builder.setCancelable(false);
         dialog = builder.create();
@@ -726,10 +667,8 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
         reviewEditText = v.findViewById(R.id.et_review_comment);
         Button sendReviewButton = v.findViewById(R.id.bt_send_review);
         ratingBar.setOnRatingBarChangeListener((ratingBar1, rating, fromUser) -> ratingValue = rating);
-//        Button skipButton = v.findViewById(R.id.bt_skip);
-//        skipButton.setOnClickListener(v12 -> openHomeActivity());
         sendReviewButton.setOnClickListener(v1 -> {
-            if (ValidationUtils.isConnectingToInternet(Objects.requireNonNull(getContext()))) {
+            if (ValidationUtils.isConnectingToInternet(Objects.requireNonNull(activityContext))) {
                 rateTrip();
             } else {
                 showDialogSnackBar(getResources().getString(R.string.there_is_no_internet_connection));
@@ -744,7 +683,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
 
     private void rateTrip() {
         if (ratingValue != 0.0) {
-            SharedUtils.getInstance().showProgressDialog(getContext());
+            SharedUtils.getInstance().showProgressDialog(activityContext);
             startTripViewModelLazy.getValue().rateTrip(requestId, getRateTripRequest()).observe(this, startTripResponseResponse -> {
                 SharedUtils.getInstance().cancelDialog();
                 if (startTripResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
@@ -767,7 +706,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void openHomeActivity() {
-        Intent intent = new Intent(getContext(), MainActivity.class);
+        Intent intent = new Intent(activityContext, MainActivity.class);
         startActivity(intent);
         getActivity().finish();
         getActivity().finishAffinity();
@@ -780,6 +719,29 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
             rateTripRequest.setReviewText(reviewEditText.getText().toString());
         }
         return rateTripRequest;
+    }
+
+
+    private void showGPSDisabledAlertToUser() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activityContext);
+        alertDialogBuilder.setMessage("GPS is disabled in your device. Would you like to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Goto Settings Page To Enable GPS",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent callGPSSettingIntent = new Intent(
+                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                startActivity(callGPSSettingIntent);
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 
 

@@ -2,17 +2,18 @@ package com.dp.meshinisp.viewmodel;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
 import com.dp.meshinisp.service.model.response.ActiveTripResponse;
 import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
 import com.dp.meshinisp.service.repository.remotes.MainRepository;
+import com.dp.meshinisp.utility.utils.ConfigurationFile;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 
 import kotlin.Lazy;
 import retrofit2.Response;
@@ -28,7 +29,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     public LiveData<Response<SearchRequestsResponse>> searchForRequests(int pageId, int countryId, String startDate, String endDate) {
-        return mainRepositoryLazy.getValue().searchForRequests(pageId, countryId, startDate, endDate, "COD");
+        return mainRepositoryLazy.getValue().searchForRequests(pageId, countryId, startDate, endDate, ConfigurationFile.Constants.PAYMENT_METHOD);
     }
 
     public LiveData<Response<Void>> changeLanguage(ChangeLanguageRequest changeLanguageRequest) {

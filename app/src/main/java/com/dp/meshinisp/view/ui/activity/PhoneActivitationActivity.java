@@ -36,13 +36,10 @@ public class PhoneActivitationActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_phone_activitation);
         email = getIntent().getStringExtra(ConfigurationFile.Constants.MAIL_NAME);
 
-        binding.pinView.setPinViewEventListener(new Pinview.PinViewEventListener() {
-            @Override
-            public void onDataEntered(Pinview pinview, boolean fromUser) {
-                if (!pinview.getValue().isEmpty()) {
-                    getActivationToken();
-                    Toast.makeText(PhoneActivitationActivity.this, pinview.getValue(), Toast.LENGTH_SHORT).show();
-                }
+        binding.pinView.setPinViewEventListener((pinview, fromUser) -> {
+            if (!pinview.getValue().isEmpty()) {
+                getActivationToken();
+                Toast.makeText(PhoneActivitationActivity.this, pinview.getValue(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -54,22 +51,19 @@ public class PhoneActivitationActivity extends BaseActivity {
     private void getActivationToken() {
         if (ValidationUtils.isConnectingToInternet(this)) {
             SharedUtils.getInstance().showProgressDialog(this);
-            phoneActivationViewModelLazy.getValue().getActivationToken(getCodeActivationRequest()).observe(this, new Observer<Response<ActivationResponse>>() {
-                @Override
-                public void onChanged(Response<ActivationResponse> activationResponseResponse) {
-                    if (activationResponseResponse != null) {
-                        SharedUtils.getInstance().cancelDialog();
-                        if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                                && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
-                            openNextActivityWithToken(activationResponseResponse.body().getActivationToken());
-                        } else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
-                            logout();
-                        } else {
-                            showSnackBar("error code :" + activationResponseResponse.code());
-                        }
+            phoneActivationViewModelLazy.getValue().getActivationToken(getCodeActivationRequest()).observe(this, activationResponseResponse -> {
+                if (activationResponseResponse != null) {
+                    SharedUtils.getInstance().cancelDialog();
+                    if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                            && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
+                        openNextActivityWithToken(activationResponseResponse.body().getActivationToken());
+                    } else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                        logout();
+                    } else {
+                        showSnackBar("error code :" + activationResponseResponse.code());
                     }
-
                 }
+
             });
         } else {
             showSnackBar(getString(R.string.there_is_no_internet_connection));
@@ -79,22 +73,19 @@ public class PhoneActivitationActivity extends BaseActivity {
     private void sendActivationMail() {
         if (ValidationUtils.isConnectingToInternet(this)) {
             SharedUtils.getInstance().showProgressDialog(this);
-            phoneActivationViewModelLazy.getValue().sendActivationCode(getMailActivationRequest()).observe(this, new Observer<Response<ActivationResponse>>() {
-                @Override
-                public void onChanged(Response<ActivationResponse> activationResponseResponse) {
-                    if (activationResponseResponse != null) {
-                        SharedUtils.getInstance().cancelDialog();
-                        if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                                && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
-                            showSnackBar("Code Sent Successfully.");
-                        } else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
-                            logout();
-                        } else {
-                            showSnackBar("error code :" + activationResponseResponse.code());
-                        }
+            phoneActivationViewModelLazy.getValue().sendActivationCode(getMailActivationRequest()).observe(this, activationResponseResponse -> {
+                if (activationResponseResponse != null) {
+                    SharedUtils.getInstance().cancelDialog();
+                    if (activationResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                            && ConfigurationFile.Constants.SUCCESS_CODE_TO > activationResponseResponse.code()) {
+                        showSnackBar("Code Sent Successfully.");
+                    } else if (activationResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                        logout();
+                    } else {
+                        showSnackBar("error code :" + activationResponseResponse.code());
                     }
-
                 }
+
             });
         } else {
             showSnackBar(getString(R.string.there_is_no_internet_connection));

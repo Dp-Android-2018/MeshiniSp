@@ -145,16 +145,6 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_add_another_language"
                     app:layout_constraintTop_toTopOf="@+id/tv_add_another_language" />
 
-                <!--<ImageView
-                    android:id="@+id/iv_add_another_language"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/dp7w"
-                    android:src="@drawable/plus_sign"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_add_another_language"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_add_another_language"
-                    app:layout_constraintTop_toTopOf="@+id/tv_add_another_language" />-->
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

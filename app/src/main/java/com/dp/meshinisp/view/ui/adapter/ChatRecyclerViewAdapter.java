@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dp.meshinisp.R;
-import com.dp.meshinisp.databinding.ItemListChatServisProviderBinding;
+import com.dp.meshinisp.databinding.ItemListChatServiceProviderBinding;
 import com.dp.meshinisp.databinding.ItemListChatUserBinding;
 import com.dp.meshinisp.service.model.global.Message;
 import com.dp.meshinisp.view.ui.viewholder.ChatViewHolder;
@@ -50,7 +50,7 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatViewHolder
     @Override
     public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_MESSAGE_SENT) {
-            ItemListChatServisProviderBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_list_chat_servis_provider, parent, false);
+            ItemListChatServiceProviderBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_list_chat_service_provider, parent, false);
             return new ChatViewHolder(binding);
         } else if (viewType == VIEW_TYPE_MESSAGE_RECEIVED) {
             ItemListChatUserBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_list_chat_user, parent, false);
@@ -80,9 +80,6 @@ public class ChatRecyclerViewAdapter extends RecyclerView.Adapter<ChatViewHolder
 
     public void addItem(Message message) {
         data.add(message);
-        // notify the item removed by position
-        // to perform recycler view delete animations
-        // NOTE: don't call notifyDataSetChanged()
         notifyDataSetChanged();
     }
 

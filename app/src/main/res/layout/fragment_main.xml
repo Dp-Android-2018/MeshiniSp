@@ -95,24 +95,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-           <!-- <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <include layout="@layout/request_guide_dialog" />
-
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--<im.delight.android.webview.AdvancedWebView
-            android:id="@+id/webview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />-->
 
     </androidx.drawerlayout.widget.DrawerLayout>
 

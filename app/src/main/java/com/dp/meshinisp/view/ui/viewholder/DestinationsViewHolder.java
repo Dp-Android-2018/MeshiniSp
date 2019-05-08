@@ -2,14 +2,13 @@ package com.dp.meshinisp.view.ui.viewholder;
 
 import android.view.View;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ItemDestinationRvLayoutBinding;
 import com.dp.meshinisp.service.model.global.StartTripResponseModel;
 import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
 import com.dp.meshinisp.view.ui.callback.OnItemClickListener;
-import com.google.gson.Gson;
-
-import androidx.recyclerview.widget.RecyclerView;
 
 
 public class DestinationsViewHolder extends RecyclerView.ViewHolder {

@@ -83,13 +83,10 @@ public class ChatActivity extends BaseActivity {
     }
 
     private void makeActionOnClickOnBtnSend() {
-        binding.ivSendMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!binding.etMessage.getText().toString().equals("")) {
-                    addMessage(binding.etMessage.getText().toString(), "text");
-                    binding.etMessage.setText("");
-                }
+        binding.ivSendMessage.setOnClickListener(v -> {
+            if (!binding.etMessage.getText().toString().equals("")) {
+                addMessage(binding.etMessage.getText().toString(), "text");
+                binding.etMessage.setText("");
             }
         });
 

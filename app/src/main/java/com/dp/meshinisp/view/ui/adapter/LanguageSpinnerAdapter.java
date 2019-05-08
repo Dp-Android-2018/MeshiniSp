@@ -48,7 +48,6 @@ public class LanguageSpinnerAdapter extends ArrayAdapter<CountryCityResponseMode
         }
         textViewName = convertView.findViewById(R.id.tv_country_name);
         languageCheckBox = convertView.findViewById(R.id.language_checkbox);
-        makeClickOnLanguageCheckBox(listener, position, convertView);
 
         CountryCityResponseModel currentItem = getItem(position);
 
@@ -57,33 +56,5 @@ public class LanguageSpinnerAdapter extends ArrayAdapter<CountryCityResponseMode
         }
 
         return convertView;
-    }
-
-    private void makeClickOnLanguageCheckBox(OnLanguageItemClickListener listener, int position, View convertView) {
-        /*languageCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (languageCheckBox.isChecked()) {
-                    listener.onCheckboxUnChecked(position, convertView);
-                } else {
-                    listener.onCheckboxChecked(position, convertView);
-                }
-            }
-        });*/
-
-      /*  textViewName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (languageCheckBox.isChecked()){
-                    languageCheckBox.setChecked(false);
-                    listener.onCheckboxUnChecked(position,convertView);
-
-                }else {
-                    languageCheckBox.setChecked(true);
-                    listener.onCheckboxChecked(position,convertView);
-                }
-            }
-        });*/
     }
 }

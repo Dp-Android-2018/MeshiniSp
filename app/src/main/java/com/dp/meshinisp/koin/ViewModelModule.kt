@@ -8,7 +8,6 @@ import org.koin.dsl.module.module
 val ViewModelModule = module {
 
     viewModel { Register1ViewModel(androidApplication()) }
-    viewModel { Register2ViewModel(androidApplication()) }
     viewModel { LoginViewModel(androidApplication()) }
     viewModel { ResetPasswordViewModel(androidApplication()) }
     viewModel { PhoneActivationViewModel(androidApplication()) }

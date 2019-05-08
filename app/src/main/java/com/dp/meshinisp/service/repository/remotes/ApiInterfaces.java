@@ -3,7 +3,6 @@ package com.dp.meshinisp.service.repository.remotes;
 import com.dp.meshinisp.service.model.request.ActivationRequest;
 import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
 import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
-import com.dp.meshinisp.service.model.request.FinancialRequest;
 import com.dp.meshinisp.service.model.request.LoginRequest;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;

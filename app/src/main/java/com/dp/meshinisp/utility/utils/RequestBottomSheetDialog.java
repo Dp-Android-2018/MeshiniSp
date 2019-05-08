@@ -1,7 +1,6 @@
 package com.dp.meshinisp.utility.utils;
 
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +11,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatSpinner;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
@@ -20,7 +22,6 @@ import com.dp.meshinisp.view.ui.activity.RequestsActivity;
 import com.dp.meshinisp.view.ui.adapter.SpinnerAdapter;
 import com.dp.meshinisp.view.ui.callback.OnDateTimeSelected;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
@@ -29,9 +30,6 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.util.List;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import kotlin.Lazy;
 import retrofit2.Response;
 
@@ -44,13 +42,9 @@ public class RequestBottomSheetDialog extends BottomSheetDialogFragment {
     private EditText fromEditText;
     private EditText toEditText;
     private AppCompatSpinner countrySpinner;
-    private Dialog dialog;
     private SpinnerAdapter countrySpinnerAdapter;
-    private CountryCityResponseModel selectedCountry;
     private int countryId;
     private View v;
-    private BottomSheetBehavior sheetBehavior;
-    private ConstraintLayout layoutBottomSheet;
     private Button btnSearch;
     private List<CountryCityResponseModel> countryCityPojos;
 
@@ -64,35 +58,6 @@ public class RequestBottomSheetDialog extends BottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.request_guide_dialog, container, false);
         makeActionOnLayoutComponents(v.getRootView());
-      /*  layoutBottomSheet = v.findViewById(R.id.bottom_sheet);
-        sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
-        sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                switch (newState) {
-                    case BottomSheetBehavior.STATE_HIDDEN:
-                        sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                        break;
-
-                    case BottomSheetBehavior.STATE_EXPANDED:
-
-                        break;
-                    case BottomSheetBehavior.STATE_COLLAPSED:
-
-                        break;
-                    case BottomSheetBehavior.STATE_DRAGGING:
-                        break;
-                    case BottomSheetBehavior.STATE_SETTLING:
-                        break;
-                }
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });*/
-
         return v;
     }
 
@@ -217,10 +182,6 @@ public class RequestBottomSheetDialog extends BottomSheetDialogFragment {
         if (toEditText.getText().toString().isEmpty()) {
             showSnackbarOnDialogView(getString(R.string.please_select_end_date));
         }
-    }
-
-    private void showSnackbar(String message) {
-        Snackbar.make(v.getRootView(), message, Snackbar.LENGTH_SHORT).show();
     }
 
     private void pickDateAndTime(EditText editText) {

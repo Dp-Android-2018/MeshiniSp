@@ -98,21 +98,18 @@ public class FinancialActivity extends BaseActivity {
     private void getThisMonthData() {
         if (ValidationUtils.isConnectingToInternet(this)) {
             SharedUtils.getInstance().showProgressDialog(this);
-            financialViewModelLazy.getValue().getFinancialData(startDate, endDate).observe(this, new Observer<Response<FinancialResponse>>() {
-                @Override
-                public void onChanged(Response<FinancialResponse> financialResponseResponse) {
-                    SharedUtils.getInstance().cancelDialog();
-                    if (financialResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                            && ConfigurationFile.Constants.SUCCESS_CODE_TO > financialResponseResponse.code()) {
-                        if (financialResponseResponse.body() != null) {
-                            updateUiWithData(financialResponseResponse.body().getData());
-                        }
-                    } else if (financialResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
-                        FinancialActivity.this.logout();
-                    } else {
-                        if (financialResponseResponse.errorBody() != null) {
-                            showFinancialErrorMessage(financialResponseResponse.errorBody());
-                        }
+            financialViewModelLazy.getValue().getFinancialData(startDate, endDate).observe(this, financialResponseResponse -> {
+                SharedUtils.getInstance().cancelDialog();
+                if (financialResponseResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > financialResponseResponse.code()) {
+                    if (financialResponseResponse.body() != null) {
+                        updateUiWithData(financialResponseResponse.body().getData());
+                    }
+                } else if (financialResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    FinancialActivity.this.logout();
+                } else {
+                    if (financialResponseResponse.errorBody() != null) {
+                        showFinancialErrorMessage(financialResponseResponse.errorBody());
                     }
                 }
             });

@@ -200,7 +200,6 @@ public class RequestDetailsActivity extends BaseActivity {
     private void setupToolbar() {
         binding.collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.transparent));
         binding.collapsingToolbar.setCollapsedTitleGravity(Gravity.CENTER);
-//        binding.collapsingToolbar.setBackgroundColor(getResources().getColor(R.color.transparent)); ?attr/colorPrimary
         binding.requestsToolbar.setNavigationIcon(R.drawable.ic_chevron_left_white_24dp);
         binding.requestsToolbar.setNavigationOnClickListener(v -> onBackPressed());
     }

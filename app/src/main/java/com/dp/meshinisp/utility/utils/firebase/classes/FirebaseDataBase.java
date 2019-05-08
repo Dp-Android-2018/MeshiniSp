@@ -45,7 +45,6 @@ public class FirebaseDataBase {
     public void setUserId(int userId, ActiveTripCallback activeTripCallback) {
         this.userId = userId;
         this.activeTripCallback = activeTripCallback;
-//        System.out.println("user id in firebase : " + userId);
     }
 
     public void setActiveTripDataCallback(ActiveTripDataCallback activeTripDataCallback) {

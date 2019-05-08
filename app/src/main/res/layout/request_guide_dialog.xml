@@ -3,13 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--<androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">-->
-
-        <!---->
-    <!--app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"-->
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottom_sheet"
             android:layout_width="match_parent"
@@ -20,19 +13,6 @@
             app:behavior_hideable="true"
             app:behavior_peekHeight="@dimen/dp54h"
             >
-
-            <!--<TextView
-                android:id="@+id/textView25"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp12h"
-                android:gravity="center"
-                android:text="@string/search_for_requests"
-                android:textColor="@color/text_color_black"
-                android:textSize="@dimen/sp19"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />-->
 
             <Button
                 android:id="@+id/textView25"
@@ -127,5 +107,4 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    <!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 </layout>
