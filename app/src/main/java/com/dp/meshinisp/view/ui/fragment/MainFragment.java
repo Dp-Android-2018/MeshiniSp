@@ -1,6 +1,7 @@
 package com.dp.meshinisp.view.ui.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +15,12 @@ import androidx.fragment.app.Fragment;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.FragmentMainBinding;
+import com.dp.meshinisp.service.repository.remotes.MainRepository;
 import com.dp.meshinisp.utility.utils.RequestBottomSheetDialog;
 import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.view.ui.activity.MainActivity;
+import com.dp.meshinisp.view.ui.activity.NoInternetConnectionActivity;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -30,6 +33,7 @@ public class MainFragment extends Fragment {
     FragmentMainBinding binding;
     public static DrawerLayout drawer;
     private Lazy<MainActivityViewModel> mainActivityViewModelLazy = inject(MainActivityViewModel.class);
+    private Lazy<MainRepository> mainRepositoryLazy = inject(MainRepository.class);
     private RequestBottomSheetDialog bottomSheet;
 
     public MainFragment() {
@@ -63,7 +67,7 @@ public class MainFragment extends Fragment {
         }
 
         binding.btSearch.setOnClickListener(v -> {
-            if (!bottomSheet.isAdded()){
+            if (!bottomSheet.isAdded()) {
                 bottomSheet.show(getActivity().getSupportFragmentManager(), "exampleBottomSheet");
             }
         });
@@ -77,9 +81,24 @@ public class MainFragment extends Fragment {
                 SharedUtils.getInstance().cancelDialog();
                 bottomSheet.setCountries(countryCityPojos);
             });
+            listenToMakeRequestAgain();
         } else {
-            showSnackbar(getString(R.string.there_is_no_internet_connection));
+            Intent intent = new Intent(getActivity(), NoInternetConnectionActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+            getActivity().finishAffinity();
+//            showSnackbar(getString(R.string.there_is_no_internet_connection));
         }
+    }
+
+    private void listenToMakeRequestAgain() {
+        mainRepositoryLazy.getValue().setConnectionTimeoutListener((connectionTimeout, errorMessage) -> {
+            if (connectionTimeout) {
+                SharedUtils.getInstance().cancelDialog();
+                showSnackbar(errorMessage);
+                setCountrySpinner();
+            }
+        });
     }
 
     private void showSnackbar(String message) {

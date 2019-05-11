@@ -1,8 +1,6 @@
 package com.dp.meshinisp.view.ui.activity;
 
 import android.app.Dialog;
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,13 +11,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
@@ -41,7 +37,7 @@ import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
 import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseDataBase;
-import com.dp.meshinisp.utility.utils.firebase.classes.MessageReceiver;
+import com.dp.meshinisp.view.ui.callback.ActiveTripDataCallback;
 import com.dp.meshinisp.view.ui.fragment.MainFragment;
 import com.dp.meshinisp.view.ui.fragment.StartTripFragment;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
@@ -73,6 +69,8 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
     private Dialog dialog;
     private NotificationManagerCompat notificationManager;
     public static final String CHANNEL_ID = "exampleChannel";
+    private View changeLanguageView;
+    private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,10 +92,13 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
         FirebaseDataBase firebaseDataBase = new FirebaseDataBase();
         firebaseDataBase.setUserId(customUtilsLazy.getValue().getSavedMemberData().getUserId(), activeTrip -> {
             if (activeTrip) {
-                firebaseDataBase.setActiveTripDataCallback(activeTripFirebase -> {
-                    if (activeTripFirebase != null) {
-                        binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
-                        binding.navigationView.tvNavItem7.setOnClickListener(v -> MainActivity.this.openActiveTrip(activeTripFirebase));
+                firebaseDataBase.setActiveTripDataCallback(new ActiveTripDataCallback() {
+                    @Override
+                    public void ActiveTripData(ActiveTripFirebase activeTripFirebase) {
+                        if (activeTripFirebase != null) {
+                            binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
+                            binding.navigationView.tvNavItem7.setOnClickListener(v -> MainActivity.this.openActiveTrip(activeTripFirebase));
+                        }
                     }
                 });
             }
@@ -187,31 +188,21 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
         binding.navigationView.tvNavItem8.setOnClickListener(v -> openActivity(FinancialActivity.class));
 
         binding.navigationView.navigationViewHeaderLayout.vAccount.setOnClickListener(v -> openActivity(AccountActivity.class));
+        binding.navigationView.navigationViewHeaderLayout.ivLogo.setOnClickListener(v -> openAppMakerDialog());
     }
 
-    private void showNotification() {
-        RemoteViews collapsedView = new RemoteViews(getPackageName(),
-                R.layout.notification_collapsed);
-        RemoteViews expandedView = new RemoteViews(getPackageName(),
-                R.layout.notification_expanded);
-
-        Intent clickIntent = new Intent(this, MessageReceiver.class);
-        PendingIntent clickPendingIntent = PendingIntent.getBroadcast(this,
-                0, clickIntent, 0);
-
-        collapsedView.setTextViewText(R.id.text_view_collapsed_1, "Hello World!");
-
-        expandedView.setImageViewResource(R.id.image_view_expanded, R.drawable.logo);
-        expandedView.setOnClickPendingIntent(R.id.image_view_expanded, clickPendingIntent);
-
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_car)
-                .setCustomContentView(collapsedView)
-                .setCustomBigContentView(expandedView)
-                //.setStyle(new NotificationCompat.DecoratedCustomViewStyle())
-                .build();
-
-        notificationManager.notify(1, notification);
+    private void openAppMakerDialog() {
+        count++;
+        if (count == 10) {
+            Snackbar.make(binding.getRoot(), getResources().getString(R.string.app_maker_name), Snackbar.LENGTH_LONG)
+                    .setAction(getResources().getString(R.string.view_linkein_profile), view -> {
+                        Intent browserIntent = new
+                                Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://www.linkedin.com/in/mohamedsaidabdelaty"));
+                        startActivity(browserIntent);
+                    }).show();
+            count = 0;
+        }
     }
 
     private void showDialogToChangeLanguage() {
@@ -230,6 +221,7 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
     }
 
     private void makeActionOnChangeLanguageDialog(View view) {
+        changeLanguageView = view;
         TextView arabicTextView = (TextView) view.findViewById(R.id.tv_arabic);
         TextView englishTextView = (TextView) view.findViewById(R.id.tv_english);
         TextView frenchTextView = (TextView) view.findViewById(R.id.tv_francais);
@@ -255,22 +247,26 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
     }
 
     private void openAppAgain(String language) {
-        SharedUtils.getInstance().showProgressDialog(this);
-        mainActivityViewModelLazy.getValue().changeLanguage(getChangeLanguageRequest(language)).observe(this, voidResponse -> {
-            SharedUtils.getInstance().cancelDialog();
-            if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
-                Intent intent = new Intent(MainActivity.this, SplashScreenActivity.class);
-                startActivity(intent);
-                finishAffinity();
-            } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
-                logout();
-            } else {
-                if (voidResponse.errorBody() != null) {
-                    showMainErrorMessage(voidResponse.errorBody());
+        if (ValidationUtils.isConnectingToInternet(this)) {
+            SharedUtils.getInstance().showProgressDialog(this);
+            mainActivityViewModelLazy.getValue().changeLanguage(getChangeLanguageRequest(language)).observe(this, voidResponse -> {
+                SharedUtils.getInstance().cancelDialog();
+                if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
+                    Intent intent = new Intent(MainActivity.this, SplashScreenActivity.class);
+                    startActivity(intent);
+                    finishAffinity();
+                } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    logout();
+                } else {
+                    if (voidResponse.errorBody() != null) {
+                        showMainErrorMessage(voidResponse.errorBody());
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            Snackbar.make(changeLanguageView, getResources().getString(R.string.there_is_no_internet_connection), Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     private void showMainErrorMessage(ResponseBody errorResponseBody) {

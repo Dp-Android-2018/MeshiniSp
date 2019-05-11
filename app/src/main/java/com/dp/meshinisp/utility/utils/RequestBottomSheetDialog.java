@@ -17,7 +17,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
+import com.dp.meshinisp.view.ui.activity.LoginActivity;
 import com.dp.meshinisp.view.ui.activity.RequestsActivity;
 import com.dp.meshinisp.view.ui.adapter.SpinnerAdapter;
 import com.dp.meshinisp.view.ui.callback.OnDateTimeSelected;
@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.List;
 
 import kotlin.Lazy;
-import retrofit2.Response;
+import okhttp3.ResponseBody;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -64,8 +64,10 @@ public class RequestBottomSheetDialog extends BottomSheetDialogFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if (!countryCityPojos.isEmpty()) {
-            setCountrySpinner();
+        if (countryCityPojos != null) {
+            if (!countryCityPojos.isEmpty()) {
+                setCountrySpinner();
+            }
         }
         makeSearch(btnSearch);
     }
@@ -128,18 +130,50 @@ public class RequestBottomSheetDialog extends BottomSheetDialogFragment {
                                 showSnackbarOnDialogView(getString(R.string.there_is_no_requests_available));
                             }
                         }
+                    } else if (searchRequestsResponseResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                        logout();
                     } else {
-                        showError(searchRequestsResponseResponse);
+                        showError(searchRequestsResponseResponse.errorBody());
                     }
                 });
     }
 
-    private void showError(Response<SearchRequestsResponse> searchRequestsResponseResponse) {
+    public void logout() {
+        if (ValidationUtils.isConnectingToInternet(getContext())) {
+            SharedUtils.getInstance().showProgressDialog(getActivity());
+            mainActivityViewModelLazy.getValue().logout().observe(this, voidResponse -> {
+                SharedUtils.getInstance().cancelDialog();
+                if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
+                    goToLoginPage();
+                } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    goToLoginPage();
+                } else {
+                    if (voidResponse.errorBody() != null) {
+                        showError(voidResponse.errorBody());
+                    }
+                }
+            });
+        } else {
+            showSnackbarOnDialogView(getResources().getString(R.string.there_is_no_internet_connection));
+        }
+    }
+
+    private void goToLoginPage() {
+        String languageType = customUtilsLazy.getValue().getSavedLanguageType();
+        customUtilsLazy.getValue().clearSharedPref();
+        customUtilsLazy.getValue().saveLanguageTypeToPrefs(languageType);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
+        getActivity().finish();
+    }
+
+    private void showError(ResponseBody responseBody) {
         Gson gson = new GsonBuilder().create();
         ErrorResponse errorResponse = new ErrorResponse();
 
         try {
-            errorResponse = gson.fromJson(searchRequestsResponseResponse.errorBody().string(), ErrorResponse.class);
+            errorResponse = gson.fromJson(responseBody.string(), ErrorResponse.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

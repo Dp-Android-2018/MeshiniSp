@@ -1,11 +1,14 @@
 package com.dp.meshinisp.service.repository.remotes;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
 import com.dp.meshinisp.service.model.response.MessageResponse;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import java.util.concurrent.TimeoutException;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -38,6 +41,10 @@ public class AccountRepository {
 
                     @Override
                     public void onError(Throwable e) {
+                        TimeoutException timeoutException=new TimeoutException();
+                        if (e.equals(timeoutException)){
+                            System.out.println("timeoutexception ");
+                        }
                         e.printStackTrace();
                     }
 

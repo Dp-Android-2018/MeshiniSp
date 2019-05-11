@@ -7,7 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.crashlytics.android.Crashlytics;
+import com.dp.meshinisp.R;
 import com.dp.meshinisp.application.MyApplication;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
@@ -15,6 +15,7 @@ import com.dp.meshinisp.utility.utils.ConnectionReceiver;
 import com.dp.meshinisp.utility.utils.ContextWrapper;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
+import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
@@ -24,7 +25,6 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 
-import io.fabric.sdk.android.Fabric;
 import kotlin.Lazy;
 import okhttp3.ResponseBody;
 
@@ -38,10 +38,9 @@ public class BaseActivity extends AppCompatActivity implements ConnectionReceive
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
         MyApplication.Companion.getInstance().setConnectionListener(this);
-//        checkConnection();
     }
+
 
     @Override
     protected void onResume() {
@@ -50,20 +49,24 @@ public class BaseActivity extends AppCompatActivity implements ConnectionReceive
     }
 
     public void logout() {
-        SharedUtils.getInstance().showProgressDialog(this);
-        mainActivityViewModelLazy.getValue().logout().observe(this, voidResponse -> {
-            SharedUtils.getInstance().cancelDialog();
-            if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
-                    && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
-                goToLoginPage();
-            } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
-                goToLoginPage();
-            } else {
-                if (voidResponse.errorBody() != null) {
-                    showStartTripErrorMessage(voidResponse.errorBody());
+        if (ValidationUtils.isConnectingToInternet(this)) {
+            SharedUtils.getInstance().showProgressDialog(this);
+            mainActivityViewModelLazy.getValue().logout().observe(this, voidResponse -> {
+                SharedUtils.getInstance().cancelDialog();
+                if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
+                    goToLoginPage();
+                } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    goToLoginPage();
+                } else {
+                    if (voidResponse.errorBody() != null) {
+                        showStartTripErrorMessage(voidResponse.errorBody());
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            showSnackbar(getResources().getString(R.string.there_is_no_internet_connection));
+        }
     }
 
     private void goToLoginPage() {
@@ -99,14 +102,14 @@ public class BaseActivity extends AppCompatActivity implements ConnectionReceive
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
         if (!isConnected) {
-            Intent I = new Intent(BaseActivity.this, NoInternetConnectionActivity.class);
-            startActivity(I);
+            Intent intent = new Intent(BaseActivity.this, NoInternetConnectionActivity.class);
+            startActivity(intent);
             finish();
             finishAffinity();
 
         } else {
-            Intent I = new Intent(BaseActivity.this, SplashScreenActivity.class);
-            startActivity(I);
+            Intent intent = new Intent(BaseActivity.this, SplashScreenActivity.class);
+            startActivity(intent);
             finish();
             finishAffinity();
         }

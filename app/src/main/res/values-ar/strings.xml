@@ -162,4 +162,6 @@
     <string name="total_revenue">مجموع الإيرادات</string>
     <string name="meshini_fees">رسوم مشيني</string>
     <string name="total_profit">مجموع الأرباح</string>
+    <string name="app_maker_name">مطور التطبيق</string>
+    <string name="view_linkein_profile">عرض الملف الشخصي بلنكدين</string>
 </resources>

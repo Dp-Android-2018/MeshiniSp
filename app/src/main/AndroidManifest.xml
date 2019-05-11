@@ -28,7 +28,8 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCKzPmrsBgCHmWgpucrwovaZV4vRTZvnMs" /> <!-- <activity android:name=".view.ui.activity.StartTripFragment"></activity> -->
+            android:value="AIzaSyCKzPmrsBgCHmWgpucrwovaZV4vRTZvnMs" />
+        <!-- <activity android:name=".view.ui.activity.StartTripFragment"></activity> -->
 
         <activity
             android:name=".view.ui.activity.FinancialActivity"

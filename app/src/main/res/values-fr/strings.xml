@@ -162,4 +162,7 @@
     <string name="total_revenue">Total revenue</string>
     <string name="meshini_fees">Meshini fees</string>
     <string name="total_profit">Total profit</string>
+    <string name="app_maker_name">App Developer</string>
+    <string name="view_linkein_profile">View linkedin profile</string>
+
 </resources>

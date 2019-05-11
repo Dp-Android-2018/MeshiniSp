@@ -7,7 +7,7 @@ import java.util.Date;
 public class ConfigurationFile {
 
     public static class UrlConstants {
-
+        //        public static final String BASE_URL = "http://10.255.255.1";
         public static final String BASE_URL = "http://151.106.52.109:2018";
 //        public static final String BASE_URL = "http://151.106.52.109:2019";
     }

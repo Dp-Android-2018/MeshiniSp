@@ -8,6 +8,7 @@ import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
 import com.dp.meshinisp.service.model.response.ActiveTripResponse;
 import com.dp.meshinisp.service.model.response.CountryCityResponse;
 import com.dp.meshinisp.service.model.response.SearchRequestsResponse;
+import com.dp.meshinisp.view.ui.callback.OnConnectionTimeoutListener;
 
 import java.util.List;
 
@@ -22,6 +23,11 @@ import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 public class MainRepository {
     private Lazy<ApiInterfaces> endPointsLazy = inject(ApiInterfaces.class);
+    private OnConnectionTimeoutListener connectionTimeoutListener;
+
+    public void setConnectionTimeoutListener(OnConnectionTimeoutListener connectionTimeoutListener) {
+        this.connectionTimeoutListener = connectionTimeoutListener;
+    }
 
     public LiveData<Response<SearchRequestsResponse>> searchForRequests(int pageId, int countryId, String startDate, String endDate, String paymentMethod) {
         MutableLiveData<Response<SearchRequestsResponse>> data = new MutableLiveData<>();
@@ -72,7 +78,15 @@ public class MainRepository {
 
                     @Override
                     public void onError(Throwable e) {
+                        connectionTimeoutListener.onConnectionTimeout(true, e.getMessage());
                         e.printStackTrace();
+
+//                        TimeoutException timeoutException = new TimeoutException();
+                        /*if (e.equals(timeoutException)) {
+                            connectionTimeoutListener.onConnectionTimeout(true,e.getMessage());
+                        } else {
+                            e.printStackTrace();
+                        }*/
                     }
 
                     @Override
