@@ -1,7 +1,6 @@
 package com.dp.meshinisp.view.ui.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 import androidx.databinding.DataBindingUtil;
@@ -18,10 +17,14 @@ import com.dp.meshinisp.service.model.global.ConversationHistory;
 import com.dp.meshinisp.service.model.global.LastMessage;
 import com.dp.meshinisp.service.model.global.Message;
 import com.dp.meshinisp.service.model.global.RequestClientModel;
+import com.dp.meshinisp.service.model.request.NotificationRequest;
+import com.dp.meshinisp.service.model.response.ErrorResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
+import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseToken;
 import com.dp.meshinisp.view.ui.adapter.ChatRecyclerViewAdapter;
+import com.dp.meshinisp.viewmodel.ChatViewModel;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -29,13 +32,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 import kotlin.Lazy;
+import okhttp3.ResponseBody;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
@@ -45,6 +51,7 @@ public class ChatActivity extends BaseActivity {
     private String deviceToken;
     public static boolean active = false;
     Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
+    Lazy<ChatViewModel> chatViewModelLazy = inject(ChatViewModel.class);
     private DatabaseReference reference;
     public ObservableList<Message> messages;
     private List<Message> allMessages;
@@ -118,12 +125,61 @@ public class ChatActivity extends BaseActivity {
             if (!task.isSuccessful()) {
                 Snackbar.make(binding.getRoot(), "Error Sending message", Snackbar.LENGTH_SHORT).show();
             } else {
-//                binding.etMessage.setText("");
-//                sendNotification();
+                sendNotification(content);
             }
         });
 
         reference.child("last_message").setValue(newMessage);
+    }
+
+    private void sendNotification(String content) {
+        if (ValidationUtils.isConnectingToInternet(this)) {
+            chatViewModelLazy.getValue().sendNotification(getNotificationRequest(content)).observe(this, voidResponse -> {
+                if (voidResponse.code() >= ConfigurationFile.Constants.SUCCESS_CODE_FROM
+                        && ConfigurationFile.Constants.SUCCESS_CODE_TO > voidResponse.code()) {
+
+                    //TODO if sending notification is success
+
+                } else if (voidResponse.code() == ConfigurationFile.Constants.LOGGED_IN_BEFORE_CODE) {
+                    logout();
+                } else {
+                    if (voidResponse.errorBody() != null) {
+                        showMainErrorMessage(voidResponse.errorBody());
+                    }
+                }
+            });
+        } else {
+            showSnackbarHere(getResources().getString(R.string.there_is_no_internet_connection));
+        }
+    }
+
+    private void showMainErrorMessage(ResponseBody errorResponseBody) {
+        Gson gson = new GsonBuilder().create();
+        ErrorResponse errorResponse = new ErrorResponse();
+
+        try {
+            errorResponse = gson.fromJson(errorResponseBody.string(), ErrorResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String error = "";
+        for (String string : errorResponse.getErrors()) {
+            error += string;
+            error += "\n";
+        }
+        showSnackbarHere(error);
+    }
+
+    private void showSnackbarHere(String message) {
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_SHORT).show();
+
+    }
+
+    private NotificationRequest getNotificationRequest(String content) {
+        NotificationRequest notificationRequest = new NotificationRequest();
+        notificationRequest.setRequestId(tripId);
+        notificationRequest.setMessage(content);
+        return notificationRequest;
     }
 
 

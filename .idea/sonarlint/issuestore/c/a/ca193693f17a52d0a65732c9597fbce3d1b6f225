@@ -1,19 +1,19 @@
 
-hsquid:UselessImportCheck%"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8Ğ”ŞÔ¤-
-Qsquid:S10686".Remove this unused "uploadTask" private field.(Ú¶êùÿÿÿÿ8ãı¶¦¤-
-Fsquid:S1148l"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…¨äù¤-
-?squid:S1643p"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8…¨äù¤-
-{squid:S14505"XRemove the "riversRef" field and declare it as a local variable in the relevant methods.(°»òßûÿÿÿÿ8ãı¶¦¤-
-Ksquid:S1602¬",Remove useless curly braces around statement(‹¦ë¢8…¨äù¤-
-lsquid:UselessImportCheck"<Remove this unused import 'android.content.DialogInterface'.(Š­›¨şÿÿÿÿ8ãı¶¦¤-
-Usquid:S10683"2Remove this unused "progressDialog" private field.(·á…Çùÿÿÿÿ8ãı¶¦¤-
-xsquid:S14508"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ
+Msquid:S10685"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ
+Ksquid:S1602¶",Remove useless curly braces around statement(ôİÄ¥8…¨äù¤-
+?squid:S1643m"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8…¨äù¤-
+{squid:S14503"XRemove the "riversRef" field and declare it as a local variable in the relevant methods.(°»òßûÿÿÿÿ8ãı¶¦¤-
+usquid:S2177x"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8¨Ô‚¶©-
+rsquid:UselessImportCheck"GRemove this unused import 'com.dp.meshinisp.utility.utils.CustomUtils'.(ÛÿáË8ä—ƒ¶©-
 isquid:UselessImportCheck#"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
-Gsquid:S1148µ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…¨äù¤-
-Ksquid:S10689"/Remove this unused "tabSelected" private field.(ĞŒŒúÿÿÿÿ
-Msquid:S10688"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ
+lsquid:UselessImportCheck"<Remove this unused import 'android.content.DialogInterface'.(Š­›¨şÿÿÿÿ8ãı¶¦¤-
+Gsquid:S1148±"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…¨äù¤-
+ssquid:UselessImportCheck"CRemove this unused import 'com.google.firebase.storage.UploadTask'.(®ğÇıÿÿÿÿ8ÙÆƒ¶©-
+Ksquid:S1602¨",Remove useless curly braces around statement(‹¦ë¢8…¨äù¤-
 fsquid:MaximumInheritanceDepth+"=This class has 10 parents which is greater than 5 authorized.(Àşã
-Ksquid:S1602º",Remove useless curly braces around statement(ôİÄ¥8…¨äù¤-
-?squid:S1643q"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8…¨äù¤-
-Gsquid:S1148–"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…¨äù¤-
-Vsquid:S10680"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8ëÇ˜û¤-
+hsquid:UselessImportCheck%"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8Ğ”ŞÔ¤-
+Gsquid:S1148’"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…¨äù¤-
+?squid:S1643l"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8…¨äù¤-
+bsquid:UselessImportCheck"7Remove this unused import 'android.app.ProgressDialog'.(¶ÍÔÓ8ÙÆƒ¶©-
+xsquid:S14505"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ
+Fsquid:S1148h"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…¨äù¤-

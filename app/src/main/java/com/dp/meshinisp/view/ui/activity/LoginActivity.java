@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityLoginBinding;
 import com.dp.meshinisp.service.model.global.LoginResponseModel;
@@ -22,7 +24,6 @@ import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 
-import androidx.databinding.DataBindingUtil;
 import kotlin.Lazy;
 import retrofit2.Response;
 

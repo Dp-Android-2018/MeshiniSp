@@ -1,24 +1,24 @@
 
-@squid:S1643"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8àµÌ˜¨-
+Gsquid:S1148‰"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8àµÌ˜¨-
+Nsquid:S1066º"/Merge this if statement with the enclosing one.(¡ì¯ı8àµÌ˜¨-
+qsquid:S14509"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ
+Psquid:S1602˜",Remove useless curly braces around statement(úè»äıÿÿÿÿ8ªŞÌ˜¨-
+rsquid:MaximumInheritanceDepth6"=This class has 10 parents which is greater than 5 authorized.(ËÙÖ üÿÿÿÿ8ßü²˜¨-
+@squid:S1643"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8÷éÂ˜¨-
+Ysquid:UselessImportCheck,"/Remove this unused import 'java.sql.Timestamp'.(èò½+8ø£Ú˜¨-
+{squid:S2177­"WRename this method; there is a "private" method in the parent class with the same name.(È˜ƒùÿÿÿÿ8ßü²˜¨-
+usquid:S1450?"XRemove the "reference" field and declare it as a local variable in the relevant methods.(ëú¼8÷éÂ˜¨-
+Bsquid:S1148Ç"#Use a logger to log this exception.(Ç’Çê8àµÌ˜¨-
+Ysquid:S2696H"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ßü²˜¨-
 „squid:UselessImportCheck"TRemove this unused import 'com.dp.meshinisp.service.model.response.MessageResponse'.(ùß’üÿÿÿÿ8İÒ¨ú¤-
 8squid:S1170="!Make this final field static too.(íİàİ
-@squid:S1643"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8÷éÂ˜¨-
-usquid:S1450?"XRemove the "reference" field and declare it as a local variable in the relevant methods.(ëú¼8÷éÂ˜¨-
-@squid:S1643‰"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¸¾Ú–¨-
-Nsquid:S1066»"/Merge this if statement with the enclosing one.(¡ì¯ı8àµÌ˜¨-
-Bsquid:S1148È"#Use a logger to log this exception.(Ç’Çê8àµÌ˜¨-
-Vsquid:S1135¼"2Complete the task associated to this TODO comment.(áÃæùÿÿÿÿ8àµÌ˜¨-
-Gsquid:S1148Š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8àµÌ˜¨-
-@squid:S1643ˆ"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8êë¨Ó¤-
-Ysquid:S2696H"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8ßü²˜¨-
-qsquid:S14509"ZRemove the "requestType" field and declare it as a local variable in the relevant methods.(ŒøÔ
-Ysquid:UselessImportCheck,"/Remove this unused import 'java.sql.Timestamp'.(èò½+8ø£Ú˜¨-
-Psquid:S1602™",Remove useless curly braces around statement(úè»äıÿÿÿÿ8ªŞÌ˜¨-
+@squid:S1643ˆ"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¸¾Ú–¨-
+@squid:S1643‡"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8êë¨Ó¤-
+@squid:S1643"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8àµÌ˜¨-
+Vsquid:S1135»"2Complete the task associated to this TODO comment.(áÃæùÿÿÿÿ8àµÌ˜¨-
 4squid:S1643¾"Use a StringBuilder instead.(°–ôÔ
-rsquid:MaximumInheritanceDepth6"=This class has 10 parents which is greater than 5 authorized.(ËÙÖ üÿÿÿÿ8ßü²˜¨-
-osquid:S00116="WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íİàİ
-Gsquid:S1148„"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8êë¨Ó¤-
-U"squid:SwitchLastCaseIsDefaultCheckU""Add a default case to this switch.(”ûÜÿÿÿÿÿ
-;squid:S1643¿"Use a StringBuilder instead.(º”Ì‡8êë¨Ó¤-
-{squid:S2177­"WRename this method; there is a "private" method in the parent class with the same name.(È˜ƒùÿÿÿÿ8ßü²˜¨-
+Gsquid:S1148ƒ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8êë¨Ó¤-
 usquid:UselessImportCheck"JRemove this unused import 'com.dp.meshinisp.service.model.global.Message'.(†éåÂ8ø£Ú˜¨-
+osquid:S00116="WRename this field "CALL_REQUEST" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íİàİ
+;squid:S1643¿"Use a StringBuilder instead.(º”Ì‡8êë¨Ó¤-
+U"squid:SwitchLastCaseIsDefaultCheckU""Add a default case to this switch.(”ûÜÿÿÿÿÿ

@@ -1,4 +1,2 @@
 
-isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
-fsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(¬’„¸
-Vsquid:S1068"3Remove this unused "customUtilsLazy" private field.(ß™üÝúÿÿÿÿ8úè™û¤-
+fsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(¬’„¸

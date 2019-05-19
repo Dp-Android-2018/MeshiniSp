@@ -1,4 +1,7 @@
 
 isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+‡squid:UselessImportCheck"WRemove this unused import 'com.dp.meshinisp.service.model.response.ActivationResponse'.(É­Òúúÿÿÿÿ8Á¼ãµ©-
+hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8Á¼ãµ©-
+Zsquid:UselessImportCheck"/Remove this unused import 'retrofit2.Response'.(¾éçï8Á¼ãµ©-
 Isquid:S1172+"+Remove this unused method parameter "view".(÷®†8Õ‘âá¨-
 msquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(Ñ‰ƒà8Õ‘âá¨-

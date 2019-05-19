@@ -1,3 +1,4 @@
 
 isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
+^squid:UselessImportCheck".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ8’íæµ©-
 rsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(ê½Òøÿÿÿÿ8¡Óçç¨-

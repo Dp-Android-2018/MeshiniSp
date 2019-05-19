@@ -1,34 +1,27 @@
 
-rsquid:S00115^"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢Ò¼„
-Qsquid:S1118":Add a private constructor to hide the implicit public one.(Ð¬†ÿ
-bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ê¢Åµ
-Lsquid:S1444"0Make this "public static WAIT_VALUE" field final(Ûˆƒóþÿÿÿÿ
-qsquid:S3008"URename this field "WAIT_VALUE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûˆƒóþÿÿÿÿ
-osquid:S3008"XRename this field "AUTHORIZATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘Ø†»
-wsquid:S00115\"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ó¿˜ßûÿÿÿÿ
-wsquid:S00115c"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(°Û–²þÿÿÿÿ
-rsquid:S00115]"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÃøÕ¡
-†"squid:ClassVariableVisibilityCheck"YMake REGISTER1DATA a static final constant or non-public and provide accessors if needed.(üÍí
-‡"squid:ClassVariableVisibilityCheck"YMake AUTHORIZATION a static final constant or non-public and provide accessors if needed.(‘Ø†»
-psquid:S3008"ZRename this field "ACCEPT_LANGUAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÑ—+
-ˆ"squid:ClassVariableVisibilityCheck"[Make ACCEPT_LANGUAGE a static final constant or non-public and provide accessors if needed.(áÑ—+
-rsquid:S00115/"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(©ß»õ
-Isquid:S1444"3Make this "public static REGISTER1DATA" field final(üÍí
-wsquid:S00115_"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÄóÍöúÿÿÿÿ
-rsquid:S00115f"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÁÏ˜“
-nsquid:S3008"XRename this field "REGISTER1DATA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÍí
-‰"squid:ClassVariableVisibilityCheck"VMake WAIT_VALUE a static final constant or non-public and provide accessors if needed.(Ûˆƒóþÿÿÿÿ
-wsquid:S001158"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ðØù…üÿÿÿÿ
-wsquid:S00115d"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ß‹äžøÿÿÿÿ
-wsquid:S00115e"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(·ûÿÿÿÿ
-xsquid:S00115 "ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ï€Ñùÿÿÿÿ
-"squid:ClassVariableVisibilityCheck"aMake DEFAULT_INTEGER_VALUE a static final constant or non-public and provide accessors if needed.(ªÏà³
-Vsquid:S1118":Add a private constructor to hide the implicit public one.(ðÎÜìýÿÿÿÿ
-Wsquid:S1118ž":Add a private constructor to hide the implicit public one.(“¯éúûÿÿÿÿ
-Ksquid:S1444"5Make this "public static ACCEPT_LANGUAGE" field final(áÑ—+
 Jsquid:S1444"3Make this "public static AUTHORIZATION" field final(‘Ø†»
-wsquid:S3008"`Rename this field "DEFAULT_INTEGER_VALUE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÏà³
+‰"squid:ClassVariableVisibilityCheck"VMake WAIT_VALUE a static final constant or non-public and provide accessors if needed.(Ûˆƒóþÿÿÿÿ
+Vsquid:S1118":Add a private constructor to hide the implicit public one.(ðÎÜìýÿÿÿÿ
+psquid:S3008"ZRename this field "ACCEPT_LANGUAGE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÑ—+
+Isquid:S1444"3Make this "public static REGISTER1DATA" field final(üÍí
+ˆ"squid:ClassVariableVisibilityCheck"[Make ACCEPT_LANGUAGE a static final constant or non-public and provide accessors if needed.(áÑ—+
+wsquid:S00115W"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ëî£¼þÿÿÿÿ
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ê¢Åµ8î±Ø·ª-
+wsquid:S00115c"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ï€Ñùÿÿÿÿ
+"squid:ClassVariableVisibilityCheck"aMake DEFAULT_INTEGER_VALUE a static final constant or non-public and provide accessors if needed.(ªÏà³
 Rsquid:S1444";Make this "public static DEFAULT_INTEGER_VALUE" field final(ªÏà³
-wsquid:S00115["ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‹ ›ûüÿÿÿÿ
+osquid:S3008"XRename this field "AUTHORIZATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘Ø†»
+‡"squid:ClassVariableVisibilityCheck"YMake AUTHORIZATION a static final constant or non-public and provide accessors if needed.(‘Ø†»
+rsquid:S00115("ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(©ß»õ
+Ksquid:S1444"5Make this "public static ACCEPT_LANGUAGE" field final(áÑ—+
 Vsquid:S1118	":Add a private constructor to hide the implicit public one.(‹ø¢þÿÿÿÿ
-xsquid:S00115”"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ëî£¼þÿÿÿÿ
+wsquid:S3008"`Rename this field "DEFAULT_INTEGER_VALUE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÏà³
+Qsquid:S1118":Add a private constructor to hide the implicit public one.(Ð¬†ÿ
+Lsquid:S1444"0Make this "public static WAIT_VALUE" field final(Ûˆƒóþÿÿÿÿ
+†"squid:ClassVariableVisibilityCheck"YMake REGISTER1DATA a static final constant or non-public and provide accessors if needed.(üÍí
+qsquid:S3008"URename this field "WAIT_VALUE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûˆƒóþÿÿÿÿ
+Vsquid:S1118a":Add a private constructor to hide the implicit public one.(“¯éúûÿÿÿÿ
+nsquid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(Â¹Ýîøÿÿÿÿ8Ãõà·ª-
+nsquid:S3008"XRename this field "REGISTER1DATA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÍí
+wsquid:S001150"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ðØù…üÿÿÿÿ

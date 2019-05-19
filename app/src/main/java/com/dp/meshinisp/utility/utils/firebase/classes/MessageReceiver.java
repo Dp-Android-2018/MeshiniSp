@@ -12,12 +12,15 @@ import androidx.core.app.NotificationCompat;
 
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.service.model.global.LoginResponseModel;
+import com.dp.meshinisp.service.model.global.RequestClientModel;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
+import com.dp.meshinisp.view.ui.activity.ChatActivity;
 import com.dp.meshinisp.view.ui.activity.MainActivity;
 import com.dp.meshinisp.view.ui.activity.RequestDetailsActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.google.gson.Gson;
 
 import java.util.Map;
 
@@ -26,15 +29,16 @@ import kotlin.Lazy;
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 
 public class MessageReceiver extends FirebaseMessagingService {
-    public static final String CHANNEL_ID = "exampleChannel";
     private Intent intent;
     private Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
+    private RequestClientModel clientData;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         if (remoteMessage.getData() != null) {
             if (remoteMessage.getData().get("title") != null) {
                 intent = new Intent();
+                System.out.println("notification title :" + remoteMessage.getData().get("title"));
                 switch (remoteMessage.getData().get("title")) {
                     case "account-approved":
                         makeAccountApprovedIntent();
@@ -51,10 +55,22 @@ public class MessageReceiver extends FirebaseMessagingService {
                     case "account-enabled":
                         makeAccountApprovedIntent();
                         break;
+                    case "new-message":
+                        makeChatIntent(remoteMessage.getData());
+                        break;
                 }
                 Notify(intent, remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
             }
         }
+    }
+
+    private void makeChatIntent(Map<String, String> data) {
+        clientData.setClientName(data.get("name"));
+        clientData.setProfilePictureUrl(data.get("profile_picture"));
+        clientData.setId(Integer.parseInt(data.get("id")));
+        intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(ConfigurationFile.Constants.USER_DATA, new Gson().toJson(clientData));
+        intent.putExtra(ConfigurationFile.Constants.TRIP_ID, data.get("request_id"));
     }
 
     private void makeAccountApprovedIntent() {

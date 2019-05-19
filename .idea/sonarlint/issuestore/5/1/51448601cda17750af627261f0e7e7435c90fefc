@@ -1,10 +1,11 @@
 
-Hsquid:S1612P",Replace this lambda with a method reference.(†Òúˆûÿÿÿÿ
-]squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8È˜•û¤-
-8squid:S1643g"Use a StringBuilder instead.(äìüÆùÿÿÿÿ
-?squid:S1148b"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-8squid:S1643f"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
-vsquid:S2177”"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8º¿âá¨-
-Ysquid:S2696)"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8º¿âá¨-
-Nsquid:S11722"+Remove this unused method parameter "view".(ËŠİşÿÿÿÿ8º¿âá¨-
+Osquid:S1612N",Replace this lambda with a method reference.(†Òúˆûÿÿÿÿ8£Åäµ©-
 rsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(¾–¥¢üÿÿÿÿ8º¿âá¨-
+hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8£Åäµ©-
+vsquid:S2177‘"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8º¿âá¨-
+Nsquid:S11722"+Remove this unused method parameter "view".(ËŠİşÿÿÿÿ8º¿âá¨-
+8squid:S1643d"Use a StringBuilder instead.(äìüÆùÿÿÿÿ
+?squid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+]squid:UselessImportCheck"3Remove this unused import 'android.content.Intent'.(³ğ‹G8È˜•û¤-
+8squid:S1643c"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+Ysquid:S2696)"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8º¿âá¨-

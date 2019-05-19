@@ -1,13 +1,13 @@
 
-msquid:S00100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô™·–8ßç –¨-
 usquid:S00117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Îéşüÿÿÿÿ8ßç –¨-
-psquid:S00117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô™·–8ßç –¨-
-lsquid:S00100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Óı\8Üç–”¨-
-usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è±±…øÿÿÿÿ8Üç–”¨-
-tsquid:S00116"VRename this field "sender_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ûËD8Üç–”¨-
 rsquid:S00100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Îéşüÿÿÿÿ8ßç –¨-
-rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…’¾Ãùÿÿÿÿ8ßç –¨-
-qsquid:S00116"SRename this field "ChatPath" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»™M8ÒÆ–¨-
-vsquid:S00116"WRename this field "device_token" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß¿óÿ8Üç–”¨-
-usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è±±…øÿÿÿÿ8¯ı–¨-
 usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è±±…øÿÿÿÿ8Üç–”¨-
+msquid:S00100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô™·–8ßç –¨-
+qsquid:S00116"SRename this field "ChatPath" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»™M8ÒÆ–¨-
+psquid:S00117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô™·–8ßç –¨-
+usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è±±…øÿÿÿÿ8¯ı–¨-
+tsquid:S00116"VRename this field "sender_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥ûËD8Üç–”¨-
+vsquid:S00116"WRename this field "device_token" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß¿óÿ8Üç–”¨-
+usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è±±…øÿÿÿÿ8Üç–”¨-
+rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…’¾Ãùÿÿÿÿ8ßç –¨-
+lsquid:S00100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Óı\8Üç–”¨-

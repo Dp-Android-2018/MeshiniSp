@@ -1,4 +1,9 @@
 
-Hsquid:S16021",Remove useless curly braces around statement(ìšªÎúÿÿÿÿ
-ksquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(ÊÅÿúÿÿÿÿ
 Vsquid:S1068"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8î—û¤-
+hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉşÿÿÿÿ8‰·îµ©-
+ksquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(ÊÅÿúÿÿÿÿ
+Zsquid:UselessImportCheck"/Remove this unused import 'retrofit2.Response'.(¾éçï8‰·îµ©-
+esquid:UselessImportCheck":Remove this unused import 'com.goodiebag.pinview.Pinview'.(Äù ù8îöíµ©-
+Hsquid:S1602.",Remove useless curly braces around statement(ìšªÎúÿÿÿÿ
+‡squid:UselessImportCheck
+"WRemove this unused import 'com.dp.meshinisp.service.model.response.ActivationResponse'.(É­Òúúÿÿÿÿ8‰·îµ©-

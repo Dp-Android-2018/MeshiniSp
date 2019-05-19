@@ -30,5 +30,6 @@ val DependencyModule = module {
     single { TripsRepository() }
     single { StartTripRepository() }
     single { FinancialRepository() }
+    single { ChatRepository() }
 
 }

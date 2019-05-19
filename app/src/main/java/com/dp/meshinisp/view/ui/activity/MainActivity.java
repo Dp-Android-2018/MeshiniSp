@@ -20,7 +20,6 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.dp.meshinisp.R;
@@ -37,7 +36,6 @@ import com.dp.meshinisp.utility.utils.SharedUtils;
 import com.dp.meshinisp.utility.utils.ValidationUtils;
 import com.dp.meshinisp.utility.utils.firebase.classes.ActiveTripFirebase;
 import com.dp.meshinisp.utility.utils.firebase.classes.FirebaseDataBase;
-import com.dp.meshinisp.view.ui.callback.ActiveTripDataCallback;
 import com.dp.meshinisp.view.ui.fragment.MainFragment;
 import com.dp.meshinisp.view.ui.fragment.StartTripFragment;
 import com.dp.meshinisp.viewmodel.MainActivityViewModel;
@@ -92,13 +90,10 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
         FirebaseDataBase firebaseDataBase = new FirebaseDataBase();
         firebaseDataBase.setUserId(customUtilsLazy.getValue().getSavedMemberData().getUserId(), activeTrip -> {
             if (activeTrip) {
-                firebaseDataBase.setActiveTripDataCallback(new ActiveTripDataCallback() {
-                    @Override
-                    public void ActiveTripData(ActiveTripFirebase activeTripFirebase) {
-                        if (activeTripFirebase != null) {
-                            binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
-                            binding.navigationView.tvNavItem7.setOnClickListener(v -> MainActivity.this.openActiveTrip(activeTripFirebase));
-                        }
+                firebaseDataBase.setActiveTripDataCallback(activeTripFirebase -> {
+                    if (activeTripFirebase != null) {
+                        binding.navigationView.tvNavItem7.setVisibility(View.VISIBLE);
+                        binding.navigationView.tvNavItem7.setOnClickListener(v -> MainActivity.this.openActiveTrip(activeTripFirebase));
                     }
                 });
             }
@@ -155,12 +150,6 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
             transaction.replace(R.id.frame_layout_container, new MainFragment());
             transaction.commit();
         }
-    }
-
-    private void openSelectedFragment(Fragment fragment) {
-        FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout_container, fragment);
-        transaction.commit();
     }
 
     private void initializeUiData() {
@@ -330,7 +319,6 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
                     content.setTranslationX(slideX);
                 }
                 content.setScaleX(1 - (slideOffset / scaleFactor));
-                content.setScaleY(1 - (slideOffset / scaleFactor));
             }
         };
         drawer.setScrimColor(Color.TRANSPARENT);

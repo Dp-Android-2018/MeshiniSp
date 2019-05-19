@@ -1,0 +1,9 @@
+
+˜squid:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(×ÝŠÎ
+˜squid:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úÑ¯¤
+Fsquid:S11480"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ñ›æ²ª-
+˜squid:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úÑ¯¤
+?squid:S1148M"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+˜squid:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(×ÝŠÎ
+[
+squid:S106."9Replace this use of System.out or System.err by a logger.(ÑÍ•§úÿÿÿÿ8åµõ²ª-

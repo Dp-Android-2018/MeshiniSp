@@ -1,18 +1,5 @@
 
-Vsquid:S1068+"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8‘Ïñ¢¤-
-Ssquid:S1068-"0Remove this unused "fromEditText" private field.(‹¦ÏĞøÿÿÿÿ8·ô¢¤-
-Ksquid:S10683"-Remove this unused "countryId" private field.(Ä¦ºƒ8‘ğó¢¤-
-Csquid:S10684"%Remove this unused "v" private field.(Áû©Œ8´æç¡¤-
-Jsquid:S1444)",Make this "public static drawer" field final(Œ÷›á8äàâ ¤-
-‡"squid:ClassVariableVisibilityCheck)"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8äàâ ¤-
-\squid:S1068*"9Remove this unused "actionBarDrawerToggle" private field.(õ¸Ššûÿÿÿÿ8äàâ ¤-
-Vsquid:S10681"9Remove this unused "countrySpinnerAdapter" private field.(‡í°r8æó†¢¤-
-Qsquid:S10682"3Remove this unused "selectedCountry" private field.(•ı¢‡8äàâ ¤-
-Tsquid:S10685"1Remove this unused "sheetBehavior" private field.(ª»Ú©şÿÿÿÿ8í•é ¤-
-Xsquid:S10686"5Remove this unused "layoutBottomSheet" private field.(©õÎºıÿÿÿÿ8äàâ ¤-
-Qsquid:S1068.".Remove this unused "toEditText" private field.(÷óüÿÿÿÿ8·ô¢¤-
-]squid:HiddenFieldCheckP"5Rename "v" which hides the field declared at line 52.(öòŸf8äàâ ¤-
-^squid:HiddenFieldCheckZ"5Rename "v" which hides the field declared at line 52.(‹Ïµ¿8¸Õ”¢¤-
-Vsquid:S10688"8Remove this unused "countryCityPojosdata" private field.(¹ˆÙï8Íœ¢¤-
-Hsquid:S10680"*Remove this unused "dialog" private field.(Û¿ÜÃ8äàâ ¤-
-Psquid:S1068/"2Remove this unused "countrySpinner" private field.(›ãúí8æó†¢¤-
+Ÿsquid:S1186'"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ëøğ‚8İÏ¤¶©-
+Jsquid:S1444"",Make this "public static drawer" field final(Œ÷›á8äàâ ¤-
+nsquid:CommentedOutCodeLineZ"<This block of commented-out lines of code should be removed.(Õ¢É…ÿÿÿÿÿ8°â—²ª-
+‡"squid:ClassVariableVisibilityCheck""RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8äàâ ¤-

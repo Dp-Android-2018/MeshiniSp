@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+        <!--<com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomBar"
             style="@style/bottom_nav"
             android:layout_width="match_parent"
@@ -60,26 +60,126 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:menu="@menu/vehicles" />
+            app:menu="@menu/vehicles" />-->
+
+
+         <ImageView
+             android:id="@+id/iv_car"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="45dp"
+             android:layout_marginTop="6dp"
+             android:src="@drawable/car_white"
+             android:adjustViewBounds="true"
+             android:onClick="setVehicleType"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+         <ImageView
+             android:id="@+id/iv_motorbike"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="6dp"
+             android:src="@drawable/motorcycle_white"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+         <ImageView
+             android:id="@+id/iv_van"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="6dp"
+             android:layout_marginEnd="45dp"
+             android:src="@drawable/van_white"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+         <ImageView
+             android:id="@+id/iv_tuktuk"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="11dp"
+             android:src="@drawable/tuktuk_white"
+             app:layout_constraintEnd_toEndOf="@+id/iv_car"
+             app:layout_constraintStart_toStartOf="@+id/iv_car"
+             app:layout_constraintTop_toBottomOf="@+id/iv_car" />
+
+         <ImageView
+             android:id="@+id/iv_stagecoach"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="11dp"
+             android:src="@drawable/stagecoach_white"
+             app:layout_constraintEnd_toEndOf="@+id/iv_motorbike"
+             app:layout_constraintStart_toStartOf="@+id/iv_motorbike"
+             app:layout_constraintTop_toBottomOf="@+id/iv_motorbike" />
+
+         <ImageView
+             android:id="@+id/iv_golf_car"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="11dp"
+             android:src="@drawable/golf_car_white"
+             app:layout_constraintEnd_toEndOf="@+id/iv_van"
+             app:layout_constraintStart_toStartOf="@+id/iv_van"
+             app:layout_constraintTop_toBottomOf="@+id/iv_van" />
+
+         <ImageView
+             android:id="@+id/iv_onfoot"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="10dp"
+             android:src="@drawable/onfoot_white"
+             app:layout_constraintEnd_toEndOf="@+id/iv_tuktuk"
+             app:layout_constraintStart_toStartOf="@+id/iv_tuktuk"
+             app:layout_constraintTop_toBottomOf="@+id/iv_tuktuk" />
+
+         <ImageView
+             android:id="@+id/iv_yacht"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="8dp"
+             android:src="@drawable/boat_white"
+             app:layout_constraintEnd_toEndOf="@+id/iv_stagecoach"
+             app:layout_constraintStart_toStartOf="@+id/iv_stagecoach"
+             app:layout_constraintTop_toBottomOf="@+id/iv_stagecoach" />
+
+         <ImageView
+             android:id="@+id/iv_jet_ski"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="setVehicleType"
+             android:layout_marginTop="8dp"
+             android:src="@drawable/jet_ski_white"
+             app:layout_constraintEnd_toEndOf="@+id/iv_golf_car"
+             app:layout_constraintStart_toStartOf="@+id/iv_golf_car"
+             app:layout_constraintTop_toBottomOf="@+id/iv_golf_car" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp16w"
+            android:layout_marginTop="8dp"
             android:text="@string/please_upload_your_vehicle_license"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.532"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bottomBar" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_yacht" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_upload"
-            android:layout_width="@dimen/dp155w"
-            android:layout_height="@dimen/dp155w"
+            android:layout_width="@dimen/dp117h"
+            android:layout_height="@dimen/dp117h"
             android:layout_marginStart="@dimen/dp7w"
             android:layout_marginTop="@dimen/dp16w"
             android:layout_marginEnd="@dimen/dp7w"
@@ -113,8 +213,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/iv_upload"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_upload"
-            />
+            app:layout_constraintTop_toTopOf="@+id/iv_upload" />
 
         <Button
             android:id="@+id/bt_next"

@@ -1,0 +1,5 @@
+
+wsquid:S1450"[Remove the "textViewName" field and declare it as a local variable in the relevant methods.(ß…¦øÿÿÿÿ
+Ksquid:S1068"4Remove this unused "languageCheckBox" private field.(—™‡º
+vsquid:S1450"_Remove the "languageCheckBox" field and declare it as a local variable in the relevant methods.(—™‡º
+Msquid:S1172,"/Remove this unused method parameter "listener".(ã«§ê8«†¶©-

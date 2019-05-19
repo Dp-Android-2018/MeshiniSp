@@ -4,6 +4,7 @@ import com.dp.meshinisp.service.model.request.ActivationRequest;
 import com.dp.meshinisp.service.model.request.ChangeLanguageRequest;
 import com.dp.meshinisp.service.model.request.ChangePasswordRequest;
 import com.dp.meshinisp.service.model.request.LoginRequest;
+import com.dp.meshinisp.service.model.request.NotificationRequest;
 import com.dp.meshinisp.service.model.request.OfferRequest;
 import com.dp.meshinisp.service.model.request.ProfileInfoRequest;
 import com.dp.meshinisp.service.model.request.RateTripRequest;
@@ -147,5 +148,10 @@ public interface ApiInterfaces {
     //Get profile data (and revenue data) (service provider)
     @GET("/api/service-provider/profile")
     Observable<Response<FinancialResponse>> getFinancialData(@Query("start_date") String startDate, @Query("end_date") String endDate);
+
+    //Notify the client (new message)
+    @POST("/api/service-provider/request/chat/notify")
+    Observable<Response<Void>> sendNotification(@Body NotificationRequest notificationRequest);
+
 
 }

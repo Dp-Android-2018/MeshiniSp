@@ -1,6 +1,6 @@
 <resources>
+    <string name="app_name">Meshini Guide</string>
     <string name="app_name_icon">Meshini</string>
-    <string name="app_name">MeshiniSP</string>
     <string name="action_close">close</string>
     <string name="Open">open</string>
     <string name="Close">close</string>
@@ -78,6 +78,7 @@
     <string name="enter_last_name_error_message">please enter last name !!</string>
     <string name="enter_mail_error_message">please enter email !!</string>
     <string name="enter_phone_error_message">please enter phone !!</string>
+    <string name="invalid_phone_error_message">please enter valid phone number !!</string>
     <string name="invalid_mail_error_message">Invalid e_mail address !!</string>
     <string name="password_length_message_error">Password length must be more than 8 characters !!</string>
     <string name="new_password_length_message_error">new password length must be more than 8 characters !!</string>

@@ -1,14 +1,11 @@
 
-Hsquid:S1659'",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ
-Fsquid:S1066\"/Merge this if statement with the enclosing one.(à—åª
-nsquid:S1450)"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ
+Dsquid:S1185P"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ
 lsquid:S00116%"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ
 Asquid:S1659!"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ
-gsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ
-isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
-Csquid:S1068)",Remove this unused "position" private field.(íñ
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•¨‡”ıÿÿÿÿ
-fsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(©…‚÷
-Dsquid:S1185P"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ
-Jsquid:S1659'".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ
 Rsquid:S26964"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ
+fsquid:MaximumInheritanceDepth"=This class has 10 parents which is greater than 5 authorized.(©…‚÷
+Jsquid:S1659'".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+nsquid:S1450)"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ
+Hsquid:S1659'",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+Fsquid:S1066\"/Merge this if statement with the enclosing one.(à—åª
+Csquid:S1068)",Remove this unused "position" private field.(íñ

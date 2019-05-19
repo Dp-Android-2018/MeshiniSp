@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityRegisterBinding;
 import com.dp.meshinisp.service.model.global.CountryCityResponseModel;
 import com.dp.meshinisp.service.model.request.RegisterRequest;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.LoginRegisterResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
 import com.dp.meshinisp.utility.utils.SharedUtils;
@@ -24,9 +25,6 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import kotlin.Lazy;
 import retrofit2.Response;
 
@@ -121,7 +119,7 @@ public class RegisterActivity extends BaseActivity {
         }
         if (!ValidationUtils.isEmpty(firstName) && !ValidationUtils.isEmpty(lastName)
                 && !ValidationUtils.isEmpty(password) && (password.length() >= 8) && !ValidationUtils.isEmpty(email)
-                && !ValidationUtils.isEmpty(phone) && ValidationUtils.isMail(email)) {
+                && !ValidationUtils.isEmpty(phone) && ValidationUtils.validateTexts(phone, ValidationUtils.TYPE_PHONE) && ValidationUtils.isMail(email)) {
             checkPhoneAndMail();
         } else {
             showAllErrors();
@@ -204,6 +202,12 @@ public class RegisterActivity extends BaseActivity {
             showSnackbar(getString(R.string.enter_phone_error_message));
             return;
         }
+
+        if (!ValidationUtils.validateTexts(phone, ValidationUtils.TYPE_PHONE)) {
+            showSnackbar(getString(R.string.invalid_phone_error_message));
+            return;
+        }
+
         if (!ValidationUtils.isMail(email)) {
             showSnackbar(getString(R.string.invalid_mail_error_message));
             return;

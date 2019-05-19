@@ -1,3 +1,2 @@
 
-\squid:UselessImportCheck"1Remove this unused import 'com.google.gson.Gson'.(–§8¾‚Ş÷¤-
-Ÿsquid:S1319"‚The type of the "startTripResponseModels" object should be an interface such as "List" rather than the implementation "ArrayList".(¹¼¸ğøÿÿÿÿ
+Ÿsquid:S1319"‚The type of the "startTripResponseModels" object should be an interface such as "List" rather than the implementation "ArrayList".(¹¼¸ğøÿÿÿÿ

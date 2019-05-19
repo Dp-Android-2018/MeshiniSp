@@ -1,20 +1,14 @@
 
-xsquid:S14503"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ
-lsquid:UselessImportCheck"<Remove this unused import 'android.content.DialogInterface'.(Š­›¨şÿÿÿÿ8õ¸¦¤-
-‡squid:UselessImportCheck"^Remove this unused import 'com.google.android.material.bottomnavigation.BottomNavigationView'.(ºØÇÿÿÿÿÿ
-Ksquid:S1602©",Remove useless curly braces around statement(‹¦ë¢8Ö·œ¦¤-
-Msquid:S10683"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ
-Vsquid:UselessImportCheck
-"2Remove this unused import 'android.view.MenuItem'.(Ğ¬Ó‘
-Qsquid:S10681".Remove this unused "uploadTask" private field.(Ú¶êùÿÿÿÿ8õ¸¦¤-
-Usquid:S1068."2Remove this unused "progressDialog" private field.(·á…Çùÿÿÿÿ8õ¸¦¤-
-{squid:S14500"XRemove the "riversRef" field and declare it as a local variable in the relevant methods.(°»òßûÿÿÿÿ8õ¸¦¤-
-isquid:UselessImportCheck""ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
-zsquid:UselessImportCheck"QRemove this unused import 'com.ashokvarma.bottomnavigation.BottomNavigationItem'.(¼³âúÿÿÿÿ
-@squid:S1148“"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-ksquid:UselessImportCheck"GRemove this unused import 'com.roughike.bottombar.OnTabSelectListener'.(Œû™
-fsquid:MaximumInheritanceDepth("=This class has 10 parents which is greater than 5 authorized.(¿ğ¥µ
-\squid:UselessImportCheck!"8Remove this unused import 'androidx.annotation.NonNull'.(ˆÛúÜ
-Ksquid:S1602¶",Remove useless curly braces around statement(ôİÄ¥8Ö·œ¦¤-
-ysquid:UselessImportCheck"PRemove this unused import 'com.ashokvarma.bottomnavigation.BottomNavigationBar'.(³˜÷œøÿÿÿÿ
-@squid:S1148²"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Ksquid:S1602¢",Remove useless curly braces around statement(‹¦ë¢8Ö·œ¦¤-
+Qsquid:S1068*".Remove this unused "uploadTask" private field.(Ú¶êùÿÿÿÿ8õ¸¦¤-
+Ksquid:S1602¯",Remove useless curly braces around statement(ôİÄ¥8Ö·œ¦¤-
+@squid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+fsquid:MaximumInheritanceDepth!"=This class has 10 parents which is greater than 5 authorized.(¿ğ¥µ
+usquid:S2177R"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8ŒÁ¶©-
+Msquid:S1068,"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ
+{squid:S1450)"XRemove the "riversRef" field and declare it as a local variable in the relevant methods.(°»òßûÿÿÿÿ8õ¸¦¤-
+isquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(õ®áÓ8ÒÛÁÒ¬-
+@squid:S1148«"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+xsquid:S1450,"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ
+Usquid:S1068'"2Remove this unused "progressDialog" private field.(·á…Çùÿÿÿÿ8õ¸¦¤-
+isquid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(’à¹ö8™ÉÂÒ¬-

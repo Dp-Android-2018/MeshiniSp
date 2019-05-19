@@ -1,18 +1,13 @@
 
-nsquid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(õ¾ˆ¥ýÿÿÿÿ8”à«¡¤-
-Hsquid:S1905m"+Remove this unnecessary cast to "EditText".(¥—Ã8«ô¡¢¤-
-Xsquid:S10685"5Remove this unused "layoutBottomSheet" private field.(©õÎºýÿÿÿÿ8”à«¡¤-
-squid:S14500"dRemove the "countrySpinnerAdapter" field and declare it as a local variable in the relevant methods.(‡í°r8®Š…¢¤-
-Psquid:S1068)"-Remove this unused "mListener" private field.(£µüûÿÿÿÿ8¸öü¡¤-
-Isquid:S1905n"+Remove this unnecessary cast to "EditText".(Þö±ã8«ô¡¢¤-
-{squid:S1450)"XRemove the "mListener" field and declare it as a local variable in the relevant methods.(£µüûÿÿÿÿ8¸öü¡¤-
-Qsquid:S10681"3Remove this unused "selectedCountry" private field.(•ý¢‡8øÝ¡¤-
-dsquid:HiddenFieldCheckˆ"5Rename "v" which hides the field declared at line 51.(‘‚¢øúÿÿÿÿ8øÝ¡¤-
-Hsquid:S1068/"*Remove this unused "dialog" private field.(Û¿ÜÃ8øÝ¡¤-
-Zsquid:S2696˜"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8«ô¡¢¤-
-Tsquid:S10684"1Remove this unused "sheetBehavior" private field.(ª»Ú©þÿÿÿÿ8”à«¡¤-
-csquid:UnusedPrivateMethodÞ"1Remove this unused private "showSnackbar" method.(È˜ƒùÿÿÿÿ8Åüü¢¤-
-@squid:S1643·"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8Åüü¢¤-
-@squid:S1643¸"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Åüü¢¤-
-_squid:HiddenFieldCheckã"5Rename "v" which hides the field declared at line 51.(ÃÀÉ»8Åüü¢¤-
-Gsquid:S1148³"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Åüü¢¤-
+Rsquid:S1066D"/Merge this if statement with the enclosing one.(‡‰ÙÞÿÿÿÿÿ8êú´µª-
+Ysquid:S2696w"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8«ô¡¢¤-
+_squid:HiddenFieldCheckÞ"5Rename "v" which hides the field declared at line 47.(ÃÀÉ»8Åüü¢¤-
+@squid:S1643·"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8Åüü¢¤-
+Psquid:S1068'"-Remove this unused "mListener" private field.(£µüûÿÿÿÿ8¸öü¡¤-
+@squid:S1643¶"Use a StringBuilder instead.(Íòàðüÿÿÿÿ8Åüü¢¤-
+squid:S1450-"dRemove the "countrySpinnerAdapter" field and declare it as a local variable in the relevant methods.(‡í°r8®Š…¢¤-
+Isquid:S1905M"+Remove this unnecessary cast to "EditText".(Þö±ã8«ô¡¢¤-
+Gsquid:S1148²"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Åüü¢¤-
+csquid:HiddenFieldCheckg"5Rename "v" which hides the field declared at line 47.(‘‚¢øúÿÿÿÿ8øÝ¡¤-
+Hsquid:S1905L"+Remove this unnecessary cast to "EditText".(¥—Ã8«ô¡¢¤-
+{squid:S1450'"XRemove the "mListener" field and declare it as a local variable in the relevant methods.(£µüûÿÿÿÿ8¸öü¡¤-

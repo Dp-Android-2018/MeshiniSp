@@ -59,9 +59,26 @@ public class ConfigurationFile {
         public static final String FROM_REQUEST_DETAILS = "from request details";
 
 
-        public static final String ON_FOOT_TYPE = "onfoot";
         public static final String CAR_TYPE = "car";
+        public static final String ON_FOOT_TYPE = "onfoot";
         public static final String MOTORBIKE_TYPE = "motorcycle";
+        public static final String VAN_TYPE = "van";
+        public static final String TUKTUK_TYPE = "tuk_tuk";
+        public static final String STEAGECOACH_TYPE = "stage_coach";
+        public static final String YACHAT_TYPE = "yacht";
+        public static final String GOLFCAR_TYPE = "golf_car";
+        public static final String JETSKI_TYPE = "jet_ski";
+
+        public static final int CAR_ID = 2;
+        public static final int BIKE_ID = 3;
+        public static final int VAN_ID = 4;
+        public static final int TUKTUK_ID = 5;
+        public static final int STEAGECOACH_ID = 6;
+        public static final int ONFOOT_ID = 7;
+        public static final int YACHAT_ID = 8;
+        public static final int JETSKI_ID = 9;
+        public static final int GOLFCAR_ID = 10;
+
         public static final String BRACKET_BEFORE = "(";
         public static final String BRACKET_AFTER = ")";
         public static final String PERCENT = "%";
