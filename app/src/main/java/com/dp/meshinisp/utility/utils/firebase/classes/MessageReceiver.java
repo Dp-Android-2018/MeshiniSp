@@ -65,12 +65,13 @@ public class MessageReceiver extends FirebaseMessagingService {
     }
 
     private void makeChatIntent(Map<String, String> data) {
+        clientData = new RequestClientModel();
         clientData.setClientName(data.get("name"));
         clientData.setProfilePictureUrl(data.get("profile_picture"));
         clientData.setId(Integer.parseInt(data.get("id")));
         intent = new Intent(getApplicationContext(), ChatActivity.class);
         intent.putExtra(ConfigurationFile.Constants.USER_DATA, new Gson().toJson(clientData));
-        intent.putExtra(ConfigurationFile.Constants.TRIP_ID, data.get("request_id"));
+        intent.putExtra(ConfigurationFile.Constants.TRIP_ID, Integer.parseInt(data.get("request_id")));
     }
 
     private void makeAccountApprovedIntent() {
