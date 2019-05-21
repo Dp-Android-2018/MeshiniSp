@@ -360,3 +360,13 @@ G
 Tapp/src/main/java/com/dp/meshinisp/service/repository/remotes/AccountRepository.java,d\c\dc33eabeff5c7171d8dca0d11cd8f72cd8e12fbc
 Ñ
 Tapp/src/main/java/com/dp/meshinisp/view/ui/callback/OnConnectionTimeoutListener.java,2\5\2520fec8741b3fda361d8613690bbcea69b40de3
+Å
+Qapp/src/main/java/com/dp/meshinisp/service/model/request/NotificationRequest.java,6\e\6e458e79d0701ea8b1511cc06053811c4298e8d9
+Å
+Qapp/src/main/java/com/dp/meshinisp/service/repository/remotes/ChatRepository.java,f\d\fd24b17b55b3f8019783ae3f59e34406e1b593ca
+o
+?app/src/main/java/com/dp/meshinisp/viewmodel/ChatViewModel.java,6\4\64d2adaae4f105fc29dc29b52a2791c91fdf4e8d
+Z
+*app/src/main/res/drawable/selector_car.xml,7\9\79a7b3a360deb104af6b1d5a8288df03b819eaeb
+^
+.app/src/main/res/layout/activity_register3.xml,7\1\715e0a14b38af68aa843fec6f9cf95dde8ed7cf6

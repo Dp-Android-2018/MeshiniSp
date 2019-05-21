@@ -1,12 +1,14 @@
 package com.dp.meshinisp.view.ui.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
@@ -35,10 +37,10 @@ public class MainFragment extends Fragment {
     private Lazy<MainActivityViewModel> mainActivityViewModelLazy = inject(MainActivityViewModel.class);
     private Lazy<MainRepository> mainRepositoryLazy = inject(MainRepository.class);
     private RequestBottomSheetDialog bottomSheet;
+    private Context activityContext;
 
     public MainFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +54,12 @@ public class MainFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         setupToolbar();
         makeActionOnClickOnBtSearch();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        activityContext=context;
     }
 
     private void setupToolbar() {
@@ -75,15 +83,15 @@ public class MainFragment extends Fragment {
 
 
     private void setCountrySpinner() {
-        if (ValidationUtils.isConnectingToInternet(getActivity())) {
-            SharedUtils.getInstance().showProgressDialog(getActivity());
+        if (ValidationUtils.isConnectingToInternet(activityContext)) {
+            SharedUtils.getInstance().showProgressDialog(activityContext);
             mainActivityViewModelLazy.getValue().getCountries().observe(this, countryCityPojos -> {
                 SharedUtils.getInstance().cancelDialog();
                 bottomSheet.setCountries(countryCityPojos);
             });
             listenToMakeRequestAgain();
         } else {
-            Intent intent = new Intent(getActivity(), NoInternetConnectionActivity.class);
+            Intent intent = new Intent(activityContext, NoInternetConnectionActivity.class);
             startActivity(intent);
             getActivity().finish();
             getActivity().finishAffinity();

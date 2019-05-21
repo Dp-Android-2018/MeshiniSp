@@ -127,7 +127,7 @@ public class StartTripFragment extends Fragment implements OnMapReadyCallback {
     private int firebaseNextDestinationId;
     private LatLng yourLocation;
     private boolean mLocationPermissionGranted;
-    public Context activityContext;
+    private Context activityContext;
 
     @Override
     public void onAttach(@NonNull Context context) {

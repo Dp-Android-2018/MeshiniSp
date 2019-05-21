@@ -49,7 +49,7 @@ public class ChatActivity extends BaseActivity {
 
     ActivityChatBinding binding;
     private String deviceToken;
-    public static boolean active = false;
+    public static boolean active ;
     Lazy<CustomUtils> customUtilsLazy = inject(CustomUtils.class);
     Lazy<ChatViewModel> chatViewModelLazy = inject(ChatViewModel.class);
     private DatabaseReference reference;
@@ -189,8 +189,6 @@ public class ChatActivity extends BaseActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String key = dataSnapshot.getRef().getKey();
-//                hasData.set(View.VISIBLE);
-//                noData.set(View.GONE);
                 if (key.equals("Meshini"
                         + customUtilsLazy.getValue().getSavedMemberData().getUserId() + "-" + userId + "-" + tripId)) {
 

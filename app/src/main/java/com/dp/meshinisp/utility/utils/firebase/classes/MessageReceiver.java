@@ -38,28 +38,32 @@ public class MessageReceiver extends FirebaseMessagingService {
         if (remoteMessage.getData() != null) {
             if (remoteMessage.getData().get("title") != null) {
                 intent = new Intent();
-                System.out.println("notification title :" + remoteMessage.getData().get("title"));
                 switch (remoteMessage.getData().get("title")) {
                     case "account-approved":
-                        makeAccountApprovedIntent();
+                        makeAccountApprovedIntent(remoteMessage);
                         break;
                     case "offer-accepted":
                         makeIntentOfferRequest(remoteMessage.getData());
+                        Notify(intent, remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
                         break;
                     case "profile-update-approved":
                         makeIntentProfileUpdated(remoteMessage.getData());
+                        Notify(intent, remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
                         break;
                     case "account-disabled":
-                        makeAccountApprovedIntent();
+                        makeAccountApprovedIntent(remoteMessage);
                         break;
                     case "account-enabled":
-                        makeAccountApprovedIntent();
+                        makeAccountApprovedIntent(remoteMessage);
                         break;
                     case "new-message":
-                        makeChatIntent(remoteMessage.getData());
+                        if (!ChatActivity.active) {
+                            makeChatIntent(remoteMessage.getData());
+                            Notify(intent, remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
+                        }
                         break;
+
                 }
-                Notify(intent, remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
             }
         }
     }
@@ -74,8 +78,10 @@ public class MessageReceiver extends FirebaseMessagingService {
         intent.putExtra(ConfigurationFile.Constants.TRIP_ID, Integer.parseInt(data.get("request_id")));
     }
 
-    private void makeAccountApprovedIntent() {
+    private void makeAccountApprovedIntent(RemoteMessage remoteMessage) {
         intent = new Intent(getApplicationContext(), MainActivity.class);
+        Notify(intent, remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
+
     }
 
     private void makeIntentProfileUpdated(Map<String, String> data) {

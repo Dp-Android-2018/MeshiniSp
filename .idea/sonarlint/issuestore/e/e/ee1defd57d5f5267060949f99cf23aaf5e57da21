@@ -1,7 +1,7 @@
 
-msquid:MaximumInheritanceDepth!"=This class has 10 parents which is greater than 5 authorized.(şàÈí8Áùæµ©-
-Fsquid:S1148j"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ÙŸÒ¤-
 ?squid:S1643o"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¸ÙŸÒ¤-
-Ysquid:S2696x"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8Áùæµ©-
+msquid:MaximumInheritanceDepth!"=This class has 10 parents which is greater than 5 authorized.(şàÈí8Áùæµ©-
 vsquid:S2177—"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8¶úçµ©-
+Ysquid:S2696x"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ8Áùæµ©-
 8squid:S1643n"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+Fsquid:S1148j"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¸ÙŸÒ¤-

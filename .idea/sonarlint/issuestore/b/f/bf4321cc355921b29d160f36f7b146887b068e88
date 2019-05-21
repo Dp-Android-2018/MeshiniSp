@@ -1,30 +1,32 @@
 
-Isquid:S10684"+Remove this unused "history" private field.(ÑÛ8Ğäˆ˜¨-
-ˆ"squid:ClassVariableVisibilityCheck3"SMake message a static final constant or non-public and provide accessors if needed.(‰‘“İ8ÜÏŞ•¨-
-ˆ"squid:ClassVariableVisibilityCheck1"TMake messages a static final constant or non-public and provide accessors if needed.(ÍÕù78ÜÏŞ•¨-
-dsquid:HiddenFieldCheck";Rename "message" which hides the field declared at line 51.(Ü‚ğo8²—æ¿¨-
+ squid:S1186‘"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÍâÔÇ8¤ÀÅ€­-
+Isquid:S1068;"+Remove this unused "history" private field.(ÑÛ8Ğäˆ˜¨-
+ˆ"squid:ClassVariableVisibilityCheck8"TMake messages a static final constant or non-public and provide accessors if needed.(ÍÕù78ÜÏŞ•¨-
+|squid:S2293L"YReplace the type specification in this constructor call with the diamond operator ("<>").(½äÃİùÿÿÿÿ8‘ıâ•¨-
 W
-squid:S106Ë"9Replace this use of System.out or System.err by a logger.(‹†à™8²—æ¿¨-
- squid:S1186Û"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÍâÔÇ8²—æ¿¨-
- squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÍâÔÇ8²—æ¿¨-
-jsquid:CommentedOutCodeLineˆ"<This block of commented-out lines of code should be removed.(¦¬À¥8²—æ¿¨-
-Ysquid:S2696h"6Make the enclosing method "static" or remove this set.(Â€üÂşÿÿÿÿ8²—æ¿¨-
-Ssquid:S2696b"6Make the enclosing method "static" or remove this set.(Âê¨H8²—æ¿¨-
-isquid:CommentedOutCodeLiney"<This block of commented-out lines of code should be removed.(Áä¨Ò8²—æ¿¨-
-Jsquid:S1444.",Make this "public static active" field final(Éêò8úĞÜ’¨-
-Ÿsquid:S1186à"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ßªŞ8²—æ¿¨-
-‡"squid:ClassVariableVisibilityCheck."RMake active a static final constant or non-public and provide accessors if needed.(Éêò8úĞÜ’¨-
- squid:S1186å"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Ş‰8²—æ¿¨-
-Ÿsquid:S1186¢"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ßªŞ8²—æ¿¨-
-jsquid:CommentedOutCodeLineÌ"<This block of commented-out lines of code should be removed.(¦¬À¥8²—æ¿¨-
-msquid:MaximumInheritanceDepth*"=This class has 10 parents which is greater than 5 authorized.(Ø¡ûó8Ó¨ç—¨-
+squid:S106"9Replace this use of System.out or System.err by a logger.(‹†à™8¤ÀÅ€­-
+Osquid:S14444",Make this "public static active" field final(½ş»şÿÿÿÿ8úĞÜ’¨-
+Ysquid:S2696o"6Make the enclosing method "static" or remove this set.(Â€üÂşÿÿÿÿ8²—æ¿¨-
+msquid:MaximumInheritanceDepth0"=This class has 10 parents which is greater than 5 authorized.(Ø¡ûó8Ó¨ç—¨-
+Ÿsquid:S1186Ø"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ßªŞ8¤ÀÅ€­-
+ˆ"squid:ClassVariableVisibilityCheck:"SMake message a static final constant or non-public and provide accessors if needed.(‰‘“İ8ÜÏŞ•¨-
+Œ"squid:ClassVariableVisibilityCheck4"RMake active a static final constant or non-public and provide accessors if needed.(½ş»şÿÿÿÿ8úĞÜ’¨-
+jsquid:CommentedOutCodeLine‚"<This block of commented-out lines of code should be removed.(¦¬À¥8¤ÀÅ€­-
+dsquid:HiddenFieldCheckÅ";Rename "message" which hides the field declared at line 58.(Ü‚ğo8¤ÀÅ€­-
+Vsquid:S1135"2Complete the task associated to this TODO comment.(ô÷Œßıÿÿÿÿ8ä¡Ë€­-
+@squid:S1643§"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8¬À€­-
+jsquid:CommentedOutCodeLineŒ"<This block of commented-out lines of code should be removed.(æóØ»8¤ÀÅ€­-
 \
-squid:S106Ò"9Replace this use of System.out or System.err by a logger.(¾†ôæøÿÿÿÿ8²—æ¿¨-
- squid:S1186§"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Ş‰8²—æ¿¨-
-|squid:S2293E"YReplace the type specification in this constructor call with the diamond operator ("<>").(½äÃİùÿÿÿÿ8‘ıâ•¨-
-jsquid:CommentedOutCodeLineÖ"<This block of commented-out lines of code should be removed.(æóØ»8²—æ¿¨-
-¥squid:S1186˜"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø½šÑıÿÿÿÿ8²—æ¿¨-
-Hsquid:S1905"*Remove this unnecessary cast to "Message".(Ü‚ğo8²—æ¿¨-
-¥squid:S1186Ä"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(»†ãˆıÿÿÿÿ8²—æ¿¨-
-Nsquid:S1905Ğ"*Remove this unnecessary cast to "Message".(ºíÀüûÿÿÿÿ8²—æ¿¨-
-xsquid:S1450-"ZRemove the "deviceToken" field and declare it as a local variable in the relevant methods.(¾´­ú8¥–Ø“¨-
+squid:S106ˆ"9Replace this use of System.out or System.err by a logger.(¾†ôæøÿÿÿÿ8¤ÀÅ€­-
+Hsquid:S1905Å"*Remove this unnecessary cast to "Message".(Ü‚ğo8¤ÀÅ€­-
+xsquid:S14503"ZRemove the "deviceToken" field and declare it as a local variable in the relevant methods.(¾´­ú8¥–Ø“¨-
+Nsquid:S1905†"*Remove this unnecessary cast to "Message".(ºíÀüûÿÿÿÿ8¤ÀÅ€­-
+¥squid:S1186ú"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(»†ãˆıÿÿÿÿ8¤ÀÅ€­-
+@squid:S1643¨"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8¬À€­-
+Ssquid:S2696i"6Make the enclosing method "static" or remove this set.(Âê¨H8²—æ¿¨-
+ squid:S1186›"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Ş‰8¤ÀÅ€­-
+¥squid:S1186Î"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø½šÑıÿÿÿÿ8¤ÀÅ€­-
+ squid:S1186Ó"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÍâÔÇ8¤ÀÅ€­-
+ squid:S1186İ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Ş‰8¤ÀÅ€­-
+Ÿsquid:S1186–"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ßªŞ8¤ÀÅ€­-
+Gsquid:S1148£"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¬À€­-
