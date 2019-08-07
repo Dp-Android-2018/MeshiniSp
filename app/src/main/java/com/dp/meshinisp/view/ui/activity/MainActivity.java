@@ -187,7 +187,7 @@ public class MainActivity extends BaseActivity implements RequestBottomSheetDial
                     .setAction(getResources().getString(R.string.view_linkein_profile), view -> {
                         Intent browserIntent = new
                                 Intent(Intent.ACTION_VIEW,
-                                Uri.parse("https://www.linkedin.com/in/mohamedsaidabdelaty"));
+                                Uri.parse(ConfigurationFile.Constants.MY_LINKEDIN_PROFILE));
                         startActivity(browserIntent);
                     }).show();
             count = 0;

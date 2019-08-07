@@ -1,24 +1,21 @@
 
-Hsquid:S16592",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ
-@squid:S1643–"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8 ¤ºù¤-
-Jsquid:S1172›"+Remove this unused method parameter "text".(ßœ‹²8 ¤ºù¤-
-Gsquid:S1068,"+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ
-Nsquid:S1066²"/Merge this if statement with the enclosing one.(à—åª8 ¤ºù¤-
-Asquid:S1659,"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ
-lsquid:S001160"TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ
-isquid:UselessImportCheck"ERemove this unused import 'androidx.appcompat.app.AppCompatActivity'.(€¶£î
-9squid:S1643•"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
-Ssquid:S1066Ê"/Merge this if statement with the enclosing one.(¯¦ş‡ıÿÿÿÿ8 ¤ºù¤-
-Rsquid:S2696<"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ
-Isquid:S1068,"-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ
-Zsquid:UselessImportCheck$"/Remove this unused import 'retrofit2.Response'.(¾éçï8ûòÁù¤-
-Csquid:S10684",Remove this unused "position" private field.(íñ
-Gsquid:S1148‘"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ¤ºù¤-
-Lsquid:S1185¦"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8 ¤ºù¤-
-Ÿsquid:S1186i"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğú¾¬8‘’¸ù¤-
-„squid:UselessImportCheck"TRemove this unused import 'com.dp.meshinisp.service.model.response.MessageResponse'.(ùß’üÿÿÿÿ8­…Áù¤-
-fsquid:MaximumInheritanceDepth("=This class has 10 parents which is greater than 5 authorized.(ÛââÛ
-Dsquid:S1068+"-Remove this unused "countryId" private field.(Ä¦ºƒ
-nsquid:S14504"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ
-¤squid:S1186d"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¨ÏØ¨ıÿÿÿÿ8ˆÉõ¤-
-Jsquid:S16592".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+nsquid:S14502"WRemove the "position" field and declare it as a local variable in the relevant methods.(íñ
+lsquid:S00116."TRename this field "next_page" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì€Ÿæ
+Lsquid:S1185¤"(Remove this method to simply inherit it.(öûöºÿÿÿÿÿ8 ¤ºù¤-
+Ssquid:S1066È"/Merge this if statement with the enclosing one.(¯¦ş‡ıÿÿÿÿ8 ¤ºù¤-
+9squid:S1643“"Use a StringBuilder instead.(Íòàğüÿÿÿÿ
+Jsquid:S16590".Declare "visibleItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+fsquid:MaximumInheritanceDepth&"=This class has 10 parents which is greater than 5 authorized.(ÛââÛ
+Csquid:S10682",Remove this unused "position" private field.(íñ
+Nsquid:S1066°"/Merge this if statement with the enclosing one.(à—åª8 ¤ºù¤-
+Rsquid:S2696:"6Make the enclosing method "static" or remove this set.(ÀÁ‚°ÿÿÿÿÿ
+Jsquid:S1172™"+Remove this unused method parameter "text".(ßœ‹²8 ¤ºù¤-
+Dsquid:S1068)"-Remove this unused "countryId" private field.(Ä¦ºƒ
+Gsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ¤ºù¤-
+¤squid:S1186b"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¨ÏØ¨ıÿÿÿÿ8ˆÉõ¤-
+Isquid:S1068*"-Remove this unused "startDate" private field.(íÃáşÿÿÿÿ
+Asquid:S1659*"%Declare "endDate" on a separate line.(íÃáşÿÿÿÿ
+Hsquid:S16590",Declare "totalItemCount" on a separate line.(üÆö›ıÿÿÿÿ
+Ÿsquid:S1186g"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğú¾¬8‘’¸ù¤-
+Gsquid:S1068*"+Remove this unused "endDate" private field.(íÃáşÿÿÿÿ
+@squid:S1643”"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8 ¤ºù¤-

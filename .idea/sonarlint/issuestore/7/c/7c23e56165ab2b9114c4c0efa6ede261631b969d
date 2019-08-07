@@ -1,18 +1,18 @@
 
-msquid:MaximumInheritanceDepth8"=This class has 10 parents which is greater than 5 authorized.(Šƒê²8è—é»¨-
-@squid:S1643‘"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8û°ª-
-Jsquid:S1905×"+Remove this unnecessary cast to "TextView".(ê™Ú‰8Ÿğı¯ª-
-Osquid:S1905Ø"+Remove this unnecessary cast to "TextView".(µ…Â°ûÿÿÿÿ8û°ª-
-€squid:S1450D"bRemove the "notificationManager" field and declare it as a local variable in the relevant methods.(£Ë˜8Ö”‚°ª-
-Jsquid:S1444<",Make this "public static drawer" field final(Œ÷›á8Ç”ü ¤-
-‡squid:S1450="dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8Ç”ü ¤-
-Usquid:S1068D"7Remove this unused "notificationManager" private field.(£Ë˜8Ö”‚°ª-
-{squid:S2177–"WRename this method; there is a "private" method in the parent class with the same name.(È˜ƒùÿÿÿÿ8û°ª-
-csquid:S2387;"E"mainActivityViewModelLazy" is the name of a field in "BaseActivity".(Æèóï8è—é»¨-
 ‡"squid:ClassVariableVisibilityCheck<"RMake drawer a static final constant or non-public and provide accessors if needed.(Œ÷›á8Ç”ü ¤-
-Jsquid:S1905Ö"+Remove this unnecessary cast to "TextView".(ÖŒÎ8Ÿğı¯ª-
-Gsquid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8û°ª-
-ssquid:S1450C"URemove the "dialog" field and declare it as a local variable in the relevant methods.(Û¿ÜÃ8Ç”ü ¤-
-Usquid:S2696³"6Make the enclosing method "static" or remove this set.(Ú£Œû8û°ª-
 ¥squid:S1186Ë"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŞÔí±øÿÿÿÿ8û°ª-
+csquid:S2387;"E"mainActivityViewModelLazy" is the name of a field in "BaseActivity".(Æèóï8è—é»¨-
+{squid:S2177–"WRename this method; there is a "private" method in the parent class with the same name.(È˜ƒùÿÿÿÿ8û°ª-
+€squid:S1450D"bRemove the "notificationManager" field and declare it as a local variable in the relevant methods.(£Ë˜8Ö”‚°ª-
+Usquid:S2696³"6Make the enclosing method "static" or remove this set.(Ú£Œû8û°ª-
+Osquid:S1905Ø"+Remove this unnecessary cast to "TextView".(µ…Â°ûÿÿÿÿ8û°ª-
+Jsquid:S1905Ö"+Remove this unnecessary cast to "TextView".(ÖŒÎ8Ÿğı¯ª-
+ssquid:S1450C"URemove the "dialog" field and declare it as a local variable in the relevant methods.(Û¿ÜÃ8Ç”ü ¤-
 @squid:S1643"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8Ÿğı¯ª-
+Jsquid:S1905×"+Remove this unnecessary cast to "TextView".(ê™Ú‰8Ÿğı¯ª-
+Usquid:S1068D"7Remove this unused "notificationManager" private field.(£Ë˜8Ö”‚°ª-
+@squid:S1643‘"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8û°ª-
+‡squid:S1450="dRemove the "actionBarDrawerToggle" field and declare it as a local variable in the relevant methods.(õ¸Ššûÿÿÿÿ8Ç”ü ¤-
+Gsquid:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8û°ª-
+Jsquid:S1444<",Make this "public static drawer" field final(Œ÷›á8Ç”ü ¤-
+msquid:MaximumInheritanceDepth8"=This class has 10 parents which is greater than 5 authorized.(Šƒê²8è—é»¨-

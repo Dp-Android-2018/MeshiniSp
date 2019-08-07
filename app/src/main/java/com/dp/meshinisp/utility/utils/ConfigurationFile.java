@@ -68,6 +68,7 @@ public class ConfigurationFile {
         public static final String YACHAT_TYPE = "yacht";
         public static final String GOLFCAR_TYPE = "golf_car";
         public static final String JETSKI_TYPE = "jet_ski";
+        public static final String MY_LINKEDIN_PROFILE = "https://www.linkedin.com/in/mohamedsaidabdelaty";
 
         public static final int CAR_ID = 2;
         public static final int BIKE_ID = 3;

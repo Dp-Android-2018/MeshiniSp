@@ -1,18 +1,18 @@
 
-¤squid:S1186P"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´Ç÷şÿÿÿÿ8èæ„ı¬-
-Qsquid:S1068=".Remove this unused "uploadTask" private field.(Ú¶êùÿÿÿÿ8ˆÑöü¬-
 squid:S1450?"\Remove the "photoUploaded" field and declare it as a local variable in the relevant methods.(Ûøùîûÿÿÿÿ8ˆÑöü¬-
-isquid:CommentedOutCodeLinen"<This block of commented-out lines of code should be removed.(õ®áÓ8èæ„ı¬-
-usquid:S2177j"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8èæ„ı¬-
 ]"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(˜Æ­Îúÿÿÿÿ8µÆş¬-
-Gsquid:S1148Ã"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8èæ„ı¬-
-Tsquid:S1068?"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8ˆÑöü¬-
-Ksquid:S1602Ç",Remove useless curly braces around statement(ôİÄ¥8èæ„ı¬-
 Usquid:S1068:"2Remove this unused "progressDialog" private field.(·á…Çùÿÿÿÿ8ˆÑöü¬-
+isquid:CommentedOutCodeLinen"<This block of commented-out lines of code should be removed.(õ®áÓ8èæ„ı¬-
 Isquid:S1172P"&Remove these unused method parameters.(´Ç÷şÿÿÿÿ8èæ„ı¬-
-Ksquid:S1602º",Remove useless curly braces around statement(‹¦ë¢8èæ„ı¬-
-fsquid:UnusedPrivateMethodP"5Remove this unused private "makeActionOnIcon" method.(´Ç÷şÿÿÿÿ8Í¥Ëı¬-
-X"squid:SwitchLastCaseIsDefaultCheckà""Add a default case to this switch.(ºÖ8»ÿĞı¬-
-{squid:S1450<"XRemove the "riversRef" field and declare it as a local variable in the relevant methods.(°»òßûÿÿÿÿ8ˆÑöü¬-
 msquid:MaximumInheritanceDepth4"=This class has 10 parents which is greater than 5 authorized.(¿ğ¥µ8ˆÑöü¬-
+usquid:S2177j"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8èæ„ı¬-
+Ksquid:S1602º",Remove useless curly braces around statement(‹¦ë¢8èæ„ı¬-
 Gsquid:S1148¤"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8èæ„ı¬-
+{squid:S1450<"XRemove the "riversRef" field and declare it as a local variable in the relevant methods.(°»òßûÿÿÿÿ8ˆÑöü¬-
+Ksquid:S1602Ç",Remove useless curly braces around statement(ôİÄ¥8èæ„ı¬-
+Qsquid:S1068=".Remove this unused "uploadTask" private field.(Ú¶êùÿÿÿÿ8ˆÑöü¬-
+X"squid:SwitchLastCaseIsDefaultCheckà""Add a default case to this switch.(ºÖ8»ÿĞı¬-
+Gsquid:S1148Ã"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8èæ„ı¬-
+fsquid:UnusedPrivateMethodP"5Remove this unused private "makeActionOnIcon" method.(´Ç÷şÿÿÿÿ8Í¥Ëı¬-
+¤squid:S1186P"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´Ç÷şÿÿÿÿ8èæ„ı¬-
+Tsquid:S1068?"1Remove this unused "photoUploaded" private field.(Ûøùîûÿÿÿÿ8ˆÑöü¬-

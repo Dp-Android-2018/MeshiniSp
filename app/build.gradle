@@ -66,6 +66,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
     //appCompat dependencies
     implementation 'com.google.android.material:material:1.1.0-alpha05'
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
@@ -83,6 +84,7 @@ dependencies {
 
     //lottie dependency
     implementation 'com.airbnb.android:lottie:2.7.0'
+
     //circular floating action menu
     implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
 

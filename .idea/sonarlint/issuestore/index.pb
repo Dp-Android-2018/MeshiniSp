@@ -198,8 +198,6 @@ t
 Dapp/src/main/java/com/dp/meshinisp/viewmodel/FinancialViewModel.java,d\d\dd80b9e7d1c9ec68bf046b3c9e9c793f0eceaf0d
 l
 <app/src/main/res/drawable/financial_background_rectangle.xml,1\6\16cd0643156580a7cefde9df0e9dd47580e8b10f
-a
-1app/src/main/res/drawable/ic_left_arrow_black.xml,b\9\b9936e693c81c4661b848995d2401e7dc5c3219e
 b
 2app/src/main/res/drawable/ic_right_arrow_black.xml,f\2\f2ff2ced3818e7feec5192f4130859bd19528b33
 b
@@ -334,16 +332,12 @@ f
 6app/src/main/res/layout/item_destination_rv_layout.xml,3\a\3a990ea4bee9cd32248136c198f247892365c3a7
 k
 ;app/src/main/res/layout/item_list_chat_service_provider.xml,e\9\e9e5c3640090f892c79401382e50a5e2541abcfa
-a
-1app/src/main/res/layout/item_list_destination.xml,6\b\6b651d05b7dd80013a026a0bae11e4ebffa1f11d
 `
 0app/src/main/res/layout/language_list_dialog.xml,2\9\296d4d78a7646359a55a3cd09a81a044facd84ed
 f
 6app/src/main/res/layout/language_spinner_list_item.xml,6\f\6f75f351369e40daa80adf6106f735f6792ea61b
 `
 0app/src/main/res/layout/menue_account_layout.xml,9\5\9563391713efbc836082fc22df28381cac50133e
-a
-1app/src/main/res/layout/notification_expanded.xml,8\4\84cd9d3f882f568b017dfd6e1193bdf06466cbc6
 ]
 -app/src/main/res/layout/payment_list_item.xml,4\0\409d04a0837d22dc8e57446aa0ef4585ea9aef89
 \
@@ -366,7 +360,5 @@ Qapp/src/main/java/com/dp/meshinisp/service/model/request/NotificationRequest.ja
 Qapp/src/main/java/com/dp/meshinisp/service/repository/remotes/ChatRepository.java,f\d\fd24b17b55b3f8019783ae3f59e34406e1b593ca
 o
 ?app/src/main/java/com/dp/meshinisp/viewmodel/ChatViewModel.java,6\4\64d2adaae4f105fc29dc29b52a2791c91fdf4e8d
-Z
-*app/src/main/res/drawable/selector_car.xml,7\9\79a7b3a360deb104af6b1d5a8288df03b819eaeb
 ^
 .app/src/main/res/layout/activity_register3.xml,7\1\715e0a14b38af68aa843fec6f9cf95dde8ed7cf6

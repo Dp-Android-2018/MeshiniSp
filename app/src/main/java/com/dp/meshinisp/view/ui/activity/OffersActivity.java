@@ -3,12 +3,17 @@ package com.dp.meshinisp.view.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.dp.meshinisp.R;
 import com.dp.meshinisp.databinding.ActivityOffersBinding;
 import com.dp.meshinisp.databinding.ItemDestinationRvLayoutBinding;
 import com.dp.meshinisp.service.model.global.OffersResponseModel;
 import com.dp.meshinisp.service.model.response.ErrorResponse;
-import com.dp.meshinisp.service.model.response.MessageResponse;
 import com.dp.meshinisp.service.model.response.OffersResponse;
 import com.dp.meshinisp.utility.utils.ConfigurationFile;
 import com.dp.meshinisp.utility.utils.CustomUtils;
@@ -25,15 +30,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Lazy;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 
 import static org.koin.java.standalone.KoinJavaComponent.inject;
 

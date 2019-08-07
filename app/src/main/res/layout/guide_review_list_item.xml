@@ -8,7 +8,6 @@
     app:cardCornerRadius="@dimen/dp9h">
 
     <TextView
-        android:id="@+id/tv_review_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/dp7w"

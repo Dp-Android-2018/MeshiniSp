@@ -1,9 +1,9 @@
 
-Gsquid:S1148™"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï¶Õù¤-
-Vsquid:S1068'"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8§Ì—û¤-
-vsquid:S2177Ü"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8¸Çûÿ¬-
-fsquid:MaximumInheritanceDepth""=This class has 10 parents which is greater than 5 authorized.(Íü½Ü
 asquid:UnusedPrivateMethod£"4Remove this unused private "getCheckRequest" method.(Ú¤±ğ8ï©Óù¤-
+fsquid:MaximumInheritanceDepth""=This class has 10 parents which is greater than 5 authorized.(Íü½Ü
+Vsquid:S1068'"3Remove this unused "customUtilsLazy" private field.(ß™üİúÿÿÿÿ8§Ì—û¤-
+Gsquid:S1148™"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ï¶Õù¤-
 @squid:S1643"Use a StringBuilder instead.(äìüÆùÿÿÿÿ8ï¶Õù¤-
 @squid:S1643"Use a StringBuilder instead.(Íòàğüÿÿÿÿ8ï¶Õù¤-
+vsquid:S2177Ü"WRename this method; there is a "private" method in the parent class with the same name.(œ£ß8¸Çûÿ¬-
 Bsquid:S1172n"+Remove this unused method parameter "view".(…€¤
